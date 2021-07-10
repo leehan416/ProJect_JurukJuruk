@@ -1,15 +1,14 @@
 ﻿/* 플레이어 조작관련 스크립트 */
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    public static PlayerController instance;
-    
+    // public static PlayerController instance;
+
+
+    // int xSize =  //gameObject.GetComponent<RectTransform>().rect.width;
     [HideInInspector] public float playerSpeed = 10f;
 
     [HideInInspector] public Button leftBtn;
@@ -21,9 +20,6 @@ public class PlayerController : MonoBehaviour {
 
     void Start()
     {
-        if (!instance) instance = this;
-        else DestroyImmediate(this);
-
         #region btnSet
 
         leftBtn = GameObject.Find("Canvas/LeftBtn").GetComponent<Button>();
@@ -49,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 
         trgL.triggers.Add(enLC);
         trgL.triggers.Add(enLH);
-        
+
         trgR.triggers.Add(enRC);
         trgR.triggers.Add(enRH);
 
@@ -60,10 +56,20 @@ public class PlayerController : MonoBehaviour {
     {
         #region Conteroller
 
-        if (((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow))) || leftClick)
-            transform.Translate(-playerSpeed, 0, 0);
+        if (((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow))) /* 테스트용 시스템*/ || leftClick)
+        {
+            if (this.gameObject.transform.position.x >
+                0)
+            {
+               // Debug.Log(this.gameObject.transform.position.x /*-UIManager.instance.transform.GetComponent<RectTransform>().rect.width / 2*/);
+                transform.Translate(-playerSpeed, 0, 0);
+            }
+        }
+
         if (((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow))) || rightClick)
-            transform.Translate(playerSpeed, 0, 0);
+            if (gameObject.transform.position.x <
+                UIManager.instance.transform.GetComponent<RectTransform>().rect.width)
+                transform.Translate(playerSpeed, 0, 0);
         // 키보드 A D, 화살표 좌우 입력 or 버튼 클릭
 
         #endregion

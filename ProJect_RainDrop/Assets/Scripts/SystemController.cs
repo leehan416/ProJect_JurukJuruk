@@ -7,6 +7,7 @@ using Random = System.Random;
 
 public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
+
     private void Start()
     {
         StartCoroutine(RainSystem());
@@ -36,7 +37,9 @@ public class SystemController : MonoBehaviour {
     {
         Random random = new Random();
         random.Next(0, 720);
-        Instantiate(rain, new Vector2(random.Next(0,Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width)),
-            Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height)), Quaternion.identity, this.transform);
+        Instantiate(rain,
+            new Vector2(random.Next(0, Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width)),
+                Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height)), Quaternion.identity,
+            this.transform);
     }
 }
