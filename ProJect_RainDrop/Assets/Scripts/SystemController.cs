@@ -26,7 +26,7 @@ public class SystemController : MonoBehaviour {
     IEnumerator FixedSystem()
     {
         // 고정 빗물 수집 시스템
-        while (true)
+        while (DataBase.nowLocal > 0)
         {
             yield return new WaitForSeconds(1f);
             DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
