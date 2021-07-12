@@ -1,4 +1,5 @@
 ﻿/* UI 컨트롤 스크립트 */
+
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,14 +7,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
-    
     public static UIManager instance;
 
     public Text money;
     public Text local;
     public Slider waterTank;
 
-    void Start()
+    public Sprite[] localBG = new Sprite[4];
+
+
+    private void Start()
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
@@ -23,7 +26,8 @@ public class UIManager : MonoBehaviour {
         WaterTankSet();
         WaterTankUpdate();
     }
-
+    //--------------------------------------------------------
+    //main
     public void WaterTankUpdate()
     {
         waterTank.value = DataBase.savedWater;
@@ -35,9 +39,9 @@ public class UIManager : MonoBehaviour {
         waterTank.maxValue = DataBase.maxWater;
         waterTank.minValue = 0f;
     }
-    
+
     public void MoneySet()
-    { // 어떤 역할
+    {
         money.text = Convert.ToString(DataBase.money);
     }
 
@@ -50,4 +54,44 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene(val);
     }
+
+    public void BackGroundSet()
+    {
+        Image bg = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
+        bg.sprite = localBG[DataBase.nowLocal];
+    }
+
+
+    //--------------------------------------------------------
+    //map
+    public void MoveLocal(int val)
+    {
+        PlayerPrefs.SetInt("NowLocal", val);
+        MoveScene("Main");
+    }
+    
+    
+    //--------------------------------------------------------
+    //shop
+    public void Sell()
+    {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+
+
+
 }
