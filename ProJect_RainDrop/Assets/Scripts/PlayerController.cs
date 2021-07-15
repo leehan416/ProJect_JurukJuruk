@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
     {
         #region btnSet
 
-        leftBtn = GameObject.Find("Canvas/LeftBtn").GetComponent<Button>();
-        rightBtn = GameObject.Find("Canvas/RightBtn").GetComponent<Button>();
+        leftBtn = GameObject.Find("Canvas/SmallBox/LeftBtn").GetComponent<Button>();
+        rightBtn = GameObject.Find("Canvas/SmallBox/RightBtn").GetComponent<Button>();
 
         EventTrigger trgL = leftBtn.gameObject.AddComponent<EventTrigger>();
         EventTrigger trgR = rightBtn.gameObject.AddComponent<EventTrigger>();
@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour {
             if (this.gameObject.transform.position.x >
                 0)
             {
-               // Debug.Log(this.gameObject.transform.position.x /*-UIManager.instance.transform.GetComponent<RectTransform>().rect.width / 2*/);
                 transform.Translate(-playerSpeed, 0, 0);
             }
         }

@@ -29,6 +29,9 @@ public class DataBase : MonoBehaviour {
 
     [HideInInspector] public static float[] rainCycle = {2f, 2f, 2f, 20f}; // 지역별 비오는 주기(초)
     [HideInInspector] public static int nowLocal = 0; // 현 위치
+    
+    //const value 
+    [HideInInspector] public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
 
     private void Awake()
     {
