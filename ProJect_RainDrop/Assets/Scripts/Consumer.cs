@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 
 public class Consumer : MonoBehaviour {
     public int perLiter = 10;

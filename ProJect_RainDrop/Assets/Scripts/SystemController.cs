@@ -8,11 +8,47 @@ using Random = System.Random;
 public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
 
+    String realTime = System.DateTime.Now.ToString(); // 현실 시간 가져옴 
+
+
     private void Start()
     {
+        realTime = System.DateTime.Now.ToString("yyyy:MM:dd:HH:mm"); // 현재 시간 가져오기 
         StartCoroutine(RainSystem());
-        
     }
+
+
+    void CalculateUnderTime()
+    {
+        // 1일 이상은 계산하지 않음.
+        String lateTime = PlayerPrefs.GetString("", realTime);
+        // 마지막 시간 가져오기
+
+
+        int timeDistance = 0;
+
+
+        timeDistance +=
+            (Convert.ToInt32(realTime.Split(':')[3]) > Convert.ToInt32(lateTime.Split(':')[3]))
+                ? (Convert.ToInt32(realTime.Split(':')[3]) - Convert.ToInt32(lateTime.Split(':')[3]))
+                : (Convert.ToInt32(realTime.Split(':')[3]) + (60 - Convert.ToInt32(lateTime.Split(':')[3])));
+        //for 문 돌려서 반복할까?
+
+        //DataBase.potMax[DataBase.nowLocal]
+
+
+        /*
+         59
+         1 
+         
+         
+         
+         
+         
+         1 59
+         */
+    }
+
 
     IEnumerator RainSystem()
     {
@@ -36,7 +72,8 @@ public class SystemController : MonoBehaviour {
     }
 
     void Rainy()
-    { // 비오는 시스템
+    {
+        // 비오는 시스템
         Random random = new Random();
         Instantiate(rain,
             new Vector2(random.Next(0, Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width)),
