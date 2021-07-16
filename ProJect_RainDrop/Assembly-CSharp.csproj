@@ -50,6 +50,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\ReadMe.cs" />
      <Compile Include="Assets\Scripts\Consumer.cs" />
      <Compile Include="Assets\Scripts\DataBase.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

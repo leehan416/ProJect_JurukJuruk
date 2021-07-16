@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/ReadMe.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -22,10 +23,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UpSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/ReadMe.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -84,6 +86,9 @@
       <workItem from="1625898071707" duration="4382000" />
       <workItem from="1625992344640" duration="3611000" />
       <workItem from="1626091211506" duration="167000" />
+      <workItem from="1626272922723" duration="836000" />
+      <workItem from="1626356180144" duration="3794000" />
+      <workItem from="1626420270287" duration="3365000" />
     </task>
     <servers />
   </component>

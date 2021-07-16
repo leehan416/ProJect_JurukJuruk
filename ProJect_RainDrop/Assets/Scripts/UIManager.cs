@@ -1,6 +1,7 @@
 ﻿/* UI 컨트롤 스크립트 */
 
 using System;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,22 +17,31 @@ public class UIManager : MonoBehaviour {
     public Sprite[] localBG = new Sprite[4];
 
 
-    private void Start()
+    void Start()
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
-        money = GameObject.Find("Canvas/Money").GetComponent<Text>();
-        local = GameObject.Find("Canvas/Local").GetComponent<Text>();
+        //TODO scene에 맞춰서 작업할것.
+        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>();
+        local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
         waterTank = GameObject.Find("Canvas/Tank").GetComponent<Slider>();
         WaterTankSet();
         WaterTankUpdate();
+        MoneySet();
+        LocalSet();
+        BackGroundSet();
+        
     }
+
     //--------------------------------------------------------
     //main
+
+    #region main
+
     public void WaterTankUpdate()
     {
         waterTank.value = DataBase.savedWater;
-        //ToDo : 사막지역에서 사막 물로 변경할것.
+        //TODO : 사막지역에서 사막 물로 변경할것.
     }
 
     public void WaterTankSet()
@@ -47,13 +57,9 @@ public class UIManager : MonoBehaviour {
 
     public void LocalSet()
     {
-        local.text = Convert.ToString(DataBase.nowLocal);
+        local.text = DataBase.localName[DataBase.nowLocal];
     }
 
-    public void MoveScene(string val)
-    {
-        SceneManager.LoadScene(val);
-    }
 
     public void BackGroundSet()
     {
@@ -61,37 +67,54 @@ public class UIManager : MonoBehaviour {
         bg.sprite = localBG[DataBase.nowLocal];
     }
 
+    #endregion
 
     //--------------------------------------------------------
-    //map
+    //map + moveScene
+
+    #region map_moveScene
+
+    public void MoveScene(string val)
+    {
+        SceneManager.LoadScene(val);
+    }
+
     public void MoveLocal(int val)
     {
         PlayerPrefs.SetInt("NowLocal", val);
         MoveScene("Main");
     }
-    
-    
+
+    #endregion
+
     //--------------------------------------------------------
     //shop
-    public void Sell()
+
+    #region shop
+
+    public void Sell(int index)
     {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        // TODO need cleaned water setting 
+        if (DataBase.savedWater < 1000 && Consumer.consumerList[index].isCleaned)
+        {
+            // 물 부족
+            return;
+        }
+        else
+        {
+            DataBase.money += Consumer.consumerList[index].perLiter;
+        }
     }
 
+    #endregion
 
-
+    //--------------------------------------------------------
+    //Setting
+    //TODO 1. Slider Setting 2. toggle set
+    //--------------------------------------------------------
+    //Cleaning
+    //TODO Cleaning system set, cleaning up system set.
+    //--------------------------------------------------------
+    //Market
+    //TODO 1. pot up System set, 2. extra pot up system, 3. water tank system set
 }
