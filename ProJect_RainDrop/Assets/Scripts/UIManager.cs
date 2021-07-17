@@ -10,18 +10,23 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    public Text money;
-    public Text local;
-    public Slider waterTank;
+    [Header("돈 텍스트(자동)")] public Text money;
+    [Header("현위치 텍스트(자동)")] public Text local;
+    [Header("물탱크(자동)")] public Slider waterTank;
 
-    public Sprite[] localBG = new Sprite[4];
-
+    [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
 
     void Start()
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
         //TODO scene에 맞춰서 작업할것.
+
+
+        //main
+        if (DataBase.potLevel[DataBase.nowLocal] < 1)
+            GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
+
         money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>();
         local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
         waterTank = GameObject.Find("Canvas/Tank").GetComponent<Slider>();
@@ -30,6 +35,11 @@ public class UIManager : MonoBehaviour {
         MoneySet();
         LocalSet();
         BackGroundSet();
+        
+        // clean
+        //TODO per click text set
+        
+        
         
     }
 
@@ -48,6 +58,15 @@ public class UIManager : MonoBehaviour {
     {
         waterTank.maxValue = DataBase.maxWater;
         waterTank.minValue = 0f;
+    }
+
+    public void EmptyWaterTank()
+    {
+        if (DataBase.nowLocal == 1)
+            DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
+        else
+            DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
+        DataBase.potWater[DataBase.nowLocal] = 0;
     }
 
     public void MoneySet()
@@ -82,6 +101,7 @@ public class UIManager : MonoBehaviour {
     public void MoveLocal(int val)
     {
         PlayerPrefs.SetInt("NowLocal", val);
+        DataBase.nowLocal = val;
         MoveScene("Main");
     }
 
@@ -111,10 +131,59 @@ public class UIManager : MonoBehaviour {
     //--------------------------------------------------------
     //Setting
     //TODO 1. Slider Setting 2. toggle set
+
+    public bool Drag { get; set; }
+    
+    public void ChangeVol()
+    {
+        
+    }
+
+
+
     //--------------------------------------------------------
     //Cleaning
     //TODO Cleaning system set, cleaning up system set.
+    public void ClickClean()
+    {
+        if (DataBase.uncleanedWater < DataBase.perclean && DataBase.uncleanedWater > 0)
+        {
+            if (DataBase.uncleanedWater < 0)
+            {
+                DataBase.uncleanedWater = 0;
+                return;
+            }
+
+            DataBase.cleanedWater += DataBase.uncleanedWater;
+            DataBase.uncleanedWater = 0;
+        }
+        else
+        {
+            if (DataBase.uncleanedWater <= 0)
+            {
+                DataBase.uncleanedWater = 0;
+                return;
+            }
+
+            DataBase.uncleanedWater -= DataBase.perclean;
+            DataBase.cleanedWater += DataBase.perclean;
+        }
+    }
+
+    public void UpCleanLevel()
+    {
+        if (DataBase.money < DataBase.upgradeClean[DataBase.cleanLevel])
+        {
+            //up
+        }
+        else
+        {
+            // 돈부족
+        }
+    }
     //--------------------------------------------------------
+
     //Market
+
     //TODO 1. pot up System set, 2. extra pot up system, 3. water tank system set
 }

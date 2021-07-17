@@ -1,12 +1,19 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = System.Random;
 
 public class Rain : MonoBehaviour {
+    
+    public Sprite[] type = new Sprite[4];
+    Random random;
     void Start()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -100), ForceMode2D.Impulse);
+        Sprite sprite = type[random.Next(0, 3)];
+        this.gameObject.GetComponent<Image>().sprite = sprite; // 에러 발생함.
+
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse);
+        Debug.Log(this.GetComponent<Rigidbody2D>().velocity);
     }
 
     void OnCollisionEnter2D(Collision2D other)

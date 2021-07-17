@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 257.5, y: 413}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 22, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4781971936715649401
 CanvasRenderer:
@@ -61,13 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1327995541568743410, guid: da336297e7d434ae082e4702931a1190,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,6 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b386d2eb23e4fe78e8077b07722ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type:
+  - {fileID: 1327995541568743410, guid: da336297e7d434ae082e4702931a1190, type: 3}
+  - {fileID: 5557184967251575769, guid: da336297e7d434ae082e4702931a1190, type: 3}
+  - {fileID: 2363426663373415289, guid: da336297e7d434ae082e4702931a1190, type: 3}
+  - {fileID: -647826190541757342, guid: da336297e7d434ae082e4702931a1190, type: 3}
 --- !u!50 &4781971936715649351
 Rigidbody2D:
   serializedVersion: 4
