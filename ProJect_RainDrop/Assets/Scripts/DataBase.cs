@@ -11,7 +11,7 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static long uncleanedWater = 0; // 정화 전 빗물 양
     [HideInInspector] public static long cleanedWater = 0; // 정화 후 빗물 양
     [HideInInspector] public static long maxWater = 1000; // 최대 양
-    
+
     [HideInInspector] public static float perDrop = 10f;
     [HideInInspector] public static float perSecond = 0;
 
@@ -21,11 +21,18 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
     [HideInInspector] public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
     [HideInInspector] public static int cleanLevel = 1; //물 정화기 레벨
+    [HideInInspector] public static int perclean = 100; //물 정화기 레벨
 
     [HideInInspector] public static float[] rainCycle = {2f, 2f, 2f, 20f}; // 지역별 비오는 주기(초)
     [HideInInspector] public static int nowLocal = 0; // 현 위치
 
     [HideInInspector] public static String timeRecord = ""; // 현 위치
+
+
+    //Setting value
+    [HideInInspector] public float bgmVol;
+
+    [HideInInspector] public float fxVol;
 
     //const value 
     [HideInInspector] public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};

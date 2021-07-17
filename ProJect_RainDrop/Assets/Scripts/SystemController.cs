@@ -21,11 +21,9 @@ public class SystemController : MonoBehaviour {
     void CalculateUnderTime()
     {
         // 1일 이상은 계산하지 않음.
-        String lateTime = PlayerPrefs.GetString("", realTime);
-        // 마지막 시간 가져오기
+        String lateTime = PlayerPrefs.GetString("", realTime); // 마지막 시간 가져오기
 
-
-        int timeDistance = 0;
+        int timeDistance = 0; // 시간차 변수 
 
 
         timeDistance +=
@@ -36,17 +34,8 @@ public class SystemController : MonoBehaviour {
 
         //DataBase.potMax[DataBase.nowLocal]
 
-
-        /*
-         59
-         1 
-         
-         
-         
-         
-         
-         1 59
-         */
+        
+        
     }
 
 
