@@ -35,12 +35,9 @@ public class UIManager : MonoBehaviour {
         MoneySet();
         LocalSet();
         BackGroundSet();
-        
+
         // clean
         //TODO per click text set
-        
-        
-        
     }
 
     //--------------------------------------------------------
@@ -114,15 +111,44 @@ public class UIManager : MonoBehaviour {
 
     public void Sell(int index)
     {
-        // TODO need cleaned water setting 
-        if (DataBase.savedWater < 1000 && Consumer.consumerList[index].isCleaned)
+        if (index == 1)
         {
-            // 물 부족
-            return;
+            if (DataBase.uncleanedWater < 1000)
+            {
+                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.uncleanedWater -= 1000;
+            }
+            else
+            {
+                return;
+                //돈 부족
+            }
+        }
+        else if (index == 3)
+        {
+            if (DataBase.desertWater < 1000)
+            {
+                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.desertWater -= 1000;
+            }
+            else
+            {
+                return;
+                //돈 부족
+            }
         }
         else
         {
-            DataBase.money += Consumer.consumerList[index].perLiter;
+            if (DataBase.cleanedWater < 1000)
+            {
+                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.cleanedWater -= 1000;
+            }
+            else
+            {
+                return;
+                //돈 부족
+            }
         }
     }
 
@@ -133,12 +159,22 @@ public class UIManager : MonoBehaviour {
     //TODO 1. Slider Setting 2. toggle set
 
     public bool Drag { get; set; }
-    
-    public void ChangeVol()
+
+    public void ChangeBgmVol()
     {
-        
+        if (!Drag)
+        {
+            
+        }
     }
 
+    public void ChangeFxVol()
+    {
+        if (!Drag)
+        {
+            
+        }
+    }
 
 
     //--------------------------------------------------------
