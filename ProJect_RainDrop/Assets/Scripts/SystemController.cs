@@ -8,43 +8,35 @@ using Random = System.Random;
 public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
 
-    String realTime = System.DateTime.Now.ToString(); // 현실 시간 가져옴 
-
+    DateTime realTime = DateTime.Now;
+    
+    
+   
 
     private void Start()
     {
-        realTime = System.DateTime.Now.ToString("yyyy:MM:dd:HH:mm"); // 현재 시간 가져오기 
+        realTime = DateTime.Now; // 현재 시간 가져오기 
         StartCoroutine(RainSystem());
     }
 
 
-    void CalculateUnderTime()
+    int CalculateUnderTime()
     {
-        // 1일 이상은 계산하지 않음.
-        String lateTime = PlayerPrefs.GetString("", realTime); // 마지막 시간 가져오기
-
-        int timeDistance = 0; // 시간차 변수 
-
-
-        timeDistance +=
-            (Convert.ToInt32(realTime.Split(':')[3]) > Convert.ToInt32(lateTime.Split(':')[3]))
-                ? (Convert.ToInt32(realTime.Split(':')[3]) - Convert.ToInt32(lateTime.Split(':')[3]))
-                : (Convert.ToInt32(realTime.Split(':')[3]) + (60 - Convert.ToInt32(lateTime.Split(':')[3])));
-        //for 문 돌려서 반복할까?
-
-        //DataBase.potMax[DataBase.nowLocal]
-
         
+        DateTime lateTime = Convert.ToDateTime(PlayerPrefs.GetString("",Convert.ToString(realTime)));
+        realTime = DateTime.Now;
+        TimeSpan dateDiff = lateTime - realTime;
         
+        return dateDiff.Minutes; // 분 차이
+
     }
-
-
+    
     IEnumerator RainSystem()
     {
         // 비오는 시스템
         while (true)
         {
-            yield return new WaitForSeconds(DataBase.rainCycle[DataBase.nowLocal]);
+            yield return new WaitForSeconds(/*DataBase.rainCycle[DataBase.nowLocal]*/.5f);
             Rainy();
         }
     }
@@ -55,8 +47,11 @@ public class SystemController : MonoBehaviour {
         //TODO 현실 시간 가져와서 계산.
         while (DataBase.nowLocal > 0)
         {
-            yield return new WaitForSeconds(1f);
-            DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
+            yield return new WaitForSeconds(2f);
+            if (CalculateUnderTime() > 1)
+            {
+                 DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
+            }
         }
     }
 

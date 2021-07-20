@@ -5,10 +5,4 @@ using UnityEngine;
 public class UpSystem : MonoBehaviour
 {
     
-    
-    
-    
-    
-    
-    
 }
