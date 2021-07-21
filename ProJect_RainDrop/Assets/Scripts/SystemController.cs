@@ -9,9 +9,6 @@ public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
 
     DateTime realTime = DateTime.Now;
-    
-    
-   
 
     private void Start()
     {
@@ -19,27 +16,19 @@ public class SystemController : MonoBehaviour {
         StartCoroutine(RainSystem());
     }
 
-
-    int CalculateUnderTime()
-    {
-        
-        DateTime lateTime = Convert.ToDateTime(PlayerPrefs.GetString("",Convert.ToString(realTime)));
-        realTime = DateTime.Now;
-        TimeSpan dateDiff = lateTime - realTime;
-        
-        return dateDiff.Minutes; // 분 차이
-
-    }
-    
     IEnumerator RainSystem()
     {
         // 비오는 시스템
         while (true)
         {
-            yield return new WaitForSeconds(/*DataBase.rainCycle[DataBase.nowLocal]*/.5f);
+            yield return new WaitForSeconds(DataBase.rainCycle[DataBase.nowLocal]);
             Rainy();
         }
     }
+
+
+    //private int latem=0;
+    private int val = 0;
 
     IEnumerator FixedSystem()
     {
@@ -48,12 +37,13 @@ public class SystemController : MonoBehaviour {
         while (DataBase.nowLocal > 0)
         {
             yield return new WaitForSeconds(2f);
-            if (CalculateUnderTime() > 1)
-            {
-                 DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
-            }
+            // if (CalculateUnderTime() > )
+            // {
+            //     DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
+            // }
         }
     }
+
 
     void Rainy()
     {
@@ -64,5 +54,13 @@ public class SystemController : MonoBehaviour {
                 Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height)), Quaternion.identity,
             this.transform);
         // canvas size에 맞추어 난수 발생한 위치에 비 생성
+    }
+
+    int CalculateUnderTime()
+    {
+        DateTime lateTime = Convert.ToDateTime(PlayerPrefs.GetString("", Convert.ToString(realTime)));
+        realTime = DateTime.Now;
+        TimeSpan dateDiff = lateTime - realTime;
+        return dateDiff.Minutes; // 분 차이
     }
 }

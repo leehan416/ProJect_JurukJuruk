@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
 
     // int xSize =  //gameObject.GetComponent<RectTransform>().rect.width;
-    [HideInInspector] public float playerSpeed = 10f;
+    [HideInInspector] public float playerSpeed = 30f;
 
     [HideInInspector] public Button leftBtn;
     [HideInInspector] public Button rightBtn;
@@ -58,8 +58,7 @@ public class PlayerController : MonoBehaviour {
 
         if (((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow))) /* 테스트용 시스템*/ || leftClick)
         {
-            if (this.gameObject.transform.position.x >
-                0)
+            if (this.gameObject.transform.position.x > 0)
             {
                 transform.Translate(-playerSpeed, 0, 0);
             }

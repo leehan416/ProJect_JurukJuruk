@@ -2,7 +2,5 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpSystem : MonoBehaviour
-{
-    
+public class UpSystem : MonoBehaviour {
 }

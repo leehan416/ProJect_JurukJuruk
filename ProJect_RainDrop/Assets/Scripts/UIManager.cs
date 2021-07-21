@@ -9,10 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
+    
+    [HideInInspector] public Text money;
 
-    [Header("돈 텍스트(자동)")] public Text money;
-    [Header("현위치 텍스트(자동)")] public Text local;
-    [Header("물탱크(자동)")] public Slider waterTank;
+    [HideInInspector] public Text local;
+
+    [HideInInspector] public Slider waterTank;
 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
 
@@ -59,11 +61,16 @@ public class UIManager : MonoBehaviour {
 
     public void EmptyWaterTank()
     {
+        // 청정구역이라면 
         if (DataBase.nowLocal == 1)
             DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
+        
+        // else if (DataBase.nowLocal == 3)
+        //     DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
         else
             DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
         DataBase.potWater[DataBase.nowLocal] = 0;
+        //TODo lateTIme Set
     }
 
     public void MoneySet()
@@ -164,7 +171,6 @@ public class UIManager : MonoBehaviour {
     {
         if (!Drag)
         {
-            
         }
     }
 
@@ -172,7 +178,6 @@ public class UIManager : MonoBehaviour {
     {
         if (!Drag)
         {
-            
         }
     }
 

@@ -1,5 +1,4 @@
 ﻿/* 총괄 DataBase */
-
 using System;
 using UnityEngine;
 
@@ -16,14 +15,16 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static float perSecond = 0;
 
     [HideInInspector] public static int pailLevel = 1; // 양동이 레벨
-    [HideInInspector] public static int tankLevel = 0; // 물 저장소 레벨
+    [HideInInspector] public static int tankLevel = 1; // 물 저장소 레벨
+    
     [HideInInspector] public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
     [HideInInspector] public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
     [HideInInspector] public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
+    
     [HideInInspector] public static int cleanLevel = 1; //물 정화기 레벨
     [HideInInspector] public static int perclean = 100; //물 정화기 레벨
 
-    [HideInInspector] public static float[] rainCycle = {2f, 2f, 2f, 20f}; // 지역별 비오는 주기(초)
+    [HideInInspector] public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
     [HideInInspector] public static int nowLocal = 0; // 현 위치
 
     [HideInInspector] public static String timeRecord = ""; // 현 위치
@@ -41,8 +42,7 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static int[] upgradeClean = {10000, 50000};
     [HideInInspector] public static int[] upgradePot = {50000, 120000};
     [HideInInspector] public static float upEfficiency = 2.71f; // 업글시 증가하는 성능 비율
-
-
+    
     private void Awake()
     {
         DataGet();

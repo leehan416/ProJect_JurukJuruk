@@ -10,6 +10,9 @@ TODO
 5. Setting => System Set
 6. Shop => UI Set Customer Data Set, sell System set 
 
+
+
+
 SCRIPTS SET
 1. main => 
 2. Cleaning => 
@@ -17,6 +20,6 @@ SCRIPTS SET
 4. Market => 
 5. Setting =>
 6. Shop =>  
-https://mynameisdabin.tistory.com/31
+
 
 */

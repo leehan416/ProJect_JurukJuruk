@@ -7,8 +7,7 @@ public class Rain : MonoBehaviour {
     public Sprite[] type = new Sprite[4];
     Random random = new Random();
 
-    void Start()
-    {
+    void Start() {
         gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)];
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse);
     }

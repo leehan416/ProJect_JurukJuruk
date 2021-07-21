@@ -7,5 +7,4 @@ public class Consumer : MonoBehaviour {
     public string story;
 
     public static Consumer[] consumerList = new Consumer[3];
-    //public Sprite[] imageList = new Sprite[];
 }

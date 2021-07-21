@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff53e8364a6d4d53b6fa6cf679e56c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 30
   leftBtn: {fileID: 0}
   rightBtn: {fileID: 0}
   leftClick: 0
