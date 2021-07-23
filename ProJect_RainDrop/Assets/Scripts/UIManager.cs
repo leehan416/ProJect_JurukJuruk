@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    [HideInInspector] public Text[] text = new Text[3];
+    /*[HideInInspector] */ public Text[] text = new Text[3];
 
     // 0 = money 1 = local 
     [HideInInspector] public Slider[] slider = new Slider[3];
@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
+            Debug.Log(e);
         }
         // clean
         //TODO per click text set
@@ -66,8 +67,9 @@ public class UIManager : MonoBehaviour {
 
     public void WaterTankUpdate()
     {
-        slider[0].value = DataBase.savedWater;
+        slider[0].value =  DataBase.cleanedWater = Convert.ToInt16(DataBase.perDrop);;
         //TODO : 사막지역에서 사막 물로 변경할것.
+        PlayerPrefs.SetInt();
     }
 
     public void WaterTankSet()

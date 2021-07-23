@@ -2034,6 +2034,7 @@ GameObject:
   - component: {fileID: 1370054803}
   - component: {fileID: 1370054802}
   - component: {fileID: 1370054806}
+  - component: {fileID: 1370054807}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2140,14 +2141,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 0}
-  local: {fileID: 0}
-  waterTank: {fileID: 0}
+  text:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slider:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   localBG:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &1370054807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370054801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f07339c7f334f11b9936cf6e4eab59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmVol: 0
+  fxVol: 0
 --- !u!1 &1422729950
 GameObject:
   m_ObjectHideFlags: 0

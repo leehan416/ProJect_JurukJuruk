@@ -22,12 +22,12 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/MarketController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UpSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/ReadMe.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
     </changedPaths>
   </component>
@@ -96,6 +96,7 @@
       <workItem from="1626850114706" duration="3786000" />
       <workItem from="1626875846018" duration="3416000" />
       <workItem from="1626961714690" duration="2090000" />
+      <workItem from="1627039500852" duration="1574000" />
     </task>
     <servers />
   </component>

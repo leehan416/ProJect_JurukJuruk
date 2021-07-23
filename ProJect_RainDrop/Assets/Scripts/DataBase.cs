@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DataBase : MonoBehaviour {
     [HideInInspector] public static long money = 0; // 돈 
-    [HideInInspector] public static long savedWater = 0; // 모은 빗물양
+    //[HideInInspector] public static long savedWater = 0; // 모은 빗물양
     [HideInInspector] public static long desertWater = 0; // 모은 사막빗물 양
     [HideInInspector] public static long uncleanedWater = 0; // 정화 전 빗물 양
     [HideInInspector] public static long cleanedWater = 0; // 정화 후 빗물 양
@@ -51,7 +51,7 @@ public class DataBase : MonoBehaviour {
     public static void DataSet()
     {
         PlayerPrefs.SetString("Money", System.Convert.ToString(money));
-        PlayerPrefs.SetString("SavedWater", System.Convert.ToString(savedWater));
+        //PlayerPrefs.SetString("SavedWater", System.Convert.ToString(savedWater));
         PlayerPrefs.SetString("DesertWater", System.Convert.ToString(desertWater));
         PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(uncleanedWater));
         PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(cleanedWater));
@@ -73,7 +73,7 @@ public class DataBase : MonoBehaviour {
     public static void DataGet()
     {
         money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
-        savedWater = Convert.ToInt64(PlayerPrefs.GetString("SavedWater", "0"));
+        //savedWater = Convert.ToInt64(PlayerPrefs.GetString("SavedWater", "0"));
         uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
         cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
         maxWater = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "0"));
