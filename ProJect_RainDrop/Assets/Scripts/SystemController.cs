@@ -6,11 +6,12 @@ using UnityEngine;
 using Random = System.Random;
 
 public class SystemController : MonoBehaviour {
+  
     public GameObject rain; //빗방물 오브젝트 
 
-    DateTime realTime = DateTime.Now;
+    public static DateTime realTime = DateTime.Now;
 
-    private void Start()
+    void Start()
     {
         realTime = DateTime.Now; // 현재 시간 가져오기 
         StartCoroutine(RainSystem());
@@ -36,14 +37,13 @@ public class SystemController : MonoBehaviour {
         //TODO 현실 시간 가져와서 계산.
         while (DataBase.nowLocal > 0)
         {
-            yield return new WaitForSeconds(2f);
-            // if (CalculateUnderTime() > )
-            // {
-            //     DataBase.savedWater += Convert.ToInt16(DataBase.perSecond);
-            // }
+            yield return new WaitForSeconds(1f);
+            if (DataBase.potWater[DataBase.nowLocal] <= DataBase.potMax[DataBase.nowLocal])
+            {
+                DataBase.potWater[DataBase.nowLocal] += DataBase.perSecond[DataBase.nowLocal];
+            }
         }
     }
-
 
     void Rainy()
     {
@@ -56,7 +56,7 @@ public class SystemController : MonoBehaviour {
         // canvas size에 맞추어 난수 발생한 위치에 비 생성
     }
 
-    int CalculateUnderTime()
+    public static int CalculateUnderTime()
     {
         DateTime lateTime = Convert.ToDateTime(PlayerPrefs.GetString("", Convert.ToString(realTime)));
         realTime = DateTime.Now;

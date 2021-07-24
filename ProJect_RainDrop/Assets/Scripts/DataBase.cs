@@ -1,26 +1,28 @@
 ﻿/* 총괄 DataBase */
+
 using System;
 using UnityEngine;
 
 
 public class DataBase : MonoBehaviour {
     [HideInInspector] public static long money = 0; // 돈 
+
     //[HideInInspector] public static long savedWater = 0; // 모은 빗물양
     [HideInInspector] public static long desertWater = 0; // 모은 사막빗물 양
     [HideInInspector] public static long uncleanedWater = 0; // 정화 전 빗물 양
     [HideInInspector] public static long cleanedWater = 0; // 정화 후 빗물 양
-    [HideInInspector] public static long maxWater = 1000; // 최대 양
+    [HideInInspector] public static long maxWater = 10000; // 최대 양
 
-    [HideInInspector] public static float perDrop = 10f;
-    [HideInInspector] public static float perSecond = 0;
+    [HideInInspector] public static int perDrop = 1000;
+    [HideInInspector] public static int[] perSecond = new int[4];
 
     [HideInInspector] public static int pailLevel = 1; // 양동이 레벨
     [HideInInspector] public static int tankLevel = 1; // 물 저장소 레벨
-    
+
     [HideInInspector] public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
     [HideInInspector] public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
     [HideInInspector] public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
-    
+
     [HideInInspector] public static int cleanLevel = 1; //물 정화기 레벨
     [HideInInspector] public static int perclean = 100; //물 정화기 레벨
 
@@ -42,7 +44,7 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static int[] upgradeClean = {10000, 50000};
     [HideInInspector] public static int[] upgradePot = {50000, 120000};
     [HideInInspector] public static float upEfficiency = 2.71f; // 업글시 증가하는 성능 비율
-    
+
     private void Awake()
     {
         DataGet();
@@ -58,7 +60,10 @@ public class DataBase : MonoBehaviour {
         PlayerPrefs.SetString("MaxWater", System.Convert.ToString(maxWater));
 
         PlayerPrefs.SetFloat("PerDrop", perDrop);
-        PlayerPrefs.SetFloat("PerSecond", perSecond);
+
+
+        for (int a = 0; a < potLevel.Length; a++)
+            PlayerPrefs.SetFloat("PerSecond" + a, perSecond[a]);
 
         PlayerPrefs.SetInt("PailLevel", pailLevel);
         PlayerPrefs.SetInt("TankLevel", tankLevel);
@@ -73,13 +78,14 @@ public class DataBase : MonoBehaviour {
     public static void DataGet()
     {
         money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
-        //savedWater = Convert.ToInt64(PlayerPrefs.GetString("SavedWater", "0"));
         uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
         cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
-        maxWater = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "0"));
+        maxWater = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "10000"));
 
-        perDrop = PlayerPrefs.GetFloat("PerDrop");
-        perSecond = PlayerPrefs.GetFloat("PerSecond");
+        perDrop = PlayerPrefs.GetInt("PerDrop",1000);
+
+        for (int i = 0; i < potLevel.Length; i++)
+            perSecond[i] = PlayerPrefs.GetInt("PotSecond" + i, 0);
 
         pailLevel = PlayerPrefs.GetInt("PailLevel", 1);
         tankLevel = PlayerPrefs.GetInt("TankLevel", 1);

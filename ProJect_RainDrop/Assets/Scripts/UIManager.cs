@@ -10,12 +10,8 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    /*[HideInInspector] */ public Text[] text = new Text[3];
-
-    // 0 = money 1 = local 
-    [HideInInspector] public Slider[] slider = new Slider[3];
-
-    // 0 = waterTank or BgmVol 1 = Fx Vol
+    public Text[] text = new Text[3]; // 0 = money 1 = local 
+    public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
 
     void Start()
@@ -23,8 +19,6 @@ public class UIManager : MonoBehaviour {
         if (!instance) instance = this;
         else DestroyImmediate(this);
         //TODO scene에 맞춰서 작업할것.
-
-
         try
         {
             //--------------------------------------------------------
@@ -67,34 +61,32 @@ public class UIManager : MonoBehaviour {
 
     public void WaterTankUpdate()
     {
-        slider[0].value =  DataBase.cleanedWater = Convert.ToInt16(DataBase.perDrop);;
-        //TODO : 사막지역에서 사막 물로 변경할것.
-        PlayerPrefs.SetInt();
+        slider[0].value = DataBase.cleanedWater + DataBase.uncleanedWater + DataBase.desertWater;
+        //Debug.Log(slider[0].value);
+        // PlayerPrefs.SetString("DesertWater", System.Convert.ToString(DataBase.desertWater));
+        // PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(DataBase.uncleanedWater));
+        // PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(DataBase.cleanedWater));
     }
 
     public void WaterTankSet()
     {
-        slider[0].maxValue = DataBase.maxWater;
+        slider[0].maxValue = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "10000"));
         slider[0].minValue = 0f;
     }
 
     public void EmptyWaterTank()
     {
         // 청정구역이라면 
-        if (DataBase.nowLocal == 1)
-            DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
-
-        // else if (DataBase.nowLocal == 3)
-        //     DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
-        else
-            DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
+        if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
+        else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.potWater[DataBase.nowLocal];
+        else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
         DataBase.potWater[DataBase.nowLocal] = 0;
         //TODo lateTIme Set
     }
 
     public void MoneySet()
     {
-        text[0].text = Convert.ToString(DataBase.money);
+        text[0].text = Convert.ToString(DataBase.money) + " $";
     }
 
     public void LocalSet()
@@ -137,22 +129,25 @@ public class UIManager : MonoBehaviour {
 
     public void Sell(int index)
     {
-        if (index == 1)
+        if (index == 0)
         {
-            if (DataBase.uncleanedWater < 1000)
+            Debug.Log("!");
+            if (DataBase.uncleanedWater + DataBase.cleanedWater + DataBase.desertWater > 1000)
             {
-                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.money += 10; //Consumer.consumerList[index].perLiter;
                 DataBase.uncleanedWater -= 1000;
+                //TODO 물 더러운 물 => 깨끗한 물 => 사막 물 순서로 빠지게 만들기
+                PlayerPrefs.SetString("Money", System.Convert.ToString(DataBase.money));
             }
             else
             {
                 return;
-                //돈 부족
+                //물 부족
             }
         }
         else if (index == 3)
         {
-            if (DataBase.desertWater < 1000)
+            if (DataBase.desertWater > 1000)
             {
                 DataBase.money += Consumer.consumerList[index].perLiter;
                 DataBase.desertWater -= 1000;
@@ -165,7 +160,7 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
-            if (DataBase.cleanedWater < 1000)
+            if (DataBase.cleanedWater > 1000)
             {
                 DataBase.money += Consumer.consumerList[index].perLiter;
                 DataBase.cleanedWater -= 1000;
@@ -178,6 +173,7 @@ public class UIManager : MonoBehaviour {
         }
 
         MoneySet();
+        WaterTankUpdate();
     }
 
     #endregion

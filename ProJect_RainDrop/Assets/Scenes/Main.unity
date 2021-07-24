@@ -717,7 +717,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2195,9 +2195,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 0}
-  local: {fileID: 0}
-  waterTank: {fileID: 0}
+  text:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slider:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   localBG:
   - {fileID: 21300000, guid: 5f713a84d1d99496da3c634681e91683, type: 3}
   - {fileID: 21300000, guid: bcf0a586d40a4414f841cdeecc71fb47, type: 3}
