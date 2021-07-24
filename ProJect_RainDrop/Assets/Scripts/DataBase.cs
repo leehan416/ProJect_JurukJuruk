@@ -4,16 +4,20 @@ using System;
 using UnityEngine;
 
 
+// pail => user pot 
+// pot => extra pot 
+
 public class DataBase : MonoBehaviour {
+    
     [HideInInspector] public static long money = 0; // 돈 
 
-    //[HideInInspector] public static long savedWater = 0; // 모은 빗물양
     [HideInInspector] public static long desertWater = 0; // 모은 사막빗물 양
     [HideInInspector] public static long uncleanedWater = 0; // 정화 전 빗물 양
     [HideInInspector] public static long cleanedWater = 0; // 정화 후 빗물 양
     [HideInInspector] public static long maxWater = 10000; // 최대 양
 
     [HideInInspector] public static int perDrop = 1000;
+    
     [HideInInspector] public static int[] perSecond = new int[4];
 
     [HideInInspector] public static int pailLevel = 1; // 양동이 레벨
@@ -29,13 +33,11 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
     [HideInInspector] public static int nowLocal = 0; // 현 위치
 
-    [HideInInspector] public static String timeRecord = ""; // 현 위치
-
+    [HideInInspector] public static String timeRecord = ""; // 시간 변수
 
     //Setting value
-    [HideInInspector] public float bgmVol;
-
-    [HideInInspector] public float fxVol;
+    [HideInInspector] public static float bgmVol;
+    [HideInInspector] public static float fxVol;
 
     //const value 
     [HideInInspector] public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
@@ -47,13 +49,34 @@ public class DataBase : MonoBehaviour {
 
     private void Awake()
     {
+        GetWaterData();
         DataGet();
     }
+
+    public static long AllWater() // 물 총량 return
+    {
+        return (uncleanedWater + cleanedWater + desertWater);
+    }
+
+    public static void SetWaterData()
+    {
+        PlayerPrefs.SetString("DesertWater", System.Convert.ToString(desertWater));
+        PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(uncleanedWater));
+        PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(cleanedWater));
+        Debug.Log("!");
+    }
+
+    public static void GetWaterData()
+    {
+        uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
+        cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
+        desertWater = Convert.ToInt64(PlayerPrefs.GetString("DesertWater", "0"));
+    }
+
 
     public static void DataSet()
     {
         PlayerPrefs.SetString("Money", System.Convert.ToString(money));
-        //PlayerPrefs.SetString("SavedWater", System.Convert.ToString(savedWater));
         PlayerPrefs.SetString("DesertWater", System.Convert.ToString(desertWater));
         PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(uncleanedWater));
         PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(cleanedWater));
@@ -80,9 +103,10 @@ public class DataBase : MonoBehaviour {
         money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
         uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
         cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
+        desertWater = Convert.ToInt64(PlayerPrefs.GetString("DesertWater", "0"));
         maxWater = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "10000"));
 
-        perDrop = PlayerPrefs.GetInt("PerDrop",1000);
+        perDrop = PlayerPrefs.GetInt("PerDrop", 1000);
 
         for (int i = 0; i < potLevel.Length; i++)
             perSecond[i] = PlayerPrefs.GetInt("PotSecond" + i, 0);

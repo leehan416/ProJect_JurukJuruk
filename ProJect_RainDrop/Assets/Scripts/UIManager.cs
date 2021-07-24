@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour {
         if (!instance) instance = this;
         else DestroyImmediate(this);
         //TODO scene에 맞춰서 작업할것.
+        
+        
         try
         {
             //--------------------------------------------------------
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour {
             if (DataBase.potLevel[DataBase.nowLocal] < 1)
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
             //--------------------------------------------------------
+            DataBase.GetWaterData();
             WaterTankSet();
             WaterTankUpdate();
             MoneySet();
@@ -50,6 +53,7 @@ public class UIManager : MonoBehaviour {
         text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
         slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
         MoneySet();
+        DataBase.GetWaterData();
         WaterTankSet();
         WaterTankUpdate();
     }
@@ -61,11 +65,9 @@ public class UIManager : MonoBehaviour {
 
     public void WaterTankUpdate()
     {
-        slider[0].value = DataBase.cleanedWater + DataBase.uncleanedWater + DataBase.desertWater;
-        //Debug.Log(slider[0].value);
-        // PlayerPrefs.SetString("DesertWater", System.Convert.ToString(DataBase.desertWater));
-        // PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(DataBase.uncleanedWater));
-        // PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(DataBase.cleanedWater));
+        slider[0].value =DataBase.AllWater();
+        DataBase.SetWaterData();
+        Debug.Log(DataBase.AllWater());
     }
 
     public void WaterTankSet()
@@ -78,14 +80,18 @@ public class UIManager : MonoBehaviour {
     {
         // 청정구역이라면 
         if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
+        // 사막지역
         else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.potWater[DataBase.nowLocal];
+        // 나머지 지역
         else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
+        // 물병 비우기
         DataBase.potWater[DataBase.nowLocal] = 0;
         //TODo lateTIme Set
     }
 
     public void MoneySet()
     {
+        DataBase.money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
         text[0].text = Convert.ToString(DataBase.money) + " $";
     }
 
@@ -181,22 +187,22 @@ public class UIManager : MonoBehaviour {
     //--------------------------------------------------------
     //Setting
     //TODO 1. Slider Setting 2. toggle set
-
-    public bool Drag { get; set; }
-
-    public void ChangeBgmVol()
-    {
-        if (!Drag)
-        {
-        }
-    }
-
-    public void ChangeFxVol()
-    {
-        if (!Drag)
-        {
-        }
-    }
+    //
+    // public bool Drag { get; set; }
+    //
+    // public void ChangeBgmVol()
+    // {
+    //     if (!Drag)
+    //     {
+    //     }
+    // }
+    //
+    // public void ChangeFxVol()
+    // {
+    //     if (!Drag)
+    //     {
+    //     }
+    // }
 
 
     //--------------------------------------------------------
