@@ -1015,8 +1015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 80, y: -24.31}
+  m_SizeDelta: {x: 160, y: 74.61972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805830053
 MonoBehaviour:
@@ -1554,8 +1554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 80, y: -23.61}
+  m_SizeDelta: {x: 160, y: 73.22308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323780326
 MonoBehaviour:
@@ -2428,8 +2428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 80, y: -23.69}
+  m_SizeDelta: {x: 160, y: 73.37402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1764156447
 MonoBehaviour:
@@ -2464,7 +2464,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uBA40\uB9AC \uAC08 \uD544\uC694 \uC5C6\uC796\uC544\uC694\n\uC5EC\uAE30\uB3C4
-    \uCDA9\uBD84\uD788 \uC8FC\uB8E9\uC8FC\uB8E9 \n\uD569\uB2C8\uB2E4."
+    \uCDA9\uBD84\uD788 \n\uC8FC\uB975\uC8FC\uB975 \uD569\uB2C8\uB2E4."
 --- !u!222 &1764156448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3027,8 +3027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 80, y: -26.25}
+  m_SizeDelta: {x: 160, y: 78.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040905851
 MonoBehaviour:
@@ -3062,8 +3062,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2E0\uBC1C \uC816\uC5B4\uC694 \uBAA8\uC790 \uC816\uC5B4\uC694\n\uBA38\uB9AC\uBD80\uD130
-    \uBC1C\uB05D\uAE4C\uC9C0\n\uC2F9\uB2E4 \uC816\uC5B4\uC694."
+  m_Text: "\uC2E0\uBC1C \uC816\uC5B4\uC694 \uBAA8\uC790 \uC816\uC5B4\uC694\n\uBA38\uB9AC
+    \uC5B4\uAE68 \uBB34\uB98E \uBC1C\n\uC2F9\uB2E4 \uC816\uC5B4\uC694."
 --- !u!222 &2040905852
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,8 +272,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.96}
-  m_SizeDelta: {x: 160, y: 59.519073}
+  m_AnchoredPosition: {x: -0.59, y: 3.96}
+  m_SizeDelta: {x: 201.65353, y: 59.519073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164889680
 MonoBehaviour:
@@ -307,7 +307,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5B4\uCA4C\uAD6C\uC800\uCA4C\uAD6C"
+  m_Text: " \uBAA9\uB9D0\uB77C \uC8FD\uACA0\uC5B4. \uBB3C \uC880 \uD30C\uB294\uAC70
+    \uC5B4\uB54C?\n \uC5B4\uB290 \uBB3C\uC774\uB77C\uB3C4 \uC88B\uC544."
 --- !u!222 &164889681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -502,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.96}
-  m_SizeDelta: {x: 160, y: 59.519073}
+  m_AnchoredPosition: {x: 0.14, y: 3.96}
+  m_SizeDelta: {x: 202.90744, y: 59.519073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370333096
 MonoBehaviour:
@@ -537,7 +538,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5B4\uCA4C\uAD6C\uC800\uCA4C\uAD6C"
+  m_Text: " \uBB50, \uBB3C\uC744 \uC0B4 \uC758\uD5A5\uC774 \uC788\uC2B5\uB2C8\uB2E4\uB9CC.\n
+    \uC544\uBB34\uAC70\uB098 \uCDE8\uAE09\uD558\uC9C4 \uC54A\uC2B5\uB2C8\uB2E4."
 --- !u!222 &370333097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1707,8 +1709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3.96}
-  m_SizeDelta: {x: 160, y: 59.519073}
+  m_AnchoredPosition: {x: 0.45, y: 3.96}
+  m_SizeDelta: {x: 200.25806, y: 59.519073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116254303
 MonoBehaviour:
@@ -1742,7 +1744,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC5B4\uCA4C\uAD6C\uC800\uCA4C\uAD6C"
+  m_Text: " \uC774\uB9D8\uB54C\uCBE4\uC5D4 \uB298 \uACE0\uD5A5\uC774 \uADF8\uB9AC\uC6CC\uC9C0\uC9C0...\n
+    \uC790\uB124, \uD639\uC2DC \uC0AC\uB9C9\uC758 \uBB3C\uC744 \uAC00\uC9C0\uACE0
+    \uC788\uB098?"
 --- !u!222 &1116254304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2167,8 +2171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f07339c7f334f11b9936cf6e4eab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmVol: 0
-  fxVol: 0
 --- !u!114 &1370054808
 MonoBehaviour:
   m_ObjectHideFlags: 0
