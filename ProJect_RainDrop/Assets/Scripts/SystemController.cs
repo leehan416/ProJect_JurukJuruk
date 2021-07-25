@@ -60,7 +60,6 @@ public class SystemController : MonoBehaviour {
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }
-            Debug.Log(DataBase.potWater[0] +" "+ DataBase.potLevel[0] );
         }
         
     }

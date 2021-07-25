@@ -43,7 +43,6 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
-            Debug.Log(e);
         }
         // clean
         //TODO per click text set
@@ -68,7 +67,6 @@ public class UIManager : MonoBehaviour {
         // 물탱크 변수 변경
         slider[0].value = DataBase.AllWater();
         DataBase.SetWaterData(); // 데이터베이스 세팅
-        Debug.Log(DataBase.AllWater());
     }
 
     public void WaterTankSet()
@@ -100,8 +98,8 @@ public class UIManager : MonoBehaviour {
                 DataBase.desertWater -= DataBase.AllWater() - DataBase.maxWater;
             }
             else
-            {DataBase.uncleanedWater -=  DataBase.AllWater() - DataBase.maxWater;
-                
+            {
+                DataBase.uncleanedWater -= DataBase.AllWater() - DataBase.maxWater;
             }
         }
 
@@ -156,12 +154,15 @@ public class UIManager : MonoBehaviour {
 
     #region shop
 
+    public void SetShopText()
+    {
+    }
+
     public void Sell(int index)
     {
         // 물판매
         if (index == 0)
         {
-            Debug.Log("!");
             if (DataBase.uncleanedWater + DataBase.cleanedWater + DataBase.desertWater > 1000)
             {
                 DataBase.money += 10; //Consumer.consumerList[index].perLiter;
@@ -256,6 +257,12 @@ public class UIManager : MonoBehaviour {
             DataBase.uncleanedWater -= DataBase.perclean;
             DataBase.cleanedWater += DataBase.perclean;
         }
+
+        DataBase.SetWaterData();
+    }
+
+    public void SetCleanText()
+    {
     }
 
     public void UpCleanLevel()
