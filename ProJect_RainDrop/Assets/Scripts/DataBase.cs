@@ -8,7 +8,6 @@ using UnityEngine;
 // pot => extra pot 
 
 public class DataBase : MonoBehaviour {
-    
     [HideInInspector] public static long money = 0; // 돈 
 
     [HideInInspector] public static long desertWater = 0; // 모은 사막빗물 양
@@ -17,14 +16,19 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static long maxWater = 10000; // 최대 양
 
     [HideInInspector] public static int perDrop = 1000;
-    
+
     [HideInInspector] public static int[] perSecond = new int[4];
 
     [HideInInspector] public static int pailLevel = 1; // 양동이 레벨
     [HideInInspector] public static int tankLevel = 1; // 물 저장소 레벨
 
     [HideInInspector] public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
-    [HideInInspector] public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
+
+    [HideInInspector] public static DateTime lateTime;
+
+
+    /*[HideInInspector]*/
+    public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
     [HideInInspector] public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
 
     [HideInInspector] public static int cleanLevel = 1; //물 정화기 레벨
@@ -51,6 +55,9 @@ public class DataBase : MonoBehaviour {
     {
         GetWaterData();
         DataGet();
+        potLevel[0] = 1;
+        potMax[0] = 10000;
+        perSecond[0] = 1000;
     }
 
     public static long AllWater() // 물 총량 return
@@ -63,7 +70,8 @@ public class DataBase : MonoBehaviour {
         PlayerPrefs.SetString("DesertWater", System.Convert.ToString(desertWater));
         PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(uncleanedWater));
         PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(cleanedWater));
-        Debug.Log("!");
+        for (int i = 0; i < potWater.Length; i++)
+            PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
     }
 
     public static void GetWaterData()
@@ -71,8 +79,20 @@ public class DataBase : MonoBehaviour {
         uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
         cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
         desertWater = Convert.ToInt64(PlayerPrefs.GetString("DesertWater", "0"));
+        for (int i = 0; i < potWater.Length; i++)
+            potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
     }
 
+
+    public static void GetLateTime()
+    {
+        lateTime = Convert.ToDateTime(PlayerPrefs.GetString("", Convert.ToString(DateTime.Now)));
+    }
+
+    public static void SetLateTime()
+    {
+       PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
+    }
 
     public static void DataSet()
     {

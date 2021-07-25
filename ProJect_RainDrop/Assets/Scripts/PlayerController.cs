@@ -1,5 +1,6 @@
 ﻿/* 플레이어 조작관련 스크립트 */
 
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,13 +10,13 @@ public class PlayerController : MonoBehaviour {
 
 
     // int xSize =  //gameObject.GetComponent<RectTransform>().rect.width;
-    [HideInInspector] public float playerSpeed = 30f;
+    [HideInInspector] public float playerSpeed = 300f;
 
     [HideInInspector] public Button leftBtn;
     [HideInInspector] public Button rightBtn;
 
-    [HideInInspector] public bool leftClick;
-    [HideInInspector] public bool rightClick;
+    [HideInInspector] public static bool leftClick;
+    [HideInInspector] public static bool rightClick;
 
 
     void Start()
@@ -60,14 +61,14 @@ public class PlayerController : MonoBehaviour {
         {
             if (this.gameObject.transform.position.x > 0)
             {
-                transform.Translate(-playerSpeed, 0, 0);
+                transform.Translate(-playerSpeed*Time.deltaTime, 0, 0);
             }
         }
 
         if (((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow))) || rightClick)
             if (gameObject.transform.position.x <
                 UIManager.instance.transform.GetComponent<RectTransform>().rect.width)
-                transform.Translate(playerSpeed, 0, 0);
+                transform.Translate(playerSpeed*Time.deltaTime, 0, 0);
         // 키보드 A D, 화살표 좌우 입력 or 버튼 클릭
 
         #endregion

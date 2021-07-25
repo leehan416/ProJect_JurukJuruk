@@ -19,8 +19,8 @@ public class UIManager : MonoBehaviour {
         if (!instance) instance = this;
         else DestroyImmediate(this);
         //TODO scene에 맞춰서 작업할것.
-        
-        
+
+
         try
         {
             //--------------------------------------------------------
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour {
 
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
 
-            if (DataBase.potLevel[DataBase.nowLocal] < 1)
+            if (DataBase.potLevel[DataBase.nowLocal] == 0)
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
             //--------------------------------------------------------
             DataBase.GetWaterData();
@@ -65,19 +65,22 @@ public class UIManager : MonoBehaviour {
 
     public void WaterTankUpdate()
     {
-        slider[0].value =DataBase.AllWater();
-        DataBase.SetWaterData();
+        // 물탱크 변수 변경
+        slider[0].value = DataBase.AllWater();
+        DataBase.SetWaterData(); // 데이터베이스 세팅
         Debug.Log(DataBase.AllWater());
     }
 
     public void WaterTankSet()
     {
+        // 물탱크 초기 세팅
         slider[0].maxValue = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "10000"));
         slider[0].minValue = 0f;
     }
 
     public void EmptyWaterTank()
     {
+        // 초당 물 얻는 양동이 비우기
         // 청정구역이라면 
         if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
         // 사막지역
@@ -85,18 +88,38 @@ public class UIManager : MonoBehaviour {
         // 나머지 지역
         else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
         // 물병 비우기
+
+        if (DataBase.AllWater() > DataBase.maxWater)
+        {
+            if (DataBase.nowLocal == 1)
+            {
+                DataBase.cleanedWater -= DataBase.AllWater() - DataBase.maxWater;
+            }
+            else if (DataBase.nowLocal == 3)
+            {
+                DataBase.desertWater -= DataBase.AllWater() - DataBase.maxWater;
+            }
+            else
+            {DataBase.uncleanedWater -=  DataBase.AllWater() - DataBase.maxWater;
+                
+            }
+        }
+
         DataBase.potWater[DataBase.nowLocal] = 0;
-        //TODo lateTIme Set
+        WaterTankUpdate();
+        DataBase.SetLateTime();
     }
 
     public void MoneySet()
     {
+        // 현재 돈 
         DataBase.money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
         text[0].text = Convert.ToString(DataBase.money) + " $";
     }
 
     public void LocalSet()
     {
+        // 현위치 텍스트 변경
         text[1].text = DataBase.localName[DataBase.nowLocal];
     }
 
@@ -135,6 +158,7 @@ public class UIManager : MonoBehaviour {
 
     public void Sell(int index)
     {
+        // 물판매
         if (index == 0)
         {
             Debug.Log("!");

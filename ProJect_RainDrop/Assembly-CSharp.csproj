@@ -51,13 +51,13 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\ReadMe.cs" />
+     <Compile Include="Assets\Scripts\AnimationController.cs" />
      <Compile Include="Assets\Scripts\Consumer.cs" />
      <Compile Include="Assets\Scripts\DataBase.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Rain.cs" />
      <Compile Include="Assets\Scripts\SystemController.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
-     <Compile Include="Assets\Scripts\UpSystem.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/whal3/Documents/GitHub/ProJect_JulukJuluk/ProJect_RainDrop/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
