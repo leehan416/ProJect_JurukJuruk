@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour {
 
     public Text[] text = new Text[3]; // 0 = money 1 = local 
     public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
+    public Toggle toggle;
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
 
     void Start()
@@ -19,7 +20,6 @@ public class UIManager : MonoBehaviour {
         if (!instance) instance = this;
         else DestroyImmediate(this);
         //TODO scene에 맞춰서 작업할것.
-
 
         try
         {
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour {
             MoneySet();
             LocalSet();
             BackGroundSet();
+            return;
             //--------------------------------------------------------
         }
         catch (Exception e)
@@ -50,23 +51,24 @@ public class UIManager : MonoBehaviour {
         //--------------------------------------------------------
         try
         {
-        // Shop
-        text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
-        slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
-        MoneySet();
-        DataBase.GetWaterData();
-        WaterTankSet();
-        WaterTankUpdate();
-
+            // Shop
+            text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
+            slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
+            MoneySet();
+            DataBase.GetWaterData();
+            WaterTankSet();
+            WaterTankUpdate();
+            return;
         }
         catch (Exception e)
         {
         }
 
-
-
+        //--------------------------------------------------------
         slider[0] = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
         slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
+        toggle = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
+        SetSettingObj();
     }
 
     //--------------------------------------------------------
@@ -223,27 +225,42 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Setting
-    public void SetVolSlider()
+    public void SetSettingObj()
     {
+        DataBase.GetSettingVal();
+        //DataBase.fxVol = .7f;
         slider[0].value = DataBase.bgmVol;
         slider[1].value = DataBase.fxVol;
+        toggle.isOn = DataBase.isReverse;
     }
 
     public void ChangeBgmVol(float val)
     {
-     //   SoundManager.bgmSource.volume = val;
-      //  Debug.Log(SoundManager.bgmSource.volume);
+        SoundManager.instance.bgmSource.volume = val;
+        DataBase.bgmVol = val;
+        DataBase.SetSettingVal();
     }
 
     public void ChangeFxVol(float val)
     {
-       // SoundManager.fxSource.volume = val;
+        SoundManager.instance.fxSource.volume = val;
+        DataBase.fxVol = val;
+        DataBase.SetSettingVal();
+    }
+
+    public void ChangeControllReverse(bool val)
+    {
+        DataBase.isReverse = val;
+        DataBase.SetSettingVal();
     }
 
 
     //--------------------------------------------------------
     //Cleaning
     //TODO Cleaning system set, cleaning up system set.
+
+    #region Cleaning
+
     public void ClickClean()
     {
         if (DataBase.uncleanedWater < DataBase.perclean && DataBase.uncleanedWater > 0)
@@ -287,6 +304,9 @@ public class UIManager : MonoBehaviour {
             // 돈부족
         }
     }
+
+    #endregion
+
     //--------------------------------------------------------
 
     //Market

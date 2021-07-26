@@ -43,6 +43,8 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static float bgmVol;
     [HideInInspector] public static float fxVol;
 
+    [HideInInspector] public static bool isReverse = false;
+
     //const value 
     [HideInInspector] public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
     [HideInInspector] public static int[] upgradePail = {10000, 30000};
@@ -83,6 +85,20 @@ public class DataBase : MonoBehaviour {
             potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
     }
 
+    public static void GetSettingVal()
+    {
+        bgmVol = PlayerPrefs.GetFloat("BgmVol", .7f);
+        fxVol = PlayerPrefs.GetFloat("FxVol", .7f);
+        isReverse = Convert.ToBoolean(PlayerPrefs.GetInt("IsReverse", 0));
+    }
+
+    public static void SetSettingVal()
+    {
+        PlayerPrefs.SetFloat("BgmVol", bgmVol);
+        PlayerPrefs.SetFloat("FxVol", fxVol);
+        PlayerPrefs.SetInt("IsReverse", Convert.ToInt32(isReverse));
+        Debug.Log(PlayerPrefs.GetInt("IsReverse"));
+    }
 
     public static void GetLateTime()
     {
@@ -91,7 +107,7 @@ public class DataBase : MonoBehaviour {
 
     public static void SetLateTime()
     {
-       PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
+        PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
     }
 
     public static void DataSet()

@@ -61,14 +61,14 @@ public class PlayerController : MonoBehaviour {
         {
             if (this.gameObject.transform.position.x > 0)
             {
-                transform.Translate(-playerSpeed*Time.deltaTime, 0, 0);
+                transform.Translate(-playerSpeed * Time.deltaTime, 0, 0);
             }
         }
 
         if (((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow))) || rightClick)
             if (gameObject.transform.position.x <
                 UIManager.instance.transform.GetComponent<RectTransform>().rect.width)
-                transform.Translate(playerSpeed*Time.deltaTime, 0, 0);
+                transform.Translate(playerSpeed * Time.deltaTime, 0, 0);
         // 키보드 A D, 화살표 좌우 입력 or 버튼 클릭
 
         #endregion

@@ -613,6 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414719518}
   - component: {fileID: 414719517}
+  - component: {fileID: 414719516}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -620,6 +621,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &414719516
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414719515}
+  m_Enabled: 1
 --- !u!20 &414719517
 Camera:
   m_ObjectHideFlags: 0
@@ -1789,7 +1798,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 510854810}
+        m_MethodName: ChangeControllReverse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1714256548
 GameObject:
