@@ -2487,13 +2487,14 @@ GameObject:
   - component: {fileID: 1925705293}
   - component: {fileID: 1925705292}
   - component: {fileID: 1925705295}
+  - component: {fileID: 1925705296}
   m_Layer: 0
   m_Name: BgmController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1925705292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2624,6 +2625,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1b683326b8a4b33bae29db15271ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1925705296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925705291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e698b61ed8ad440ea5972e54cb391b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSource: {fileID: 0}
 --- !u!1 &1953679702
 GameObject:
   m_ObjectHideFlags: 0

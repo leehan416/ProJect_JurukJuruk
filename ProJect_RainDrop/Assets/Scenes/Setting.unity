@@ -613,7 +613,6 @@ GameObject:
   m_Component:
   - component: {fileID: 414719518}
   - component: {fileID: 414719517}
-  - component: {fileID: 414719516}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -621,14 +620,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &414719516
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414719515}
-  m_Enabled: 1
 --- !u!20 &414719517
 Camera:
   m_ObjectHideFlags: 0
@@ -878,9 +869,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 0}
-  local: {fileID: 0}
-  waterTank: {fileID: 0}
+  text:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slider:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   localBG:
   - {fileID: 0}
   - {fileID: 0}
@@ -1164,7 +1160,7 @@ GameObject:
   - component: {fileID: 994261637}
   - component: {fileID: 994261638}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: FxSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1243,12 +1239,12 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 510854810}
+        m_MethodName: ChangeFxVol
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1619,7 +1615,7 @@ GameObject:
   - component: {fileID: 1480262702}
   - component: {fileID: 1480262703}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: BgmSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1697,7 +1693,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 510854810}
+        m_MethodName: ChangeBgmVol
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1598280734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1716,7 @@ GameObject:
   - component: {fileID: 1598280735}
   - component: {fileID: 1598280736}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: ControllerTogle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

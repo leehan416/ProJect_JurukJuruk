@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -538,8 +538,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uBB50, \uBB3C\uC744 \uC0B4 \uC758\uD5A5\uC774 \uC788\uC2B5\uB2C8\uB2E4\uB9CC.\n
-    \uC544\uBB34\uAC70\uB098 \uCDE8\uAE09\uD558\uC9C4 \uC54A\uC2B5\uB2C8\uB2E4."
+  m_Text: " \uBB50, \uBB3C\uC744 \uC0B4 \uC758\uD5A5\uC774 \uC788\uC2B5\uB2C8\uB2E4\uB9CC.\n\uC544\uBB34\uAC70\uB098
+    \uCDE8\uAE09\uD558\uC9C4 \uC54A\uC2B5\uB2C8\uB2E4."
 --- !u!222 &370333097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -863,7 +863,6 @@ GameObject:
   m_Component:
   - component: {fileID: 733138870}
   - component: {fileID: 733138869}
-  - component: {fileID: 733138868}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -871,14 +870,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &733138868
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733138867}
-  m_Enabled: 1
 --- !u!20 &733138869
 Camera:
   m_ObjectHideFlags: 0
@@ -1744,9 +1735,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC774\uB9D8\uB54C\uCBE4\uC5D4 \uB298 \uACE0\uD5A5\uC774 \uADF8\uB9AC\uC6CC\uC9C0\uC9C0...\n
-    \uC790\uB124, \uD639\uC2DC \uC0AC\uB9C9\uC758 \uBB3C\uC744 \uAC00\uC9C0\uACE0
-    \uC788\uB098?"
+  m_Text: " \uC774\uB9D8\uB54C\uCBE4\uC5D4 \uB298 \uACE0\uD5A5\uC774 \uADF8\uB9AC\uC6CC\uC9C0\uC9C0...\n\uC790\uB124,
+    \uD639\uC2DC \uC0AC\uB9C9\uC758 \uBB3C\uC744 \uAC00\uC9C0\uACE0 \uC788\uB098?"
 --- !u!222 &1116254304
 CanvasRenderer:
   m_ObjectHideFlags: 0

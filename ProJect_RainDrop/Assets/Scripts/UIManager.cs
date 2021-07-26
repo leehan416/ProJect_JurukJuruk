@@ -48,6 +48,8 @@ public class UIManager : MonoBehaviour {
         //TODO per click text set
 
         //--------------------------------------------------------
+        try
+        {
         // Shop
         text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
         slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
@@ -55,6 +57,16 @@ public class UIManager : MonoBehaviour {
         DataBase.GetWaterData();
         WaterTankSet();
         WaterTankUpdate();
+
+        }
+        catch (Exception e)
+        {
+        }
+
+
+
+        slider[0] = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
+        slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
     }
 
     //--------------------------------------------------------
@@ -211,23 +223,22 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Setting
-    //TODO 1. Slider Setting 2. toggle set
-    //
-    // public bool Drag { get; set; }
-    //
-    // public void ChangeBgmVol()
-    // {
-    //     if (!Drag)
-    //     {
-    //     }
-    // }
-    //
-    // public void ChangeFxVol()
-    // {
-    //     if (!Drag)
-    //     {
-    //     }
-    // }
+    public void SetVolSlider()
+    {
+        slider[0].value = DataBase.bgmVol;
+        slider[1].value = DataBase.fxVol;
+    }
+
+    public void ChangeBgmVol(float val)
+    {
+     //   SoundManager.bgmSource.volume = val;
+      //  Debug.Log(SoundManager.bgmSource.volume);
+    }
+
+    public void ChangeFxVol(float val)
+    {
+       // SoundManager.fxSource.volume = val;
+    }
 
 
     //--------------------------------------------------------
