@@ -13,6 +13,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Local.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Consumer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -30,8 +31,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Local.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -107,6 +109,7 @@
       <workItem from="1627222299481" duration="1621000" />
       <workItem from="1627236839970" duration="1966000" />
       <workItem from="1627263436813" duration="5980000" />
+      <workItem from="1627378365026" duration="3584000" />
     </task>
     <servers />
   </component>

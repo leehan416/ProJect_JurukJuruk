@@ -52,6 +52,9 @@ public class DataBase : MonoBehaviour {
     [HideInInspector] public static int[] upgradeClean = {10000, 50000};
     [HideInInspector] public static int[] upgradePot = {50000, 120000};
     [HideInInspector] public static float upEfficiency = 2.71f; // 업글시 증가하는 성능 비율
+    [HideInInspector] public static int[] localCost = {0, 1000, 10000, 100000};
+    [HideInInspector] public static bool[] isLocalLock = {false, true, true, true};
+
 
     private void Awake()
     {
@@ -60,6 +63,16 @@ public class DataBase : MonoBehaviour {
         potLevel[0] = 1;
         potMax[0] = 10000;
         perSecond[0] = 1000;
+    }
+
+    public static void SetMoney()
+    {
+        PlayerPrefs.SetString("Money", Convert.ToString(money));
+    }
+
+    public static void GetMoney()
+    {
+        money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
     }
 
     public static long AllWater() // 물 총량 return
@@ -157,5 +170,24 @@ public class DataBase : MonoBehaviour {
         nowLocal = PlayerPrefs.GetInt("NowLocal", 0);
         //timeRecord = PlayerPrefs.GetInt("NowLocal", 0);
         // 데이터를 활용하는 스크립트에서 알아서 가져감.
+    }
+}
+public class Local { //// : MonoBehaviour {
+    public int cost;
+    public bool isLock;
+
+    Local(int val)
+    {
+        isLock = DataBase.isLocalLock[val];
+        cost = DataBase.localCost[val];
+    }
+
+    public static Local[] local = new Local[4];
+
+    void Start()
+    {
+        for (int i = 1; i < local.Length; i++)
+            local[i] = new Local(i);
+        local[0].isLock = false;
     }
 }

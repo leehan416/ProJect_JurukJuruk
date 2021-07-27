@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public Text[] text = new Text[3]; // 0 = money 1 = local 
     public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
     public Toggle toggle;
+    public GameObject[] locker = new GameObject[4];
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
 
     void Start()
@@ -65,10 +66,35 @@ public class UIManager : MonoBehaviour {
         }
 
         //--------------------------------------------------------
-        slider[0] = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
-        slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
-        toggle = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
-        SetSettingObj();
+        //map
+        try
+        {
+            locker[1] = GameObject.Find("Canvas/List/Countryside/lock").gameObject;
+            locker[2] = GameObject.Find("Canvas/List/Amazon/lock").gameObject;
+            locker[3] = GameObject.Find("Canvas/List/Desert/lock").gameObject;
+
+            for (int i = 1; i < Local.local.Length; i++)
+                locker[i].SetActive(Local.local[i].isLock);
+        }
+        catch (Exception e)
+        {
+            return;
+        }
+
+        //--------------------------------------------------------
+        try
+        {
+            //setting
+            slider[0] = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
+            slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
+            toggle = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
+            SetSettingObj();
+        }
+        catch (Exception e)
+        {
+            return;
+        }
+        //--------------------------------------------------------
     }
 
     //--------------------------------------------------------
@@ -154,11 +180,32 @@ public class UIManager : MonoBehaviour {
         SceneManager.LoadScene(val);
     }
 
+
+    public void UnLockLocal(int val)
+    {
+        if (DataBase.money > Local.local[val].cost)
+        {
+            DataBase.money -= Local.local[val].cost;
+            DataBase.SetMoney();
+        }
+        else
+        {
+            // 돈부족
+        }
+    }
+
     public void MoveLocal(int val)
     {
-        PlayerPrefs.SetInt("NowLocal", val);
-        DataBase.nowLocal = val;
-        MoveScene("Main");
+        if (Local.local[val].isLock)
+        {
+            UnLockLocal(val);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("NowLocal", val);
+            DataBase.nowLocal = val;
+            MoveScene("Main");
+        }
     }
 
     #endregion
@@ -225,6 +272,9 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Setting
+
+    #region Setting
+
     public void SetSettingObj()
     {
         DataBase.GetSettingVal();
@@ -254,10 +304,11 @@ public class UIManager : MonoBehaviour {
         DataBase.SetSettingVal();
     }
 
+    #endregion
 
     //--------------------------------------------------------
     //Cleaning
-    //TODO Cleaning system set, cleaning up system set.
+    //TODO cleaning up system set.
 
     #region Cleaning
 
