@@ -13,10 +13,8 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Local.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Consumer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rain.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -24,16 +22,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/MarketController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UpSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/ReadMe.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DontDestroy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Local.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -110,6 +108,7 @@
       <workItem from="1627236839970" duration="1966000" />
       <workItem from="1627263436813" duration="5980000" />
       <workItem from="1627378365026" duration="3584000" />
+      <workItem from="1627393015330" duration="4642000" />
     </task>
     <servers />
   </component>

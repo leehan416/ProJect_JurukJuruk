@@ -73,8 +73,8 @@ public class UIManager : MonoBehaviour {
             locker[2] = GameObject.Find("Canvas/List/Amazon/lock").gameObject;
             locker[3] = GameObject.Find("Canvas/List/Desert/lock").gameObject;
 
-            for (int i = 1; i < Local.local.Length; i++)
-                locker[i].SetActive(Local.local[i].isLock);
+            for (int i = 1; i < DataBase.local.Length; i++)
+                locker[i].SetActive(DataBase.local[i].isLock);
         }
         catch (Exception e)
         {
@@ -183,9 +183,9 @@ public class UIManager : MonoBehaviour {
 
     public void UnLockLocal(int val)
     {
-        if (DataBase.money > Local.local[val].cost)
+        if (DataBase.money > DataBase.local[val].cost)
         {
-            DataBase.money -= Local.local[val].cost;
+            DataBase.money -= DataBase.local[val].cost;
             DataBase.SetMoney();
         }
         else
@@ -196,7 +196,8 @@ public class UIManager : MonoBehaviour {
 
     public void MoveLocal(int val)
     {
-        if (Local.local[val].isLock)
+        Debug.Log(val);
+        if (DataBase.local[val].isLock)
         {
             UnLockLocal(val);
         }
@@ -241,7 +242,7 @@ public class UIManager : MonoBehaviour {
         {
             if (DataBase.desertWater > 1000)
             {
-                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.money += DataBase.consumerList[index].perLiter;
                 DataBase.desertWater -= 1000;
             }
             else
@@ -254,7 +255,7 @@ public class UIManager : MonoBehaviour {
         {
             if (DataBase.cleanedWater > 1000)
             {
-                DataBase.money += Consumer.consumerList[index].perLiter;
+                DataBase.money += DataBase.consumerList[index].perLiter;
                 DataBase.cleanedWater -= 1000;
             }
             else

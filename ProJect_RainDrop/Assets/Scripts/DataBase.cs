@@ -45,24 +45,40 @@ public class DataBase : MonoBehaviour {
 
     [HideInInspector] public static bool isReverse = false;
 
+
+    //
+    public static Local[] local = new Local[4];
+    public static Consumer[] consumerList = new Consumer[3];
+
     //const value 
     [HideInInspector] public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
     [HideInInspector] public static int[] upgradePail = {10000, 30000};
     [HideInInspector] public static int[] upgradeTank = {10000, 25000};
     [HideInInspector] public static int[] upgradeClean = {10000, 50000};
     [HideInInspector] public static int[] upgradePot = {50000, 120000};
-    [HideInInspector] public static float upEfficiency = 2.71f; // 업글시 증가하는 성능 비율
+
     [HideInInspector] public static int[] localCost = {0, 1000, 10000, 100000};
-    [HideInInspector] public static bool[] isLocalLock = {false, true, true, true};
+    // [HideInInspector] public static bool[] isLocalLock = {false, true, true, true};
 
 
-    private void Awake()
+    private void Start()
     {
         GetWaterData();
         DataGet();
         potLevel[0] = 1;
         potMax[0] = 10000;
         perSecond[0] = 1000;
+
+
+        for (int i = 0; i < local.Length; i++)
+            local[i] = new Local();
+        for (int i = 0; i < consumerList.Length; i++)
+            consumerList[i] = new Consumer();
+        //
+        consumerList[0].perLiter = 100;
+        consumerList[0].isCleaned = false;
+        //
+        local[0].isLock = false;
     }
 
     public static void SetMoney()
@@ -172,22 +188,27 @@ public class DataBase : MonoBehaviour {
         // 데이터를 활용하는 스크립트에서 알아서 가져감.
     }
 }
-public class Local { //// : MonoBehaviour {
+
+public class Local {
+    //// : MonoBehaviour {
     public int cost;
-    public bool isLock;
+    public string title;
+    public bool isLock = true;
+    public bool cleanWater;
+    public bool desertWater;
 
-    Local(int val)
-    {
-        isLock = DataBase.isLocalLock[val];
-        cost = DataBase.localCost[val];
-    }
+    public float rainCycle;
+    // public Local(int val)
+    // {
+    //     //isLock = DataBase.isLocalLock[val];
+    //     cost = DataBase.localCost[val];
+    // }
+}
 
-    public static Local[] local = new Local[4];
 
-    void Start()
-    {
-        for (int i = 1; i < local.Length; i++)
-            local[i] = new Local(i);
-        local[0].isLock = false;
-    }
+public class Consumer {
+    public int perLiter = 10;
+    public bool isCleaned = false;
+    public Sprite image;
+    public string story;
 }

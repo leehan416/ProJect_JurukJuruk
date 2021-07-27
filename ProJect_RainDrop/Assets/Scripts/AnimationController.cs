@@ -5,25 +5,51 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour {
+    private float introFrameSec = .15f;
     private float frameSec = .2f;
 
-    private Image player;
+    private Image obj;
     public Sprite[] idle = new Sprite[2];
     public Sprite[] leftAnimation = new Sprite[3];
     public Sprite[] rightAnimation = new Sprite[3];
 
+
+    public Sprite[] introAnimation = new Sprite[8];
+
     private bool isLeftAnimationing = false;
     private bool isRightAnimationing = false;
     private bool isIdleAnimationing = false;
+    private bool isIntroAnimationing = false;
 
-    private void Start()
+    void Start()
     {
-        player = GameObject.Find("Canvas/Player").GetComponent<Image>();
+        try
+        {
+            obj = GameObject.Find("Canvas/Player").GetComponent<Image>();
+            return;
+        }
+        catch (Exception e)
+        {
+        }
+
+        try
+        {
+            obj = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
+            StartCoroutine(IntroAnimation());
+        }
+        catch (Exception e)
+        {
+        }
     }
 
 
     private void Update()
     {
+        if (isIntroAnimationing)
+        {
+            return;
+        }
+
         if ((!PlayerController.leftClick && !PlayerController.rightClick) && !isIdleAnimationing)
         {
             StopAll();
@@ -57,7 +83,7 @@ public class AnimationController : MonoBehaviour {
         for (int i = 0; PlayerController.leftClick; i++)
         {
             yield return new WaitForSeconds(frameSec);
-            player.sprite = leftAnimation[i % leftAnimation.Length];
+            obj.sprite = leftAnimation[i % leftAnimation.Length];
         }
     }
 
@@ -67,7 +93,7 @@ public class AnimationController : MonoBehaviour {
         for (int i = 0; PlayerController.rightClick; i++)
         {
             yield return new WaitForSeconds(frameSec);
-            player.sprite = rightAnimation[i % rightAnimation.Length];
+            obj.sprite = rightAnimation[i % rightAnimation.Length];
         }
     }
 
@@ -77,7 +103,17 @@ public class AnimationController : MonoBehaviour {
         for (int i = 0; !PlayerController.leftClick && !PlayerController.rightClick; i++)
         {
             yield return new WaitForSeconds(frameSec);
-            player.sprite = idle[i % idle.Length];
+            obj.sprite = idle[i % idle.Length];
+        }
+    }
+
+    IEnumerator IntroAnimation()
+    {
+        isIntroAnimationing = true;
+        for (int i = 0;; i++)
+        {
+            obj.sprite = introAnimation[i % introAnimation.Length];
+            yield return new WaitForSeconds(introFrameSec);
         }
     }
 }
