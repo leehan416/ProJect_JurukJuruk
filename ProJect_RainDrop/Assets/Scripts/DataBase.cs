@@ -45,8 +45,6 @@ public class DataBase : MonoBehaviour {
 
     [HideInInspector] public static bool isReverse = false;
 
-
-    //
     public static Local[] local = new Local[4];
     public static Consumer[] consumerList = new Consumer[3];
 
@@ -68,7 +66,6 @@ public class DataBase : MonoBehaviour {
         potLevel[0] = 1;
         potMax[0] = 10000;
         perSecond[0] = 1000;
-
 
         for (int i = 0; i < local.Length; i++)
             local[i] = new Local();
@@ -204,7 +201,6 @@ public class Local {
     //     cost = DataBase.localCost[val];
     // }
 }
-
 
 public class Consumer {
     public int perLiter = 10;

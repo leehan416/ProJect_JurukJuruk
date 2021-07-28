@@ -11,7 +11,6 @@ public class SoundManager : MonoBehaviour {
     public AudioClip[] musics = new AudioClip[1];
     public AudioClip[] fxs = new AudioClip[1];
 
-
     private void Start()
     {
         if (!instance) instance = this;

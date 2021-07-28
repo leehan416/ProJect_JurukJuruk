@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
     // public static PlayerController instance;
 
-
     // int xSize =  //gameObject.GetComponent<RectTransform>().rect.width;
     [HideInInspector] public float playerSpeed = 300f;
 
@@ -17,8 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     [HideInInspector] public static bool leftClick;
     [HideInInspector] public static bool rightClick;
-
-
+    
     void Start()
     {
         #region btnSet

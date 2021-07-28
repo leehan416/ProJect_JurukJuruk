@@ -2204,6 +2204,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  toggle: {fileID: 0}
+  locker:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   localBG:
   - {fileID: 21300000, guid: 5f713a84d1d99496da3c634681e91683, type: 3}
   - {fileID: 21300000, guid: bcf0a586d40a4414f841cdeecc71fb47, type: 3}
@@ -2232,6 +2238,15 @@ MonoBehaviour:
   - {fileID: 7879284907798186264, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
   - {fileID: -8012533843763998223, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
   - {fileID: 5983393754525623169, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
+  introAnimation:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1798680555
 MonoBehaviour:
   m_ObjectHideFlags: 0

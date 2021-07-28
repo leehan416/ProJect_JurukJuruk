@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour {
-    private float introFrameSec = .15f;
-    private float frameSec = .2f;
+    float introFrameSec = .15f;
+    float frameSec = .2f;
 
-    private Image obj;
+    Image obj;
     public Sprite[] idle = new Sprite[2];
     public Sprite[] leftAnimation = new Sprite[3];
     public Sprite[] rightAnimation = new Sprite[3];
@@ -16,10 +16,10 @@ public class AnimationController : MonoBehaviour {
 
     public Sprite[] introAnimation = new Sprite[8];
 
-    private bool isLeftAnimationing = false;
-    private bool isRightAnimationing = false;
-    private bool isIdleAnimationing = false;
-    private bool isIntroAnimationing = false;
+    bool isLeftAnimationing = false;
+    bool isRightAnimationing = false;
+    bool isIdleAnimationing = false;
+    bool isIntroAnimationing = false;
 
     void Start()
     {

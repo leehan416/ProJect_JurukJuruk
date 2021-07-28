@@ -14,26 +14,28 @@ public class UIManager : MonoBehaviour {
     public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
     public Toggle toggle;
     public GameObject[] locker = new GameObject[4];
+
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
+    //--------------------------------------------------------
 
     void Start()
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
-        //TODO scene에 맞춰서 작업할것.
-
+        //--------------------------------------------------------
+        //main
         try
         {
-            //--------------------------------------------------------
-            //main
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
             text[1] = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>(); // Local
 
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
 
+            Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
+
+
             if (DataBase.potLevel[DataBase.nowLocal] == 0)
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
-            //--------------------------------------------------------
             DataBase.GetWaterData();
             WaterTankSet();
             WaterTankUpdate();
@@ -41,11 +43,11 @@ public class UIManager : MonoBehaviour {
             LocalSet();
             BackGroundSet();
             return;
-            //--------------------------------------------------------
         }
         catch (Exception e)
         {
         }
+        //--------------------------------------------------------
         // clean
         //TODO per click text set
 
@@ -82,9 +84,9 @@ public class UIManager : MonoBehaviour {
         }
 
         //--------------------------------------------------------
+        //setting
         try
         {
-            //setting
             slider[0] = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
             slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
             toggle = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
@@ -92,14 +94,26 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
+        }
+
+        //--------------------------------------------------------
+        // Market
+        try
+        {
+            locker[0] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0").gameObject;
+            locker[1] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1").gameObject;
+            locker[2] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2").gameObject;
+            locker[3] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3").gameObject;
             return;
+        }
+        catch (Exception e)
+        {
         }
         //--------------------------------------------------------
     }
 
     //--------------------------------------------------------
     //main
-
     #region main
 
     public void WaterTankUpdate()
@@ -118,6 +132,11 @@ public class UIManager : MonoBehaviour {
 
     public void EmptyWaterTank()
     {
+        if (DataBase.maxWater <= DataBase.AllWater())
+        {
+            return;
+        }
+
         // 초당 물 얻는 양동이 비우기
         // 청정구역이라면 
         if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
@@ -172,7 +191,6 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //map + moveScene
-
     #region map_moveScene
 
     public void MoveScene(string val)
@@ -213,7 +231,6 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //shop
-
     #region shop
 
     public void SetShopText()
@@ -273,7 +290,6 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Setting
-
     #region Setting
 
     public void SetSettingObj()
@@ -310,7 +326,6 @@ public class UIManager : MonoBehaviour {
     //--------------------------------------------------------
     //Cleaning
     //TODO cleaning up system set.
-
     #region Cleaning
 
     public void ClickClean()
@@ -360,8 +375,62 @@ public class UIManager : MonoBehaviour {
     #endregion
 
     //--------------------------------------------------------
-
     //Market
-
     //TODO 1. pot up System set, 2. extra pot up system, 3. water tank system set
+    #region Market
+
+    //TODO TextSet
+
+
+    public void SetLock()
+    {
+        for (int i = 1; i < locker.Length; i++)
+        {
+            if (DataBase.potLevel[i] > 0)
+            {
+                locker[i].SetActive(false);
+            }
+        }
+    }
+
+    public void UpPailLevel()
+    {
+        if (DataBase.money > DataBase.upgradePail[DataBase.pailLevel + 1])
+        {
+            DataBase.money -= DataBase.upgradePail[DataBase.pailLevel + 1];
+            DataBase.pailLevel++;
+        }
+        else
+        {
+            //돈부족 
+        }
+    }
+
+    public void UpTankLevel()
+    {
+        if (DataBase.money > DataBase.upgradeTank[DataBase.tankLevel + 1])
+        {
+            DataBase.money -= DataBase.upgradeTank[DataBase.tankLevel + 1];
+            DataBase.pailLevel++;
+        }
+        else
+        {
+            //돈부족 
+        }
+    }
+
+    public void UpPotLevel(int val)
+    {
+        if (DataBase.money > DataBase.upgradePot[DataBase.potLevel[val] + 1])
+        {
+            DataBase.money -= DataBase.upgradePot[DataBase.potLevel[val] + 1];
+            DataBase.pailLevel++;
+        }
+        else
+        {
+            //돈부족 
+        }
+    }
+
+    #endregion
 }
