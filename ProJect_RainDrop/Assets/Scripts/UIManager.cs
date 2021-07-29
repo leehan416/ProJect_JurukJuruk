@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    public Text[] text = new Text[3]; // 0 = money 1 = local 
+    public Text[] text = new Text[6]; // 0 = money 1 = local 
     public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
     public Toggle toggle;
     public GameObject[] locker = new GameObject[4];
@@ -100,10 +100,17 @@ public class UIManager : MonoBehaviour {
         // Market
         try
         {
-            locker[0] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0").gameObject;
-            locker[1] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1").gameObject;
-            locker[2] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2").gameObject;
-            locker[3] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3").gameObject;
+            text[0] = GameObject.Find("Canvas/Pail_BG/Info").GetComponent<Text>();
+            text[1] = GameObject.Find("Canvas/Tank_BG/Info").GetComponent<Text>();
+            text[2] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0/Text").GetComponent<Text>();
+            text[3] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1/Text").GetComponent<Text>();
+            text[4] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2/Text").GetComponent<Text>();
+            text[5] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3/Text").GetComponent<Text>();
+           
+            locker[0] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0/Lock").gameObject;
+            locker[1] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1/Lock").gameObject;
+            locker[2] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2/Lock").gameObject;
+            locker[3] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3.Lock").gameObject;
             return;
         }
         catch (Exception e)
@@ -114,6 +121,7 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //main
+
     #region main
 
     public void WaterTankUpdate()
@@ -191,6 +199,7 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //map + moveScene
+
     #region map_moveScene
 
     public void MoveScene(string val)
@@ -231,6 +240,7 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //shop
+
     #region shop
 
     public void SetShopText()
@@ -290,6 +300,7 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Setting
+
     #region Setting
 
     public void SetSettingObj()
@@ -326,6 +337,7 @@ public class UIManager : MonoBehaviour {
     //--------------------------------------------------------
     //Cleaning
     //TODO cleaning up system set.
+
     #region Cleaning
 
     public void ClickClean()
@@ -377,6 +389,7 @@ public class UIManager : MonoBehaviour {
     //--------------------------------------------------------
     //Market
     //TODO 1. pot up System set, 2. extra pot up system, 3. water tank system set
+
     #region Market
 
     //TODO TextSet
