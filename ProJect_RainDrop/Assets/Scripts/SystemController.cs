@@ -57,11 +57,13 @@ public class SystemController : MonoBehaviour {
                     if (DataBase.potWater[local] > DataBase.potMax[local])
                         DataBase.potWater[local] = DataBase.potMax[local];
                 }
+
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }
+
+            UIManager.instance.PotUpdate();
         }
-        
     }
 
     void Rainy()

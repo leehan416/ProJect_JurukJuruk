@@ -22,15 +22,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/MarketController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UpSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/ReadMe.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DontDestroy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Local.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
     </changedPaths>
   </component>
@@ -111,6 +111,7 @@
       <workItem from="1627393015330" duration="4642000" />
       <workItem from="1627465061662" duration="5078000" />
       <workItem from="1627556038213" duration="834000" />
+      <workItem from="1627653909818" duration="6392000" />
     </task>
     <servers />
   </component>

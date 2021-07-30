@@ -17,7 +17,7 @@ public class DataBase : MonoBehaviour {
 
     [HideInInspector] public static int perDrop = 1000;
 
-    [HideInInspector] public static int[] perSecond = new int[4];
+    [HideInInspector] public static int[] perSecond = {100, 1000, 10000, 100000}; //new int[4];
 
     [HideInInspector] public static int pailLevel = 1; // 양동이 레벨
     [HideInInspector] public static int tankLevel = 1; // 물 저장소 레벨
@@ -59,10 +59,12 @@ public class DataBase : MonoBehaviour {
     // [HideInInspector] public static bool[] isLocalLock = {false, true, true, true};
 
 
-    private void Start()
+    private void Awake()
     {
+        // GetWaterData();
+        // DataGet();
         GetWaterData();
-        DataGet();
+        GetMoney();
         potLevel[0] = 1;
         potMax[0] = 10000;
         perSecond[0] = 1000;
@@ -71,10 +73,10 @@ public class DataBase : MonoBehaviour {
             local[i] = new Local();
         for (int i = 0; i < consumerList.Length; i++)
             consumerList[i] = new Consumer();
-        //
+
         consumerList[0].perLiter = 100;
         consumerList[0].isCleaned = false;
-        //
+
         local[0].isLock = false;
     }
 

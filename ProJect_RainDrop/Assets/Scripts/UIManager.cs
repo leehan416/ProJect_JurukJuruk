@@ -10,10 +10,10 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    public Text[] text = new Text[6]; // 0 = money 1 = local 
-    public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
-    public Toggle toggle;
-    public GameObject[] locker = new GameObject[4];
+    [HideInInspector] public Text[] text = new Text[6]; // 0 = money 1 = local 
+    [HideInInspector] public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
+    [HideInInspector] public Toggle toggle;
+    [HideInInspector] public GameObject[] locker = new GameObject[4];
 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
     //--------------------------------------------------------
@@ -28,8 +28,23 @@ public class UIManager : MonoBehaviour {
         {
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
             text[1] = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>(); // Local
+            text[3] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
+            text[4] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
+            text[5] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
+
+
+            for (int i = 0; i < 4; i++)
+                locker[i] = GameObject.Find("Canvas/BigBox/PotSlider" + i);
+
+            for (int i = 0; i < 4; i++)
+                if (DataBase.nowLocal != i)
+                    locker[i].SetActive(false);
+
 
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
+            slider[1] = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
+                .GetComponent<Slider>(); // PotTank
+
 
             Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
 
@@ -42,23 +57,28 @@ public class UIManager : MonoBehaviour {
             MoneySet();
             LocalSet();
             BackGroundSet();
+            SetMainText();
+            PotUpdate();
             return;
         }
         catch (Exception e)
         {
+            Debug.Log(e);
         }
         //--------------------------------------------------------
         // clean
         //TODO per click text set
 
         //--------------------------------------------------------
+        // Shop
         try
         {
-            // Shop
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
-            MoneySet();
+            DataBase.GetMoney();
             DataBase.GetWaterData();
+            Debug.Log(DataBase.AllWater());
+            MoneySet();
             WaterTankSet();
             WaterTankUpdate();
             return;
@@ -77,10 +97,10 @@ public class UIManager : MonoBehaviour {
 
             for (int i = 1; i < DataBase.local.Length; i++)
                 locker[i].SetActive(DataBase.local[i].isLock);
+            return;
         }
         catch (Exception e)
         {
-            return;
         }
 
         //--------------------------------------------------------
@@ -106,7 +126,7 @@ public class UIManager : MonoBehaviour {
             text[3] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1/Text").GetComponent<Text>();
             text[4] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2/Text").GetComponent<Text>();
             text[5] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3/Text").GetComponent<Text>();
-           
+
             locker[0] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0/Lock").gameObject;
             locker[1] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1/Lock").gameObject;
             locker[2] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2/Lock").gameObject;
@@ -124,18 +144,46 @@ public class UIManager : MonoBehaviour {
 
     #region main
 
+    public void SetMainText()
+    {
+        DataBase.GetWaterData();
+        text[3].text = DataBase.uncleanedWater.ToString();
+        text[4].text = DataBase.cleanedWater.ToString();
+        text[5].text = DataBase.desertWater.ToString();
+    }
+
+    public void PotUpdate()
+    {
+        DataBase.GetWaterData();
+        slider[1].value = DataBase.potWater[DataBase.nowLocal];
+        DataBase.SetWaterData(); // 데이터베이스 세팅
+    }
+
     public void WaterTankUpdate()
     {
         // 물탱크 변수 변경
+
+
+        DataBase.GetWaterData();
         slider[0].value = DataBase.AllWater();
         DataBase.SetWaterData(); // 데이터베이스 세팅
     }
 
     public void WaterTankSet()
     {
+        DataBase.GetWaterData();
         // 물탱크 초기 세팅
-        slider[0].maxValue = Convert.ToInt64(PlayerPrefs.GetString("MaxWater", "10000"));
+        slider[0].maxValue = DataBase.maxWater; //DataBase.maxWater;
         slider[0].minValue = 0f;
+
+        try
+        {
+            slider[1].maxValue = DataBase.potMax[DataBase.nowLocal];
+            slider[1].minValue = 0f;
+        }
+        catch (Exception e)
+        {
+        }
     }
 
     public void EmptyWaterTank()
@@ -145,6 +193,8 @@ public class UIManager : MonoBehaviour {
             return;
         }
 
+        DataBase.GetWaterData();
+        
         // 초당 물 얻는 양동이 비우기
         // 청정구역이라면 
         if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
@@ -152,8 +202,8 @@ public class UIManager : MonoBehaviour {
         else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.potWater[DataBase.nowLocal];
         // 나머지 지역
         else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
+        
         // 물병 비우기
-
         if (DataBase.AllWater() > DataBase.maxWater)
         {
             if (DataBase.nowLocal == 1)
@@ -171,8 +221,10 @@ public class UIManager : MonoBehaviour {
         }
 
         DataBase.potWater[DataBase.nowLocal] = 0;
-        WaterTankUpdate();
         DataBase.SetLateTime();
+        DataBase.SetWaterData();
+        WaterTankUpdate();
+        PotUpdate();
     }
 
     public void MoneySet()
@@ -250,14 +302,17 @@ public class UIManager : MonoBehaviour {
     public void Sell(int index)
     {
         // 물판매
+
+        DataBase.GetWaterData();
+        DataBase.GetMoney();
+
         if (index == 0)
         {
-            if (DataBase.uncleanedWater + DataBase.cleanedWater + DataBase.desertWater > 1000)
+            if (DataBase.AllWater() >= 1000)
             {
-                DataBase.money += 10; //Consumer.consumerList[index].perLiter;
+                DataBase.money += 10;
                 DataBase.uncleanedWater -= 1000;
                 //TODO 물 더러운 물 => 깨끗한 물 => 사막 물 순서로 빠지게 만들기
-                PlayerPrefs.SetString("Money", System.Convert.ToString(DataBase.money));
             }
             else
             {
@@ -267,7 +322,7 @@ public class UIManager : MonoBehaviour {
         }
         else if (index == 3)
         {
-            if (DataBase.desertWater > 1000)
+            if (DataBase.desertWater >= 1000)
             {
                 DataBase.money += DataBase.consumerList[index].perLiter;
                 DataBase.desertWater -= 1000;
@@ -280,7 +335,7 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
-            if (DataBase.cleanedWater > 1000)
+            if (DataBase.cleanedWater >= 1000)
             {
                 DataBase.money += DataBase.consumerList[index].perLiter;
                 DataBase.cleanedWater -= 1000;
@@ -291,6 +346,10 @@ public class UIManager : MonoBehaviour {
                 //돈 부족
             }
         }
+
+
+        DataBase.SetWaterData();
+        DataBase.SetMoney();
 
         MoneySet();
         WaterTankUpdate();

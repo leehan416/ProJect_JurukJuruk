@@ -17,14 +17,19 @@ public class Rain : MonoBehaviour {
     {
         if (other.collider.gameObject.tag.Equals("Pail")) // 양동이 접촉시
         {
+            DataBase.GetWaterData();
             if (DataBase.maxWater > DataBase.AllWater()) // 물탱크에 자리가 있으면 
             {
                 if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.perDrop; // 청정구역
                 else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.perDrop; // 사막구역
                 else DataBase.uncleanedWater += DataBase.perDrop; // 나머지 구역
             }
+
+            DataBase.SetWaterData();
             UIManager.instance.WaterTankUpdate();
+            UIManager.instance.SetMainText();
         }
+
         Destroy(this.gameObject); // 객체를 없앤다
     }
 }
