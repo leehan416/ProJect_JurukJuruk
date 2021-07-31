@@ -6,23 +6,30 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    // public static PlayerController instance;
-
-    // int xSize =  //gameObject.GetComponent<RectTransform>().rect.width;
     [HideInInspector] public float playerSpeed = 300f;
 
     [HideInInspector] public Button leftBtn;
     [HideInInspector] public Button rightBtn;
 
-    [HideInInspector] public static bool leftClick;
-    [HideInInspector] public static bool rightClick;
-    
+    public static bool leftClick;
+    public static bool rightClick;
+
+
     void Start()
     {
         #region btnSet
 
-        leftBtn = GameObject.Find("Canvas/SmallBox/LeftBtn").GetComponent<Button>();
-        rightBtn = GameObject.Find("Canvas/SmallBox/RightBtn").GetComponent<Button>();
+        if (!DataBase.isReverse)
+        {
+            leftBtn = GameObject.Find("Canvas/SmallBox/LeftBtn").GetComponent<Button>();
+            rightBtn = GameObject.Find("Canvas/SmallBox/RightBtn").GetComponent<Button>();
+        }
+
+        else
+        {
+            leftBtn = GameObject.Find("Canvas/SmallBox/RightBtn").GetComponent<Button>();
+            rightBtn = GameObject.Find("Canvas/SmallBox/LeftBtn").GetComponent<Button>();
+        }
 
         EventTrigger trgL = leftBtn.gameObject.AddComponent<EventTrigger>();
         EventTrigger trgR = rightBtn.gameObject.AddComponent<EventTrigger>();
