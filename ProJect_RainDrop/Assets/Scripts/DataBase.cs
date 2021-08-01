@@ -52,16 +52,29 @@ public class DataBase : MonoBehaviour {
 
     //--------------------------------------------------------
     //System value 
-    public static int[] perSecond = {100, 1000, 10000, 100000}; //new int[4];
     public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
-    public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
-    public static int[] valuePerDrop = {1000, 10000, 100000, 100000, 10000000};
-    public static int[] valueMaxWater = {1000000, 100000000, 100000000, 100000000, 10000000};
-    public static int[] upgradePail = {10000, 30000, 300000, 30000003, 300000003};
-    public static int[] upgradeTank = {10000, 25000, 50000, 60000, 70000, 800000};
-    public static int[] upgradeClean = {10000, 50000};
-    public static int[] upgradePot = {50000, 120000};
+    public static float[] potCycle = {5f, 5f, .4f, 60f};
     public static int[] localCost = {0, 1000, 10000, 100000};
+    public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
+
+    // pail
+    public static int[] valuePerDrop = {10, 15, 20, 23, 26, 28, 30, 32};
+    public static int[] upgradePail = {0, 200, 225, 250, 300, 350, 420, 500};
+
+    //tank
+    public static int[] valueMaxWater = {5000, 7000, 10000, 15000, 20000, 27000, 36000, 48000};
+    public static int[] upgradeTank = {0, 5000, 6000, 8000, 10000, 15000, 20000, 30000};
+
+    //clean
+    public static int[] valueCleanWater = {1, 2, 3, 5, 7, 10, 15, 20};
+    public static int[] upgradeClean = {0, 100, 200, 300, 500, 700, 1000, 1500};
+
+    //pot
+    public static int[] unLockPot = {1000, 5000, 5000, 5000};
+    public static int[] perSecond = {5, 7, 10, 12, 13, 14, 15, 16};
+    public static float[] valuePotMax = {1.8f, 2.5f, 3.6f, 4.3f, 4.7f, 5f, 5.4f, 5.8f};
+    public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};
+
 
     //--------------------------------------------------------
 
@@ -73,10 +86,10 @@ public class DataBase : MonoBehaviour {
         GetMoney();
         potLevel[0] = 1;
         potMax[0] = 10000;
-        perSecond[0] = 1000;
+        // perSecond[0] = 1000;
 
         for (int i = 0; i < local.Length; i++)
-            local[i] = new Local();
+            local[i] = new Local(i);
         for (int i = 0; i < consumerList.Length; i++)
             consumerList[i] = new Consumer();
 
@@ -151,11 +164,12 @@ public class Local {
     public bool isLock = true;
 
     public float rainCycle;
-    // public Local(int val)
-    // {
-    //     //isLock = DataBase.isLocalLock[val];
-    //     cost = DataBase.localCost[val];
-    // }
+
+    public Local(int val)
+    {
+        title = DataBase.localName[val];
+        cost = DataBase.localCost[val];
+    }
 }
 
 public class Consumer {

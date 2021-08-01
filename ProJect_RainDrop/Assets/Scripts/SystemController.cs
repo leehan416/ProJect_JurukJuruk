@@ -41,14 +41,14 @@ public class SystemController : MonoBehaviour {
     IEnumerator FixedSystem()
     {
         // 고정 빗물 수집 시스템 
-        // ingame => 초당 계산 
+        // ingame => DataBase.potCycle 초당 계산 
         // background (outGame) => 현실 시간 계산하여 더해줌.
 
         //TODO 현실 시간 가져와서 계산.
 
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(DataBase.potCycle[DataBase.nowLocal]);
             for (int local = 0; local < 4; local++)
             {
                 if (DataBase.potLevel[local] > 0)
@@ -57,7 +57,6 @@ public class SystemController : MonoBehaviour {
                     if (DataBase.potWater[local] > DataBase.potMax[local])
                         DataBase.potWater[local] = DataBase.potMax[local];
                 }
-
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }

@@ -70,10 +70,11 @@ public class UIManager : MonoBehaviour {
 
         //--------------------------------------------------------
         // Shop
+
+
         try
         {
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
-
             text[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
             text[3] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
             text[4] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
@@ -91,18 +92,16 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
-            Debug.Log(e);
-            return;
         }
 
         //--------------------------------------------------------
         //map
+
         try
         {
             locker[1] = GameObject.Find("Canvas/List/Countryside/lock").gameObject;
             locker[2] = GameObject.Find("Canvas/List/Amazon/lock").gameObject;
             locker[3] = GameObject.Find("Canvas/List/Desert/lock").gameObject;
-
             for (int i = 1; i < DataBase.local.Length; i++)
                 locker[i].SetActive(DataBase.local[i].isLock);
             return;
@@ -119,6 +118,7 @@ public class UIManager : MonoBehaviour {
             slider[1] = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
             toggle = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
             SetSettingObj();
+            return;
         }
         catch (Exception e)
         {
@@ -133,13 +133,9 @@ public class UIManager : MonoBehaviour {
             text[2] = GameObject.Find("Canvas/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
             text[3] = GameObject.Find("Canvas/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
             text[4] = GameObject.Find("Canvas/Goods/Tank_BG/TankUp/Text").GetComponent<Text>(); // 가격
-            text[5] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_0/Text").GetComponent<Text>();
-            text[6] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_1/Text").GetComponent<Text>();
-            text[7] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_2/Text").GetComponent<Text>();
-            text[8] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_3/Text").GetComponent<Text>();
 
-            // for (int i = 0; i < 4; i++)
-            //     DataBase.potLevel[i] = 1;
+            for (int i = 5; i < 9; i++)
+                text[i] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + (i - 5) + "/Text").GetComponent<Text>();
 
             for (int i = 0; i < 4; i++)
                 if (DataBase.potLevel[i] > 0)
@@ -148,7 +144,7 @@ public class UIManager : MonoBehaviour {
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
-            SetShopText();
+            SetMarketText();
             MoneySet();
             return;
         }
@@ -315,25 +311,6 @@ public class UIManager : MonoBehaviour {
 
     #region shop
 
-    public void SetShopText()
-    {
-        DataBase.GetWaterData();
-        //TODO TRY CATCH => MAX LEVEL 
-        text[1].text = "업그레이드시\n한 물방울 = " + DataBase.valuePerDrop[DataBase.pailLevel] + "ml >> " +
-                       DataBase.valuePerDrop[DataBase.pailLevel + 1] + "ml";
-
-        text[2].text = DataBase.upgradePail[DataBase.pailLevel + 1] + " $";
-
-        text[3].text = "업그레이드시\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "L >> " +
-                       DataBase.valueMaxWater[DataBase.tankLevel + 1] + "L";
-        text[4].text = DataBase.upgradeTank[DataBase.tankLevel + 1] + " $";
-
-        text[5].text = DataBase.upgradePail[DataBase.potLevel[0]] + "$";
-        text[6].text = DataBase.upgradePail[DataBase.potLevel[1]] + "$";
-        text[7].text = DataBase.upgradePail[DataBase.potLevel[2]] + "$";
-        text[8].text = DataBase.upgradePail[DataBase.potLevel[3]] + "$";
-    }
-
     public void Sell(int index)
     {
         // 물판매
@@ -482,21 +459,49 @@ public class UIManager : MonoBehaviour {
 
     //--------------------------------------------------------
     //Market
-    //TODO 1. pot up System set, 2. extra pot up system, 3. water tank system set
 
     #region Market
 
     //TODO TextSet
 
 
-    public void SetLock()
+    public void SetMarketText()
     {
-        for (int i = 1; i < locker.Length; i++)
+        DataBase.GetWaterData();
+        //TODO TRY CATCH => MAX LEVEL
+
+        if (DataBase.pailLevel != DataBase.valuePerDrop.Length - 1)
         {
-            if (DataBase.potLevel[i] > 0)
-            {
-                locker[i].SetActive(false);
-            }
+            text[1].text =
+                "업그레이드시\n한 물방울 = " + DataBase.valuePerDrop[DataBase.pailLevel] + "ml >> " +
+                DataBase.valuePerDrop[DataBase.pailLevel + 1] + "ml";
+            text[2].text = DataBase.upgradePail[DataBase.pailLevel + 1] + " $";
+        }
+        else
+        {
+            text[1].text = "한계에 도달했습니다.";
+            text[2].text = "Max";
+        }
+
+
+        if (DataBase.tankLevel != DataBase.valueMaxWater.Length - 1)
+        {
+            text[3].text = "업그레이드시\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "L >> " +
+                           DataBase.valueMaxWater[DataBase.tankLevel + 1] + "L";
+            text[4].text = DataBase.upgradeTank[DataBase.tankLevel + 1] + " $";
+        }
+        else
+        {
+            text[3].text = "한계에 도달했습니다.";
+            text[4].text = "Max";
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (DataBase.potLevel[i] != DataBase.valuePotMax.Length - 1)
+                text[i + 5].text = DataBase.unLockPot[i] + DataBase.upgradePail[DataBase.potLevel[i]] + "$";
+            else
+                text[i + 5].text = "Max";
         }
     }
 
@@ -506,6 +511,7 @@ public class UIManager : MonoBehaviour {
         {
             DataBase.money -= DataBase.upgradePail[DataBase.pailLevel + 1];
             DataBase.pailLevel++;
+            SetMarketText();
         }
         else
         {
@@ -518,7 +524,7 @@ public class UIManager : MonoBehaviour {
         if (DataBase.money > DataBase.upgradeTank[DataBase.tankLevel + 1])
         {
             DataBase.money -= DataBase.upgradeTank[DataBase.tankLevel + 1];
-            DataBase.pailLevel++;
+            DataBase.tankLevel++;
         }
         else
         {
@@ -528,10 +534,10 @@ public class UIManager : MonoBehaviour {
 
     public void UpPotLevel(int val)
     {
-        if (DataBase.money > DataBase.upgradePot[DataBase.potLevel[val] + 1])
+        if (DataBase.money > DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1])
         {
-            DataBase.money -= DataBase.upgradePot[DataBase.potLevel[val] + 1];
-            DataBase.pailLevel++;
+            DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1];
+            DataBase.potLevel[val]++;
         }
         else
         {

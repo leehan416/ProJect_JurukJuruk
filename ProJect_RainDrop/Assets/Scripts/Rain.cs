@@ -25,12 +25,10 @@ public class Rain : MonoBehaviour {
                 else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.perDrop; // 사막구역
                 else DataBase.uncleanedWater += DataBase.perDrop; // 나머지 구역
             }
-
             DataBase.SetWaterData();
             UIManager.instance.WaterTankUpdate();
             UIManager.instance.SetMainText();
         }
-
         Destroy(this.gameObject); // 객체를 없앤다
     }
 }
