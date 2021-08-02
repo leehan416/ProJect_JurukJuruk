@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour {
 
             if (DataBase.potLevel[DataBase.nowLocal] == 0)
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
+
             DataBase.GetWaterData();
             WaterTankSet();
             WaterTankUpdate();
@@ -68,9 +69,34 @@ public class UIManager : MonoBehaviour {
         // clean
         //TODO per click text set
 
+        try
+        {
+            text[5] = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
+            text[6] = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
+
+            text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
+            text[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
+            text[3] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
+            text[4] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
+
+            slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
+
+            DataBase.GetMoney();
+            DataBase.GetWaterData();
+            DataBase.GetLevels();
+
+            SetCleanText();
+            MoneySet();
+            WaterTankSet();
+            WaterTankUpdate();
+            SetMainText();
+            return;
+        }
+        catch (Exception e)
+        {
+        }
         //--------------------------------------------------------
         // Shop
-
 
         try
         {
@@ -137,10 +163,22 @@ public class UIManager : MonoBehaviour {
             for (int i = 5; i < 9; i++)
                 text[i] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + (i - 5) + "/Text").GetComponent<Text>();
 
-            for (int i = 0; i < 4; i++)
-                if (DataBase.potLevel[i] > 0)
-                    GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + i + "/Lock").gameObject.SetActive(false);
 
+            DataBase.money = 10000000;
+            DataBase.uncleanedWater = DataBase.valueMaxWater[DataBase.tankLevel];
+            DataBase.cleanedWater = 0;
+            DataBase.desertWater = 0;
+            DataBase.potLevel[0] = 1;
+            DataBase.potLevel[1] = 1;
+            DataBase.potLevel[2] = 1;
+            DataBase.potLevel[3] = 1;
+            DataBase.tankLevel = 0;
+            DataBase.pailLevel = 0;
+            DataBase.SetLevels();
+            DataBase.SetMoney();
+            DataBase.SetWaterData();
+
+            SetMarketLockers();
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
@@ -150,6 +188,7 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
+            Debug.Log(e);
         }
         //--------------------------------------------------------
     }
@@ -178,17 +217,16 @@ public class UIManager : MonoBehaviour {
     {
         // 물탱크 변수 변경
 
-
         DataBase.GetWaterData();
         slider[0].value = DataBase.AllWater();
-        DataBase.SetWaterData(); // 데이터베이스 세팅
     }
 
     public void WaterTankSet()
     {
         DataBase.GetWaterData();
+        DataBase.GetLevels();
         // 물탱크 초기 세팅
-        slider[0].maxValue = DataBase.maxWater; //DataBase.maxWater;
+        slider[0].maxValue = DataBase.valueMaxWater[DataBase.tankLevel]; //DataBase.maxWater;
         slider[0].minValue = 0f;
 
         try
@@ -203,7 +241,7 @@ public class UIManager : MonoBehaviour {
 
     public void EmptyWaterTank()
     {
-        if (DataBase.maxWater <= DataBase.AllWater())
+        if (DataBase.valueMaxWater[DataBase.tankLevel] <= DataBase.AllWater())
         {
             return;
         }
@@ -219,19 +257,19 @@ public class UIManager : MonoBehaviour {
         else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
 
         // 물병 비우기
-        if (DataBase.AllWater() > DataBase.maxWater)
+        if (DataBase.AllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
         {
             if (DataBase.nowLocal == 1)
             {
-                DataBase.cleanedWater -= DataBase.AllWater() - DataBase.maxWater;
+                DataBase.cleanedWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
             else if (DataBase.nowLocal == 3)
             {
-                DataBase.desertWater -= DataBase.AllWater() - DataBase.maxWater;
+                DataBase.desertWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
             else
             {
-                DataBase.uncleanedWater -= DataBase.AllWater() - DataBase.maxWater;
+                DataBase.uncleanedWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
         }
 
@@ -362,7 +400,7 @@ public class UIManager : MonoBehaviour {
 
         DataBase.SetWaterData();
         DataBase.SetMoney();
-
+        SetMainText();
         MoneySet();
         WaterTankUpdate();
     }
@@ -413,45 +451,70 @@ public class UIManager : MonoBehaviour {
 
     public void ClickClean()
     {
-        if (DataBase.uncleanedWater < DataBase.perclean && DataBase.uncleanedWater > 0)
+        DataBase.GetLevels();
+        DataBase.GetWaterData();
+        if (DataBase.uncleanedWater < DataBase.valueCleanWater[DataBase.cleanLevel])
         {
-            if (DataBase.uncleanedWater < 0)
-            {
-                DataBase.uncleanedWater = 0;
-                return;
-            }
-
             DataBase.cleanedWater += DataBase.uncleanedWater;
             DataBase.uncleanedWater = 0;
         }
         else
         {
-            if (DataBase.uncleanedWater <= 0)
+            if (DataBase.uncleanedWater == 0)
             {
-                DataBase.uncleanedWater = 0;
                 return;
             }
 
-            DataBase.uncleanedWater -= DataBase.perclean;
-            DataBase.cleanedWater += DataBase.perclean;
+            DataBase.uncleanedWater -= DataBase.valueCleanWater[DataBase.cleanLevel];
+            DataBase.cleanedWater += DataBase.valueCleanWater[DataBase.cleanLevel];
         }
 
         DataBase.SetWaterData();
+
+        SetMainText();
     }
 
     public void SetCleanText()
     {
+        DataBase.GetLevels();
+        DataBase.GetWaterData();
+        if (DataBase.cleanLevel != DataBase.valueCleanWater.Length - 1)
+        {
+            text[5].text = "현재 :  1터치 = " + DataBase.valueCleanWater[DataBase.cleanLevel] + "ml\n" + "업그레이드 :  1터치 = " +
+                           DataBase.valueCleanWater[DataBase.cleanLevel + 1] + "ml";
+            text[6].text = DataBase.upgradeClean[DataBase.cleanLevel + 1] + "$";
+        }
+        else
+        {
+            text[5].text = "현재 :  1터치 = " + DataBase.valueCleanWater[DataBase.cleanLevel] + "ml\n" + "최고 레벨입니다.";
+            text[6].text = "MAX";
+        }
     }
 
     public void UpCleanLevel()
     {
-        if (DataBase.money < DataBase.upgradeClean[DataBase.cleanLevel])
+        DataBase.GetMoney();
+        DataBase.GetLevels();
+        try
         {
-            //up
+            if (DataBase.money > DataBase.upgradeClean[DataBase.cleanLevel] &&
+                DataBase.cleanLevel < DataBase.valueCleanWater.Length)
+            {
+                DataBase.GetLevels();
+                DataBase.money -= DataBase.upgradeClean[++DataBase.cleanLevel];
+                DataBase.SetLevels();
+                DataBase.SetMoney();
+                SetCleanText();
+                MoneySet();
+            }
+            else
+            {
+                // 돈부족
+            }
         }
-        else
+        catch (Exception e)
         {
-            // 돈부족
+            Debug.Log(e);
         }
     }
 
@@ -464,10 +527,17 @@ public class UIManager : MonoBehaviour {
 
     //TODO TextSet
 
+    public void SetMarketLockers()
+    {
+        for (int i = 0; i < 4; i++)
+            if (DataBase.potLevel[i] > 0)
+                GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + i + "/Lock").gameObject.SetActive(false);
+    }
 
     public void SetMarketText()
     {
-        DataBase.GetWaterData();
+        // DataBase.GetWaterData();
+        // DataBase.GetLevels();
         //TODO TRY CATCH => MAX LEVEL
 
         if (DataBase.pailLevel != DataBase.valuePerDrop.Length - 1)
@@ -479,7 +549,7 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
-            text[1].text = "한계에 도달했습니다.";
+            text[1].text = "한계에 도달했습니다.\n" + "한 물방울 =" + DataBase.valuePerDrop[DataBase.pailLevel] + "ml";
             text[2].text = "Max";
         }
 
@@ -492,7 +562,7 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
-            text[3].text = "한계에 도달했습니다.";
+            text[3].text = "한계에 도달했습니다.\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "L";
             text[4].text = "Max";
         }
 
@@ -507,11 +577,15 @@ public class UIManager : MonoBehaviour {
 
     public void UpPailLevel()
     {
+        DataBase.GetLevels();
+        DataBase.GetMoney();
         if (DataBase.money > DataBase.upgradePail[DataBase.pailLevel + 1])
         {
-            DataBase.money -= DataBase.upgradePail[DataBase.pailLevel + 1];
-            DataBase.pailLevel++;
+            DataBase.money -= DataBase.upgradePail[++DataBase.pailLevel];
+            DataBase.SetLevels();
+            DataBase.SetMoney();
             SetMarketText();
+            MoneySet();
         }
         else
         {
@@ -521,28 +595,54 @@ public class UIManager : MonoBehaviour {
 
     public void UpTankLevel()
     {
+        DataBase.GetLevels();
+        DataBase.GetMoney();
         if (DataBase.money > DataBase.upgradeTank[DataBase.tankLevel + 1])
         {
-            DataBase.money -= DataBase.upgradeTank[DataBase.tankLevel + 1];
-            DataBase.tankLevel++;
+            DataBase.money -= DataBase.upgradeTank[++DataBase.tankLevel];
+            DataBase.SetLevels();
+            DataBase.SetMoney();
+            SetMarketText();
+            MoneySet();
         }
         else
         {
             //돈부족 
         }
+        //
+        // DataBase.SetLevels();
+        // DataBase.SetMoney();
     }
 
     public void UpPotLevel(int val)
     {
-        if (DataBase.money > DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1])
+        DataBase.GetLevels();
+        DataBase.GetMoney();
+        if (DataBase.potLevel[val] == 0)
         {
-            DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1];
-            DataBase.potLevel[val]++;
+            if (DataBase.money >= DataBase.unLockPot[val])
+                DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
         }
         else
         {
-            //돈부족 
+            if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1]))
+            {
+                DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
+                Debug.Log("!");
+                DataBase.SetLevels();
+                DataBase.SetMoney();
+                SetMarketText();
+                MoneySet();
+                SetMarketLockers();
+            }
+            else
+            {
+                //돈부족 
+            }
         }
+        //
+        // DataBase.SetLevels();
+        // DataBase.SetMoney();
     }
 
     #endregion

@@ -19,21 +19,22 @@ public class DataBase : MonoBehaviour {
     public static long uncleanedWater = 0; // 정화 전 빗물 양
     public static long cleanedWater = 0; // 정화 후 빗물 양
 
-    public static long maxWater = 10000; // 최대 양
+    //public static long maxWater = 10000; // 최대 양
+    public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
 
     //--------------------------------------------------------
-    public static int perDrop = 1000;
     public static int pailLevel = 1; // 양동이 레벨
     public static int tankLevel = 1; // 물 저장소 레벨
     public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
-    public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
     public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
+
     public static int cleanLevel = 1; //물 정화기 레벨
     public static int perclean = 100; //물 정화기 레벨
 
     public static int nowLocal = 0; // 현 위치
 
     public static Local[] local = new Local[4];
+
     public static Consumer[] consumerList = new Consumer[3];
 
     //--------------------------------------------------------
@@ -132,6 +133,25 @@ public class DataBase : MonoBehaviour {
             potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
     }
 
+
+    public static void SetLevels()
+    {
+        PlayerPrefs.SetInt("PailLevel", pailLevel);
+        PlayerPrefs.SetInt("TankLevel", tankLevel);
+        PlayerPrefs.SetInt("CleanLevel", cleanLevel);
+        for (int i = 0; i < potLevel.Length; i++)
+            PlayerPrefs.SetInt("PotLevel" + i, potLevel[i]);
+    }
+
+    public static void GetLevels()
+    {
+        pailLevel = PlayerPrefs.GetInt("PailLevel", 0);
+        tankLevel = PlayerPrefs.GetInt("TankLevel", 0);
+        cleanLevel = PlayerPrefs.GetInt("CleanLevel", cleanLevel);
+        for (int i = 0; i < potLevel.Length; i++)
+            potLevel[i] = PlayerPrefs.GetInt("PotLevel" + i, 0);
+    }
+
     public static void GetSettingVal()
     {
         bgmVol = PlayerPrefs.GetFloat("BgmVol", .7f);
@@ -149,7 +169,7 @@ public class DataBase : MonoBehaviour {
 
     public static void GetLateTime()
     {
-        lateTime = Convert.ToDateTime(PlayerPrefs.GetString("", Convert.ToString(DateTime.Now)));
+        lateTime = Convert.ToDateTime(PlayerPrefs.GetString("LateTime", Convert.ToString(DateTime.Now)));
     }
 
     public static void SetLateTime()
