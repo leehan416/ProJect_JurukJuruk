@@ -15,5 +15,10 @@ public class SoundManager : MonoBehaviour {
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
+        DataBase.GetSettingVal();
+        bgmSource.volume = DataBase.bgmVol;
+        fxSource.volume = DataBase.fxVol;
+        fxSource.clip = fxs[0];
+        fxSource.Play();
     }
 }

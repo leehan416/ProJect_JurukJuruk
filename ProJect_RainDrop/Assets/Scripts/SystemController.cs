@@ -16,7 +16,8 @@ public class SystemController : MonoBehaviour {
         {
             if (DataBase.potLevel[i] > 0)
             {
-                DataBase.potWater[i] += CalculateUnderTime() * DataBase.perSecond[i];
+                DataBase.potWater[i] += System.Convert.ToInt32(CalculateUnderTime() / DataBase.potCycle[i]) *
+                                        DataBase.perSecond[i];
                 if (DataBase.potMax[i] < DataBase.potWater[i])
                 {
                     DataBase.potWater[i] = DataBase.potMax[i];
@@ -24,6 +25,8 @@ public class SystemController : MonoBehaviour {
             }
         }
 
+        DataBase.GetLevels();
+        DataBase.GetWaterData();
         StartCoroutine(RainSystem());
         StartCoroutine(FixedSystem());
     }
@@ -45,18 +48,32 @@ public class SystemController : MonoBehaviour {
         // background (outGame) => 현실 시간 계산하여 더해줌.
 
         //TODO 현실 시간 가져와서 계산.
+        int index = 0;
+        int[] value = new int[4];
+
+        for (int i = 0; i < 4; i++) // 접속시 추가되는 버그 수정
+            value[i] = 0;
 
         while (true)
         {
-            yield return new WaitForSeconds(DataBase.potCycle[DataBase.nowLocal]);
+            yield return new WaitForSeconds(1f);
+            index++;
+            Debug.Log(index + "s");
             for (int local = 0; local < 4; local++)
             {
+                if (value[local] < index / DataBase.potCycle[local])
+                {
+                    value[local] = index / DataBase.potCycle[local];
+                    DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
+                    Debug.Log(local + " " + DataBase.potWater[local]);
+                }
+
                 if (DataBase.potLevel[local] > 0)
                 {
-                    DataBase.potWater[local] += DataBase.perSecond[local];
                     if (DataBase.potWater[local] > DataBase.potMax[local])
                         DataBase.potWater[local] = DataBase.potMax[local];
                 }
+
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }

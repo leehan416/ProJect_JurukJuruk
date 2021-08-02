@@ -45,12 +45,18 @@ public class UIManager : MonoBehaviour {
             slider[1] = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
                 .GetComponent<Slider>(); // PotTank
 
+            //locker[0] =  // PotTank
 
-            Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
 
-
+            // Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
+            // DataBase.GetLevels();
+            // DataBase.potLevel[0] = 0;
+            // DataBase.SetLevels();
             if (DataBase.potLevel[DataBase.nowLocal] == 0)
+            {
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
+                GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
+            }
 
             DataBase.GetWaterData();
             WaterTankSet();
@@ -64,7 +70,19 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
+            Debug.Log(e);
         }
+        //--------------------------------------------------------
+        //intro
+
+        try
+        {
+        }
+        catch (Exception e)
+        {
+        }
+
+
         //--------------------------------------------------------
         // clean
         //TODO per click text set
@@ -106,6 +124,18 @@ public class UIManager : MonoBehaviour {
             text[4] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
 
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
+
+            //
+            // DataBase.money = 0; // 10000000;
+            // DataBase.uncleanedWater = 10000; //DataBase.valueMaxWater[DataBase.tankLevel];
+            // DataBase.cleanedWater = 10000;
+            // DataBase.desertWater = 10000;
+            // // DataBase.tankLevel = 10000;
+            // //DataBase.pailLevel = 0;
+            // DataBase.SetLevels();
+            // DataBase.SetMoney();
+            // DataBase.SetWaterData();
+            //
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
@@ -164,20 +194,6 @@ public class UIManager : MonoBehaviour {
                 text[i] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + (i - 5) + "/Text").GetComponent<Text>();
 
 
-            DataBase.money = 10000000;
-            DataBase.uncleanedWater = DataBase.valueMaxWater[DataBase.tankLevel];
-            DataBase.cleanedWater = 0;
-            DataBase.desertWater = 0;
-            DataBase.potLevel[0] = 1;
-            DataBase.potLevel[1] = 1;
-            DataBase.potLevel[2] = 1;
-            DataBase.potLevel[3] = 1;
-            DataBase.tankLevel = 0;
-            DataBase.pailLevel = 0;
-            DataBase.SetLevels();
-            DataBase.SetMoney();
-            DataBase.SetWaterData();
-
             SetMarketLockers();
 
             DataBase.GetMoney();
@@ -188,7 +204,6 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
-            Debug.Log(e);
         }
         //--------------------------------------------------------
     }
@@ -342,6 +357,13 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void IntroMoveScene()
+    {
+        SoundManager.instance.bgmSource.clip = SoundManager.instance.musics[0];
+        SoundManager.instance.bgmSource.Play();
+        MoveScene("Main");
+    }
+
     #endregion
 
     //--------------------------------------------------------
@@ -360,8 +382,26 @@ public class UIManager : MonoBehaviour {
         {
             if (DataBase.AllWater() >= 1000)
             {
-                DataBase.money += 10;
-                DataBase.uncleanedWater -= 1000;
+                if (DataBase.uncleanedWater >= 1000)
+                {
+                    DataBase.uncleanedWater -= 1000;
+                }
+                else if (DataBase.cleanedWater >= 1000)
+                {
+                    DataBase.cleanedWater -= 1000;
+                }
+                else if (DataBase.desertWater >= 1000)
+                {
+                    DataBase.desertWater -= 1000;
+                }
+                else
+                {
+                    return;
+                    //물없음
+                }
+
+                DataBase.money += DataBase.consumerList[index].perLiter;
+
                 //TODO 물 더러운 물 => 깨끗한 물 => 사막 물 순서로 빠지게 만들기
             }
             else
@@ -370,12 +410,12 @@ public class UIManager : MonoBehaviour {
                 //물 부족
             }
         }
-        else if (index == 3)
+        else if (index == 1)
         {
-            if (DataBase.desertWater >= 1000)
+            if (DataBase.cleanedWater >= 1000)
             {
                 DataBase.money += DataBase.consumerList[index].perLiter;
-                DataBase.desertWater -= 1000;
+                DataBase.cleanedWater -= 1000;
             }
             else
             {
@@ -383,12 +423,12 @@ public class UIManager : MonoBehaviour {
                 //돈 부족
             }
         }
-        else
+        else if (index == 2)
         {
-            if (DataBase.cleanedWater >= 1000)
+            if (DataBase.desertWater >= 1000)
             {
                 DataBase.money += DataBase.consumerList[index].perLiter;
-                DataBase.cleanedWater -= 1000;
+                DataBase.desertWater -= 1000;
             }
             else
             {

@@ -54,7 +54,7 @@ public class DataBase : MonoBehaviour {
     //--------------------------------------------------------
     //System value 
     public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
-    public static float[] potCycle = {5f, 5f, .4f, 60f};
+    public static int[] potCycle = {5, 5, 4, 60};
     public static int[] localCost = {0, 1000, 10000, 100000};
     public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
 
@@ -155,7 +155,7 @@ public class DataBase : MonoBehaviour {
     public static void GetSettingVal()
     {
         bgmVol = PlayerPrefs.GetFloat("BgmVol", .7f);
-        fxVol = PlayerPrefs.GetFloat("FxVol", .7f);
+        fxVol = PlayerPrefs.GetFloat("FxVol", .4f);
         isReverse = Convert.ToBoolean(PlayerPrefs.GetInt("IsReverse", 0));
     }
 
