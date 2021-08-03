@@ -135,9 +135,9 @@ TextureImporter:
       name: ETC_UI_1
       rect:
         serializedVersion: 2
-        x: 71
+        x: 72
         y: 236
-        width: 22
+        width: 23
         height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,7 +156,7 @@ TextureImporter:
       name: ETC_UI_2
       rect:
         serializedVersion: 2
-        x: 125
+        x: 124
         y: 238
         width: 22
         height: 40
