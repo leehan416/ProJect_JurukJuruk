@@ -29,8 +29,7 @@ public class DataBase : MonoBehaviour {
     public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
 
     public static int cleanLevel = 1; //물 정화기 레벨
-    public static int perclean = 100; //물 정화기 레벨
-
+    
     public static int nowLocal = 0; // 현 위치
 
     public static Local[] local = new Local[4];
@@ -91,6 +90,7 @@ public class DataBase : MonoBehaviour {
 
         for (int i = 0; i < local.Length; i++)
             local[i] = new Local(i);
+        
         for (int i = 0; i < consumerList.Length; i++)
             consumerList[i] = new Consumer();
 
@@ -183,7 +183,7 @@ public class Local {
     public string title;
     public bool isLock = true;
 
-    public float rainCycle;
+    //  public float rainCycle;
 
     public Local(int val)
     {
@@ -194,7 +194,4 @@ public class Local {
 
 public class Consumer {
     public int perLiter = 10;
-    public bool isCleaned = false;
-    public Sprite image;
-    public string story;
 }

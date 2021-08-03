@@ -498,7 +498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "5\uCD08\uB2F9 00ml"
+  m_Text: 
 --- !u!222 &342776182
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1469,7 +1469,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "60\uCD08\uB2F9 00ml"
+  m_Text: 
 --- !u!222 &1039675182
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1625,7 +1625,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "4\uCD08\uB2F9 00ml"
+  m_Text: 
 --- !u!222 &1073817373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1796,7 +1796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpPotLevel
+        m_MethodName: UpPotBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1930,7 +1930,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpPotLevel
+        m_MethodName: UpPotBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2308,7 +2308,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpPotLevel
+        m_MethodName: UpPotBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2439,7 +2439,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpPailLevel
+        m_MethodName: UpPailBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2616,6 +2616,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   slider:
   - {fileID: 0}
   - {fileID: 0}
@@ -2631,7 +2641,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  popUp: []
+  popUp:
+  - {fileID: 0}
+  - {fileID: 0}
+  yesBtn: {fileID: 0}
 --- !u!1 &1482860006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,7 +3107,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpPotLevel
+        m_MethodName: UpPotBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3383,7 +3396,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1469446514}
-        m_MethodName: UpTankLevel
+        m_MethodName: UpPTankBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3937,7 +3950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "5\uCD08\uB2F9 00ml"
+  m_Text: 
 --- !u!222 &1959915382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4036,6 +4049,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\uC544\uC9C1 \uD574\uAE08\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4."
       objectReference: {fileID: 0}
+    - target: {fileID: 305853248334416727, guid: f1640c841b5c42b42b7eba8c2ad76de5,
+        type: 3}
+      propertyPath: m_Name
+      value: Explain
+      objectReference: {fileID: 0}
     - target: {fileID: 305853249203891086, guid: f1640c841b5c42b42b7eba8c2ad76de5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4060,6 +4078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OffPopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 305853249203891086, guid: f1640c841b5c42b42b7eba8c2ad76de5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 305853249203891086, guid: f1640c841b5c42b42b7eba8c2ad76de5,
         type: 3}
@@ -4193,7 +4216,7 @@ PrefabInstance:
     - target: {fileID: 7568944793399841256, guid: a4ced8e23bd6aa14aa670e830801c589,
         type: 3}
       propertyPath: m_Name
-      value: PopUp(y/n)
+      value: PopUp
       objectReference: {fileID: 0}
     - target: {fileID: 7568944793399841256, guid: a4ced8e23bd6aa14aa670e830801c589,
         type: 3}
@@ -4338,7 +4361,7 @@ PrefabInstance:
     - target: {fileID: 7568944794869623084, guid: a4ced8e23bd6aa14aa670e830801c589,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7568944794869623084, guid: a4ced8e23bd6aa14aa670e830801c589,
         type: 3}
