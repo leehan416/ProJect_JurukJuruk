@@ -10,12 +10,23 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    [HideInInspector] public Text[] text = new Text[10]; // 0 = money 1 = local 
+    [HideInInspector] public Text[] text = new Text[15]; // 0 = money 1 = local 
     [HideInInspector] public Slider[] slider = new Slider[3]; // 0 = waterTank or BgmVol 1 = Fx Vol
     [HideInInspector] public Toggle toggle;
     [HideInInspector] public GameObject[] locker = new GameObject[4];
 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
+
+    [HideInInspector] public GameObject[] popUp = new GameObject[2];
+    [HideInInspector] public Button yesBtn = new Button();
+    
+    EventTrigger trgY = yesBtn.gameObject.AddComponent<EventTrigger>();
+    EventTrigger.Entry enY = new EventTrigger.Entry();
+   
+    
+
+    
+
     //--------------------------------------------------------
 
     void Start()
@@ -122,8 +133,11 @@ public class UIManager : MonoBehaviour {
             text[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
             text[3] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
             text[4] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
-
             slider[0] = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
+
+            popUp[0] = GameObject.Find("Canvas/PopUp(ok)");
+            text[5] = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
+
 
             //
             // DataBase.money = 0; // 10000000;
@@ -139,7 +153,9 @@ public class UIManager : MonoBehaviour {
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
-            Debug.Log(DataBase.AllWater());
+            popUp[0].SetActive(false);
+
+
             MoneySet();
             WaterTankSet();
             WaterTankUpdate();
@@ -190,14 +206,27 @@ public class UIManager : MonoBehaviour {
             text[3] = GameObject.Find("Canvas/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
             text[4] = GameObject.Find("Canvas/Goods/Tank_BG/TankUp/Text").GetComponent<Text>(); // 가격
 
+            //Todo : 5 => popuptext 로 하여 최적화 가능
             for (int i = 5; i < 9; i++)
                 text[i] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + (i - 5) + "/Text").GetComponent<Text>();
 
+            for (int i = 9; i < 13; i++)
+                text[i] = GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + (i - 9) + "/Explain").GetComponent<Text>();
 
+            popUp[1] = GameObject.Find("Canvas/PopUp(ok)");
+            text[13] = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
+            text[14] = GameObject.Find("Canvas/PopUp/Explain").GetComponent<Text>();
+            yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
+
+     
+
+          
             SetMarketLockers();
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
+
+
             SetMarketText();
             MoneySet();
             return;
@@ -396,16 +425,19 @@ public class UIManager : MonoBehaviour {
                 }
                 else
                 {
-                    return;
                     //물없음
+                    OnPopUp(0);
+                    text[5].text = "보유 빗물이 부족합니다.";
+                    return;
                 }
 
                 DataBase.money += DataBase.consumerList[index].perLiter;
-
                 //TODO 물 더러운 물 => 깨끗한 물 => 사막 물 순서로 빠지게 만들기
             }
             else
             {
+                OnPopUp(0);
+                text[5].text = "보유 빗물이 부족합니다.";
                 return;
                 //물 부족
             }
@@ -419,12 +451,21 @@ public class UIManager : MonoBehaviour {
             }
             else
             {
+                OnPopUp(0);
+                text[5].text = "보유 빗물이 부족합니다.";
                 return;
                 //돈 부족
             }
         }
         else if (index == 2)
         {
+            if (DataBase.local[3].isLock)
+            {
+                OnPopUp(0);
+                text[5].text = "해금되지 않은 거래처입니다.";
+                return;
+            }
+
             if (DataBase.desertWater >= 1000)
             {
                 DataBase.money += DataBase.consumerList[index].perLiter;
@@ -432,6 +473,8 @@ public class UIManager : MonoBehaviour {
             }
             else
             {
+                OnPopUp(0);
+                text[5].text = "보유 빗물이 부족합니다.";
                 return;
                 //돈 부족
             }
@@ -576,10 +619,8 @@ public class UIManager : MonoBehaviour {
 
     public void SetMarketText()
     {
-        // DataBase.GetWaterData();
-        // DataBase.GetLevels();
-        //TODO TRY CATCH => MAX LEVEL
-
+        DataBase.GetWaterData();
+        DataBase.GetLevels();
         if (DataBase.pailLevel != DataBase.valuePerDrop.Length - 1)
         {
             text[1].text =
@@ -613,6 +654,12 @@ public class UIManager : MonoBehaviour {
             else
                 text[i + 5].text = "Max";
         }
+
+        for (int i = 9; i < 13; i++)
+            if (DataBase.potLevel[i] > 0)
+                text[i].text = (DataBase.potCycle[i] <= 60)
+                    ? DataBase.potCycle[i] + "초당 " + DataBase.perSecond[i] + "ml"
+                    : "1분당 " + DataBase.perSecond[i] + "ml";
     }
 
     public void UpPailLevel()
@@ -629,6 +676,8 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
+            text[13].text = "보유 금액이 부족합니다.";
+            OnPopUp(0);
             //돈부족 
         }
     }
@@ -647,26 +696,38 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
+            text[13].text = "보유 금액이 부족합니다.";
+            OnPopUp(0);
             //돈부족 
         }
-        //
-        // DataBase.SetLevels();
-        // DataBase.SetMoney();
     }
 
     public void UpPotLevel(int val)
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
-        if (DataBase.potLevel[val] == 0)
+        if (DataBase.potLevel[val] == 0 && !DataBase.local[val].isLock)
         {
+            // 해금
             if (DataBase.money >= DataBase.unLockPot[val])
+            {
                 DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
+                SetMarketText();
+                MoneySet();
+                SetMarketLockers();
+            }
+        }
+        else if (DataBase.potLevel[val] == 0 && DataBase.local[val].isLock)
+        {
+            //지역 해금 안됌
+            text[13].text = "아직 해금되지 않았습니다.";
+            OnPopUp(0);
         }
         else
         {
             if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1]))
             {
+                // 일반 업글
                 DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
                 Debug.Log("!");
                 DataBase.SetLevels();
@@ -677,13 +738,26 @@ public class UIManager : MonoBehaviour {
             }
             else
             {
-                //돈부족 
+                // 돈없음
+                text[13].text = "보유 금액이 부족합니다.";
+                OnPopUp(0);
             }
         }
-        //
-        // DataBase.SetLevels();
-        // DataBase.SetMoney();
     }
 
     #endregion
+
+    //--------------------------------------------------------
+    //PopUp
+
+
+    public void OnPopUp(int val)
+    {
+        popUp[val].SetActive(true);
+    }
+
+    public void OffPopUp(int val)
+    {
+        popUp[val].SetActive(false);
+    }
 }
