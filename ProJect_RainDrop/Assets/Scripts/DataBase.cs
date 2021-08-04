@@ -26,10 +26,9 @@ public class DataBase : MonoBehaviour {
     public static int pailLevel = 1; // 양동이 레벨
     public static int tankLevel = 1; // 물 저장소 레벨
     public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
-    public static int[] potMax = new int[4]; // 양동이 빗물양 [지역별]
 
     public static int cleanLevel = 1; //물 정화기 레벨
-    
+
     public static int nowLocal = 0; // 현 위치
 
     public static Local[] local = new Local[4];
@@ -72,33 +71,71 @@ public class DataBase : MonoBehaviour {
     //pot
     public static int[] unLockPot = {1000, 5000, 5000, 5000};
     public static int[] perSecond = {5, 7, 10, 12, 13, 14, 15, 16};
-    public static float[] valuePotMax = {1.8f, 2.5f, 3.6f, 4.3f, 4.7f, 5f, 5.4f, 5.8f};
+    public static float[] valuePotMax = {1800, 2500, 3600, 4300, 4700, 5000, 5400, 5800};
     public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};
+
+    public static int[] costConsummer = {100, 200, 500};
 
 
     //--------------------------------------------------------
 
     private void Awake()
     {
-        // GetWaterData();
-        // DataGet();
-        GetWaterData();
-        GetMoney();
-        potLevel[0] = 1;
-        potMax[0] = 10000;
-        // perSecond[0] = 1000;
+        // PlayerPrefs.SetInt("Reset", 1);
+        // if (PlayerPrefs.GetInt("Reset", 1) == 1)
+        // {
+        //     FirstSet();
+        // }
 
         for (int i = 0; i < local.Length; i++)
             local[i] = new Local(i);
-        
-        for (int i = 0; i < consumerList.Length; i++)
-            consumerList[i] = new Consumer();
 
-        consumerList[0].perLiter = 100;
-        consumerList[1].perLiter = 200;
-        consumerList[2].perLiter = 500;
-        local[0].isLock = false;
+        for (int i = 0; i < consumerList.Length; i++)
+            consumerList[i] = new Consumer(i);
     }
+
+    // public static void FirstSet()
+    // {
+    //     Debug.Log("!");
+    //     PlayerPrefs.SetInt("Reset", 0);
+    //     isReset = false;
+    //     GetMoney();
+    //     GetWaterData();
+    //     GetLevels();
+    //     GetLateTime();
+    //     GetSettingVal();
+    //     for (int i = 1; i < 4; i++)
+    //         GetLocalData(i);
+    //
+    //     money = 0;
+    //
+    //     uncleanedWater = 0;
+    //     cleanedWater = 0;
+    //
+    //     cleanLevel = 0;
+    //     pailLevel = 0;
+    //     for (int i = 0; i < 4; i++)
+    //         potLevel[i] = 0;
+    //     tankLevel = 0;
+    //
+    //     lateTime = DateTime.Now;
+    //
+    //     bgmVol = .7f;
+    //     fxVol = .7f;
+    //
+    //     local[1].isLock = true;
+    //     local[2].isLock = true;
+    //     local[3].isLock = true;
+    //
+    //     SetMoney();
+    //     SetWaterData();
+    //     SetLevels();
+    //     SetLateTime();
+    //     SetSettingVal();
+    //     for (int i = 1; i < 4; i++)
+    //         SetLocalData(i);
+    // }
+
 
     public static void SetMoney()
     {
@@ -167,6 +204,18 @@ public class DataBase : MonoBehaviour {
         Debug.Log(PlayerPrefs.GetInt("IsReverse"));
     }
 
+
+    public static void GetLocalData(int val)
+    {
+        local[val].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 0));
+    }
+
+    public static void SetLocalData(int val)
+    {
+        PlayerPrefs.SetInt("local+" + val + "_isLock", (local[val].isLock) ? 1 : 0);
+    }
+
+
     public static void GetLateTime()
     {
         lateTime = Convert.ToDateTime(PlayerPrefs.GetString("LateTime", Convert.ToString(DateTime.Now)));
@@ -181,7 +230,7 @@ public class DataBase : MonoBehaviour {
 public class Local {
     public int cost;
     public string title;
-    public bool isLock = true;
+    public bool isLock = false;
 
     //  public float rainCycle;
 
@@ -189,9 +238,16 @@ public class Local {
     {
         title = DataBase.localName[val];
         cost = DataBase.localCost[val];
+        if (val != 0)
+            isLock = true;
     }
 }
 
 public class Consumer {
     public int perLiter = 10;
+
+    public Consumer(int val)
+    {
+        perLiter = DataBase.costConsummer[val];
+    }
 }

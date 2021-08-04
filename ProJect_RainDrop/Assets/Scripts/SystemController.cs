@@ -12,21 +12,26 @@ public class SystemController : MonoBehaviour {
 
     void Start()
     {
+        DataBase.GetLevels();
+        DataBase.GetWaterData();
+
         for (int i = 0; i < 4; i++)
         {
             if (DataBase.potLevel[i] > 0)
             {
-                DataBase.potWater[i] += System.Convert.ToInt32(CalculateUnderTime() / DataBase.potCycle[i]) *
-                                        DataBase.perSecond[i];
-                if (DataBase.potMax[i] < DataBase.potWater[i])
+                DataBase.potWater[i] += Convert.ToInt32(CalculateUnderTime() / DataBase.potCycle[i]) *
+                                        DataBase.perSecond[DataBase.potLevel[i]];
+                if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
                 {
-                    DataBase.potWater[i] = DataBase.potMax[i];
+                    DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[i]);
                 }
             }
         }
 
-        DataBase.GetLevels();
-        DataBase.GetWaterData();
+        DataBase.SetWaterData();
+
+        //UIManager.instance.PotUpdate();
+
         StartCoroutine(RainSystem());
         StartCoroutine(FixedSystem());
     }
@@ -58,20 +63,21 @@ public class SystemController : MonoBehaviour {
         {
             yield return new WaitForSeconds(1f);
             index++;
-            Debug.Log(index + "s");
             for (int local = 0; local < 4; local++)
             {
+                DataBase.GetWaterData();
+
                 if (value[local] < index / DataBase.potCycle[local])
                 {
                     value[local] = index / DataBase.potCycle[local];
                     DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
-                    Debug.Log(local + " " + DataBase.potWater[local]);
+                    Debug.Log(local);
                 }
 
                 if (DataBase.potLevel[local] > 0)
                 {
-                    if (DataBase.potWater[local] > DataBase.potMax[local])
-                        DataBase.potWater[local] = DataBase.potMax[local];
+                    if (DataBase.potWater[local] > DataBase.valuePotMax[local])
+                        DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[local]);
                 }
 
                 DataBase.SetLateTime();

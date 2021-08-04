@@ -51,22 +51,6 @@ public class UIManager : MonoBehaviour {
             slider[1] = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
                 .GetComponent<Slider>(); // PotTank
 
-            //locker[0] =  // PotTank
-
-
-            DataBase.GetMoney();
-            DataBase.GetWaterData();
-            DataBase.money = 10000000;
-            DataBase.uncleanedWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
-            DataBase.cleanedWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
-            DataBase.desertWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
-            DataBase.SetMoney();
-            DataBase.SetWaterData();
-
-            // Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
-            // DataBase.GetLevels();
-            // DataBase.potLevel[0] = 0;
-            // DataBase.SetLevels();
             if (DataBase.potLevel[DataBase.nowLocal] == 0)
             {
                 GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
@@ -74,10 +58,14 @@ public class UIManager : MonoBehaviour {
             }
 
             DataBase.GetWaterData();
-            WaterTankSet();
+            DataBase.GetLevels();
+            DataBase.GetMoney();
+
             WaterTankUpdate();
+            WaterTankSet();
             MoneySet();
             LocalSet();
+
             BackGroundSet();
             SetMainText();
             PotUpdate();
@@ -154,6 +142,11 @@ public class UIManager : MonoBehaviour {
 
             DataBase.GetMoney();
             DataBase.GetWaterData();
+            DataBase.GetLocalData(3);
+
+            GameObject.Find("Canvas/RichMan/Button/Lock").SetActive(DataBase.local[3].isLock);
+
+
             popUp[0].SetActive(false);
 
 
@@ -179,23 +172,27 @@ public class UIManager : MonoBehaviour {
                 locker[i].SetActive(DataBase.local[i].isLock);
 
 
+            for (int i = 1; i < 4; i++)
+                DataBase.GetLocalData(i);
+
+
             popUp[0] = GameObject.Find("Canvas/PopUp");
             popUp[1] = GameObject.Find("Canvas/PopUp(ok)");
 
             yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
-
-
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
             // text[1] = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>(); // popup text
             text[2] = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>(); // popup money
+
+
             popUp[0].SetActive(false);
             popUp[1].SetActive(false);
             MoneySet();
+            MapLockerSet();
             return;
         }
         catch (Exception e)
         {
-            Debug.Log(e);
         }
 
         //--------------------------------------------------------
@@ -216,11 +213,6 @@ public class UIManager : MonoBehaviour {
         // Market
         try
         {
-            DataBase.GetLevels();
-            DataBase.pailLevel = 0;
-            DataBase.SetLevels();
-
-
             text[0] = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
             text[1] = GameObject.Find("Canvas/Goods/Pail_BG/Info").GetComponent<Text>(); // 정보
             text[2] = GameObject.Find("Canvas/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
@@ -285,13 +277,11 @@ public class UIManager : MonoBehaviour {
     {
         DataBase.GetWaterData();
         slider[1].value = DataBase.potWater[DataBase.nowLocal];
-        DataBase.SetWaterData(); // 데이터베이스 세팅
     }
 
     public void WaterTankUpdate()
     {
         // 물탱크 변수 변경
-
         DataBase.GetWaterData();
         slider[0].value = DataBase.AllWater();
     }
@@ -306,7 +296,8 @@ public class UIManager : MonoBehaviour {
 
         try
         {
-            slider[1].maxValue = DataBase.potMax[DataBase.nowLocal];
+            Debug.Log(DataBase.valuePotMax[DataBase.nowLocal]);
+            slider[1].maxValue = DataBase.valuePotMax[DataBase.nowLocal];
             slider[1].minValue = 0f;
         }
         catch (Exception e)
@@ -316,12 +307,13 @@ public class UIManager : MonoBehaviour {
 
     public void EmptyWaterTank()
     {
+        DataBase.GetWaterData();
+
         if (DataBase.valueMaxWater[DataBase.tankLevel] <= DataBase.AllWater())
         {
             return;
         }
 
-        DataBase.GetWaterData();
 
         // 초당 물 얻는 양동이 비우기
         // 청정구역이라면 
@@ -388,7 +380,10 @@ public class UIManager : MonoBehaviour {
     public void MapLockerSet()
     {
         for (int i = 1; i < DataBase.local.Length; i++)
+        {
+            DataBase.GetLocalData(i);
             locker[i].SetActive(DataBase.local[i].isLock);
+        }
     }
 
 
@@ -400,11 +395,14 @@ public class UIManager : MonoBehaviour {
     private void UnLockLocal(int val)
     {
         DataBase.GetMoney();
+        DataBase.GetLocalData(val);
         popUp[0].SetActive(false);
         if (DataBase.money > DataBase.local[val].cost)
         {
             DataBase.money -= DataBase.local[val].cost;
+            DataBase.local[val].isLock = false;
             DataBase.SetMoney();
+            DataBase.SetLocalData(val);
             MapLockerSet();
         }
         else
@@ -416,7 +414,6 @@ public class UIManager : MonoBehaviour {
 
     public void MoveLocal(int val)
     {
-        Debug.Log(val);
         if (DataBase.local[val].isLock)
         {
             popUp[0].SetActive(true);
@@ -648,7 +645,6 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
-            Debug.Log(e);
         }
     }
 
@@ -667,7 +663,6 @@ public class UIManager : MonoBehaviour {
             if (DataBase.potLevel[i] > 0)
                 GameObject.Find("Canvas/Goods/Pot_BG/Pot_" + i + "/Lock").gameObject.SetActive(false);
     }
-
 
     public void SetMarketText()
     {
@@ -714,11 +709,11 @@ public class UIManager : MonoBehaviour {
                     : "1분당 " + DataBase.perSecond[i - 9] + "ml";
     }
 
-    private void UpPailLevel()
+    public void UpPailLevel()
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
-        OffPopUp(0);
+        // OffPopUp(0);
         if (DataBase.money > DataBase.upgradePail[DataBase.pailLevel + 1])
         {
             DataBase.money -= DataBase.upgradePail[++DataBase.pailLevel];
@@ -729,34 +724,20 @@ public class UIManager : MonoBehaviour {
         }
         else
         {
-            OnPopUp(0);
+            OnPopUp(1);
             text[13].text = "보유 금액이 부족합니다.";
             //돈부족 
         }
     }
 
-    public void UpPailBtn()
-    {
-        popUp[0].SetActive(true);
-        text[14].text = "구매하겠습니까?";
-        text[15].text = DataBase.upgradePail[DataBase.pailLevel + 1].ToString();
-        text[15].text += " $";
-        EventTrigger trgY = yesBtn.gameObject.AddComponent<EventTrigger>();
-        EventTrigger.Entry enY = new EventTrigger.Entry();
-        enY.eventID = EventTriggerType.PointerDown;
-        enY.callback.AddListener(delegate { UpPailLevel(); });
-        trgY.triggers.Add(enY);
-    }
-
-
-    private void UpTankLevel()
+    public void UpTankLevel()
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
-        OffPopUp(1);
+        // OffPopUp(0);
         if (DataBase.money > DataBase.upgradeTank[DataBase.tankLevel + 1])
         {
-            DataBase.money -= DataBase.upgradeTank[1 + DataBase.tankLevel];
+            DataBase.money -= DataBase.upgradeTank[++DataBase.tankLevel];
             DataBase.SetLevels();
             DataBase.SetMoney();
             SetMarketText();
@@ -765,45 +746,29 @@ public class UIManager : MonoBehaviour {
         else
         {
             text[13].text = "보유 금액이 부족합니다.";
-            OnPopUp(0);
+            OnPopUp(1);
             //돈부족 
         }
     }
 
-    public void UpPTankBtn()
-    {
-        popUp[0].SetActive(true);
-        text[14].text = "구매하시겠습니까?";
-        text[15].text = DataBase.upgradeTank[++DataBase.tankLevel].ToString();
-        text[15].text += " $";
-        EventTrigger trgY = yesBtn.gameObject.AddComponent<EventTrigger>();
-        EventTrigger.Entry enY = new EventTrigger.Entry();
-        enY.eventID = EventTriggerType.PointerDown;
-        enY.callback.AddListener(delegate { UpTankLevel(); });
-        trgY.triggers.Add(enY);
-    }
-
-    private void UpPotLevel(int val)
+    public void UpPotLevel(int val)
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
+        DataBase.GetLocalData(val);
         OffPopUp(0);
-        if (DataBase.potLevel[val] == 0 && !DataBase.local[val].isLock)
+        if (DataBase.potLevel[val] == 0)
         {
             // 해금
             if (DataBase.money >= DataBase.unLockPot[val])
             {
                 DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
+                DataBase.SetLevels();
+                DataBase.SetMoney();
                 SetMarketText();
                 MoneySet();
                 SetMarketLockers();
             }
-        }
-        else if (DataBase.potLevel[val] == 0 && DataBase.local[val].isLock)
-        {
-            //지역 해금 안됌
-            text[13].text = "아직 해금되지 않았습니다.";
-            OnPopUp(1);
         }
         else
         {
@@ -811,7 +776,6 @@ public class UIManager : MonoBehaviour {
             {
                 // 일반 업글
                 DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
-                Debug.Log("!");
                 DataBase.SetLevels();
                 DataBase.SetMoney();
                 SetMarketText();
@@ -829,17 +793,33 @@ public class UIManager : MonoBehaviour {
 
     public void UpPotBtn(int val)
     {
-        popUp[0].SetActive(true);
-        text[14].text = (DataBase.potLevel[val] == 0) ? "해금하시겠습니까?" : "구매하겠습니까?";
-        text[15].text = (DataBase.potLevel[val] == 0)
-            ? DataBase.unLockPot[val].ToString()
-            : (DataBase.unLockPot[val] + DataBase.upgradePot[1 + DataBase.potLevel[val]]).ToString();
-        text[15].text += " $";
-        EventTrigger trgY = yesBtn.gameObject.AddComponent<EventTrigger>();
-        EventTrigger.Entry enY = new EventTrigger.Entry();
-        enY.eventID = EventTriggerType.PointerDown;
-        enY.callback.AddListener(delegate { UpPotLevel(val); });
-        trgY.triggers.Add(enY);
+        DataBase.GetLocalData(val);
+        if (DataBase.local[val].isLock)
+        {
+            //지역 해금 안됌
+            text[13].text = "지역이 해금되지 않았습니다.";
+            OnPopUp(1);
+            return;
+        }
+
+        else if (DataBase.potLevel[val] < DataBase.valuePotMax.Length)
+            UpPotLevel(val);
+
+        else
+        {
+            popUp[0].SetActive(true);
+            text[14].text = (DataBase.potLevel[val] == 0) ? "해금하시겠습니까?" : "구매하겠습니까?";
+            text[15].text = (DataBase.potLevel[val] == 0)
+                ? DataBase.unLockPot[val].ToString()
+                : (DataBase.unLockPot[val] + DataBase.upgradePot[1 + DataBase.potLevel[val]]).ToString();
+            text[15].text += " $";
+            EventTrigger trgY = yesBtn.gameObject.AddComponent<EventTrigger>();
+            EventTrigger.Entry enY = new EventTrigger.Entry();
+            enY.eventID = EventTriggerType.PointerDown;
+            enY.callback.AddListener(delegate { UpPotLevel(val); });
+            trgY.triggers.Add(enY);
+            return;
+        }
     }
 
     #endregion

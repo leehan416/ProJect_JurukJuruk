@@ -728,7 +728,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cleanFx:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 07f350f5c41b34321823e001dbcc3d5b, type: 3}
   - {fileID: 21300000, guid: 2326784e366994be5b29730764d00dba, type: 3}
   popUp:
   - {fileID: 0}
