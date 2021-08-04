@@ -13,13 +13,14 @@ public class AnimationController : MonoBehaviour {
     public Sprite[] leftAnimation = new Sprite[3];
     public Sprite[] rightAnimation = new Sprite[3];
 
-
     public Sprite[] introAnimation = new Sprite[8];
 
     bool isLeftAnimationing = false;
     bool isRightAnimationing = false;
     bool isIdleAnimationing = false;
+
     bool isIntroAnimationing = false;
+    bool isCleaningAnimationing = false;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class AnimationController : MonoBehaviour {
         StopCoroutine(Idle());
         StopCoroutine(LeftAnimation());
         StopCoroutine(RightAnimation());
+
         isLeftAnimationing = false;
         isRightAnimationing = false;
         isIdleAnimationing = false;
