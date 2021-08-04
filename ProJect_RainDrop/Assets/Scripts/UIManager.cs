@@ -54,6 +54,15 @@ public class UIManager : MonoBehaviour {
             //locker[0] =  // PotTank
 
 
+            DataBase.GetMoney();
+            DataBase.GetWaterData();
+            DataBase.money = 10000000;
+            DataBase.uncleanedWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
+            DataBase.cleanedWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
+            DataBase.desertWater = DataBase.valueMaxWater[DataBase.tankLevel] / 3;
+            DataBase.SetMoney();
+            DataBase.SetWaterData();
+
             // Debug.Log(++DataBase.potLevel[DataBase.nowLocal]);
             // DataBase.GetLevels();
             // DataBase.potLevel[0] = 0;
@@ -709,7 +718,7 @@ public class UIManager : MonoBehaviour {
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
-        OffPopUp(1);
+        OffPopUp(0);
         if (DataBase.money > DataBase.upgradePail[DataBase.pailLevel + 1])
         {
             DataBase.money -= DataBase.upgradePail[++DataBase.pailLevel];
@@ -778,7 +787,7 @@ public class UIManager : MonoBehaviour {
     {
         DataBase.GetLevels();
         DataBase.GetMoney();
-        OffPopUp(1);
+        OffPopUp(0);
         if (DataBase.potLevel[val] == 0 && !DataBase.local[val].isLock)
         {
             // 해금
@@ -794,7 +803,7 @@ public class UIManager : MonoBehaviour {
         {
             //지역 해금 안됌
             text[13].text = "아직 해금되지 않았습니다.";
-            OnPopUp(0);
+            OnPopUp(1);
         }
         else
         {
