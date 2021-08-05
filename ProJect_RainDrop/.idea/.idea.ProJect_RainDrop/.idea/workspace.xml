@@ -25,12 +25,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DontDestroy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Local.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
     </changedPaths>
   </component>
@@ -59,10 +59,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="38743">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="38743" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -124,6 +124,7 @@
       <workItem from="1628051025596" duration="152000" />
       <workItem from="1628051196699" duration="347000" />
       <workItem from="1628075165155" duration="9624000" />
+      <workItem from="1628128356259" duration="55000" />
     </task>
     <servers />
   </component>

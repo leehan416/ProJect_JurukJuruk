@@ -1,11 +1,10 @@
 ﻿/* UI 컨트롤 스크립트 */
 
 using System;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
