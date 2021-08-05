@@ -207,7 +207,7 @@ public class DataBase : MonoBehaviour {
 
     public static void GetLocalData(int val)
     {
-        local[val].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 0));
+        local[val].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
     }
 
     public static void SetLocalData(int val)

@@ -172,10 +172,14 @@ public class UIManager : MonoBehaviour {
 
 
             for (int i = 1; i < 4; i++)
+            {
                 DataBase.GetLocalData(i);
+                DataBase.local[i].isLock = false;
+                DataBase.SetLocalData(i);
+            }
 
 
-            popUp[0] = GameObject.Find("Canvas/PopUp");
+                popUp[0] = GameObject.Find("Canvas/PopUp");
             popUp[1] = GameObject.Find("Canvas/PopUp(ok)");
 
             yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
