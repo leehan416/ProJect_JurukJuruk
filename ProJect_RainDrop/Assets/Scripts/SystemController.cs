@@ -103,7 +103,7 @@ public class SystemController : MonoBehaviour {
     public static int CalculateUnderTime()
     {
         DataBase.GetLateTime();
-        TimeSpan dateDiff = DataBase.lateTime - DateTime.Now;
+        TimeSpan dateDiff = DateTime.Now - DataBase.lateTime;
         return dateDiff.Seconds; // 초 차이
     }
 }

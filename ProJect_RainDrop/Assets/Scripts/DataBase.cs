@@ -31,9 +31,10 @@ public class DataBase : MonoBehaviour {
 
     public static int nowLocal = 0; // 현 위치
 
-    public static Local[] local = new Local[4];
+    public static bool[] isLocalLock = {false, true, true, true};
+    // public static Local[] local = new Local[4];
 
-    public static Consumer[] consumerList = new Consumer[3];
+    // public static Consumer[] consumerList = new Consumer[3];
 
     //--------------------------------------------------------
 
@@ -53,7 +54,7 @@ public class DataBase : MonoBehaviour {
     //System value 
     public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
     public static int[] potCycle = {5, 5, 4, 60};
-    public static int[] localCost = {0, 1000, 10000, 100000};
+    public static int[] localCost = {0, 5000, 10000, 20000};
     public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
 
     // pail
@@ -79,64 +80,6 @@ public class DataBase : MonoBehaviour {
 
     //--------------------------------------------------------
 
-    private void Awake()
-    {
-        // PlayerPrefs.SetInt("Reset", 1);
-        // if (PlayerPrefs.GetInt("Reset", 1) == 1)
-        // {
-        //     FirstSet();
-        // }
-
-        for (int i = 0; i < local.Length; i++)
-            local[i] = new Local(i);
-
-        for (int i = 0; i < consumerList.Length; i++)
-            consumerList[i] = new Consumer(i);
-    }
-
-    // public static void FirstSet()
-    // {
-    //     Debug.Log("!");
-    //     PlayerPrefs.SetInt("Reset", 0);
-    //     isReset = false;
-    //     GetMoney();
-    //     GetWaterData();
-    //     GetLevels();
-    //     GetLateTime();
-    //     GetSettingVal();
-    //     for (int i = 1; i < 4; i++)
-    //         GetLocalData(i);
-    //
-    //     money = 0;
-    //
-    //     uncleanedWater = 0;
-    //     cleanedWater = 0;
-    //
-    //     cleanLevel = 0;
-    //     pailLevel = 0;
-    //     for (int i = 0; i < 4; i++)
-    //         potLevel[i] = 0;
-    //     tankLevel = 0;
-    //
-    //     lateTime = DateTime.Now;
-    //
-    //     bgmVol = .7f;
-    //     fxVol = .7f;
-    //
-    //     local[1].isLock = true;
-    //     local[2].isLock = true;
-    //     local[3].isLock = true;
-    //
-    //     SetMoney();
-    //     SetWaterData();
-    //     SetLevels();
-    //     SetLateTime();
-    //     SetSettingVal();
-    //     for (int i = 1; i < 4; i++)
-    //         SetLocalData(i);
-    // }
-
-
     public static void SetMoney()
     {
         PlayerPrefs.SetString("Money", Convert.ToString(money));
@@ -154,9 +97,9 @@ public class DataBase : MonoBehaviour {
 
     public static void SetWaterData()
     {
-        PlayerPrefs.SetString("DesertWater", System.Convert.ToString(desertWater));
-        PlayerPrefs.SetString("UncleanedWater", System.Convert.ToString(uncleanedWater));
-        PlayerPrefs.SetString("CleanedWater", System.Convert.ToString(cleanedWater));
+        PlayerPrefs.SetString("DesertWater", Convert.ToString(desertWater));
+        PlayerPrefs.SetString("UncleanedWater", Convert.ToString(uncleanedWater));
+        PlayerPrefs.SetString("CleanedWater", Convert.ToString(cleanedWater));
         for (int i = 0; i < potWater.Length; i++)
             PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
     }
@@ -207,12 +150,14 @@ public class DataBase : MonoBehaviour {
 
     public static void GetLocalData(int val)
     {
-        local[val].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
+        Debug.Log(Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1)));
+        if (val == 0) return;
+        isLocalLock[val] = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
     }
 
     public static void SetLocalData(int val)
     {
-        PlayerPrefs.SetInt("local+" + val + "_isLock", (local[val].isLock) ? 1 : 0);
+        PlayerPrefs.SetInt("local+" + val + "_isLock", (isLocalLock[val]) ? 1 : 0);
     }
 
 
@@ -226,28 +171,28 @@ public class DataBase : MonoBehaviour {
         PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
     }
 }
-
-public class Local {
-    public int cost;
-    public string title;
-    public bool isLock = false;
-
-    //  public float rainCycle;
-
-    public Local(int val)
-    {
-        title = DataBase.localName[val];
-        cost = DataBase.localCost[val];
-        if (val != 0)
-            isLock = true;
-    }
-}
-
-public class Consumer {
-    public int perLiter = 10;
-
-    public Consumer(int val)
-    {
-        perLiter = DataBase.costConsummer[val];
-    }
-}
+//
+// public class Local {
+//     public int cost;
+//     public string title;
+//     public bool isLock = false;
+//
+//     //  public float rainCycle;
+//
+//     public Local(int val)
+//     {
+//         title = DataBase.localName[val];
+//         cost = DataBase.localCost[val];
+//         if (val != 0)
+//             isLock = true;
+//     }
+// }
+//
+// public class Consumer {
+//     public int perLiter = 10;
+//
+//     public Consumer(int val)
+//     {
+//         perLiter = DataBase.costConsummer[val];
+//     }
+// }
