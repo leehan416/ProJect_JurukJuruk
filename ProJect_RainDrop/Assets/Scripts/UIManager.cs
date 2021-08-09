@@ -249,16 +249,16 @@ public class UIManager : MonoBehaviour {
             DataBase.GetWaterData();
             DataBase.GetLevels();
 
-
-            for (int i = 0; i < 4; i++)
-            {
-                DataBase.potLevel[i] = 0;
-            }
+            //
+            // for (int i = 0; i < 4; i++)
+            // {
+            //     DataBase.potLevel[i] = 0;
+            // }
 
             // DataBase.GetLocalData(0);
             // DataBase.isLocalLock[0] = false;
             // DataBase.SetLocalData(0);
-            DataBase.SetLevels();
+            // DataBase.SetLevels();
             // for (int i = 1; i < 4; i++)
             // {
             //     DataBase.GetLocalData(i);
@@ -790,40 +790,37 @@ public class UIManager : MonoBehaviour {
             // 해금
             if (DataBase.money >= DataBase.unLockPot[val])
             {
-                DataBase.money -= DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
+                DataBase.money -= DataBase.unLockPot[val]; // + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
+                DataBase.potLevel[val]++;
                 DataBase.SetLevels();
                 DataBase.SetMoney();
                 SetMarketText();
                 MoneySet();
                 SetMarketLockers();
-            }
-            else
-            {
-                // 돈없음
-                text[13].text = "보유 금액이 부족합니다.";
-                OnPopUp(0);
+                return;
             }
         }
         else
         {
+            // 일반 업글
             if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1]))
             {
-                // 일반 업글
                 DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
+
                 DataBase.SetLevels();
                 DataBase.SetMoney();
                 SetMarketText();
                 MoneySet();
                 SetMarketLockers();
-            }
-            else
-            {
-                // 돈없음
-                text[13].text = "보유 금액이 부족합니다.";
-                OnPopUp(0);
+                return;
             }
         }
+
+        // 돈없음
+        text[13].text = "보유 금액이 부족합니다.";
+        OnPopUp(1);
     }
+
 
     public void UpPotBtn(int val)
     {
@@ -866,8 +863,8 @@ public class UIManager : MonoBehaviour {
 
     #endregion
 
-    //--------------------------------------------------------
-    //PopUp
+//--------------------------------------------------------
+//PopUp
 
     #region PopUp
 
