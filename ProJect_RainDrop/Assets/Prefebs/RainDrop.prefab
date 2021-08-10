@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4781971936715649351}
   - component: {fileID: 4781971936715649350}
   m_Layer: 5
-  m_Name: Image
+  m_Name: RainDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

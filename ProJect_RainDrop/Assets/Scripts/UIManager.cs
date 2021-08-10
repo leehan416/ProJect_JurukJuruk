@@ -277,9 +277,22 @@ public class UIManager : MonoBehaviour {
         }
         catch (Exception e)
         {
-            Debug.Log(e);
         }
         //--------------------------------------------------------
+    }
+
+
+    private void Update()
+    {
+        //TODO MainScene 에서 적용
+        //안드로이드인 경우
+        // if (Application.platform == RuntimePlatform.Android)
+        // {
+        //     if (Input.GetKey(KeyCode.Escape)) //뒤로가기 키 입력
+        //     {
+        //         Application.Quit(); // 게임 종료
+        //     }
+        // }
     }
 
     //--------------------------------------------------------

@@ -15,12 +15,15 @@ public class AnimationController : MonoBehaviour {
 
     public Sprite[] introAnimation = new Sprite[8];
 
+    private Text touch_to_start;
+
     bool isLeftAnimationing = false;
     bool isRightAnimationing = false;
     bool isIdleAnimationing = false;
 
     bool isIntroAnimationing = false;
     bool isCleaningAnimationing = false;
+    bool isTitleAnimationing = false;
 
     void Start()
     {
@@ -35,11 +38,16 @@ public class AnimationController : MonoBehaviour {
 
         try
         {
+            touch_to_start = GameObject.Find("Canvas/TouchToStart/Text").GetComponent<Text>();
+            // Debug.Log(touch_to_start.color);
             obj = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
+            isIntroAnimationing = true;
             StartCoroutine(IntroAnimation());
+            StartCoroutine(titleAnimation());
         }
         catch (Exception e)
         {
+            Debug.Log("!");
         }
     }
 
@@ -50,6 +58,7 @@ public class AnimationController : MonoBehaviour {
         {
             return;
         }
+
 
         if ((!PlayerController.leftClick && !PlayerController.rightClick) && !isIdleAnimationing)
         {
@@ -78,6 +87,21 @@ public class AnimationController : MonoBehaviour {
         isRightAnimationing = false;
         isIdleAnimationing = false;
     }
+
+    IEnumerator titleAnimation()
+    {
+        isTitleAnimationing = true;
+        for (float i = 0; isIntroAnimationing; i += .1f)
+        {
+            yield return new WaitForSeconds(.2f);
+            //touch_to_start = new Color(77, 77, 77, Mathf.Abs(255 * Mathf.Sin(i)));
+            touch_to_start.color = new Color(77 / 255f, 77 / 255f, 77 / 255f, Mathf.Abs(255 * Mathf.Sin(i)) / 255f);
+
+            // Debug.Log(touch_to_start.color);
+            // new Color(255/ 255f, 10/ 255f, 10/ 255f, 255 / 255f);
+        }
+    }
+
 
     IEnumerator LeftAnimation()
     {
@@ -112,7 +136,7 @@ public class AnimationController : MonoBehaviour {
     IEnumerator IntroAnimation()
     {
         isIntroAnimationing = true;
-        for (int i = 0;; i++)
+        for (int i = 0; isIntroAnimationing; i++)
         {
             obj.sprite = introAnimation[i % introAnimation.Length];
             yield return new WaitForSeconds(introFrameSec);
