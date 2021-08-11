@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/ReadMe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,9 +30,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UX_Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -129,6 +133,7 @@
       <workItem from="1628255701640" duration="6033000" />
       <workItem from="1628468793954" duration="1051000" />
       <workItem from="1628554699969" duration="5377000" />
+      <workItem from="1628601104789" duration="7981000" />
     </task>
     <servers />
   </component>

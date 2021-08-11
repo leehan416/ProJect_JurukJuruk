@@ -45,10 +45,7 @@ public class AnimationController : MonoBehaviour {
             StartCoroutine(IntroAnimation());
             StartCoroutine(titleAnimation());
         }
-        catch (Exception e)
-        {
-            Debug.Log("!");
-        }
+        catch (Exception e) { }
     }
 
 
