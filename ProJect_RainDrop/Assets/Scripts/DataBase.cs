@@ -3,7 +3,6 @@
 using System;
 using UnityEngine;
 
-
 // pail => user pot 
 // pot => extra pot 
 
@@ -171,6 +170,7 @@ public class DataBase : MonoBehaviour {
         PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
     }
 }
+
 //
 // public class Local {
 //     public int cost;
@@ -179,13 +179,13 @@ public class DataBase : MonoBehaviour {
 //
 //     //  public float rainCycle;
 //
-//     public Local(int val)
-//     {
-//         title = DataBase.localName[val];
-//         cost = DataBase.localCost[val];
-//         if (val != 0)
-//             isLock = true;
-//     }
+//     // public Local(int val)
+//     // {
+//     //     title = DataBase.localName[val];
+//     //     cost = DataBase.localCost[val];
+//     //     if (val != 0)
+//     //         isLock = true;
+//     // }
 // }
 //
 // public class Consumer {
