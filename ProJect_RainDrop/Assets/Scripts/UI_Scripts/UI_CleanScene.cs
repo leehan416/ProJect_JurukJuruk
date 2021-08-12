@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_CleanScene : MonoBehaviour {
-    private Text money; // money texst
-    private Text[] waterCounter = new Text[3]; //waterCounter Text
     private Button clickZone; // CleanBtn
 
-    private Slider waterTank; // 물탱크
+    // private Slider waterTank; // 물탱크
 
     private Text upText; // 업그레이드 가격 Text
 
@@ -20,16 +16,10 @@ public class UI_CleanScene : MonoBehaviour {
     void Start()
     {
         //UI Set
-        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>();
-
-        waterCounter[0] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
-        waterCounter[1] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
-        waterCounter[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
 
         explain = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
         upText = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
 
-        waterTank = GameObject.Find("Canvas/Tank").GetComponent<Slider>();
         clickZone = GameObject.Find("Canvas/ClickZone").GetComponent<Button>();
 
         // 버튼 이벤트 트리거 생성.
@@ -67,12 +57,12 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.GetLevels();
 
         // set slider
-        UI_MultiScene.setWaterTank(waterTank);
-        UI_MultiScene.UpdateWaterTank(waterTank);
+        UI_MultiScene.setWaterTank();
+        UI_MultiScene.UpdateWaterTank();
 
         //Set Text
-        UI_MultiScene.setWaterCounter(waterCounter);
-        UI_MultiScene.setMoney(money);
+        UI_MultiScene.setWaterCounter();
+        UI_MultiScene.setMoney();
         setCleanText();
     }
 
@@ -106,7 +96,7 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.SetWaterData();
 
         //Set Text
-        UI_MultiScene.setWaterCounter(waterCounter);
+        UI_MultiScene.setWaterCounter();
     }
 
     //현 정보 표시 Texts 세팅
@@ -145,14 +135,14 @@ public class UI_CleanScene : MonoBehaviour {
             (DataBase.cleanLevel < DataBase.valueCleanWater.Length))
         {
             DataBase.money -= DataBase.upgradeClean[++DataBase.cleanLevel];
-            
+
             //Set Data
             DataBase.SetLevels();
             DataBase.SetMoney();
-            
+
             //Set Texts
             setCleanText();
-            UI_MultiScene.setMoney(money);
+            UI_MultiScene.setMoney();
         }
         else
         {

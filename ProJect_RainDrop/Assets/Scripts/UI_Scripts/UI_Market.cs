@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_Market : MonoBehaviour {
-    private Text money;
+    // private Text money;
 
     //pail
     private Text pailInfo;
@@ -34,7 +34,6 @@ public class UI_Market : MonoBehaviour {
 
     {
         // Set UI
-        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
         pailInfo = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/Info").GetComponent<Text>(); // 정보
         pailCost = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
         tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
@@ -72,7 +71,7 @@ public class UI_Market : MonoBehaviour {
 
         //set Text
         setMarketText();
-        UI_MultiScene.setMoney(money);
+        UI_MultiScene.setMoney();
         return;
     }
 
@@ -158,7 +157,7 @@ public class UI_Market : MonoBehaviour {
 
             //set Texts
             setMarketText();
-            UI_MultiScene.setMoney(money);
+            UI_MultiScene.setMoney();
         }
         //돈이 부족하다면
         else
@@ -189,7 +188,7 @@ public class UI_Market : MonoBehaviour {
 
             // set text
             setMarketText();
-            UI_MultiScene.setMoney(money);
+            UI_MultiScene.setMoney();
         }
         // 돈 부족
         else
@@ -226,7 +225,7 @@ public class UI_Market : MonoBehaviour {
 
                 // set text 
                 setMarketText();
-                UI_MultiScene.setMoney(money);
+                UI_MultiScene.setMoney();
 
                 //set Pot Lockers
                 setPotLockers();
@@ -246,7 +245,7 @@ public class UI_Market : MonoBehaviour {
 
                 //set texts
                 setMarketText();
-                UI_MultiScene.setMoney(money);
+                UI_MultiScene.setMoney();
 
                 //set pot lockers
                 setPotLockers();

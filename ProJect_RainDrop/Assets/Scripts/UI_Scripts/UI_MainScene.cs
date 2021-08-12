@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class UI_MainScene : MonoBehaviour {
-    Text money; //money Text
     Text local; // local Text
 
-    Text[] waterCounter = new Text[3]; // waterCounter Text
-
-    Slider waterTank; // 물탱크
     Slider waterPot; // 물탱크
+
+    private GameObject feverBtn; // 고양이 버튼 
 
     // 배경 sprite 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
+    [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
     void Start()
     {
         //Get UI
-        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
-        waterCounter[0] = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
-        waterCounter[1] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
-        waterCounter[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
-        waterTank = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
         waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>(); // PotTank
+        feverBtn = GameObject.Find("Canvas/BigBoxFeverCats");
 
         //현 지역 전용 pot 이외엔 모두 비활성화
         for (int i = 0; i < 4; i++)
@@ -39,47 +32,36 @@ public class UI_MainScene : MonoBehaviour {
             GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
 
+        //고양이 버튼 비활성화
+        feverBtn.SetActive(false);
+
         //dataGet
         DataBase.GetWaterData();
         DataBase.GetLevels();
         DataBase.GetMoney();
 
         //sliderSet
-        UI_MultiScene.setWaterTank(waterTank);
+        UI_MultiScene.setWaterTank();
         setWaterPot();
 
         //TextSet
         setLocal();
-        UI_MultiScene.setMoney(money);
+        UI_MultiScene.setMoney();
 
         setbackGround();
-        UI_MultiScene.setWaterCounter(waterCounter);
+        UI_MultiScene.setWaterCounter();
 
         //slider update
         updateWaterPot();
-        UI_MultiScene.UpdateWaterTank(waterTank);
+        UI_MultiScene.UpdateWaterTank();
     }
 
-    // public void setMainText()
-    // {
-    //     DataBase.GetWaterData();
-    //     waterCounter[0].text = DataBase.uncleanedWater.ToString();
-    //     waterCounter[1].text = DataBase.cleanedWater.ToString();
-    //     waterCounter[2].text = DataBase.desertWater.ToString();
-    // }
     // pot (추가 양동이) value set
     public void updateWaterPot()
     {
         DataBase.GetWaterData();
         waterPot.value = DataBase.potWater[DataBase.nowLocal];
     }
-
-    // public void waterTankUpdate()
-    // {
-    //     // 물탱크 변수 변경
-    //     DataBase.GetWaterData();
-    //     waterTank.value = DataBase.AllWater();
-    // }
 
     // pot (추가 양동이) 초기 데이터 설정
     public void setWaterPot()
@@ -138,18 +120,9 @@ public class UI_MainScene : MonoBehaviour {
 
         //ui update
         updateWaterPot();
-        UI_MultiScene.UpdateWaterTank(waterTank);
-        UI_MultiScene.setWaterCounter(waterCounter);
+        UI_MultiScene.UpdateWaterTank();
+        UI_MultiScene.setWaterCounter();
     }
-
-    // public void moneySet()
-    // {
-    //     // 현재 돈 
-    //
-    //     //DataBase.money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
-    //     DataBase.GetMoney();
-    //     money.text = Convert.ToString(DataBase.money) + " $";
-    // }
 
 
     // 지역 text set
@@ -163,5 +136,17 @@ public class UI_MainScene : MonoBehaviour {
     {
         Image bg = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
         bg.sprite = localBG[DataBase.nowLocal];
+    }
+
+    public void setFeverbtn()
+    {
+        Random random = new Random();
+        feverBtn.SetActive(true);
+        feverBtn.GetComponent<Button>().image.sprite = catImage[random.Next(0, catImage.Length - 1)];
+    }
+
+    public void clickFeverbtn()
+    {
+        feverBtn.SetActive(false);
     }
 }

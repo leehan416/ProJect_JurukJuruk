@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
-    private Text money; // money Text 
+    // private Text money; // money Text 
     private Text btnTextYN; // 가격 Text
     private Text btnTextOK; // 돈 없을때 뜨는 Text
 
@@ -28,7 +28,7 @@ public class UI_MapScene : MonoBehaviour {
 
         yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
 
-        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
+        // money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
         btnTextOK = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>(); // popup text
         btnTextYN = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>(); // popup money
 
@@ -37,7 +37,7 @@ public class UI_MapScene : MonoBehaviour {
         popUpOK.SetActive(false);
 
         // Set Text
-        UI_MultiScene.setMoney(money);
+        UI_MultiScene.setMoney();
         // Set Locker
         setMapLocker();
     }

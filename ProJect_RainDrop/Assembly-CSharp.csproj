@@ -64,6 +64,8 @@
      <Compile Include="Assets\Scripts\UI_Scripts\UI_MapScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_Market.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_MultiScene.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\UI_SettingScene.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\UI_ShopScene.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/whal3/Documents/GitHub/ProJect_JulukJuluk/ProJect_RainDrop/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

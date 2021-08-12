@@ -30,7 +30,13 @@ public class DataBase : MonoBehaviour {
 
     public static int nowLocal = 0; // 현 위치
 
-    public static bool[] isLocalLock = {false, true, true, true};
+    public static int catDisappearTime = 200; // 고양이 등장시간 | 3~5분 랜덤
+
+    public static float feverEfficiency = 5; // 빗물 내리는 시간 줄여주는 비율 
+
+    public static bool[] isLocalLock = {false, true, true, true}; // 지역 해금 변수
+
+    //TODO 최적화 필요
     // public static Local[] local = new Local[4];
 
     // public static Consumer[] consumerList = new Consumer[3];
