@@ -37,7 +37,7 @@ public class UI_MapScene : MonoBehaviour {
         popUpOK.SetActive(false);
 
         // Set Text
-        UI_MultiScene.setMoney();
+        UI_MultiScene.instance.setMoney();
         // Set Locker
         setMapLocker();
     }
@@ -114,7 +114,7 @@ public class UI_MapScene : MonoBehaviour {
         {
             PlayerPrefs.SetInt("NowLocal", val);
             DataBase.nowLocal = val;
-            UI_MultiScene.moveScene("Main");
+            UI_MultiScene.instance.moveScene("Main");
         }
     }
 }

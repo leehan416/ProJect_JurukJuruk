@@ -66,13 +66,13 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            if (Input.mousePosition.x > UIManager.instance.transform.GetComponent<RectTransform>().rect.width / 2)
+            if (Input.mousePosition.x > UI_MultiScene.instance.gameObject.GetComponent<RectTransform>().rect.width / 2)
             {
                 rightClick = true;
                 leftClick = false;
                 if (gameObject.transform.position.x <
-                    UIManager.instance.transform.GetComponent<RectTransform>().rect.width)
-                    transform.Translate(playerSpeed * Time.deltaTime, 0, 0);
+                    UI_MultiScene.instance.gameObject.GetComponent<RectTransform>().rect.width)
+                    transform.Translate((DataBase.isReverse) ? -1 : 1 * playerSpeed * Time.deltaTime, 0, 0);
             }
             else
             {
@@ -80,8 +80,9 @@ public class PlayerController : MonoBehaviour {
                 rightClick = false;
                 if (this.gameObject.transform.position.x > 0)
 
-                    transform.Translate(-playerSpeed * Time.deltaTime, 0, 0);
+                    transform.Translate((DataBase.isReverse) ? -1 : 1 * -playerSpeed * Time.deltaTime, 0, 0);
             }
+
             return;
         }
         else

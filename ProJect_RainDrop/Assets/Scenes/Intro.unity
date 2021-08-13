@@ -772,7 +772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782879094}
+      - m_Target: {fileID: 1782879101}
         m_MethodName: IntroMoveScene
         m_Mode: 1
         m_Arguments:
@@ -908,10 +908,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782879098}
+  - component: {fileID: 1782879101}
+  - component: {fileID: 1782879094}
   - component: {fileID: 1782879097}
   - component: {fileID: 1782879096}
   - component: {fileID: 1782879095}
-  - component: {fileID: 1782879094}
   - component: {fileID: 1782879100}
   - component: {fileID: 1782879099}
   m_Layer: 5
@@ -930,42 +931,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782879093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
+  m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  slider:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  toggle: {fileID: 0}
-  locker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  localBG:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cleanFx:
-  - {fileID: 0}
-  - {fileID: 0}
-  popUp:
-  - {fileID: 0}
-  - {fileID: 0}
-  yesBtn: {fileID: 0}
 --- !u!114 &1782879095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,6 +1059,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26f07339c7f334f11b9936cf6e4eab59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1782879101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782879093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3c6736ef4f44d43ab6bccdf786874d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1939493561

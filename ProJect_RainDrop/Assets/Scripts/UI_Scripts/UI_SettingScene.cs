@@ -11,6 +11,7 @@ public class UI_SettingScene : MonoBehaviour {
 
     private void Start()
     {
+        DataBase.GetSettingVal();
         bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
         fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
         reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
@@ -21,7 +22,6 @@ public class UI_SettingScene : MonoBehaviour {
     // value 초기 설정
     public void SetSettingObj()
     {
-        DataBase.GetSettingVal();
         bgmSlider.value = DataBase.bgmVol;
         fxSlider.value = DataBase.fxVol;
         reverse.isOn = DataBase.isReverse;
