@@ -93,16 +93,9 @@ public class SystemController : MonoBehaviour {
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }
-            UIManager.instance.PotUpdate();
-            
-            
-            
-            
-            if () 
-            
-            
-            
-            
+
+            // UIManager.instance.PotUpdate();
+            UI_MainScene.updateWaterPot();
         }
     }
 

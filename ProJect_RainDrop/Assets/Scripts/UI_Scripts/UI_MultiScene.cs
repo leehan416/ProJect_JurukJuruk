@@ -4,16 +4,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_MultiScene : MonoBehaviour {
+    // transform에 접근하기 위한 instance
+    public static UI_MultiScene instance;
+
     // 물통 옆 현재 각 빗물 Text set
+    private Slider waterTank;
+    private Text money;
 
-
-    public static Slider waterTank;
-    public static Text money;
-
-    public static Text[] waterCounter = new Text[3];
+    private Text[] waterCounter = new Text[3];
 
     private void Start()
     {
+        if (!instance) instance = this;
+        else Destroy(this);
         money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
 
         try
@@ -29,7 +32,7 @@ public class UI_MultiScene : MonoBehaviour {
         }
     }
 
-    public static void setWaterCounter()
+    public void setWaterCounter()
     {
         DataBase.GetWaterData(); // 빗물 데이터 가져오기
 
@@ -41,7 +44,7 @@ public class UI_MultiScene : MonoBehaviour {
 
 
     // 물탱크 초기 세팅
-    public static void setWaterTank()
+    public void setWaterTank()
     {
         DataBase.GetWaterData(); // 빗물 데이터 가져오기
         DataBase.GetLevels(); // 레벨 데이터 가져오기
@@ -50,21 +53,21 @@ public class UI_MultiScene : MonoBehaviour {
     }
 
     // 물탱크 static value 변경
-    public static void UpdateWaterTank()
+    public void updateWaterTank()
     {
         DataBase.GetWaterData(); // 빗물 데이터 가져오기
         waterTank.value = DataBase.AllWater(); //  value = 빗물 전체 합
     }
 
     // 현재 돈 text set
-    public static void setMoney()
+    public void setMoney()
     {
         DataBase.GetMoney(); // 돈 데이터 가져오기
         money.text = Convert.ToString(DataBase.money) + " $"; // text set
     }
 
     //Scene 이동 
-    public static void moveScene(string val)
+    public void moveScene(string val)
     {
         SceneManager.LoadScene(val);
     }

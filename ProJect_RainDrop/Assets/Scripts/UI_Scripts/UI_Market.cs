@@ -71,7 +71,7 @@ public class UI_Market : MonoBehaviour {
 
         //set Text
         setMarketText();
-        UI_MultiScene.setMoney();
+        UI_MultiScene.instance.setMoney();
         return;
     }
 
@@ -157,7 +157,7 @@ public class UI_Market : MonoBehaviour {
 
             //set Texts
             setMarketText();
-            UI_MultiScene.setMoney();
+            UI_MultiScene.instance.setMoney();
         }
         //돈이 부족하다면
         else
@@ -188,7 +188,7 @@ public class UI_Market : MonoBehaviour {
 
             // set text
             setMarketText();
-            UI_MultiScene.setMoney();
+            UI_MultiScene.instance.setMoney();
         }
         // 돈 부족
         else
@@ -225,7 +225,7 @@ public class UI_Market : MonoBehaviour {
 
                 // set text 
                 setMarketText();
-                UI_MultiScene.setMoney();
+                UI_MultiScene.instance.setMoney();
 
                 //set Pot Lockers
                 setPotLockers();
@@ -245,7 +245,7 @@ public class UI_Market : MonoBehaviour {
 
                 //set texts
                 setMarketText();
-                UI_MultiScene.setMoney();
+                UI_MultiScene.instance.setMoney();
 
                 //set pot lockers
                 setPotLockers();

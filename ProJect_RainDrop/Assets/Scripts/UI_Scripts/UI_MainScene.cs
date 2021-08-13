@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class UI_MainScene : MonoBehaviour {
-    Text local; // local Text
+    private Text local; // local Text
 
-    Slider waterPot; // 물탱크
+    private static Slider waterPot; // 물탱크
 
     private GameObject feverBtn; // 고양이 버튼 
 
@@ -16,9 +16,10 @@ public class UI_MainScene : MonoBehaviour {
     void Start()
     {
         //Get UI
+        local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
         waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>(); // PotTank
-        feverBtn = GameObject.Find("Canvas/BigBoxFeverCats");
+        feverBtn = GameObject.Find("Canvas/BigBox/FeverCats");
 
         //현 지역 전용 pot 이외엔 모두 비활성화
         for (int i = 0; i < 4; i++)
@@ -41,23 +42,23 @@ public class UI_MainScene : MonoBehaviour {
         DataBase.GetMoney();
 
         //sliderSet
-        UI_MultiScene.setWaterTank();
+        UI_MultiScene.instance.setWaterTank();
         setWaterPot();
 
         //TextSet
         setLocal();
-        UI_MultiScene.setMoney();
+        UI_MultiScene.instance.setMoney();
 
         setbackGround();
-        UI_MultiScene.setWaterCounter();
+        UI_MultiScene.instance.setWaterCounter();
 
         //slider update
         updateWaterPot();
-        UI_MultiScene.UpdateWaterTank();
+        UI_MultiScene.instance.updateWaterTank();
     }
 
     // pot (추가 양동이) value set
-    public void updateWaterPot()
+    public static void updateWaterPot()
     {
         DataBase.GetWaterData();
         waterPot.value = DataBase.potWater[DataBase.nowLocal];
@@ -120,8 +121,8 @@ public class UI_MainScene : MonoBehaviour {
 
         //ui update
         updateWaterPot();
-        UI_MultiScene.UpdateWaterTank();
-        UI_MultiScene.setWaterCounter();
+        UI_MultiScene.instance.updateWaterTank();
+        UI_MultiScene.instance.setWaterCounter();
     }
 
 

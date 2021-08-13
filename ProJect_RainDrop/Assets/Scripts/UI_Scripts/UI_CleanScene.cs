@@ -10,7 +10,8 @@ public class UI_CleanScene : MonoBehaviour {
     private Text upText; // 업그레이드 가격 Text
 
     private Text explain; // 현재, 다음 업그레이드 설명 Text 
-    [Header("클린 스프라이트")] public Sprite[] cleanFx = new Sprite[2]; // click FX
+    [Header("클린 스프라이트")] public Sprite[] cleanFx = new Sprite[4]; // click FX
+    [Header("투명 스프라이트")] public Sprite nullImage;
 
 
     void Start()
@@ -43,13 +44,13 @@ public class UI_CleanScene : MonoBehaviour {
         });
         enBU.callback.AddListener(delegate
         {
-            GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[0];
+            GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = nullImage;
         });
         trgY.triggers.Add(enBH);
         trgY.triggers.Add(enBU);
 
         // ClickZone 기본 sprite 적용 (투명 이미지)
-        GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[0];
+        GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = nullImage;
 
         //get datas 
         DataBase.GetMoney();
@@ -57,12 +58,12 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.GetLevels();
 
         // set slider
-        UI_MultiScene.setWaterTank();
-        UI_MultiScene.UpdateWaterTank();
+        UI_MultiScene.instance.setWaterTank();
+        UI_MultiScene.instance.updateWaterTank();
 
         //Set Text
-        UI_MultiScene.setWaterCounter();
-        UI_MultiScene.setMoney();
+        UI_MultiScene.instance.setWaterCounter();
+        UI_MultiScene.instance.setMoney();
         setCleanText();
     }
 
@@ -96,7 +97,7 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.SetWaterData();
 
         //Set Text
-        UI_MultiScene.setWaterCounter();
+        UI_MultiScene.instance.setWaterCounter();
     }
 
     //현 정보 표시 Texts 세팅
@@ -142,7 +143,7 @@ public class UI_CleanScene : MonoBehaviour {
 
             //Set Texts
             setCleanText();
-            UI_MultiScene.setMoney();
+            UI_MultiScene.instance.setMoney();
         }
         else
         {

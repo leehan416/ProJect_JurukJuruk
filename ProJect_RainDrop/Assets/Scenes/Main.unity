@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1008,7 +1008,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2147,7 +2147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2353,7 +2353,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798680553}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerMoveBtn
         m_Mode: 6
         m_Arguments:
@@ -2840,7 +2840,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2970,7 +2970,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798680553}
+      - m_Target: {fileID: 0}
         m_MethodName: EmptyWaterTank
         m_Mode: 1
         m_Arguments:
@@ -4086,10 +4086,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1798680551}
+  - component: {fileID: 1798680556}
+  - component: {fileID: 1798680553}
   - component: {fileID: 1798680550}
   - component: {fileID: 1798680549}
   - component: {fileID: 1798680548}
-  - component: {fileID: 1798680553}
   - component: {fileID: 1798680552}
   - component: {fileID: 1798680554}
   - component: {fileID: 1798680555}
@@ -4210,38 +4211,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798680547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
+  m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  slider:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  toggle: {fileID: 0}
-  locker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  localBG:
-  - {fileID: 21300000, guid: 5f713a84d1d99496da3c634681e91683, type: 3}
-  - {fileID: 21300000, guid: bcf0a586d40a4414f841cdeecc71fb47, type: 3}
-  - {fileID: 21300000, guid: 97c6acb4cc1ff44e9a03d9bbde1611fc, type: 3}
-  - {fileID: 21300000, guid: 65bd461fb5860497dad3c8ea03340631, type: 3}
-  cleanFx:
-  - {fileID: 0}
-  - {fileID: 0}
-  popUp:
-  - {fileID: 0}
-  - {fileID: 0}
-  yesBtn: {fileID: 0}
 --- !u!114 &1798680554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4286,6 +4258,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f07339c7f334f11b9936cf6e4eab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1798680556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798680547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ceddbeb7fbf49f9897d05281b95226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localBG:
+  - {fileID: 21300000, guid: 5f713a84d1d99496da3c634681e91683, type: 3}
+  - {fileID: 21300000, guid: bcf0a586d40a4414f841cdeecc71fb47, type: 3}
+  - {fileID: 21300000, guid: 97c6acb4cc1ff44e9a03d9bbde1611fc, type: 3}
+  - {fileID: 21300000, guid: 65bd461fb5860497dad3c8ea03340631, type: 3}
+  catImage:
+  - {fileID: 7558836099807782548, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
+  - {fileID: 5826042701559951212, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
+  - {fileID: -7084873560412676255, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
 --- !u!1 &1802829897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4368,7 +4361,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4822,7 +4815,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5227,7 +5220,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798680553}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayerMoveBtn
         m_Mode: 6
         m_Arguments:

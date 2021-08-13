@@ -29,8 +29,8 @@ public class Rain : MonoBehaviour {
             }
 
             DataBase.SetWaterData();
-            UIManager.instance.WaterTankUpdate();
-            UIManager.instance.SetMainText();
+            UI_MultiScene.instance.updateWaterTank();
+            UI_MultiScene.instance.setWaterCounter();
         }
 
         Destroy(this.gameObject); // 객체를 없앤다

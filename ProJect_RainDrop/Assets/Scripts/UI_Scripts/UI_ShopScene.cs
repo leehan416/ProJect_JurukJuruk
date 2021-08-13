@@ -23,11 +23,11 @@ public class UI_ShopScene : MonoBehaviour {
         popupOK.SetActive(false);
 
         //set Text
-        UI_MultiScene.setMoney();
-        UI_MultiScene.setWaterCounter();
+        UI_MultiScene.instance.setMoney();
+        UI_MultiScene.instance.setWaterCounter();
         //set Tank
-        UI_MultiScene.setWaterTank();
-        UI_MultiScene.UpdateWaterTank();
+        UI_MultiScene.instance.setWaterTank();
+        UI_MultiScene.instance.updateWaterTank();
     }
 
 
@@ -117,10 +117,10 @@ public class UI_ShopScene : MonoBehaviour {
         DataBase.SetMoney();
 
         //set Text
-        UI_MultiScene.setWaterCounter();
-        UI_MultiScene.setMoney();
+        UI_MultiScene.instance.setWaterCounter();
+        UI_MultiScene.instance.setMoney();
 
         //set Tank
-        UI_MultiScene.UpdateWaterTank();
+        UI_MultiScene.instance.updateWaterTank();
     }
 }

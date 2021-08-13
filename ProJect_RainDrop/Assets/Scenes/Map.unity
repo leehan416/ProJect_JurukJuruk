@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,8 +357,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
-        m_MethodName: MoveLocal
+      - m_Target: {fileID: 1629544739}
+        m_MethodName: moveLocal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -641,8 +641,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
-        m_MethodName: MoveLocal
+      - m_Target: {fileID: 1629544739}
+        m_MethodName: moveLocal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1224,8 +1224,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
-        m_MethodName: MoveLocal
+      - m_Target: {fileID: 1629544739}
+        m_MethodName: moveLocal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1837,11 +1837,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629544736}
+  - component: {fileID: 1629544739}
+  - component: {fileID: 1629544737}
   - component: {fileID: 1629544735}
   - component: {fileID: 1629544734}
   - component: {fileID: 1629544733}
   - component: {fileID: 1629544738}
-  - component: {fileID: 1629544737}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1944,52 +1945,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629544732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758cde1fc70a24573ae3bb666c724eaa, type: 3}
+  m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  slider:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  toggle: {fileID: 0}
-  locker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  localBG:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cleanFx:
-  - {fileID: 0}
-  - {fileID: 0}
-  popUp:
-  - {fileID: 0}
-  - {fileID: 0}
-  yesBtn: {fileID: 0}
 --- !u!114 &1629544738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2000,6 +1958,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26f07339c7f334f11b9936cf6e4eab59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1629544739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629544732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ae9de140756420dab1548e303e1787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1681407232
@@ -2363,8 +2333,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
-        m_MethodName: MoveLocal
+      - m_Target: {fileID: 1629544739}
+        m_MethodName: moveLocal
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2727,7 +2697,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1629544737}
-        m_MethodName: MoveScene
+        m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3001,7 +2971,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
+      - m_Target: {fileID: 0}
         m_MethodName: OffPopUp
         m_Mode: 3
         m_Arguments:
@@ -3566,7 +3536,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629544737}
+      - m_Target: {fileID: 0}
         m_MethodName: OffPopUp
         m_Mode: 3
         m_Arguments:
