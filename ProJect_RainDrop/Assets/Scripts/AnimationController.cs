@@ -22,7 +22,8 @@ public class AnimationController : MonoBehaviour {
     bool isIdleAnimationing = false;
 
     bool isIntroAnimationing = false;
-    bool isCleaningAnimationing = false;
+
+    // bool isCleaningAnimationing = false;
     bool isTitleAnimationing = false;
 
     void Start()
@@ -45,7 +46,9 @@ public class AnimationController : MonoBehaviour {
             StartCoroutine(IntroAnimation());
             StartCoroutine(titleAnimation());
         }
-        catch (Exception e) { }
+        catch (Exception e)
+        {
+        }
     }
 
 
@@ -85,6 +88,10 @@ public class AnimationController : MonoBehaviour {
         isIdleAnimationing = false;
     }
 
+    //----------------------------------------------------------------------------------------------------------------------
+    // IntroScene
+
+    //Touch To Start 버튼 깜박임
     IEnumerator titleAnimation()
     {
         isTitleAnimationing = true;
@@ -99,7 +106,20 @@ public class AnimationController : MonoBehaviour {
         }
     }
 
+    // 비내리는 배경 애니메이션
+    IEnumerator IntroAnimation()
+    {
+        isIntroAnimationing = true;
+        for (int i = 0; isIntroAnimationing; i++)
+        {
+            obj.sprite = introAnimation[i % introAnimation.Length];
+            yield return new WaitForSeconds(introFrameSec);
+        }
+    }
 
+    //----------------------------------------------------------------------------------------------------------------------
+
+    // 왼쪽 이동시 애니메이션
     IEnumerator LeftAnimation()
     {
         isLeftAnimationing = true;
@@ -110,6 +130,7 @@ public class AnimationController : MonoBehaviour {
         }
     }
 
+    //오른쪽 이동시 애니메이션
     IEnumerator RightAnimation()
     {
         isRightAnimationing = true;
@@ -120,6 +141,7 @@ public class AnimationController : MonoBehaviour {
         }
     }
 
+    //정지 애니메이션
     IEnumerator Idle()
     {
         isIdleAnimationing = true;
@@ -130,13 +152,8 @@ public class AnimationController : MonoBehaviour {
         }
     }
 
-    IEnumerator IntroAnimation()
-    {
-        isIntroAnimationing = true;
-        for (int i = 0; isIntroAnimationing; i++)
-        {
-            obj.sprite = introAnimation[i % introAnimation.Length];
-            yield return new WaitForSeconds(introFrameSec);
-        }
-    }
+    //----------------------------------------------------------------------------------------------------------------------
+
+
+    //----------------------------------------------------------------------------------------------------------------------
 }

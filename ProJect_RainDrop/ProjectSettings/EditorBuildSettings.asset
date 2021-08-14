@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cleaning.unity
     guid: 82e0c562f8ac5495591291e9792bcfc1
+  - enabled: 1
+    path: Assets/Scenes/Costume.unity
+    guid: 7e257afeb45a549958511b9438f060b3
   m_configObjects: {}
