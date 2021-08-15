@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class UI_MainScene : MonoBehaviour {
+    public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
+
     private Text local; // local Text
 
     private static Slider waterPot; // 물탱크

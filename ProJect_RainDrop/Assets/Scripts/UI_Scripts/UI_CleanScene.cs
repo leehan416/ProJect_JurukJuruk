@@ -40,7 +40,8 @@ public class UI_CleanScene : MonoBehaviour {
         // 각 entry에 함수 등록
         enBH.callback.AddListener(delegate
         {
-            GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[1];
+            setLevelImage();
+            // GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[1];
         });
         enBU.callback.AddListener(delegate
         {
@@ -65,6 +66,13 @@ public class UI_CleanScene : MonoBehaviour {
         UI_MultiScene.instance.setWaterCounter();
         UI_MultiScene.instance.setMoney();
         setCleanText();
+    }
+
+
+    public void setLevelImage()
+    {
+        Debug.Log(DataBase.cleanLevel);
+        GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[DataBase.cleanLevel / 2];
     }
 
     // 정화 버튼 클릭

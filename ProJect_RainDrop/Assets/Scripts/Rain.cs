@@ -5,11 +5,34 @@ using Random = System.Random;
 
 public class Rain : MonoBehaviour {
     public Sprite[] type = new Sprite[4];
+    public Sprite[] bigtype = new Sprite[3];
     Random random = new Random();
+    private bool isBig = false;
 
     void Start()
+        //22 40
+        //57 90
     {
-        gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
+        if (random.Next(0, 9) == 5)
+        {
+            isBig = true;
+            gameObject.transform.localScale = new Vector3(57 / 22f, 90 / 40f, 0);
+            Debug.Log("big");
+            // this.transform.localScale.y = 90;
+        }
+
+
+        if (isBig)
+        {
+            // 큰 빗물
+            gameObject.GetComponent<Image>().sprite = bigtype[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
+        }
+        else
+        {
+            //일반 빗물
+            gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
+        }
+
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse); // 땅으로 힘 추가
     }
 

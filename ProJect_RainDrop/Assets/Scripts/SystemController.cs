@@ -16,10 +16,15 @@ public class SystemController : MonoBehaviour {
 
     void Start()
     {
-        color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
-        color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, 1f);
-        color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
-        color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, 1f);
+        color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
+        color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f);
+        color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
+        color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f);
+
+        // color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
+        // color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, 1f);
+        // color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
+        // color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, 1f);
 
         DataBase.GetLevels();
         DataBase.GetWaterData();

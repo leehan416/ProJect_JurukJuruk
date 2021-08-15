@@ -322,7 +322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1451031526}
+      - m_Target: {fileID: 0}
         m_MethodName: moveScene
         m_Mode: 5
         m_Arguments:
@@ -404,7 +404,7 @@ RectTransform:
   - {fileID: 102602810}
   - {fileID: 341572257}
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1090,7 +1090,7 @@ RectTransform:
   m_Children:
   - {fileID: 1527357881}
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1319,7 +1319,7 @@ RectTransform:
   m_Children:
   - {fileID: 1977227298}
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17783333, y: 0}
   m_AnchorMax: {x: 0.8415556, y: 0}
@@ -1368,7 +1368,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 812128267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: gachaBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &812128267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,6 +2221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451031525}
+  - component: {fileID: 1451031527}
   - component: {fileID: 1451031526}
   - component: {fileID: 1451031524}
   - component: {fileID: 1451031523}
@@ -2297,9 +2309,9 @@ RectTransform:
   - {fileID: 171131469}
   - {fileID: 258462221}
   - {fileID: 1098037494}
-  - {fileID: 812128265}
   - {fileID: 558804636}
   - {fileID: 195952095}
+  - {fileID: 812128265}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2318,6 +2330,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1451031527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451031521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd964b0ebdeac4babb899a0328c9061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1527357880

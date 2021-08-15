@@ -13,10 +13,34 @@ public class UI_MultiScene : MonoBehaviour {
 
     private Text[] waterCounter = new Text[3];
 
+
+    private void Update()
+    {
+        // 안드로이드인 경우
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape)) //뒤로가기 키 입력
+            {
+                try
+                {
+                    bool test = UI_MainScene.isMain;
+                    // main
+                    Application.Quit(); // 게임 종료
+                }
+                catch (Exception e)
+                {
+                    // main 아님
+                    moveScene("Main");
+                }
+            }
+        }
+    }
+
     private void Start()
     {
         if (!instance) instance = this;
         else Destroy(this);
+
         money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
 
         try

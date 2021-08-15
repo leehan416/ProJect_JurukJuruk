@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UI_CostumeScene : MonoBehaviour {
     private GameObject gachaMuchine;
-
     private GameObject popUp;
 
     private GameObject get;
@@ -14,10 +14,16 @@ public class UI_CostumeScene : MonoBehaviour {
 
     private void Start()
     {
-        gachaMuchine = GameObject.Find("");
-        popUp = GameObject.Find("");
-        get = GameObject.Find("");
-        fail = GameObject.Find("");
+        gachaMuchine = GameObject.Find("Canvas/MachineBG");
+        popUp = GameObject.Find("Canvas/PopUpItem");
+        get = GameObject.Find("Canvas/PopUpItem/Get");
+        fail = GameObject.Find("Canvas/PopUpItem/Fail");
+
+
+        gachaMuchine.SetActive(false);
+        get.SetActive(false);
+        fail.SetActive(false);
+        popUp.SetActive(false);
 
 
         UI_MultiScene.instance.setMoney();
@@ -26,7 +32,7 @@ public class UI_CostumeScene : MonoBehaviour {
 
     public void setLockers()
     {
-        
+        gachaMuchine.SetActive(true);
     }
 
     // 뽑기 버튼
@@ -39,9 +45,4 @@ public class UI_CostumeScene : MonoBehaviour {
     public void costumeBtn()
     {
     }
-    
-    
-    
-    
-    
 }
