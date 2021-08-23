@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3244,6 +3244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTank: {fileID: 0}
+  money: {fileID: 586027230}
+  waterCounter:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1469446515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3256,6 +3262,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e430b6b7064431aa037d5809f300b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pailInfo: {fileID: 1931887777}
+  pailCost: {fileID: 838432394}
+  tankInfo: {fileID: 1532102577}
+  tankCost: {fileID: 532143759}
+  potInfo:
+  - {fileID: 1959915381}
+  - {fileID: 342776181}
+  - {fileID: 1073817372}
+  - {fileID: 1039675181}
+  potCost:
+  - {fileID: 1863398667}
+  - {fileID: 1069583672}
+  - {fileID: 1721138979}
+  - {fileID: 931882554}
+  btnTextYN: {fileID: 935086990}
+  btnTextInfo: {fileID: 268618390}
+  btnTextOK: {fileID: 844611131}
+  popUpOK: {fileID: 1821083072}
+  popUpYN: {fileID: 1805761226}
+  yesBtn: {fileID: 774960980}
 --- !u!1 &1482860006
 GameObject:
   m_ObjectHideFlags: 0

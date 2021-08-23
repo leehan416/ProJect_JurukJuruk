@@ -7,11 +7,13 @@ public class UI_MultiScene : MonoBehaviour {
     // transform에 접근하기 위한 instance
     public static UI_MultiScene instance;
 
+    //TODO 팝업 unactive 기능 제작해야함
+    
     // 물통 옆 현재 각 빗물 Text set
-    private Slider waterTank;
-    private Text money;
+    public Slider waterTank;
+    public Text money;
 
-    private Text[] waterCounter = new Text[3];
+    public Text[] waterCounter = new Text[3];
 
 
     private void Update()
@@ -40,20 +42,6 @@ public class UI_MultiScene : MonoBehaviour {
     {
         if (!instance) instance = this;
         else Destroy(this);
-
-        money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
-
-        try
-        {
-            waterTank = GameObject.Find("Canvas/Tank").GetComponent<Slider>(); // waterTank
-            waterCounter[0] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Basic").GetComponent<Text>();
-            waterCounter[1] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Clean").GetComponent<Text>();
-            waterCounter[2] = GameObject.Find("Canvas/Tank/ShowAmount/ShowAmount_Desert").GetComponent<Text>();
-        }
-        catch (Exception e)
-        {
-            return;
-        }
     }
 
     public void setWaterCounter()

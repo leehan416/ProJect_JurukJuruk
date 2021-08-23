@@ -3,25 +3,27 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_CleanScene : MonoBehaviour {
-    private Button clickZone; // CleanBtn
+    [Header("터치존")] public Button clickZone; // CleanBtn
 
     // private Slider waterTank; // 물탱크
 
-    private Text upText; // 업그레이드 가격 Text
+    [Header("가격 Text")] public Text upText; // 업그레이드 가격 Text
 
-    private Text explain; // 현재, 다음 업그레이드 설명 Text 
+    [Header("업글 설명 text")] public Text explain; // 현재, 다음 업그레이드 설명 Text 
+
     [Header("클린 스프라이트")] public Sprite[] cleanFx = new Sprite[4]; // click FX
+
     [Header("투명 스프라이트")] public Sprite nullImage;
 
 
     void Start()
     {
-        //UI Set
-
-        explain = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
-        upText = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
-
-        clickZone = GameObject.Find("Canvas/ClickZone").GetComponent<Button>();
+        // //UI Set
+        //
+        // explain = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
+        // upText = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
+        //
+        // clickZone = GameObject.Find("Canvas/ClickZone").GetComponent<Button>();
 
         // 버튼 이벤트 트리거 생성.
         EventTrigger trgY = clickZone.gameObject.AddComponent<EventTrigger>();

@@ -15,9 +15,10 @@ public class Rain : MonoBehaviour {
     {
         if (random.Next(0, 9) == 5)
         {
+            //22 40
             isBig = true;
-            gameObject.transform.localScale = new Vector3(57 / 22f, 90 / 40f, 0);
-            Debug.Log("big");
+            gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0) ;
+            // Debug.Log("big");
             // this.transform.localScale.y = 90;
         }
 

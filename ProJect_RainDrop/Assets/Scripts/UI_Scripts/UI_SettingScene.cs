@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class UI_SettingScene : MonoBehaviour {
     // sliders
-    private Slider bgmSlider;
-    private Slider fxSlider;
+    [Header("BGM 볼륨")] public Slider bgmSlider;
+    [Header("FX 볼륨")] public Slider fxSlider;
 
     //toggle => 조작 반전
-    private Toggle reverse;
+    [Header("조작반전 버튼")]public Toggle reverse;
 
     private void Start()
     {
         DataBase.GetSettingVal();
-        bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
-        fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
-        reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
+        // bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
+        // fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
+        // reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
         SetSettingObj();
     }
 

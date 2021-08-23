@@ -2332,6 +2332,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTank: {fileID: 0}
+  money: {fileID: 1092716476}
+  waterCounter:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1451031527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,6 +2350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd964b0ebdeac4babb899a0328c9061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gachaMuchine: {fileID: 558804635}
+  okPopUp: {fileID: 195952094}
+  ynPopUp: {fileID: 0}
+  get: {fileID: 1293021292}
+  fail: {fileID: 102602809}
 --- !u!1 &1527357880
 GameObject:
   m_ObjectHideFlags: 0

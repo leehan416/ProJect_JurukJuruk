@@ -8,53 +8,53 @@ public class UI_Market : MonoBehaviour {
     // private Text money;
 
     //pail
-    private Text pailInfo;
-    private Text pailCost;
+    [Header("양동이 정보")] public Text pailInfo;
+    [Header("양동이 가격")] public Text pailCost;
 
     //tank
-    private Text tankInfo;
-    private Text tankCost;
+    [Header("물탱크 정보")] public Text tankInfo;
+    [Header("물탱크 가격")] public Text tankCost;
 
     //pot
-    private Text[] potInfo = new Text[4];
-    private Text[] potCost = new Text[4];
+    [Header("추가 양동이 정보")] public Text[] potInfo = new Text[4];
+    [Header("추가 양동이 가격")] public Text[] potCost = new Text[4];
 
 
-    private Text btnTextYN; // 가격 Text
-    private Text btnTextInfo; // YN 설명 text
-    private Text btnTextOK; // OK popup 설명Text
+    [Header("가격 버튼 text")] public Text btnTextYN; // 가격 Text
+    [Header("구매 확인 text")] public Text btnTextInfo; // YN 설명 text
+    [Header("확인 팝업")] public Text btnTextOK; // OK popup 설명Text
 
-    private GameObject popUpOK; // ok PopUp
-    private GameObject popUpYN; // Yes or No PopUp
+    [Header("ok 팝업")] public GameObject popUpOK; // ok PopUp
+    [Header("yn 팝업")] public GameObject popUpYN; // Yes or No PopUp
 
-    private Button yesBtn; // 구매 버튼
+    [Header("구매 버튼")] public Button yesBtn; // 구매 버튼
 
 
     void Start()
 
     {
         // Set UI
-        pailInfo = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/Info").GetComponent<Text>(); // 정보
-        pailCost = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
-        tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
-        tankCost = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/TankUp/Text").GetComponent<Text>(); // 가격
-
-        for (int i = 5; i < 9; i++)
-            potCost[i - 5] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 5) + "/Text")
-                .GetComponent<Text>();
-
-        for (int i = 9; i < 13; i++)
-            potInfo[i - 9] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 9) + "/Explain")
-                .GetComponent<Text>();
-
-        popUpYN = GameObject.Find("Canvas/PopUp");
-        popUpOK = GameObject.Find("Canvas/PopUp(ok)");
-
-        btnTextOK = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>();
-        btnTextInfo = GameObject.Find("Canvas/PopUp/Explain").GetComponent<Text>();
-        btnTextYN = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>();
-
-        yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
+        // pailInfo = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/Info").GetComponent<Text>(); // 정보
+        // pailCost = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
+        // tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
+        // tankCost = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/TankUp/Text").GetComponent<Text>(); // 가격
+        //
+        // for (int i = 5; i < 9; i++)
+        //     potCost[i - 5] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 5) + "/Text")
+        //         .GetComponent<Text>();
+        //
+        // for (int i = 9; i < 13; i++)
+        //     potInfo[i - 9] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 9) + "/Explain")
+        //         .GetComponent<Text>();
+        //
+        // popUpYN = GameObject.Find("Canvas/PopUp");
+        // popUpOK = GameObject.Find("Canvas/PopUp(ok)");
+        //
+        // btnTextOK = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>();
+        // btnTextInfo = GameObject.Find("Canvas/PopUp/Explain").GetComponent<Text>();
+        // btnTextYN = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>();
+        //
+        // yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
 
         //팝업 비활성화 (UI설정)
         popUpYN.SetActive(false);

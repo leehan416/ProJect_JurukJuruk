@@ -6,32 +6,18 @@ using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
     // private Text money; // money Text 
-    private Text btnTextYN; // 가격 Text
-    private Text btnTextOK; // 돈 없을때 뜨는 Text
+    [Header("가격 버튼")] public Text btnTextYN; // 가격 Text
+    [Header("돈 없을 때 뜨는 Text")] public Text btnTextOK; // 돈 없을때 뜨는 Text
 
-    private GameObject popUpOK; // ok PopUp
-    private GameObject popUpYN; // Yes or No PopUp
+    [Header("ok PopUp")] public GameObject popUpOK; // ok PopUp
+    [Header("Yes or No PopUp")] public GameObject popUpYN; // Yes or No PopUp
 
-    private GameObject[] locker = new GameObject[4]; // Local Locker
+    [Header("Local Locker")] public GameObject[] locker = new GameObject[4]; // Local Locker
 
-    private Button yesBtn; // 구매 버튼
+    [Header("구매 버튼")] public Button yesBtn; // 구매 버튼
 
     void Start()
     {
-        //Set UI
-        locker[1] = GameObject.Find("Canvas/List/Countryside/lock").gameObject;
-        locker[2] = GameObject.Find("Canvas/List/Amazon/lock").gameObject;
-        locker[3] = GameObject.Find("Canvas/List/Dessert/lock").gameObject;
-
-        popUpYN = GameObject.Find("Canvas/PopUp");
-        popUpOK = GameObject.Find("Canvas/PopUp(ok)");
-
-        yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
-
-        // money = GameObject.Find("Canvas/MoneyBack/Money").GetComponent<Text>(); // money
-        btnTextOK = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>(); // popup text
-        btnTextYN = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>(); // popup money
-
         //팝업 비활성화 (UI 발아오기 위함)
         popUpYN.SetActive(false);
         popUpOK.SetActive(false);

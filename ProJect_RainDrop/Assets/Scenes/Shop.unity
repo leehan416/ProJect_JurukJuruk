@@ -2337,6 +2337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTank: {fileID: 1120061376}
+  money: {fileID: 371288595}
+  waterCounter:
+  - {fileID: 632235195}
+  - {fileID: 1980999037}
+  - {fileID: 1920919697}
 --- !u!114 &1370054807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,6 +2367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89058a3bcf994495ab3228091bd1edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupOK: {fileID: 305853248105210433}
+  popupText: {fileID: 305853248670652858}
 --- !u!1 &1422729950
 GameObject:
   m_ObjectHideFlags: 0

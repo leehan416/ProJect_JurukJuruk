@@ -5,27 +5,22 @@ using TMPro;
 using UnityEngine;
 
 public class UI_CostumeScene : MonoBehaviour {
-    private GameObject gachaMuchine;
-    private GameObject popUp;
+    [Header("가챠기계")] public GameObject gachaMuchine;
+    [Header("ok팝업")] public GameObject okPopUp;
+    [Header("yn팝업")] public GameObject ynPopUp;
 
-    private GameObject get;
-    private GameObject fail;
-
-
+    [Header("성공")] public GameObject get;
+    [Header("실패")] public GameObject fail;
+    
     private void Start()
     {
-        gachaMuchine = GameObject.Find("Canvas/MachineBG");
-        popUp = GameObject.Find("Canvas/PopUpItem");
-        get = GameObject.Find("Canvas/PopUpItem/Get");
-        fail = GameObject.Find("Canvas/PopUpItem/Fail");
-
-
+        
         gachaMuchine.SetActive(false);
         get.SetActive(false);
         fail.SetActive(false);
-        popUp.SetActive(false);
-
-
+        okPopUp.SetActive(false);
+        ynPopUp.SetActive(false);
+        
         UI_MultiScene.instance.setMoney();
     }
 

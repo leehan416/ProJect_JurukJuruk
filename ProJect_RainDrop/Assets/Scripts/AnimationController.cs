@@ -5,13 +5,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimationController : MonoBehaviour {
+    
+    // TODO 코드 리빌딩 필요
     float introFrameSec = .15f;
     float frameSec = .2f;
 
     Image obj;
-    public Sprite[] idle = new Sprite[2];
-    public Sprite[] leftAnimation = new Sprite[3];
-    public Sprite[] rightAnimation = new Sprite[3];
+    Image pail;
+    [Header("정지상태")] public Sprite[] idle = new Sprite[2];
+    [Header("정지상태 양동이")] public Sprite[] idlePot = new Sprite[2];
+
+    [Header("왼쪽이동")] public Sprite[] leftAnimation = new Sprite[3];
+    [Header("왼쪽이동 양동이")] public Sprite[] leftPotAnimation = new Sprite[3];
+
+    [Header("오른쪽이동")] public Sprite[] rightAnimation = new Sprite[3];
+    [Header("오른쪽이동 양동이")] public Sprite[] rightPotAnimation = new Sprite[3];
 
     public Sprite[] introAnimation = new Sprite[8];
 
@@ -31,6 +39,7 @@ public class AnimationController : MonoBehaviour {
         try
         {
             obj = GameObject.Find("Canvas/Player").GetComponent<Image>();
+            pail = GameObject.Find("Canvas/Player/Bucket").GetComponent<Image>();
             return;
         }
         catch (Exception e)
@@ -127,6 +136,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = leftAnimation[i % leftAnimation.Length];
+            pail.sprite = leftPotAnimation[i % leftPotAnimation.Length];
         }
     }
 
@@ -138,6 +148,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = rightAnimation[i % rightAnimation.Length];
+            pail.sprite = rightPotAnimation[i % rightPotAnimation.Length];
         }
     }
 
@@ -149,6 +160,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = idle[i % idle.Length];
+            pail.sprite = idlePot[i % idlePot.Length];
         }
     }
 

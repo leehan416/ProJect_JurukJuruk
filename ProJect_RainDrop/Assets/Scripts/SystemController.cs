@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -66,7 +65,7 @@ public class SystemController : MonoBehaviour {
         // ingame => DataBase.potCycle 초당 계산 
         // background (outGame) => 현실 시간 계산하여 더해줌.
 
-        //TODO 현실 시간 가져와서 계산.
+        // TODO :  유저가 위치한 씬에서만 추가 양동이가 채워져야 함 (ingame)
         int index = 0;
         int[] value = new int[4];
 
@@ -81,20 +80,20 @@ public class SystemController : MonoBehaviour {
             for (int local = 0; local < 4; local++)
             {
                 DataBase.GetWaterData();
-
+            
                 if (value[local] < index / DataBase.potCycle[local])
                 {
                     value[local] = index / DataBase.potCycle[local];
                     DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
-                    Debug.Log(local);
+                    // Debug.Log(local);
                 }
-
+            
                 if (DataBase.potLevel[local] > 0)
                 {
                     if (DataBase.potWater[local] > DataBase.valuePotMax[local])
                         DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[local]);
                 }
-
+            
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }

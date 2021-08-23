@@ -879,6 +879,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTank: {fileID: 0}
+  money: {fileID: 0}
+  waterCounter:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &510854811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,6 +897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb6a3e6a7994f2685f782d367159ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmSlider: {fileID: 1480262703}
+  fxSlider: {fileID: 994261638}
+  reverse: {fileID: 1598280736}
 --- !u!1 &630967579
 GameObject:
   m_ObjectHideFlags: 0

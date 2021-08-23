@@ -7,9 +7,10 @@ public class GachaSystem : MonoBehaviour {
     private int getProbability = 30; // 뽑기 성공 확률 getProbability/100 %
 
     Random random = new Random();
-    public Sprite[] animationSprite = new Sprite[14];
+    public static Sprite[] animationSprite = new Sprite[14];
 
-    public void gacha()
+
+    public /*static*/ void gacha()
     {
         if (random.Next(1, 100) < getProbability)
         {
@@ -23,7 +24,7 @@ public class GachaSystem : MonoBehaviour {
 
 
     // 1 ~ 2 => (3 ~ 8) * 3 => 9 ~ 13
-    IEnumerator gachaAnimation()
+    public /*static*/ IEnumerator gachaAnimation()
     {
         for (int i = 1; i < 26; i++)
         {

@@ -1238,7 +1238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &279987817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &391626907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3400,8 +3400,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EmptyWaterTank
+      - m_Target: {fileID: 1798680556}
+        m_MethodName: emptyPot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4648,6 +4648,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterTank: {fileID: 278947030}
+  money: {fileID: 23863919}
+  waterCounter:
+  - {fileID: 1363716132}
+  - {fileID: 868849304}
+  - {fileID: 190026371}
 --- !u!114 &1798680554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4661,16 +4667,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idle:
-  - {fileID: 1427004764868761950, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
-  - {fileID: 8256391730938038415, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
+  - {fileID: 8955059781052691484, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  - {fileID: 7054236173484086140, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  idlePot:
+  - {fileID: 1555191029331147242, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
+  - {fileID: -80601702778474353, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
   leftAnimation:
-  - {fileID: 6694699181303738947, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
-  - {fileID: -1469638445311264087, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
-  - {fileID: 5333912967817720605, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
+  - {fileID: -5768807138008172687, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  - {fileID: -7475449840712779721, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  - {fileID: 6541076294920222425, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  leftPotAnimation:
+  - {fileID: -3482500968923126523, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
+  - {fileID: -81481249038549505, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
+  - {fileID: -4716996792940339519, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
   rightAnimation:
-  - {fileID: 7879284907798186264, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
-  - {fileID: -8012533843763998223, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
-  - {fileID: 5983393754525623169, guid: cf9dbb4d17ba45348a0565a1e6bae9a1, type: 3}
+  - {fileID: 681741824484933956, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  - {fileID: 3549801668813601422, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  - {fileID: -1679857629441789097, guid: faf2f46ede585d24bab73086ed635a71, type: 3}
+  rightPotAnimation:
+  - {fileID: 361943212683184147, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
+  - {fileID: -7754908435350519375, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
+  - {fileID: -4883637438394125892, guid: 28cc4f4a764ea1843b55683318de8590, type: 3}
   introAnimation:
   - {fileID: 0}
   - {fileID: 0}
@@ -4704,6 +4721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ceddbeb7fbf49f9897d05281b95226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  local: {fileID: 14359327}
+  feverBtn: {fileID: 984130448}
+  feverCover: {fileID: 2050375172}
   localBG:
   - {fileID: 21300000, guid: 5f713a84d1d99496da3c634681e91683, type: 3}
   - {fileID: 21300000, guid: bcf0a586d40a4414f841cdeecc71fb47, type: 3}
@@ -5549,7 +5569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

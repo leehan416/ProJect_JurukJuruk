@@ -5,11 +5,13 @@ using Random = System.Random;
 public class UI_MainScene : MonoBehaviour {
     public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
 
-    private Text local; // local Text
+    [Header("local Text")] public Text local; // local Text
 
-    private static Slider waterPot; // 물탱크
+    [Header("물탱크")] public static Slider waterPot; // 물탱크
 
-    private GameObject feverBtn; // 고양이 버튼 
+    [Header("고양이")] public GameObject feverBtn; // 고양이 버튼 
+
+    [Header("비오는 커버")] public GameObject feverCover;
 
     // 배경 sprite 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
@@ -17,12 +19,10 @@ public class UI_MainScene : MonoBehaviour {
 
     void Start()
     {
-        //Get UI
-        local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
-        waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
-            .GetComponent<Slider>(); // PotTank
-        feverBtn = GameObject.Find("Canvas/BigBox/FeverCats");
-
+        waterPot = GameObject.Find("Canvas/Tank").GetComponent<Slider>();
+        
+        
+        
         //현 지역 전용 pot 이외엔 모두 비활성화
         for (int i = 0; i < 4; i++)
             if (DataBase.nowLocal != i)
@@ -37,6 +37,7 @@ public class UI_MainScene : MonoBehaviour {
 
         //고양이 버튼 비활성화
         feverBtn.SetActive(false);
+        feverCover.SetActive(false);
 
         //dataGet
         DataBase.GetWaterData();

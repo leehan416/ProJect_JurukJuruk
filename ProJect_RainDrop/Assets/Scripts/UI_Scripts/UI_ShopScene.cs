@@ -2,14 +2,14 @@
 using UnityEngine.UI;
 
 public class UI_ShopScene : MonoBehaviour {
-    private GameObject popupOK;
-    private Text popupText;
+    [Header("팝업창")] public GameObject popupOK;
+    [Header("팝업창 text")] public Text popupText;
 
     void Start()
     {
-        //Get UI
-        popupOK = GameObject.Find("Canvas/PopUp(ok)");
-        popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
+        // //Get UI
+        // popupOK = GameObject.Find("Canvas/PopUp(ok)");
+        // popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
 
         //get Data
         DataBase.GetMoney();
