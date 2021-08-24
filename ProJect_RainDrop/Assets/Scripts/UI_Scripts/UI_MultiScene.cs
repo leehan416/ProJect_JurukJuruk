@@ -8,7 +8,12 @@ public class UI_MultiScene : MonoBehaviour {
     public static UI_MultiScene instance;
 
     //TODO 팝업 unactive 기능 제작해야함
-    
+
+
+    [Header("ok PopUp")] public GameObject popUpOK; // ok PopUp
+    [Header("Yes or No PopUp")] public GameObject popUpYN; // Yes or No PopUp
+
+
     // 물통 옆 현재 각 빗물 Text set
     public Slider waterTank;
     public Text money;
@@ -82,5 +87,12 @@ public class UI_MultiScene : MonoBehaviour {
     public void moveScene(string val)
     {
         SceneManager.LoadScene(val);
+    }
+
+
+    public void unactivePopup()
+    {
+        popUpOK.SetActive(false);
+        popUpYN.SetActive(false);
     }
 }

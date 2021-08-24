@@ -2,11 +2,14 @@
 using UnityEngine.UI;
 
 public class UI_ShopScene : MonoBehaviour {
-    [Header("팝업창")] public GameObject popupOK;
-    [Header("팝업창 text")] public Text popupText;
+    // [Header("팝업창")] public GameObject popupOK;
+
+    // [Header("팝업창 text")] public Text popupText;
+    private Text popupText;
 
     void Start()
     {
+        popupText = UI_MultiScene.instance.popUpOK.gameObject.GetComponentInChildren<Text>();
         // //Get UI
         // popupOK = GameObject.Find("Canvas/PopUp(ok)");
         // popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
@@ -18,9 +21,6 @@ public class UI_ShopScene : MonoBehaviour {
 
         // dessert locker
         GameObject.Find("Canvas/RichMan/Button/Lock").SetActive(DataBase.isLocalLock[3]);
-
-        //팝업 비활성화 (UI접근 위함)
-        popupOK.SetActive(false);
 
         //set Text
         UI_MultiScene.instance.setMoney();
@@ -59,7 +59,7 @@ public class UI_ShopScene : MonoBehaviour {
                 else
                 {
                     //물없음
-                    popupOK.SetActive(true);
+                    UI_MultiScene.instance.popUpOK.SetActive(true);
                     popupText.text = "보유 빗물이 부족합니다.";
                     return;
                 }
@@ -69,7 +69,7 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 //물 부족
-                popupOK.SetActive(true);
+                UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;
             }
@@ -84,7 +84,7 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 //돈 부족
-                popupOK.SetActive(true);
+                UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;
             }
@@ -93,7 +93,7 @@ public class UI_ShopScene : MonoBehaviour {
         {
             if (DataBase.isLocalLock[3])
             {
-                popupOK.SetActive(true);
+                UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "해금되지 않은 거래처입니다.";
                 return;
             }
@@ -106,7 +106,7 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 //돈 부족
-                popupOK.SetActive(true);
+                UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;
             }

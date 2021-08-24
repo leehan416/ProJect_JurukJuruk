@@ -1039,8 +1039,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ClickClean
+      - m_Target: {fileID: 525951182}
+        m_MethodName: clickClean
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

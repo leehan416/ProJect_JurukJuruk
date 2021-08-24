@@ -1,13 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
 
 public class UI_MainScene : MonoBehaviour {
-    public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
+    public Text local; // local Text
 
-    [Header("local Text")] public Text local; // local Text
-
-    [Header("물탱크")] public static Slider waterPot; // 물탱크
+    public static Slider waterPot; // 물탱크
 
     [Header("고양이")] public GameObject feverBtn; // 고양이 버튼 
 
@@ -17,12 +16,18 @@ public class UI_MainScene : MonoBehaviour {
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
+
+    public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
+
+    public static bool isFever = false; // fever 확인 변수 
+
+    private Random _random = new Random();
+
     void Start()
     {
-        waterPot = GameObject.Find("Canvas/Tank").GetComponent<Slider>();
-        
-        
-        
+        waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
+            .GetComponent<Slider>();
+
         //현 지역 전용 pot 이외엔 모두 비활성화
         for (int i = 0; i < 4; i++)
             if (DataBase.nowLocal != i)
@@ -36,28 +41,31 @@ public class UI_MainScene : MonoBehaviour {
         }
 
         //고양이 버튼 비활성화
-        feverBtn.SetActive(false);
-        feverCover.SetActive(false);
+        // feverBtn.SetActive(false);
+        // feverCover.SetActive(false);
 
         //dataGet
         DataBase.GetWaterData();
+
         DataBase.GetLevels();
+        Debug.Log(DataBase.valueMaxWater[DataBase.valueMaxWater.Length - 1]);
         DataBase.GetMoney();
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
         setWaterPot();
 
-        //TextSet
-        setLocal();
-        UI_MultiScene.instance.setMoney();
-
-        setbackGround();
-        UI_MultiScene.instance.setWaterCounter();
 
         //slider update
         updateWaterPot();
         UI_MultiScene.instance.updateWaterTank();
+        //TextSet
+        setLocal();
+        UI_MultiScene.instance.setMoney();
+        setbackGround();
+        UI_MultiScene.instance.setWaterCounter();
+
+        StartCoroutine(feverTimer());
     }
 
     // pot (추가 양동이) value set
@@ -72,7 +80,7 @@ public class UI_MainScene : MonoBehaviour {
     {
         DataBase.GetWaterData();
         DataBase.GetLevels();
-        waterPot.maxValue = DataBase.valuePotMax[DataBase.nowLocal]; // 촤댓값
+        waterPot.maxValue = DataBase.valuePotMax[DataBase.potLevel[DataBase.nowLocal]]; // 촤댓값
         waterPot.minValue = 0f; // 최솟값
     }
 
@@ -130,13 +138,13 @@ public class UI_MainScene : MonoBehaviour {
 
 
     // 지역 text set
-    public void setLocal()
+    private void setLocal()
     {
         local.text = DataBase.localName[DataBase.nowLocal];
     }
 
     // 배경 set
-    public void setbackGround()
+    private void setbackGround()
     {
         Image bg = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
         bg.sprite = localBG[DataBase.nowLocal];
@@ -144,13 +152,46 @@ public class UI_MainScene : MonoBehaviour {
 
     public void setFeverbtn()
     {
-        Random random = new Random();
         feverBtn.SetActive(true);
-        feverBtn.GetComponent<Button>().image.sprite = catImage[random.Next(0, catImage.Length - 1)];
+        feverBtn.GetComponent<Button>().image.sprite = catImage[_random.Next(0, catImage.Length - 1)];
     }
 
     public void clickFeverbtn()
     {
         feverBtn.SetActive(false);
+        isFever = true;
+        feverCover.SetActive(true);
+        StopCoroutine("feverTimer");
+        StartCoroutine(feverTimer());
+    }
+
+
+    private IEnumerator feverTimer()
+    {
+        // 피버시간 체크
+        if (isFever)
+        {
+            for (int i = 0; i < DataBase.feverTime; i++)
+                yield return new WaitForSeconds(1f);
+            feverCover.SetActive(false);
+            isFever = false;
+        }
+        // 고양이 등장 시간 체크 
+        else
+        {
+            while (true)
+            {
+                int time = _random.Next(0, 10 /*DataBase.catDrop - 60, DataBase.catDrop*/);
+
+                for (int i = 0; i < time; i++)
+                    yield return new WaitForSeconds(1f);
+
+                setFeverbtn();
+                for (int i = 0; i < DataBase.catSustainTime; i++)
+                    yield return new WaitForSeconds(1f);
+
+                feverBtn.SetActive(false);
+            }
+        }
     }
 }

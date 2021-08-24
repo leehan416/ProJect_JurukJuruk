@@ -54,7 +54,9 @@ public class SystemController : MonoBehaviour {
         // 비오는 시스템
         while (true)
         {
-            yield return new WaitForSeconds(DataBase.rainCycle[DataBase.nowLocal]);
+            yield return new WaitForSeconds(DataBase.rainCycle[DataBase.nowLocal] * ((UI_MainScene.isFever)
+                ? 1 / DataBase.feverEfficiency
+                : 1));
             Rainy();
         }
     }
@@ -80,20 +82,20 @@ public class SystemController : MonoBehaviour {
             for (int local = 0; local < 4; local++)
             {
                 DataBase.GetWaterData();
-            
+
                 if (value[local] < index / DataBase.potCycle[local])
                 {
                     value[local] = index / DataBase.potCycle[local];
                     DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
                     // Debug.Log(local);
                 }
-            
+
                 if (DataBase.potLevel[local] > 0)
                 {
                     if (DataBase.potWater[local] > DataBase.valuePotMax[local])
                         DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[local]);
                 }
-            
+
                 DataBase.SetLateTime();
                 DataBase.SetWaterData();
             }

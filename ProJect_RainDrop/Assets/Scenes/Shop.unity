@@ -2337,6 +2337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpOK: {fileID: 305853248105210433}
+  popUpYN: {fileID: 0}
   waterTank: {fileID: 1120061376}
   money: {fileID: 371288595}
   waterCounter:
@@ -2367,8 +2369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89058a3bcf994495ab3228091bd1edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupOK: {fileID: 305853248105210433}
-  popupText: {fileID: 305853248670652858}
 --- !u!1 &1422729950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,7 +3741,7 @@ RectTransform:
   m_Children:
   - {fileID: 305853248435169303}
   m_Father: {fileID: 305853248105210432}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3840,9 +3840,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370054801}
-        m_MethodName: 
-        m_Mode: 3
+      - m_Target: {fileID: 1370054806}
+        m_MethodName: unactivePopup
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3871,8 +3871,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 305853247768153041}
-  - {fileID: 305853248670652859}
   - {fileID: 305853247791626590}
+  - {fileID: 305853248670652859}
   m_Father: {fileID: 1370054805}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3898,7 +3898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &305853248105210434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4078,7 +4078,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 305853248105210432}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

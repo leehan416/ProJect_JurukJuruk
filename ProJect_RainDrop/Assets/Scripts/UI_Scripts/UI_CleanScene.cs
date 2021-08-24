@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class UI_CleanScene : MonoBehaviour {
     [Header("터치존")] public Button clickZone; // CleanBtn
 
-    // private Slider waterTank; // 물탱크
-
     [Header("가격 Text")] public Text upText; // 업그레이드 가격 Text
 
     [Header("업글 설명 text")] public Text explain; // 현재, 다음 업그레이드 설명 Text 

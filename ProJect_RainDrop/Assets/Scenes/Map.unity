@@ -1948,6 +1948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpOK: {fileID: 305853247715294905}
+  popUpYN: {fileID: 7568944795404808567}
   waterTank: {fileID: 0}
   money: {fileID: 1449198990}
   waterCounter:
@@ -1978,16 +1980,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ae9de140756420dab1548e303e1787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnTextYN: {fileID: 7568944793862586419}
-  btnTextOK: {fileID: 305853249093895490}
-  popUpOK: {fileID: 305853247715294905}
-  popUpYN: {fileID: 7568944795404808567}
   locker:
   - {fileID: 0}
   - {fileID: 1430171640}
   - {fileID: 1697374522}
   - {fileID: 1117093249}
-  yesBtn: {fileID: 7568944794273348841}
 --- !u!1 &1681407232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,8 +2770,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 305853247914186537}
-  - {fileID: 305853249093895491}
   - {fileID: 305853247955477926}
+  - {fileID: 305853249093895491}
   m_Father: {fileID: 1629544736}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2800,7 +2797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &305853247715294906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2987,9 +2984,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OffPopUp
-        m_Mode: 3
+      - m_Target: {fileID: 1629544737}
+        m_MethodName: unactivePopup
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3019,7 +3016,7 @@ RectTransform:
   m_Children:
   - {fileID: 305853248322761967}
   m_Father: {fileID: 305853247715294904}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3186,7 +3183,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 305853247715294904}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3213,7 +3210,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7568944795404808566}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3453,7 +3450,7 @@ RectTransform:
   m_Children:
   - {fileID: 7568944795002948412}
   m_Father: {fileID: 7568944795404808566}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3552,9 +3549,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OffPopUp
-        m_Mode: 3
+      - m_Target: {fileID: 1629544737}
+        m_MethodName: unactivePopup
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3811,9 +3808,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7568944793379915916}
-  - {fileID: 7568944793364349224}
-  - {fileID: 7568944794273348846}
   - {fileID: 7568944793938037168}
+  - {fileID: 7568944794273348846}
+  - {fileID: 7568944793364349224}
   m_Father: {fileID: 1629544736}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3839,4 +3836,4 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0

@@ -19,46 +19,25 @@ public class UI_Market : MonoBehaviour {
     [Header("추가 양동이 정보")] public Text[] potInfo = new Text[4];
     [Header("추가 양동이 가격")] public Text[] potCost = new Text[4];
 
+    // Texts
+    private Text btnTextYN; // 가격 Text
+    private Text btnTextInfo; // YN 설명 text
 
-    [Header("가격 버튼 text")] public Text btnTextYN; // 가격 Text
-    [Header("구매 확인 text")] public Text btnTextInfo; // YN 설명 text
-    [Header("확인 팝업")] public Text btnTextOK; // OK popup 설명Text
-
-    [Header("ok 팝업")] public GameObject popUpOK; // ok PopUp
-    [Header("yn 팝업")] public GameObject popUpYN; // Yes or No PopUp
-
-    [Header("구매 버튼")] public Button yesBtn; // 구매 버튼
+    private Text btnTextOK; // OK popup 설명Text
+    private Button yesBtn; // 구매 버튼
 
 
     void Start()
 
     {
         // Set UI
-        // pailInfo = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/Info").GetComponent<Text>(); // 정보
-        // pailCost = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/PailUp/Text").GetComponent<Text>(); // 가격
-        // tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>(); // 정보
-        // tankCost = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/TankUp/Text").GetComponent<Text>(); // 가격
-        //
-        // for (int i = 5; i < 9; i++)
-        //     potCost[i - 5] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 5) + "/Text")
-        //         .GetComponent<Text>();
-        //
-        // for (int i = 9; i < 13; i++)
-        //     potInfo[i - 9] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + (i - 9) + "/Explain")
-        //         .GetComponent<Text>();
-        //
-        // popUpYN = GameObject.Find("Canvas/PopUp");
-        // popUpOK = GameObject.Find("Canvas/PopUp(ok)");
-        //
-        // btnTextOK = GameObject.Find("Canvas/PopUp(ok)/Explain").GetComponent<Text>();
-        // btnTextInfo = GameObject.Find("Canvas/PopUp/Explain").GetComponent<Text>();
-        // btnTextYN = GameObject.Find("Canvas/PopUp/Yes/Text").GetComponent<Text>();
-        //
-        // yesBtn = GameObject.Find("Canvas/PopUp/Yes").GetComponent<Button>();
+        //TODO : need to check 
+        yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
 
-        //팝업 비활성화 (UI설정)
-        popUpYN.SetActive(false);
-        popUpOK.SetActive(false);
+        btnTextInfo = UI_MultiScene.instance.popUpOK.gameObject.GetComponentInChildren<Text>();
+        btnTextYN = UI_MultiScene.instance.popUpYN.gameObject.GetComponentInChildren<Text>();
+
+        btnTextOK = yesBtn.gameObject.GetComponentInChildren<Text>();
 
         //get Data
         DataBase.GetMoney();
@@ -151,7 +130,7 @@ public class UI_Market : MonoBehaviour {
         {
             DataBase.money -= DataBase.upgradePail[++DataBase.pailLevel];
 
-            //set datas
+            //set data
             DataBase.SetLevels();
             DataBase.SetMoney();
 
@@ -163,7 +142,7 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup활성화
-            popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
 
             btnTextOK.text = "보유 금액이 부족합니다.";
         }
@@ -194,7 +173,7 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup 활성화
-            popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "보유 금액이 부족합니다.";
             //돈부족 
         }
@@ -209,7 +188,7 @@ public class UI_Market : MonoBehaviour {
         DataBase.GetLocalData(val);
 
         //팝업 비활성화
-        popUpYN.SetActive(false);
+        UI_MultiScene.instance.popUpYN.SetActive(false);
 
         // 해금 | 해금 가격과 업글가격을 합쳐서 계산하는 방식이기 때문에, 시스템 분리
         if (DataBase.potLevel[val] == 0)
@@ -256,7 +235,7 @@ public class UI_Market : MonoBehaviour {
         // 돈부족
 
         // 팝업 활성화
-        popUpOK.SetActive(true);
+        UI_MultiScene.instance.popUpOK.SetActive(true);
         btnTextOK.text = "보유 금액이 부족합니다.";
     }
 
@@ -271,7 +250,7 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.isLocalLock[val])
         {
-            popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "지역이 해금되지 않았습니다.";
             return;
         }
@@ -282,7 +261,7 @@ public class UI_Market : MonoBehaviour {
             // 양동이 해금
             if (DataBase.potLevel[val] <= 0)
             {
-                popUpYN.SetActive(true);
+                UI_MultiScene.instance.popUpYN.SetActive(true);
                 btnTextInfo.text = "해금하시겠습니까?";
                 btnTextYN.text = DataBase.unLockPot[val] + " $";
 

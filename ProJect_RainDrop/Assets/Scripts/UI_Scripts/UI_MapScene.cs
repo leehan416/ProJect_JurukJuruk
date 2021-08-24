@@ -1,26 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
-    // private Text money; // money Text 
-    [Header("가격 버튼")] public Text btnTextYN; // 가격 Text
-    [Header("돈 없을 때 뜨는 Text")] public Text btnTextOK; // 돈 없을때 뜨는 Text
-
-    [Header("ok PopUp")] public GameObject popUpOK; // ok PopUp
-    [Header("Yes or No PopUp")] public GameObject popUpYN; // Yes or No PopUp
-
     [Header("Local Locker")] public GameObject[] locker = new GameObject[4]; // Local Locker
 
-    [Header("구매 버튼")] public Button yesBtn; // 구매 버튼
+    private Text btnTextYN; // 가격 Text
+    private Text btnTextOK; // 돈 없을때 뜨는 Text
+    private Button yesBtn; // 구매 버튼
+
 
     void Start()
     {
         //팝업 비활성화 (UI 발아오기 위함)
-        popUpYN.SetActive(false);
-        popUpOK.SetActive(false);
+        // popUpYN.SetActive(false);
+        // popUpOK.SetActive(false);
+
+        btnTextOK = UI_MultiScene.instance.popUpOK.GetComponentInChildren<Text>();
+        yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
+        btnTextYN = yesBtn.GetComponentInChildren<Text>();
+
 
         // Set Text
         UI_MultiScene.instance.setMoney();
@@ -43,7 +42,7 @@ public class UI_MapScene : MonoBehaviour {
     private void unLockLocal(int val)
     {
         //popup 비활성화
-        popUpYN.SetActive(false);
+        UI_MultiScene.instance.popUpOK.SetActive(false);
 
         //Get Data
         DataBase.GetMoney();
@@ -61,7 +60,7 @@ public class UI_MapScene : MonoBehaviour {
         // 돈이 부족하다면
         else
         {
-            popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
@@ -76,7 +75,7 @@ public class UI_MapScene : MonoBehaviour {
         if (DataBase.isLocalLock[val])
         {
             // popup 활성화
-            popUpYN.SetActive(true);
+            UI_MultiScene.instance.popUpYN.SetActive(true);
 
             // 구매버튼에 가격 표시
             btnTextYN.text = DataBase.localCost[val] + " $";

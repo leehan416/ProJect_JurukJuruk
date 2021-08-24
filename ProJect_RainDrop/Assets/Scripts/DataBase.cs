@@ -7,9 +7,6 @@ using UnityEngine;
 // pot => extra pot 
 
 public class DataBase : MonoBehaviour {
-    //Fisrt access?
-    public static bool isReset = true;
-
     // meony value
     public static long money = 0;
 
@@ -29,10 +26,6 @@ public class DataBase : MonoBehaviour {
     public static int cleanLevel = 1; //물 정화기 레벨
 
     public static int nowLocal = 0; // 현 위치
-
-    public static int catDisappearTime = 200; // 고양이 등장시간 | 3~5분 랜덤
-
-    public static float feverEfficiency = 5; // 빗물 내리는 시간 줄여주는 비율 
 
     public static bool[] isLocalLock = {false, true, true, true}; // 지역 해금 변수
 
@@ -81,6 +74,12 @@ public class DataBase : MonoBehaviour {
     public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};
 
     public static int[] costConsummer = {100, 200, 500};
+
+    //fever
+    public static int feverTime = 30;
+    public static int catDrop = 300; //random(240, 300)
+    public static int catSustainTime = 5;
+    public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
 
 
     //--------------------------------------------------------
