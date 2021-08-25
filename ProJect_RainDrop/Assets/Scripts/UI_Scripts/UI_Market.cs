@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_Market : MonoBehaviour {
+    // TODO : 언락 / 업글 분리 
     // private Text money;
 
     //pail
@@ -33,17 +34,17 @@ public class UI_Market : MonoBehaviour {
         // Set UI
         //TODO : need to check 
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
+        btnTextInfo = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[01];
+        btnTextYN = yesBtn.gameObject.GetComponentInChildren<Text>();
+        btnTextOK = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
 
-        btnTextInfo = UI_MultiScene.instance.popUpOK.gameObject.GetComponentInChildren<Text>();
-        btnTextYN = UI_MultiScene.instance.popUpYN.gameObject.GetComponentInChildren<Text>();
-
-        btnTextOK = yesBtn.gameObject.GetComponentInChildren<Text>();
-
+        Debug.Log("btnTextInfo : " + btnTextInfo.text);
+        Debug.Log("btnTextYN : " + btnTextYN.text);
+        Debug.Log("btnTextOK : " + btnTextOK.text);
         //get Data
         DataBase.GetMoney();
         DataBase.GetWaterData();
         DataBase.GetLevels();
-
 
         // Set Lockers
         setPotLockers();
@@ -190,6 +191,17 @@ public class UI_Market : MonoBehaviour {
         //팝업 비활성화
         UI_MultiScene.instance.popUpYN.SetActive(false);
 
+        // if (DataBase.money >= DataBase.unLockPot[val])
+        // {
+        //     // 돈부족
+        //
+        //     // 팝업 활성화
+        //     UI_MultiScene.instance.popUpOK.SetActive(true);
+        //     btnTextOK.text = "보유 금액이 부족합니다.";
+        //     return;
+        // }
+
+
         // 해금 | 해금 가격과 업글가격을 합쳐서 계산하는 방식이기 때문에, 시스템 분리
         if (DataBase.potLevel[val] == 0)
         {
@@ -250,6 +262,7 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.isLocalLock[val])
         {
+            Debug.Log("!");
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "지역이 해금되지 않았습니다.";
             return;
@@ -262,7 +275,9 @@ public class UI_Market : MonoBehaviour {
             if (DataBase.potLevel[val] <= 0)
             {
                 UI_MultiScene.instance.popUpYN.SetActive(true);
-                btnTextInfo.text = "해금하시겠습니까?";
+
+                btnTextOK.text = "해금하시겠습니까?";
+
                 btnTextYN.text = DataBase.unLockPot[val] + " $";
 
                 // 만약 EventTrigger 가 이미 존재한다면 파괴.

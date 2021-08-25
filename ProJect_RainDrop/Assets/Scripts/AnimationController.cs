@@ -13,13 +13,13 @@ public class AnimationController : MonoBehaviour {
     Image obj;
     Image pail;
     [Header("정지상태")] public Sprite[] idle = new Sprite[2];
-    [Header("정지상태 양동이")] public Sprite[] idlePot = new Sprite[2];
+    //[Header("정지상태 양동이")] public Sprite[] idlePot = new Sprite[2];
 
     [Header("왼쪽이동")] public Sprite[] leftAnimation = new Sprite[3];
-    [Header("왼쪽이동 양동이")] public Sprite[] leftPotAnimation = new Sprite[3];
+    //[Header("왼쪽이동 양동이")] public Sprite[] leftPotAnimation = new Sprite[3];
 
     [Header("오른쪽이동")] public Sprite[] rightAnimation = new Sprite[3];
-    [Header("오른쪽이동 양동이")] public Sprite[] rightPotAnimation = new Sprite[3];
+    //[Header("오른쪽이동 양동이")] public Sprite[] rightPotAnimation = new Sprite[3];
 
     public Sprite[] introAnimation = new Sprite[8];
 
@@ -136,7 +136,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = leftAnimation[i % leftAnimation.Length];
-            pail.sprite = leftPotAnimation[i % leftPotAnimation.Length];
+           // pail.sprite = leftPotAnimation[i % leftPotAnimation.Length];
         }
     }
 
@@ -148,7 +148,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = rightAnimation[i % rightAnimation.Length];
-            pail.sprite = rightPotAnimation[i % rightPotAnimation.Length];
+           // pail.sprite = rightPotAnimation[i % rightPotAnimation.Length];
         }
     }
 
@@ -160,7 +160,7 @@ public class AnimationController : MonoBehaviour {
         {
             yield return new WaitForSeconds(frameSec);
             obj.sprite = idle[i % idle.Length];
-            pail.sprite = idlePot[i % idlePot.Length];
+          //  pail.sprite = idlePot[i % idlePot.Length];
         }
     }
 

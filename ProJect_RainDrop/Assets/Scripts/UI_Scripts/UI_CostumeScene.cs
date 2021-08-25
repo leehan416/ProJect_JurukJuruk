@@ -11,16 +11,15 @@ public class UI_CostumeScene : MonoBehaviour {
 
     [Header("성공")] public GameObject get;
     [Header("실패")] public GameObject fail;
-    
+
     private void Start()
     {
-        
-        gachaMuchine.SetActive(false);
-        get.SetActive(false);
-        fail.SetActive(false);
-        okPopUp.SetActive(false);
-        ynPopUp.SetActive(false);
-        
+        // gachaMuchine.SetActive(false);
+        // get.SetActive(false);
+        // fail.SetActive(false);
+        // okPopUp.SetActive(false);
+        // ynPopUp.SetActive(false);
+        //
         UI_MultiScene.instance.setMoney();
     }
 

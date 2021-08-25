@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 76238651}
   - component: {fileID: 76238650}
   m_Layer: 5
-  m_Name: Lock (3)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 76238651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1469446515}
+        m_MethodName: upPotBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &76238651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +422,7 @@ GameObject:
   - component: {fileID: 207527610}
   - component: {fileID: 207527609}
   m_Layer: 5
-  m_Name: Lock (2)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,7 +489,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 207527610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1469446515}
+        m_MethodName: upPotBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &207527610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 271466840}
   m_Layer: 5
-  m_Name: Pot(2)
+  m_Name: Pot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -789,7 +811,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 296516606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1469446515}
+        m_MethodName: upPotBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &296516606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +1554,7 @@ RectTransform:
   m_Children:
   - {fileID: 935086989}
   m_Father: {fileID: 1805761227}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1719,7 +1752,7 @@ RectTransform:
   m_Children:
   - {fileID: 1941291137}
   m_Father: {fileID: 1805761227}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2791,7 +2824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1170491774}
   m_Layer: 5
-  m_Name: Pot0
+  m_Name: Pot_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4305,8 +4338,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 284640049}
-  - {fileID: 774960979}
   - {fileID: 842826253}
+  - {fileID: 774960979}
   - {fileID: 268618389}
   m_Father: {fileID: 1469446513}
   m_RootOrder: 4
@@ -4521,7 +4554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836885646}
   m_Layer: 5
-  m_Name: Pot0 (3)
+  m_Name: Pot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4755,7 +4788,7 @@ GameObject:
   - component: {fileID: 1927898616}
   - component: {fileID: 1927898615}
   m_Layer: 5
-  m_Name: Lock (1)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4822,7 +4855,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1927898616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1469446515}
+        m_MethodName: upPotBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1927898616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5106,7 +5150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979574565}
   m_Layer: 5
-  m_Name: Pot(1)
+  m_Name: Pot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
