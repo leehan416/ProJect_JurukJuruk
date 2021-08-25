@@ -7,11 +7,11 @@ public class UI_SettingScene : MonoBehaviour {
     [Header("FX 볼륨")] public Slider fxSlider;
 
     //toggle => 조작 반전
-    [Header("조작반전 버튼")]public Toggle reverse;
+    [Header("조작반전 버튼")] public Toggle reverse;
 
     private void Start()
     {
-        DataBase.GetSettingVal();
+        DataBase.getSettingVal();
         // bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
         // fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
         // reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
@@ -33,7 +33,7 @@ public class UI_SettingScene : MonoBehaviour {
     {
         SoundManager.instance.bgmSource.volume = val;
         DataBase.bgmVol = val;
-        DataBase.SetSettingVal();
+        DataBase.setSettingVal();
     }
 
     // fx슬라이더 조작시 호출 val => volum
@@ -41,13 +41,13 @@ public class UI_SettingScene : MonoBehaviour {
     {
         SoundManager.instance.fxSource.volume = val;
         DataBase.fxVol = val;
-        DataBase.SetSettingVal();
+        DataBase.setSettingVal();
     }
 
     // toggle 클릭시 호출 val => ischecked?
     public void ChangeControllReverse(bool val)
     {
         DataBase.isReverse = val;
-        DataBase.SetSettingVal();
+        DataBase.setSettingVal();
     }
 }

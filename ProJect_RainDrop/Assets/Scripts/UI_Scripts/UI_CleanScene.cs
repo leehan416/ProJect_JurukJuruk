@@ -54,9 +54,9 @@ public class UI_CleanScene : MonoBehaviour {
         GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = nullImage;
 
         //get datas 
-        DataBase.GetMoney();
-        DataBase.GetWaterData();
-        DataBase.GetLevels();
+        DataBase.getMoney();
+        DataBase.getWaterData();
+        DataBase.getLevels();
 
         // set slider
         UI_MultiScene.instance.setWaterTank();
@@ -79,8 +79,8 @@ public class UI_CleanScene : MonoBehaviour {
     public void clickClean()
     {
         //get Datas
-        DataBase.GetLevels();
-        DataBase.GetWaterData();
+        DataBase.getLevels();
+        DataBase.getWaterData();
 
         // 만약 각 터치당 정화량 보다 보유중인 물의 양이 적을 때
         if (DataBase.uncleanedWater < DataBase.valueCleanWater[DataBase.cleanLevel])
@@ -102,7 +102,7 @@ public class UI_CleanScene : MonoBehaviour {
         }
 
         //Set data
-        DataBase.SetWaterData();
+        DataBase.setWaterData();
 
         //Set Text
         UI_MultiScene.instance.setWaterCounter();
@@ -112,8 +112,8 @@ public class UI_CleanScene : MonoBehaviour {
     public void setCleanText()
     {
         //get Datas
-        DataBase.GetLevels();
-        DataBase.GetWaterData();
+        DataBase.getLevels();
+        DataBase.getWaterData();
 
         // 최고 레벨보다 낮다면
         if (DataBase.cleanLevel != DataBase.valueCleanWater.Length - 1)
@@ -136,8 +136,8 @@ public class UI_CleanScene : MonoBehaviour {
     public void upCleanLevel()
     {
         //Get data
-        DataBase.GetMoney();
-        DataBase.GetLevels();
+        DataBase.getMoney();
+        DataBase.getLevels();
 
         // 업그레이드 비용이 충분하고, 레벨이 최대가 아니라면
         if ((DataBase.money >= DataBase.upgradeClean[DataBase.cleanLevel]) &&
@@ -146,8 +146,8 @@ public class UI_CleanScene : MonoBehaviour {
             DataBase.money -= DataBase.upgradeClean[++DataBase.cleanLevel];
 
             //Set Data
-            DataBase.SetLevels();
-            DataBase.SetMoney();
+            DataBase.setLevels();
+            DataBase.setMoney();
 
             //Set Texts
             setCleanText();

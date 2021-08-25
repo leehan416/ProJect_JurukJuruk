@@ -1,32 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UI_CostumeScene : MonoBehaviour {
-    [Header("가챠기계")] public GameObject gachaMuchine;
-    [Header("ok팝업")] public GameObject okPopUp;
-    [Header("yn팝업")] public GameObject ynPopUp;
+    // [Header("가챠기계")] public GameObject gachaMuchine;
+    // [Header("ok팝업")] public GameObject okPopUp;
+    // [Header("yn팝업")] public GameObject ynPopUp;
+    GameObject get;
+    GameObject fail;
 
-    [Header("성공")] public GameObject get;
-    [Header("실패")] public GameObject fail;
-
-    private void Start()
+    void Start()
     {
-        // gachaMuchine.SetActive(false);
-        // get.SetActive(false);
-        // fail.SetActive(false);
-        // okPopUp.SetActive(false);
-        // ynPopUp.SetActive(false);
-        //
+        get = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<GameObject>()[0];
+        fail = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<GameObject>()[1];
         UI_MultiScene.instance.setMoney();
     }
 
 
     public void setLockers()
     {
-        gachaMuchine.SetActive(true);
+        // gachaMuchine.SetActive(true);
     }
 
     // 뽑기 버튼
@@ -36,7 +27,9 @@ public class UI_CostumeScene : MonoBehaviour {
 
 
     // 코스튬 선택 버튼
-    public void costumeBtn()
+    public void costumeBtn(int val)
     {
+        DataBase.costume = val;
+        DataBase.setCostume();
     }
 }

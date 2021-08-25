@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 1782879096}
   - component: {fileID: 1782879095}
   - component: {fileID: 1782879100}
-  - component: {fileID: 1782879099}
+  - component: {fileID: 1782879102}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -934,6 +934,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpOK: {fileID: 0}
+  popUpYN: {fileID: 0}
+  waterTank: {fileID: 0}
+  money: {fileID: 0}
+  waterCounter:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1782879095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,38 +1025,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1782879099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782879093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba46d748cef64e039e2242248ac22a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idle:
-  - {fileID: 0}
-  - {fileID: 0}
-  leftAnimation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  rightAnimation:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  introAnimation:
-  - {fileID: 21300000, guid: d676fd958993040bebea35d94b7c396c, type: 3}
-  - {fileID: 21300000, guid: 97787f1b2a12c40d49383541c653da2c, type: 3}
-  - {fileID: 21300000, guid: c2800f1dd256b4dd093f39d8a80457c7, type: 3}
-  - {fileID: 21300000, guid: 94bfc1bef51964f7198fe83b0740ef50, type: 3}
-  - {fileID: 21300000, guid: 5da5df7b46892444b90bda41d5cf5cca, type: 3}
-  - {fileID: 21300000, guid: 8f04aadc65bd94de389d662fec0a9179, type: 3}
-  - {fileID: 21300000, guid: 2fe2047753edc463e8a294670fae605f, type: 3}
-  - {fileID: 21300000, guid: c1b2fa0bae9794d1d9889e83b00abbb9, type: 3}
 --- !u!114 &1782879100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,6 +1049,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3c6736ef4f44d43ab6bccdf786874d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1782879102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782879093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef3267f18a8c4b11a35c89d38a4efcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introAnimation:
+  - {fileID: 21300000, guid: d676fd958993040bebea35d94b7c396c, type: 3}
+  - {fileID: 21300000, guid: 97787f1b2a12c40d49383541c653da2c, type: 3}
+  - {fileID: 21300000, guid: c2800f1dd256b4dd093f39d8a80457c7, type: 3}
+  - {fileID: 21300000, guid: 94bfc1bef51964f7198fe83b0740ef50, type: 3}
+  - {fileID: 21300000, guid: 5da5df7b46892444b90bda41d5cf5cca, type: 3}
+  - {fileID: 21300000, guid: 8f04aadc65bd94de389d662fec0a9179, type: 3}
+  - {fileID: 21300000, guid: 2fe2047753edc463e8a294670fae605f, type: 3}
+  - {fileID: 21300000, guid: c1b2fa0bae9794d1d9889e83b00abbb9, type: 3}
 --- !u!1 &1939493561
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,9 +42,9 @@ public class UI_Market : MonoBehaviour {
         Debug.Log("btnTextYN : " + btnTextYN.text);
         Debug.Log("btnTextOK : " + btnTextOK.text);
         //get Data
-        DataBase.GetMoney();
-        DataBase.GetWaterData();
-        DataBase.GetLevels();
+        DataBase.getMoney();
+        DataBase.getWaterData();
+        DataBase.getLevels();
 
         // Set Lockers
         setPotLockers();
@@ -67,8 +67,8 @@ public class UI_Market : MonoBehaviour {
     public void setMarketText()
     {
         // get data 
-        DataBase.GetWaterData();
-        DataBase.GetLevels();
+        DataBase.getWaterData();
+        DataBase.getLevels();
 
         // pail 업그레이드 가능시
         if (DataBase.pailLevel != DataBase.valuePerDrop.Length - 1)
@@ -122,8 +122,8 @@ public class UI_Market : MonoBehaviour {
     public void upPailLevel()
     {
         // get data
-        DataBase.GetLevels();
-        DataBase.GetMoney();
+        DataBase.getLevels();
+        DataBase.getMoney();
 
 
         // 업그레이드할 돈이 있다면 
@@ -132,8 +132,8 @@ public class UI_Market : MonoBehaviour {
             DataBase.money -= DataBase.upgradePail[++DataBase.pailLevel];
 
             //set data
-            DataBase.SetLevels();
-            DataBase.SetMoney();
+            DataBase.setLevels();
+            DataBase.setMoney();
 
             //set Texts
             setMarketText();
@@ -154,8 +154,8 @@ public class UI_Market : MonoBehaviour {
     public void upTankLevel()
     {
         // get data 
-        DataBase.GetLevels();
-        DataBase.GetMoney();
+        DataBase.getLevels();
+        DataBase.getMoney();
 
         // 업그레이드 할 돈이 있다면
         if (DataBase.money >= DataBase.upgradeTank[DataBase.tankLevel + 1])
@@ -163,8 +163,8 @@ public class UI_Market : MonoBehaviour {
             DataBase.money -= DataBase.upgradeTank[++DataBase.tankLevel];
 
             // set data
-            DataBase.SetLevels();
-            DataBase.SetMoney();
+            DataBase.setLevels();
+            DataBase.setMoney();
 
             // set text
             setMarketText();
@@ -184,9 +184,9 @@ public class UI_Market : MonoBehaviour {
     public void upPotLevel(int val)
     {
         //Get Datas
-        DataBase.GetLevels();
-        DataBase.GetMoney();
-        DataBase.GetLocalData(val);
+        DataBase.getLevels();
+        DataBase.getMoney();
+        DataBase.getLocalData(val);
 
         //팝업 비활성화
         UI_MultiScene.instance.popUpYN.SetActive(false);
@@ -211,8 +211,8 @@ public class UI_Market : MonoBehaviour {
                 DataBase.potLevel[val]++;
 
                 // set data
-                DataBase.SetLevels();
-                DataBase.SetMoney();
+                DataBase.setLevels();
+                DataBase.setMoney();
 
                 // set text 
                 setMarketText();
@@ -231,8 +231,8 @@ public class UI_Market : MonoBehaviour {
                 DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
 
                 //set data
-                DataBase.SetLevels();
-                DataBase.SetMoney();
+                DataBase.setLevels();
+                DataBase.setMoney();
 
                 //set texts
                 setMarketText();
@@ -256,8 +256,8 @@ public class UI_Market : MonoBehaviour {
     public void upPotBtn(int val)
     {
         // get data 
-        DataBase.GetLocalData(val);
-        DataBase.GetMoney();
+        DataBase.getLocalData(val);
+        DataBase.getMoney();
 
         //지역 해금 안됌
         if (DataBase.isLocalLock[val])

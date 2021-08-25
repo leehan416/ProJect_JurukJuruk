@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e3eeb3-bd88-44cb-a5a7-8828f3be72f3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -8,14 +11,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/unity/Push2/Assets/Scripts/FrontEnd/UI_Manager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ReadMe.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -33,24 +36,26 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DontDestroy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Local.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UX_Manager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -159,6 +164,7 @@
       <workItem from="1629733301351" duration="421000" />
       <workItem from="1629763716489" duration="11652000" />
       <workItem from="1629857067574" duration="6063000" />
+      <workItem from="1629869905731" duration="6653000" />
     </task>
     <servers />
   </component>

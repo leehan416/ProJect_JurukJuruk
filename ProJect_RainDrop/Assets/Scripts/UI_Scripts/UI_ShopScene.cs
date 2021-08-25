@@ -15,12 +15,12 @@ public class UI_ShopScene : MonoBehaviour {
         // popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
 
         //get Data
-        DataBase.GetMoney();
-        DataBase.GetWaterData();
-        DataBase.GetLocalData(3);
+        DataBase.getMoney();
+        DataBase.getWaterData();
+        DataBase.getLocalData(3);
 
         // dessert locker
-        GameObject.Find("Canvas/RichMan/Button/Lock").SetActive(DataBase.isLocalLock[3]);
+        GameObject.Find("Canvas/RichMan/Lock").SetActive(DataBase.isLocalLock[3]);
 
         //set Text
         UI_MultiScene.instance.setMoney();
@@ -36,13 +36,13 @@ public class UI_ShopScene : MonoBehaviour {
     {
         // 물판매
 
-        DataBase.GetWaterData();
-        DataBase.GetMoney();
+        DataBase.getWaterData();
+        DataBase.getMoney();
 
         if (index == 0)
         {
             // 빗물 => 정화된 물 => 사막물 순서로 빠짐
-            if (DataBase.AllWater() >= 1000)
+            if (DataBase.getAllWater() >= 1000)
             {
                 if (DataBase.uncleanedWater >= 1000)
                 {
@@ -113,8 +113,8 @@ public class UI_ShopScene : MonoBehaviour {
         }
 
         //set Data
-        DataBase.SetWaterData();
-        DataBase.SetMoney();
+        DataBase.setWaterData();
+        DataBase.setMoney();
 
         //set Text
         UI_MultiScene.instance.setWaterCounter();

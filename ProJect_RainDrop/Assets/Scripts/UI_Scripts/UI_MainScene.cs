@@ -45,11 +45,11 @@ public class UI_MainScene : MonoBehaviour {
         // feverCover.SetActive(false);
 
         //dataGet
-        DataBase.GetWaterData();
+        DataBase.getWaterData();
+        DataBase.getLevels();
+        DataBase.getMoney();
 
-        DataBase.GetLevels();
-        Debug.Log(DataBase.valueMaxWater[DataBase.valueMaxWater.Length - 1]);
-        DataBase.GetMoney();
+        // Debug.Log(DataBase.valueMaxWater[DataBase.valueMaxWater.Length - 1]);
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
@@ -65,21 +65,24 @@ public class UI_MainScene : MonoBehaviour {
         setbackGround();
         UI_MultiScene.instance.setWaterCounter();
 
+
+        isFever = false;
+        StopCoroutine("feverTimer");
         StartCoroutine(feverTimer());
     }
 
     // pot (추가 양동이) value set
     public static void updateWaterPot()
     {
-        DataBase.GetWaterData();
+        DataBase.getWaterData();
         waterPot.value = DataBase.potWater[DataBase.nowLocal];
     }
 
     // pot (추가 양동이) 초기 데이터 설정
     public void setWaterPot()
     {
-        DataBase.GetWaterData();
-        DataBase.GetLevels();
+        DataBase.getWaterData();
+        DataBase.getLevels();
         waterPot.maxValue = DataBase.valuePotMax[DataBase.potLevel[DataBase.nowLocal]]; // 촤댓값
         waterPot.minValue = 0f; // 최솟값
     }
@@ -87,11 +90,11 @@ public class UI_MainScene : MonoBehaviour {
     //pot (추가 양동이) 비우기
     public void emptyPot()
     {
-        DataBase.GetWaterData();
-        DataBase.GetLevels();
+        DataBase.getWaterData();
+        DataBase.getLevels();
 
         //물탱크가 최대라면
-        if (DataBase.valueMaxWater[DataBase.tankLevel] <= DataBase.AllWater())
+        if (DataBase.valueMaxWater[DataBase.tankLevel] <= DataBase.getAllWater())
         {
             return;
         }
@@ -104,22 +107,22 @@ public class UI_MainScene : MonoBehaviour {
         else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
 
         // 물병 비우기
-        if (DataBase.AllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
+        if (DataBase.getAllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
         {
             // clean local
             if (DataBase.nowLocal == 1)
             {
-                DataBase.cleanedWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
+                DataBase.cleanedWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
             //dessert local
             else if (DataBase.nowLocal == 3)
             {
-                DataBase.desertWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
+                DataBase.desertWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
             // normal local
             else
             {
-                DataBase.uncleanedWater -= DataBase.AllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
+                DataBase.uncleanedWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
         }
 
@@ -127,8 +130,8 @@ public class UI_MainScene : MonoBehaviour {
         DataBase.potWater[DataBase.nowLocal] = 0;
 
         //data set
-        DataBase.SetLateTime();
-        DataBase.SetWaterData();
+        DataBase.setLateTime();
+        DataBase.setWaterData();
 
         //ui update
         updateWaterPot();

@@ -17,7 +17,7 @@ public class Rain : MonoBehaviour {
         {
             //22 40
             isBig = true;
-            gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0) ;
+            gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0);
             // Debug.Log("big");
             // this.transform.localScale.y = 90;
         }
@@ -41,8 +41,8 @@ public class Rain : MonoBehaviour {
     {
         if (other.collider.gameObject.tag.Equals("Pail")) // 양동이 접촉시
         {
-            DataBase.GetWaterData();
-            if (DataBase.valueMaxWater[DataBase.tankLevel] > DataBase.AllWater()) // 물탱크에 자리가 있으면 
+            DataBase.getWaterData();
+            if (DataBase.valueMaxWater[DataBase.tankLevel] > DataBase.getAllWater()) // 물탱크에 자리가 있으면 
             {
                 if (DataBase.nowLocal == 1)
                     DataBase.cleanedWater += DataBase.valuePerDrop[DataBase.pailLevel]; // 청정구역
@@ -52,7 +52,7 @@ public class Rain : MonoBehaviour {
                     DataBase.uncleanedWater += DataBase.valuePerDrop[DataBase.pailLevel]; // 나머지 구역
             }
 
-            DataBase.SetWaterData();
+            DataBase.setWaterData();
             UI_MultiScene.instance.updateWaterTank();
             UI_MultiScene.instance.setWaterCounter();
         }

@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour {
     {
         if (!instance) instance = this;
         else DestroyImmediate(this);
-        DataBase.GetSettingVal();
+        DataBase.getSettingVal();
         bgmSource.volume = DataBase.bgmVol;
         fxSource.volume = DataBase.fxVol;
         fxSource.clip = fxs[0];

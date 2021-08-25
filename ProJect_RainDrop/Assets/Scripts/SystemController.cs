@@ -25,8 +25,8 @@ public class SystemController : MonoBehaviour {
         // color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
         // color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, 1f);
 
-        DataBase.GetLevels();
-        DataBase.GetWaterData();
+        DataBase.getLevels();
+        DataBase.getWaterData();
 
         for (int i = 0; i < 4; i++)
         {
@@ -41,7 +41,7 @@ public class SystemController : MonoBehaviour {
             }
         }
 
-        DataBase.SetWaterData();
+        DataBase.setWaterData();
 
         //UIManager.instance.PotUpdate();
 
@@ -81,7 +81,7 @@ public class SystemController : MonoBehaviour {
             //추가 양동이 시스템
             for (int local = 0; local < 4; local++)
             {
-                DataBase.GetWaterData();
+                DataBase.getWaterData();
 
                 if (value[local] < index / DataBase.potCycle[local])
                 {
@@ -96,8 +96,8 @@ public class SystemController : MonoBehaviour {
                         DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[local]);
                 }
 
-                DataBase.SetLateTime();
-                DataBase.SetWaterData();
+                DataBase.setLateTime();
+                DataBase.setWaterData();
             }
 
             // UIManager.instance.PotUpdate();
@@ -120,7 +120,7 @@ public class SystemController : MonoBehaviour {
 
     public static int CalculateUnderTime()
     {
-        DataBase.GetLateTime();
+        DataBase.getLateTime();
         TimeSpan dateDiff = DateTime.Now - DataBase.lateTime;
         return dateDiff.Seconds; // 초 차이
     }

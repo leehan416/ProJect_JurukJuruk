@@ -27,6 +27,9 @@ public class DataBase : MonoBehaviour {
 
     public static int nowLocal = 0; // 현 위치
 
+    public static int costume = 0; // 현 위치
+    public static bool[] isCostumeLock = {false, true, true, true, true, true}; // 지역 해금 변수
+
     public static bool[] isLocalLock = {false, true, true, true}; // 지역 해금 변수
 
     //TODO 최적화 필요
@@ -84,22 +87,22 @@ public class DataBase : MonoBehaviour {
 
     //--------------------------------------------------------
 
-    public static void SetMoney()
+    public static void setMoney()
     {
         PlayerPrefs.SetString("Money", Convert.ToString(money));
     }
 
-    public static void GetMoney()
+    public static void getMoney()
     {
         money = Convert.ToInt64(PlayerPrefs.GetString("Money", "0"));
     }
 
-    public static long AllWater() // 물 총량 return
+    public static long getAllWater() // 물 총량 return
     {
         return (uncleanedWater + cleanedWater + desertWater);
     }
 
-    public static void SetWaterData()
+    public static void setWaterData()
     {
         PlayerPrefs.SetString("DesertWater", Convert.ToString(desertWater));
         PlayerPrefs.SetString("UncleanedWater", Convert.ToString(uncleanedWater));
@@ -108,7 +111,7 @@ public class DataBase : MonoBehaviour {
             PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
     }
 
-    public static void GetWaterData()
+    public static void getWaterData()
     {
         uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
         cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
@@ -118,7 +121,7 @@ public class DataBase : MonoBehaviour {
     }
 
 
-    public static void SetLevels()
+    public static void setLevels()
     {
         PlayerPrefs.SetInt("PailLevel", pailLevel);
         PlayerPrefs.SetInt("TankLevel", tankLevel);
@@ -127,7 +130,7 @@ public class DataBase : MonoBehaviour {
             PlayerPrefs.SetInt("PotLevel" + i, potLevel[i]);
     }
 
-    public static void GetLevels()
+    public static void getLevels()
     {
         pailLevel = PlayerPrefs.GetInt("PailLevel", 0);
         tankLevel = PlayerPrefs.GetInt("TankLevel", 0);
@@ -136,14 +139,14 @@ public class DataBase : MonoBehaviour {
             potLevel[i] = PlayerPrefs.GetInt("PotLevel" + i, 0);
     }
 
-    public static void GetSettingVal()
+    public static void getSettingVal()
     {
         bgmVol = PlayerPrefs.GetFloat("BgmVol", .7f);
         fxVol = PlayerPrefs.GetFloat("FxVol", .4f);
         isReverse = Convert.ToBoolean(PlayerPrefs.GetInt("IsReverse", 0));
     }
 
-    public static void SetSettingVal()
+    public static void setSettingVal()
     {
         PlayerPrefs.SetFloat("BgmVol", bgmVol);
         PlayerPrefs.SetFloat("FxVol", fxVol);
@@ -152,27 +155,37 @@ public class DataBase : MonoBehaviour {
     }
 
 
-    public static void GetLocalData(int val)
+    public static void getLocalData(int val)
     {
         Debug.Log(Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1)));
         if (val == 0) return;
         isLocalLock[val] = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
     }
 
-    public static void SetLocalData(int val)
+    public static void setLocalData(int val)
     {
         PlayerPrefs.SetInt("local+" + val + "_isLock", (isLocalLock[val]) ? 1 : 0);
     }
 
 
-    public static void GetLateTime()
+    public static void getLateTime()
     {
         lateTime = Convert.ToDateTime(PlayerPrefs.GetString("LateTime", Convert.ToString(DateTime.Now)));
     }
 
-    public static void SetLateTime()
+    public static void setLateTime()
     {
         PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
+    }
+
+    public static void setCostume()
+    {
+        PlayerPrefs.SetInt("Costume", DataBase.costume);
+    }
+
+    public static void getCoustume()
+    {
+        DataBase.costume = PlayerPrefs.GetInt("Costume", 0);
     }
 }
 

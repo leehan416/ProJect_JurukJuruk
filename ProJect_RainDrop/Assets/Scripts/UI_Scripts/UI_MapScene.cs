@@ -32,7 +32,7 @@ public class UI_MapScene : MonoBehaviour {
     {
         for (int i = 1; i < DataBase.isLocalLock.Length; i++)
         {
-            DataBase.GetLocalData(i);
+            DataBase.getLocalData(i);
             locker[i].SetActive(DataBase.isLocalLock[i]);
         }
     }
@@ -45,17 +45,18 @@ public class UI_MapScene : MonoBehaviour {
         UI_MultiScene.instance.popUpOK.SetActive(false);
 
         //Get Data
-        DataBase.GetMoney();
-        DataBase.GetLocalData(val);
+        DataBase.getMoney();
+        DataBase.getLocalData(val);
 
         // 해금 가능한 돈이 있다면
         if (DataBase.money >= DataBase.localCost[val])
         {
             DataBase.money -= DataBase.localCost[val];
             DataBase.isLocalLock[val] = false;
-            DataBase.SetMoney();
-            DataBase.SetLocalData(val);
+            DataBase.setMoney();
+            DataBase.setLocalData(val);
             setMapLocker();
+            UI_MultiScene.instance.unactivePopup();
         }
         // 돈이 부족하다면
         else
@@ -69,7 +70,7 @@ public class UI_MapScene : MonoBehaviour {
     public void moveLocal(int val)
     {
         //Get Data
-        DataBase.GetLocalData(val);
+        DataBase.getLocalData(val);
 
         //local이 잠겨 있다면
         if (DataBase.isLocalLock[val])

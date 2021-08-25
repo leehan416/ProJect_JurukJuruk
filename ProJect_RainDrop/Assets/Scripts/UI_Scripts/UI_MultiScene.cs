@@ -51,7 +51,7 @@ public class UI_MultiScene : MonoBehaviour {
 
     public void setWaterCounter()
     {
-        DataBase.GetWaterData(); // 빗물 데이터 가져오기
+        DataBase.getWaterData(); // 빗물 데이터 가져오기
 
         //text set
         waterCounter[0].text = DataBase.uncleanedWater.ToString();
@@ -63,8 +63,8 @@ public class UI_MultiScene : MonoBehaviour {
     // 물탱크 초기 세팅
     public void setWaterTank()
     {
-        DataBase.GetWaterData(); // 빗물 데이터 가져오기
-        DataBase.GetLevels(); // 레벨 데이터 가져오기
+        DataBase.getWaterData(); // 빗물 데이터 가져오기
+        DataBase.getLevels(); // 레벨 데이터 가져오기
         waterTank.maxValue = DataBase.valueMaxWater[DataBase.tankLevel]; // maxvalue = 현재 레벨의 빗물 최대 양
         waterTank.minValue = 0f; // min = 0 
     }
@@ -72,14 +72,14 @@ public class UI_MultiScene : MonoBehaviour {
     // 물탱크 static value 변경
     public void updateWaterTank()
     {
-        DataBase.GetWaterData(); // 빗물 데이터 가져오기
-        waterTank.value = DataBase.AllWater(); //  value = 빗물 전체 합
+        DataBase.getWaterData(); // 빗물 데이터 가져오기
+        waterTank.value = DataBase.getAllWater(); //  value = 빗물 전체 합
     }
 
     // 현재 돈 text set
     public void setMoney()
     {
-        DataBase.GetMoney(); // 돈 데이터 가져오기
+        DataBase.getMoney(); // 돈 데이터 가져오기
         money.text = Convert.ToString(DataBase.money) + " $"; // text set
     }
 
