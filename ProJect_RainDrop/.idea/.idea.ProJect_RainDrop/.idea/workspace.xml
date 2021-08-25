@@ -56,6 +56,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_LogoScene.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -165,6 +166,7 @@
       <workItem from="1629763716489" duration="11652000" />
       <workItem from="1629857067574" duration="6063000" />
       <workItem from="1629869905731" duration="6653000" />
+      <workItem from="1629889268773" duration="485000" />
     </task>
     <servers />
   </component>

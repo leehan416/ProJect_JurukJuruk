@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\UI_Scripts\UI_CleanScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_CostumeScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_IntroScene.cs" />
+     <Compile Include="Assets\Scripts\UI_Scripts\UI_LogoScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_MainScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_MapScene.cs" />
      <Compile Include="Assets\Scripts\UI_Scripts\UI_Market.cs" />
