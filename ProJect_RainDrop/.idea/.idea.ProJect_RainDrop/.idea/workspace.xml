@@ -21,9 +21,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ReadMe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" root0="FORCE_HIGHLIGHTING" />
@@ -38,8 +40,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Consumer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UX_Manager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
@@ -52,11 +52,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_LogoScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -167,6 +169,7 @@
       <workItem from="1629857067574" duration="6063000" />
       <workItem from="1629869905731" duration="6653000" />
       <workItem from="1629889268773" duration="485000" />
+      <workItem from="1629892219279" duration="10586000" />
     </task>
     <servers />
   </component>

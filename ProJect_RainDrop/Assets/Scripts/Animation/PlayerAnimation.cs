@@ -41,6 +41,8 @@ public class PlayerAnimation : MonoBehaviour {
     private void Start()
     {
         obj = GameObject.Find("Canvas/Player").GetComponent<Image>();
+        DataBase.getCoustume();
+        Debug.Log(DataBase.costume);
         spriteSet();
     }
 

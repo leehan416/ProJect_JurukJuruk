@@ -181,11 +181,19 @@ public class DataBase : MonoBehaviour {
     public static void setCostume()
     {
         PlayerPrefs.SetInt("Costume", DataBase.costume);
+        for (int i = 1; i < isCostumeLock.Length; i++)
+        {
+            PlayerPrefs.SetInt("IsCostumeLock" + i, Convert.ToInt32(isCostumeLock[i]));
+        }
     }
 
     public static void getCoustume()
     {
         DataBase.costume = PlayerPrefs.GetInt("Costume", 0);
+        for (int i = 1; i < isCostumeLock.Length; i++)
+        {
+            isCostumeLock[i] = Convert.ToBoolean(PlayerPrefs.GetInt("IsCostumeLock" + i, 1));
+        }
     }
 }
 
