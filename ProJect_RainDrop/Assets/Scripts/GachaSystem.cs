@@ -35,13 +35,19 @@ public class GachaSystem : MonoBehaviour {
             DataBase.getCoustume();
 
             for (int k = 1; k < DataBase.isCostumeLock.Length; k++)
-                if (DataBase.isCostumeLock[k])
-                {
-                    Debug.Log("모두 해금됨.");
-                    return 0;
-                }
+            {
+                Debug.Log(k + " : " + DataBase.isCostumeLock[k]);
+                // if (DataBase.isCostumeLock[k])
+                // {
+                //     Debug.Log("모두 해금됨.");
+                //return 0;
+                // }
+            }
 
-            while (i == 0 || !DataBase.isCostumeLock[i])
+            //random.Next(,)
+            //return 0;
+
+            while (i == 0 || DataBase.isCostumeLock[i] == false)
             {
                 i = random.Next(1, 5);
             }

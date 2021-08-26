@@ -68,7 +68,7 @@ public class UI_CostumeScene : MonoBehaviour {
         {
             get.SetActive(true);
             Debug.Log("!");
-            itemSprite.sprite = getCoustumeUI[val];
+            itemSprite.sprite = getCoustumeUI[val - 1];
             DataBase.isCostumeLock[val] = false;
             DataBase.setCostume();
             setLockers();
