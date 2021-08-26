@@ -23,6 +23,7 @@ public class UI_CostumeScene : MonoBehaviour {
         UI_MultiScene.instance.setMoney();
         DataBase.getCoustume();
         setLockers();
+        setButton();
     }
 
 
