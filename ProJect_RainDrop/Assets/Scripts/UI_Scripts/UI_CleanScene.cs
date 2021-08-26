@@ -156,7 +156,7 @@ public class UI_CleanScene : MonoBehaviour {
         else
         {
             // 돈부족
-            //TODO : 돈이 부족합니다 팝업 띄우기 
+            UI_MultiScene.instance.popUpOK.SetActive(true);
         }
     }
 }

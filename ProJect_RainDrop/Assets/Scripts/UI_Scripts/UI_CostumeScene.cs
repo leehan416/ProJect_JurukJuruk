@@ -101,7 +101,14 @@ public class UI_CostumeScene : MonoBehaviour {
     // 코스튬 선택 버튼
     public void costumeBtn(int val)
     {
-        DataBase.costume = val;
-        DataBase.setCostume();
+        if (DataBase.isCostumeLock[val])
+        {
+            UI_MultiScene.instance.popUpOK.SetActive(true);
+        }
+        else
+        {
+            DataBase.costume = val;
+            DataBase.setCostume();
+        }
     }
 }

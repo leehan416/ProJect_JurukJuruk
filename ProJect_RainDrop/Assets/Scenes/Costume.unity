@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1765,7 +1765,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 414823079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: costumeBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &414823079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,7 +2036,7 @@ GameObject:
   - component: {fileID: 511982608}
   - component: {fileID: 511982607}
   m_Layer: 5
-  m_Name: CstBox_1 (2)
+  m_Name: CstBox_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,8 +2062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.43072554}
   m_AnchorMax: {x: 1, y: 0.624}
-  m_AnchoredPosition: {x: 0, y: -0.2199707}
-  m_SizeDelta: {x: 0, y: -0.5477905}
+  m_AnchoredPosition: {x: 0, y: -56.93872}
+  m_SizeDelta: {x: 0, y: 8.006531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511982607
 MonoBehaviour:
@@ -2363,8 +2374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.81600004}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.799988}
-  m_SizeDelta: {x: 0, y: 15.452209}
+  m_AnchoredPosition: {x: 0, y: -33.072083}
+  m_SizeDelta: {x: 0, y: 23.596008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638155511
 MonoBehaviour:
@@ -2559,7 +2570,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 683501377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: costumeBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &683501377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2610,7 +2632,7 @@ GameObject:
   - component: {fileID: 745394427}
   - component: {fileID: 745394426}
   m_Layer: 5
-  m_Name: CstBox_1 (1)
+  m_Name: CstBox_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2636,8 +2658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.625}
   m_AnchorMax: {x: 1, y: 0.81600004}
-  m_AnchoredPosition: {x: 0, y: -2.209961}
-  m_SizeDelta: {x: 0, y: 3.4522095}
+  m_AnchoredPosition: {x: 0, y: -50.380737}
+  m_SizeDelta: {x: 0, y: 11.905823}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745394426
 MonoBehaviour:
@@ -2896,7 +2918,7 @@ GameObject:
   - component: {fileID: 846681443}
   - component: {fileID: 846681442}
   m_Layer: 5
-  m_Name: CstBox_1 (3)
+  m_Name: CstBox_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2922,8 +2944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23754512}
   m_AnchorMax: {x: 1, y: 0.4295451}
-  m_AnchoredPosition: {x: 0, y: 0.30004883}
-  m_SizeDelta: {x: 0, y: 0.45214844}
+  m_AnchoredPosition: {x: 0, y: -64.99701}
+  m_SizeDelta: {x: 0, y: 8.949951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &846681442
 MonoBehaviour:
@@ -3043,7 +3065,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866222621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: costumeBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866222621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3864,7 +3897,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1180699167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: costumeBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1180699167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4491,7 +4535,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1399336531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1451031527}
+        m_MethodName: costumeBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1399336531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,8 +4707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUpOK: {fileID: 195952094}
-  popUpYN: {fileID: 558804635}
+  popUpOK: {fileID: 277072623}
+  popUpYN: {fileID: 0}
   waterTank: {fileID: 0}
   money: {fileID: 1092716476}
   waterCounter:
@@ -6282,7 +6337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1451031526}
         m_MethodName: unactivePopup
         m_Mode: 1
         m_Arguments:
@@ -6421,7 +6476,7 @@ GameObject:
   - component: {fileID: 1986309491}
   - component: {fileID: 1986309490}
   m_Layer: 5
-  m_Name: CstBox_1 (4)
+  m_Name: CstBox_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6447,8 +6502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.0472785}
   m_AnchorMax: {x: 1, y: 0.23845491}
-  m_AnchoredPosition: {x: 0, y: -0.6999512}
-  m_SizeDelta: {x: 0, y: 2.4521484}
+  m_AnchoredPosition: {x: 0, y: -74.43677}
+  m_SizeDelta: {x: 0, y: 10.913574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986309490
 MonoBehaviour:
@@ -6604,5 +6659,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 950}
+  m_SizeDelta: {x: 0, y: 869.9402}
   m_Pivot: {x: 0, y: 1}

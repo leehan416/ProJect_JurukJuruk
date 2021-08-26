@@ -47,7 +47,7 @@ public class IntroAnimation : MonoBehaviour {
         isTitleAnimationing = true;
         for (float i = 0; isIntroAnimationing; i += .1f)
         {
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.05f);
             touch_to_start.color = new Color(77 / 255f, 77 / 255f, 77 / 255f, Mathf.Abs(255 * Mathf.Sin(i)) / 255f);
         }
     }

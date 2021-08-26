@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
-    [Header("Local Locker")] public GameObject[] locker = new GameObject[4]; // Local Locker
+    public GameObject[] locker = new GameObject[4]; // Local Locker
 
     private Text btnTextYN; // 가격 Text
     private Text btnTextOK; // 돈 없을때 뜨는 Text
@@ -12,11 +12,7 @@ public class UI_MapScene : MonoBehaviour {
 
     void Start()
     {
-        //팝업 비활성화 (UI 발아오기 위함)
-        // popUpYN.SetActive(false);
-        // popUpOK.SetActive(false);
-
-        btnTextOK = UI_MultiScene.instance.popUpOK.GetComponentInChildren<Text>();
+        btnTextOK = UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1];
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
         btnTextYN = yesBtn.GetComponentInChildren<Text>();
 

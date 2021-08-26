@@ -9,7 +9,14 @@ public class UI_ShopScene : MonoBehaviour {
 
     void Start()
     {
-        popupText = UI_MultiScene.instance.popUpOK.gameObject.GetComponentInChildren<Text>();
+        // //------------------------------------------------------
+        // DataBase.getLocalData(3);
+        // DataBase.isLocalLock[3] = true;
+        // DataBase.setLocalData(3);
+        // //------------------------------------------------------
+
+
+        popupText = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
         // //Get UI
         // popupOK = GameObject.Find("Canvas/PopUp(ok)");
         // popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
@@ -34,6 +41,7 @@ public class UI_ShopScene : MonoBehaviour {
     // 물 판매 (index) => 상인 선택
     public void sellWater(int index)
     {
+        Debug.Log("!");
         // 물판매
 
         DataBase.getWaterData();
