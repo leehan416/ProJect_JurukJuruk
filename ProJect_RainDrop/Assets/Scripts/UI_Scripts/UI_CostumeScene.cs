@@ -13,6 +13,8 @@ public class UI_CostumeScene : MonoBehaviour {
     public GameObject get;
     public GameObject fail;
 
+    public GameObject[] CstBox = new GameObject[5];
+
     public Sprite[] getCoustumeUI = new Sprite[5];
 
 
@@ -20,8 +22,27 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         UI_MultiScene.instance.setMoney();
         DataBase.getCoustume();
-        // DataBase.
         setLockers();
+    }
+
+
+    public void setButton()
+    {
+        for (int i = 0; i < CstBox.Length; i++)
+        {
+            if (DataBase.costume == i + 1)
+            {
+                CstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "해제하기";
+                CstBox[i].gameObject.GetComponentInChildren<Button>().image.color =
+                    new Color(192 / 255f, 192 / 255f, 192 / 255f, 1f);
+            }
+            else
+            {
+                CstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "장착하기";
+                CstBox[i].gameObject.GetComponentInChildren<Button>().image.color =
+                    new Color(1f, 1f, 1f, 1f);
+            }
+        }
     }
 
 
@@ -53,7 +74,7 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         while (GachaSystem.instance.isAnimationing)
             yield return new WaitForSeconds(.1f);
-        UI_MultiScene.instance.popUpYN.SetActive(false);
+        machine.SetActive(false);
         setPopUp(GachaSystem.instance.gacha());
     }
 
@@ -67,7 +88,6 @@ public class UI_CostumeScene : MonoBehaviour {
         if (val != 0)
         {
             get.SetActive(true);
-            Debug.Log("!");
             itemSprite.sprite = getCoustumeUI[val - 1];
             DataBase.isCostumeLock[val] = false;
             DataBase.setCostume();
@@ -107,7 +127,19 @@ public class UI_CostumeScene : MonoBehaviour {
         }
         else
         {
-            DataBase.costume = val;
+            if (val != DataBase.costume)
+            {
+                // 장착
+                DataBase.costume = val;
+                setButton();
+            }
+            else
+            {
+                // 해제
+                DataBase.costume = 0;
+                setButton();
+            }
+
             DataBase.setCostume();
         }
     }

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    float playerSpeed = 300f;
+    float playerSpeed = 320f;
 
     public static bool leftClick;
     public static bool rightClick;

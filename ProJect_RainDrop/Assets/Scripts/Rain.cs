@@ -45,11 +45,11 @@ public class Rain : MonoBehaviour {
             if (DataBase.valueMaxWater[DataBase.tankLevel] > DataBase.getAllWater()) // 물탱크에 자리가 있으면 
             {
                 if (DataBase.nowLocal == 1)
-                    DataBase.cleanedWater += DataBase.valuePerDrop[DataBase.pailLevel]; // 청정구역
+                    DataBase.cleanedWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 청정구역
                 else if (DataBase.nowLocal == 3)
-                    DataBase.desertWater += DataBase.valuePerDrop[DataBase.pailLevel]; // 사막구역
+                    DataBase.desertWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 사막구역
                 else
-                    DataBase.uncleanedWater += DataBase.valuePerDrop[DataBase.pailLevel]; // 나머지 구역
+                    DataBase.uncleanedWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 나머지 구역
             }
 
             DataBase.setWaterData();

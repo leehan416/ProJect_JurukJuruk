@@ -41,7 +41,6 @@ public class UI_ShopScene : MonoBehaviour {
     // 물 판매 (index) => 상인 선택
     public void sellWater(int index)
     {
-        Debug.Log("!");
         // 물판매
 
         DataBase.getWaterData();

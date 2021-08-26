@@ -1838,8 +1838,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: UpCleanLevel
+      - m_Target: {fileID: 525951182}
+        m_MethodName: upCleanLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

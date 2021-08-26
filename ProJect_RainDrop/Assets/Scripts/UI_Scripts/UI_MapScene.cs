@@ -53,6 +53,7 @@ public class UI_MapScene : MonoBehaviour {
             DataBase.setLocalData(val);
             setMapLocker();
             UI_MultiScene.instance.unactivePopup();
+            UI_MultiScene.instance.setMoney();
         }
         // 돈이 부족하다면
         else

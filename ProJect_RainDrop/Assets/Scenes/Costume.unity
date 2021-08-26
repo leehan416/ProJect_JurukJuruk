@@ -372,7 +372,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4035,7 +4035,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4735,6 +4735,12 @@ MonoBehaviour:
   itemSprite: {fileID: 279861108}
   get: {fileID: 1293021292}
   fail: {fileID: 102602809}
+  CstBox:
+  - {fileID: 638155509}
+  - {fileID: 745394424}
+  - {fileID: 511982605}
+  - {fileID: 846681440}
+  - {fileID: 1986309488}
   getCoustumeUI:
   - {fileID: -6159484083400804585, guid: f43e60f8c8bcbcc499148cc2b3697da2, type: 3}
   - {fileID: 3296299261887039533, guid: f43e60f8c8bcbcc499148cc2b3697da2, type: 3}
@@ -4930,7 +4936,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

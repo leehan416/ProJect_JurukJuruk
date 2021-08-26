@@ -88,8 +88,8 @@ public class UI_Market : MonoBehaviour {
         // tank 업그레이드 가능시
         if (DataBase.tankLevel != DataBase.valueMaxWater.Length - 1)
         {
-            tankInfo.text = "업그레이드시\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "L >> " +
-                            DataBase.valueMaxWater[DataBase.tankLevel + 1] + "L";
+            tankInfo.text = "업그레이드시\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "ml >> " +
+                            DataBase.valueMaxWater[DataBase.tankLevel + 1] + "ml";
             tankCost.text = DataBase.upgradeTank[DataBase.tankLevel + 1] + " $";
         }
         // tank 최대 레벨일때
@@ -115,7 +115,7 @@ public class UI_Market : MonoBehaviour {
             if (DataBase.potLevel[i - 9] > 0)
                 potInfo[i - 9].text = (DataBase.potCycle[i - 9] < 30)
                     ? DataBase.potCycle[i - 9] + "초당 " + DataBase.perSecond[DataBase.potLevel[i - 9]] + "ml"
-                    : "1분당 " + DataBase.perSecond[i - 9] + "ml";
+                    : "1분당 " + DataBase.perSecond[DataBase.potLevel[i - 9]] + "ml";
     }
 
     // up pail level

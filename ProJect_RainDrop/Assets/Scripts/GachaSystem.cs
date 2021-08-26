@@ -9,8 +9,11 @@ public class GachaSystem : MonoBehaviour {
     private int getProbability = 30; // 뽑기 성공 확률 getProbability / 100 %
 
     Random random = new Random();
+
     public Sprite[] animationSprite = new Sprite[13];
+
     [HideInInspector] public bool isAnimationing = false;
+
 
     private void Start()
     {
@@ -20,7 +23,7 @@ public class GachaSystem : MonoBehaviour {
 
     public int gacha()
     {
-        UI_MultiScene.instance.unactivePopup();
+        //   UI_MultiScene.instance.unactivePopup();
 
         if (random.Next(1, 100) < getProbability)
         {
@@ -33,15 +36,19 @@ public class GachaSystem : MonoBehaviour {
             // 성공
             int i = 0;
             DataBase.getCoustume();
-
-            for (int k = 1; k < DataBase.isCostumeLock.Length; k++)
+            try
             {
-                Debug.Log(k + " : " + DataBase.isCostumeLock[k]);
-                // if (DataBase.isCostumeLock[k])
-                // {
-                //     Debug.Log("모두 해금됨.");
-                //return 0;
-                // }
+                for (int k = 1;; k++)
+                {
+                    if (DataBase.isCostumeLock[k])
+                    {
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
             }
 
             //random.Next(,)
@@ -49,7 +56,7 @@ public class GachaSystem : MonoBehaviour {
 
             while (i == 0 || DataBase.isCostumeLock[i] == false)
             {
-                i = random.Next(1, 5);
+                i = random.Next(1, 6);
             }
 
             return i;

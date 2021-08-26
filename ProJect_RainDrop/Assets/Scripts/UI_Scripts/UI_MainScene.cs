@@ -40,16 +40,11 @@ public class UI_MainScene : MonoBehaviour {
             GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
 
-        //고양이 버튼 비활성화
-        // feverBtn.SetActive(false);
-        // feverCover.SetActive(false);
-
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
         DataBase.getMoney();
 
-        // Debug.Log(DataBase.valueMaxWater[DataBase.valueMaxWater.Length - 1]);
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
@@ -64,6 +59,12 @@ public class UI_MainScene : MonoBehaviour {
         UI_MultiScene.instance.setMoney();
         setbackGround();
         UI_MultiScene.instance.setWaterCounter();
+
+        //--------------------------------------
+        DataBase.getMoney();
+        DataBase.money = 10000000;
+        DataBase.setMoney();
+        //--------------------------------------
 
 
         isFever = false;
