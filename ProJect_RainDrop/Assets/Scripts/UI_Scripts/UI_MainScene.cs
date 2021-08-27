@@ -60,13 +60,6 @@ public class UI_MainScene : MonoBehaviour {
         setbackGround();
         UI_MultiScene.instance.setWaterCounter();
 
-        //--------------------------------------
-        DataBase.getMoney();
-        DataBase.money = 10000000;
-        DataBase.setMoney();
-        //--------------------------------------
-
-
         isFever = false;
         StopCoroutine("feverTimer");
         StartCoroutine(feverTimer());
@@ -185,7 +178,7 @@ public class UI_MainScene : MonoBehaviour {
         {
             while (true)
             {
-                int time = _random.Next(0, 10 /*DataBase.catDrop - 60, DataBase.catDrop*/);
+                int time = _random.Next(DataBase.catDrop - 60, DataBase.catDrop);
 
                 for (int i = 0; i < time; i++)
                     yield return new WaitForSeconds(1f);

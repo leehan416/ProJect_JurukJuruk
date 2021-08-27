@@ -20,8 +20,11 @@ public class UI_CostumeScene : MonoBehaviour {
 
     void Start()
     {
-        UI_MultiScene.instance.setMoney();
+        DataBase.getMoney();
         DataBase.getCoustume();
+
+        UI_MultiScene.instance.setMoney();
+
         setLockers();
         setButton();
     }
@@ -60,15 +63,26 @@ public class UI_CostumeScene : MonoBehaviour {
         machine.SetActive(true);
         machinebtns[0].SetActive(true);
         machinebtns[1].SetActive(true);
+        DataBase.setMoney();
     }
 
     //뽑기
     public void gachaBtn()
     {
-        machinebtns[0].SetActive(false);
-        machinebtns[1].SetActive(false);
-        StartCoroutine(GachaSystem.instance.gachaAnimation());
-        StartCoroutine(animationawait());
+        DataBase.getMoney();
+        if (DataBase.money >= DataBase.gachaCost)
+        {
+            DataBase.money -= DataBase.gachaCost;
+            machinebtns[0].SetActive(false);
+            machinebtns[1].SetActive(false);
+            StartCoroutine(GachaSystem.instance.gachaAnimation());
+            StartCoroutine(animationawait());
+        }
+        else
+        {
+            UI_MultiScene.instance.popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
+        }
     }
 
     IEnumerator animationawait()
@@ -125,6 +139,7 @@ public class UI_CostumeScene : MonoBehaviour {
         if (DataBase.isCostumeLock[val])
         {
             UI_MultiScene.instance.popUpOK.SetActive(true);
+            UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";
         }
         else
         {

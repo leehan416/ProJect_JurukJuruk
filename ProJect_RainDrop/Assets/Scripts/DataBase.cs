@@ -81,9 +81,11 @@ public class DataBase : MonoBehaviour {
     //fever
     public static int feverTime = 30;
     public static int catDrop = 300; //random(240, 300)
-    public static int catSustainTime = 5;
+    public static int catSustainTime = 10;
     public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
 
+    //gacha
+    public static int gachaCost = 3000;
 
     //--------------------------------------------------------
 

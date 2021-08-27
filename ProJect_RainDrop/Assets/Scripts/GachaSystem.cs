@@ -77,7 +77,7 @@ public class GachaSystem : MonoBehaviour {
             else if (3 <= i && i <= 20)
             {
                 GameObject.Find("Canvas/MachineBG/Machine").GetComponent<Image>().sprite =
-                    animationSprite[((i - 3) % 6) + 3];
+                    animationSprite[((i - 3) % 6) + 2];
             }
             else
             {
