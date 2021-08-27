@@ -2,10 +2,7 @@
 
 // using UnityEditor.Rendering;
 
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
     float playerSpeed = 320f;
@@ -18,47 +15,47 @@ public class PlayerController : MonoBehaviour {
         float width = UI_MultiScene.instance.gameObject.GetComponent<RectTransform>().rect.width;
         if (Input.GetMouseButton(0))
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            // if (EventSystem.current.IsPointerOverGameObject())
+            // {
+            //     //UI중 터치된 부분이 없다면 실행
+            // }
+            // else
+            // {
+            if (Input.mousePosition.x > width / 2)
             {
-                //UI중 터치된 부분이 없다면 실행
-            }
-            else
-            {
-                if (Input.mousePosition.x > width / 2)
+                if (!DataBase.isReverse)
                 {
-                    if (!DataBase.isReverse)
-                    {
-                        rightClick = true;
-                        leftClick = false;
-                        if (gameObject.transform.position.x < width)
-                            transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
-                    }
-                    else
-                    {
-                        leftClick = true;
-                        rightClick = false;
-                        if (gameObject.transform.position.x > 0)
-                            transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
-                    }
+                    rightClick = true;
+                    leftClick = false;
+                    if (gameObject.transform.position.x < width)
+                        transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
                 }
                 else
                 {
-                    if (!DataBase.isReverse)
-                    {
-                        leftClick = true;
-                        rightClick = false;
-                        if (gameObject.transform.position.x > 0)
-                            transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
-                    }
-                    else
-                    {
-                        rightClick = true;
-                        leftClick = false;
-                        if (gameObject.transform.position.x < width)
-                            transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
-                    }
+                    leftClick = true;
+                    rightClick = false;
+                    if (gameObject.transform.position.x > 0)
+                        transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
                 }
             }
+            else
+            {
+                if (!DataBase.isReverse)
+                {
+                    leftClick = true;
+                    rightClick = false;
+                    if (gameObject.transform.position.x > 0)
+                        transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
+                }
+                else
+                {
+                    rightClick = true;
+                    leftClick = false;
+                    if (gameObject.transform.position.x < width)
+                        transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
+                }
+            }
+            // }
 
             return;
         }
