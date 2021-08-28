@@ -29,12 +29,10 @@ public class UI_Market : MonoBehaviour {
 
 
     void Start()
-
     {
         // Set UI
-        //TODO : need to check 
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
-        btnTextInfo = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[01];
+        btnTextInfo = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[1];
         btnTextYN = yesBtn.gameObject.GetComponentInChildren<Text>();
         btnTextOK = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
 
@@ -95,7 +93,7 @@ public class UI_Market : MonoBehaviour {
         // tank 최대 레벨일때
         else
         {
-            tankInfo.text = "한계에 도달했습니다.\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "L";
+            tankInfo.text = "한계에 도달했습니다.\n" + DataBase.valueMaxWater[DataBase.tankLevel] + "ml";
             tankCost.text = "Max";
         }
 
@@ -104,18 +102,18 @@ public class UI_Market : MonoBehaviour {
         {
             // pot 업그레이드 가능시
             if (DataBase.potLevel[i] != DataBase.valuePotMax.Length - 1)
-                potCost[i].text = DataBase.unLockPot[i] + DataBase.upgradePail[DataBase.potLevel[i]] + "$";
+                potCost[i].text = DataBase.unLockPot[i] + DataBase.upgradePail[DataBase.potLevel[i] + 1] + "$";
             // pot 최대 레벨일때
             else
                 potCost[i].text = "Max";
         }
 
         // set pot info
-        for (int i = 9; i < 13; i++)
-            if (DataBase.potLevel[i - 9] > 0)
-                potInfo[i - 9].text = (DataBase.potCycle[i - 9] < 30)
-                    ? DataBase.potCycle[i - 9] + "초당 " + DataBase.perSecond[DataBase.potLevel[i - 9]] + "ml"
-                    : "1분당 " + DataBase.perSecond[DataBase.potLevel[i - 9]] + "ml";
+        for (int i = 0; i < 4; i++)
+            if (DataBase.potLevel[i] > 0)
+                potInfo[i].text = (DataBase.potCycle[i] < 30)
+                    ? DataBase.potCycle[i] + "초당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml"
+                    : "1분당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml";
     }
 
     // up pail level
@@ -190,17 +188,6 @@ public class UI_Market : MonoBehaviour {
 
         //팝업 비활성화
         UI_MultiScene.instance.popUpYN.SetActive(false);
-
-        // if (DataBase.money >= DataBase.unLockPot[val])
-        // {
-        //     // 돈부족
-        //
-        //     // 팝업 활성화
-        //     UI_MultiScene.instance.popUpOK.SetActive(true);
-        //     btnTextOK.text = "보유 금액이 부족합니다.";
-        //     return;
-        // }
-
 
         // 해금 | 해금 가격과 업글가격을 합쳐서 계산하는 방식이기 때문에, 시스템 분리
         if (DataBase.potLevel[val] == 0)

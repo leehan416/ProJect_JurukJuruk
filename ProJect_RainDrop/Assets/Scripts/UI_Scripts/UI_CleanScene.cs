@@ -140,7 +140,7 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.getLevels();
 
         // 업그레이드 비용이 충분하고, 레벨이 최대가 아니라면
-        if ((DataBase.money >= DataBase.upgradeClean[DataBase.cleanLevel]) &&
+        if ((DataBase.money >= DataBase.upgradeClean[DataBase.cleanLevel + 1]) &&
             (DataBase.cleanLevel < DataBase.valueCleanWater.Length))
         {
             DataBase.money -= DataBase.upgradeClean[++DataBase.cleanLevel];
