@@ -13,21 +13,15 @@ public class SystemController : MonoBehaviour {
     private Color[] color = new Color[4];
     //  public static DateTime realTime = DateTime.Now;
 
-    void Start()
+    void Awake()
     {
         color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
         color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f);
         color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
         color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f);
 
-        // color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
-        // color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, 1f);
-        // color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, 1f);
-        // color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, 1f);
-
         DataBase.getLevels();
         DataBase.getWaterData();
-
         for (int i = 0; i < 4; i++)
         {
             if (DataBase.potLevel[i] > 0)
@@ -36,14 +30,13 @@ public class SystemController : MonoBehaviour {
                                         DataBase.perSecond[DataBase.potLevel[i]];
                 if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
                 {
-                    DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[i]);
+                    DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[i]]);
                 }
             }
         }
 
         DataBase.setWaterData();
 
-        //UIManager.instance.PotUpdate();
 
         StartCoroutine(RainSystem());
         StartCoroutine(FixedSystem());
@@ -67,7 +60,6 @@ public class SystemController : MonoBehaviour {
         // ingame => DataBase.potCycle 초당 계산 
         // background (outGame) => 현실 시간 계산하여 더해줌.
 
-        // TODO :  유저가 위치한 씬에서만 추가 양동이가 채워져야 함 (ingame)
         int index = 0;
         int[] value = new int[4];
 
@@ -101,7 +93,7 @@ public class SystemController : MonoBehaviour {
             }
 
             // UIManager.instance.PotUpdate();
-            UI_MainScene.updateWaterPot();
+            UI_MainScene.instance.updateWaterPot();
         }
     }
 
@@ -112,6 +104,7 @@ public class SystemController : MonoBehaviour {
         rain.gameObject.GetComponent<Image>().color = color[DataBase.nowLocal];
         short width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
         short height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
+
         Instantiate(rain,
             new Vector2(random.Next(0, width), height), Quaternion.identity,
             this.transform);

@@ -22,7 +22,7 @@ public class UI_Market : MonoBehaviour {
 
     // Texts
     private Text btnTextYN; // 가격 Text
-    private Text btnTextInfo; // YN 설명 text
+    // private Text btnTextInfo; // YN 설명 text
 
     private Text btnTextOK; // OK popup 설명Text
     private Button yesBtn; // 구매 버튼
@@ -32,14 +32,9 @@ public class UI_Market : MonoBehaviour {
     {
         // Set UI
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
-        btnTextInfo = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[1];
         btnTextYN = yesBtn.gameObject.GetComponentInChildren<Text>();
         btnTextOK = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
 
-        Debug.Log("btnTextInfo : " + btnTextInfo.text);
-        Debug.Log("btnTextYN : " + btnTextYN.text);
-        Debug.Log("btnTextOK : " + btnTextOK.text);
-        //get Data
         DataBase.getMoney();
         DataBase.getWaterData();
         DataBase.getLevels();
@@ -102,7 +97,7 @@ public class UI_Market : MonoBehaviour {
         {
             // pot 업그레이드 가능시
             if (DataBase.potLevel[i] != DataBase.valuePotMax.Length - 1)
-                potCost[i].text = DataBase.unLockPot[i] + DataBase.upgradePail[DataBase.potLevel[i] + 1] + "$";
+                potCost[i].text = DataBase.unLockPot[i] + DataBase.upgradePot[DataBase.potLevel[i]] + "$";
             // pot 최대 레벨일때
             else
                 potCost[i].text = "Max";
@@ -213,9 +208,9 @@ public class UI_Market : MonoBehaviour {
         // 일반 업글
         else
         {
-            if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val] + 1]))
+            if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val]]))
             {
-                DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[++DataBase.potLevel[val]]);
+                DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val]++]);
 
                 //set data
                 DataBase.setLevels();
@@ -249,7 +244,7 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.isLocalLock[val])
         {
-            Debug.Log("!");
+            //  Debug.Log("!");
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "지역이 해금되지 않았습니다.";
             return;

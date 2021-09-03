@@ -27,23 +27,14 @@ public class UI_MultiScene : MonoBehaviour {
         if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.GetKey(KeyCode.Escape)) //뒤로가기 키 입력
-            {
-                try
-                {
-                    bool test = UI_MainScene.isMain;
-                    // main
-                    Application.Quit(); // 게임 종료
-                }
-                catch (Exception e)
-                {
-                    // main 아님
-                    moveScene("Main");
-                }
-            }
+                // 메인씬 이라면
+                if (Application.loadedLevelName == "Main") Application.Quit(); // 게임 종료
+                // 아니라면
+                else moveScene("Main");
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         if (!instance) instance = this;
         else Destroy(this);

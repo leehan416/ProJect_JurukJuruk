@@ -53,25 +53,27 @@ public class DataBase : MonoBehaviour {
 
     //--------------------------------------------------------
     //System value 
-    public static float[] rainCycle = {1f, 1.5f, .5f, 5f}; // 지역별 비오는 주기(초)
+    public static float[] rainCycle = {1f, 1f, .5f, 5f}; // 지역별 비오는 주기(초)
     public static int[] potCycle = {5, 5, 4, 60};
     public static int[] localCost = {0, 5000, 10000, 20000};
     public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
 
     // pail
-    public static int[] valuePerDrop = {10, 15, 20, 23, 26, 28, 30, 32};
-    public static int[] upgradePail = {0, 200, 225, 250, 300, 350, 420, 500};
+    public static int[] valuePerDrop = {10, 15, 20, 23, 26, 28, 30, 32, 34, 36, 38, 40};
+    public static int[] upgradePail = {0, 200, 300, 500, 700, 1000, 1500, 2200, 3000, 3900, 4900, 6000};
 
     //tank
-    public static int[] valueMaxWater = {5000, 7000, 10000, 15000, 20000, 27000, 36000, 48000};
-    public static int[] upgradeTank = {0, 5000, 6000, 8000, 10000, 15000, 20000, 30000};
+    public static int[] valueMaxWater =
+        {3000, 5000, 7000, 9000, 12000, 15000, 20000, 27000, 34000, 43000, 52000, 64000};
+
+    public static int[] upgradeTank = {0, 1000, 1200, 1500, 2000, 2700, 3400, 4500, 5400, 6400, 7200, 9000};
 
     //clean
     public static int[] valueCleanWater = {1, 2, 3, 5, 7, 10, 15, 20};
     public static int[] upgradeClean = {0, 100, 200, 300, 500, 700, 1000, 1500};
 
     //pot
-    public static int[] unLockPot = {1000, 5000, 5000, 5000};
+    public static int[] unLockPot = {1000, 3000, 4000, 5000};
     public static int[] perSecond = {5, 7, 10, 12, 13, 14, 15, 16};
     public static float[] valuePotMax = {1800, 2500, 3600, 4300, 4700, 5000, 5400, 5800};
     public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};
@@ -80,9 +82,13 @@ public class DataBase : MonoBehaviour {
 
     //fever
     public static int feverTime = 30;
-    public static int catDrop = 300; //random(240, 300)
-    public static int catSustainTime = 10;
+
+    //public static int catDrop = 300; //random(240, 300)
+    public static int catSustainTime = 20;
     public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
+    public static float feverDrop = .45f; // 고양이 등장 판별하는 물탱크의 물 양
+    public static bool isFeverChecked = false; // 고양이 등장 판정 검사했음?
+
 
     //gacha
     public static int gachaCost = 3000;
@@ -103,6 +109,13 @@ public class DataBase : MonoBehaviour {
     {
         return (uncleanedWater + cleanedWater + desertWater);
     }
+
+    public static float getWaterTankPercent()
+    {
+        return Convert.ToSingle(DataBase.getAllWater()) /
+               Convert.ToSingle(DataBase.valueMaxWater[DataBase.tankLevel]);
+    }
+
 
     public static void setWaterData()
     {

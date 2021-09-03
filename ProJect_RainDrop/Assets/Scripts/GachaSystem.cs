@@ -50,9 +50,7 @@ public class GachaSystem : MonoBehaviour {
             {
                 return 0;
             }
-
-            //random.Next(,)
-            //return 0;
+            
 
             while (i == 0 || DataBase.isCostumeLock[i] == false)
             {

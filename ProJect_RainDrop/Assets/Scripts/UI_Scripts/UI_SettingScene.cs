@@ -17,8 +17,7 @@ public class UI_SettingScene : MonoBehaviour {
         // reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
         SetSettingObj();
     }
-
-
+    
     // value 초기 설정
     public void SetSettingObj()
     {
@@ -26,7 +25,6 @@ public class UI_SettingScene : MonoBehaviour {
         fxSlider.value = DataBase.fxVol;
         reverse.isOn = DataBase.isReverse;
     }
-
 
     // bgm슬라이더 조작시 호출 val => volum
     public void ChangeBgmVol(float val)

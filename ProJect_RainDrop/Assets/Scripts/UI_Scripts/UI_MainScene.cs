@@ -4,6 +4,9 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class UI_MainScene : MonoBehaviour {
+    public static UI_MainScene instance;
+
+
     public Text local; // local Text
 
     public static Slider waterPot; // 물탱크
@@ -17,7 +20,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
 
-    public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
+    //   public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
 
     public static bool isFever = false; // fever 확인 변수 
 
@@ -25,6 +28,9 @@ public class UI_MainScene : MonoBehaviour {
 
     void Start()
     {
+        if (!instance) instance = this;
+        else Destroy(this);
+
         waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>();
 
@@ -45,6 +51,8 @@ public class UI_MainScene : MonoBehaviour {
         DataBase.getLevels();
         DataBase.getMoney();
 
+        //피버 등장 판별
+        if (DataBase.getWaterTankPercent() > DataBase.feverDrop) DataBase.isFeverChecked = true;
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
@@ -54,6 +62,7 @@ public class UI_MainScene : MonoBehaviour {
         //slider update
         updateWaterPot();
         UI_MultiScene.instance.updateWaterTank();
+
         //TextSet
         setLocal();
         UI_MultiScene.instance.setMoney();
@@ -61,12 +70,10 @@ public class UI_MainScene : MonoBehaviour {
         UI_MultiScene.instance.setWaterCounter();
 
         isFever = false;
-        StopCoroutine("feverTimer");
-        StartCoroutine(feverTimer());
     }
 
     // pot (추가 양동이) value set
-    public static void updateWaterPot()
+    public void updateWaterPot()
     {
         DataBase.getWaterData();
         waterPot.value = DataBase.potWater[DataBase.nowLocal];
@@ -147,6 +154,7 @@ public class UI_MainScene : MonoBehaviour {
         bg.sprite = localBG[DataBase.nowLocal];
     }
 
+
     public void setFeverbtn()
     {
         feverBtn.SetActive(true);
@@ -163,32 +171,24 @@ public class UI_MainScene : MonoBehaviour {
     }
 
 
-    private IEnumerator feverTimer()
+    IEnumerator feverTimer()
     {
         // 피버시간 체크
         if (isFever)
         {
             for (int i = 0; i < DataBase.feverTime; i++)
                 yield return new WaitForSeconds(1f);
+
             feverCover.SetActive(false);
             isFever = false;
         }
         // 고양이 등장 시간 체크 
         else
         {
-            while (true)
-            {
-                int time = _random.Next(DataBase.catDrop - 60, DataBase.catDrop);
+            for (int i = 0; i < DataBase.catSustainTime; i++)
+                yield return new WaitForSeconds(1f);
 
-                for (int i = 0; i < time; i++)
-                    yield return new WaitForSeconds(1f);
-
-                setFeverbtn();
-                for (int i = 0; i < DataBase.catSustainTime; i++)
-                    yield return new WaitForSeconds(1f);
-
-                feverBtn.SetActive(false);
-            }
+            feverBtn.SetActive(false);
         }
     }
 }

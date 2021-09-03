@@ -18,21 +18,14 @@ public class Rain : MonoBehaviour {
             //22 40
             isBig = true;
             gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0);
-            // Debug.Log("big");
-            // this.transform.localScale.y = 90;
         }
 
-
-        if (isBig)
-        {
-            // 큰 빗물
+        if (isBig) // 큰 빗물
             gameObject.GetComponent<Image>().sprite = bigtype[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
-        }
-        else
-        {
-            //일반 빗물
+
+        else //일반 빗물
             gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
-        }
+
 
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse); // 땅으로 힘 추가
     }
@@ -42,14 +35,36 @@ public class Rain : MonoBehaviour {
         if (other.collider.gameObject.tag.Equals("Pail")) // 양동이 접촉시
         {
             DataBase.getWaterData();
-            if (DataBase.valueMaxWater[DataBase.tankLevel] > DataBase.getAllWater()) // 물탱크에 자리가 있으면 
+            if (DataBase.valueMaxWater[DataBase.tankLevel] + DataBase.valuePerDrop[DataBase.pailLevel] >
+                DataBase.getAllWater()) // 물탱크에 자리가 있으면 
             {
+                int value = DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1);
+
                 if (DataBase.nowLocal == 1)
-                    DataBase.cleanedWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 청정구역
+                    DataBase.cleanedWater += value; // 청정구역
                 else if (DataBase.nowLocal == 3)
-                    DataBase.desertWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 사막구역
+                    DataBase.desertWater += value; // 사막구역
                 else
-                    DataBase.uncleanedWater += DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1); // 나머지 구역
+                    DataBase.uncleanedWater += value; // 나머지 구역
+                // 피버 버튼 등장 조건 검사 : 물탱크가 50 % 이상 찼을 때 50퍼센트 확률
+                if (!DataBase.isFeverChecked && DataBase.getWaterTankPercent() > DataBase.feverDrop)
+                {
+                    if (random.Next(0, 10) > 5)
+                    {
+                        DataBase.isFeverChecked = true;
+                        UI_MainScene.instance.setFeverbtn();
+                    }
+                }
+            }
+            else
+            {
+                int value = Convert.ToInt32(DataBase.valueMaxWater[DataBase.tankLevel] - DataBase.getAllWater());
+                if (DataBase.nowLocal == 1) // 청정구역
+                    DataBase.cleanedWater += value;
+                else if (DataBase.nowLocal == 3) // 사막구역
+                    DataBase.desertWater += value;
+                else // 나머지 구역
+                    DataBase.uncleanedWater += value;
             }
 
             DataBase.setWaterData();

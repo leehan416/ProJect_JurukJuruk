@@ -2,13 +2,21 @@
 
 // using UnityEditor.Rendering;
 
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    float playerSpeed = 320f;
+    float playerSpeed = 320f; // 1080기준
 
     public static bool leftClick;
     public static bool rightClick;
+
+
+    private void Start()
+    {
+        playerSpeed = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 3.375f;
+        Debug.Log(playerSpeed);
+    }
 
     void Update()
     {

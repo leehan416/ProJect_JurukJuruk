@@ -41,24 +41,24 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UX_Manager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AnimationController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_LogoScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Animation/PlayerAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -178,6 +178,7 @@
       <workItem from="1630064620256" duration="1332000" />
       <workItem from="1630070025845" duration="440000" />
       <workItem from="1630157819463" duration="596000" />
+      <workItem from="1630654549453" duration="6787000" />
     </task>
     <servers />
   </component>
@@ -185,24 +186,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs</url>
-          <line>111</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" initialLine="111" containingFunctionPresentation="method 'setMarketText'">
-            <startOffsets>
-              <option value="3545" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3572" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
