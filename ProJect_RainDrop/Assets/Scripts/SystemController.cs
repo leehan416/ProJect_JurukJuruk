@@ -27,10 +27,9 @@ public class SystemController : MonoBehaviour {
         {
             if (DataBase.potLevel[i] > 0)
             {
-                
-                Debug.Log(CalculateUnderTime());
+                // Debug.Log(CalculateUnderTime());
                 int value = CalculateUnderTime() / DataBase.potCycle[i] * DataBase.perSecond[DataBase.potLevel[i]];
-                Debug.Log(value);
+                // Debug.Log(value);
                 DataBase.potWater[i] += value;
 
                 if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
@@ -119,6 +118,6 @@ public class SystemController : MonoBehaviour {
     public static int CalculateUnderTime()
     {
         TimeSpan dateDiff = DateTime.Now - DataBase.lateTime;
-        return dateDiff.Seconds; // 초 차이
+        return Convert.ToInt32(dateDiff.TotalSeconds); // 초 차이
     }
 }
