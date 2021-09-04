@@ -22,12 +22,17 @@ public class SystemController : MonoBehaviour {
 
         DataBase.getLevels();
         DataBase.getWaterData();
+        DataBase.getLateTime();
         for (int i = 0; i < 4; i++)
         {
             if (DataBase.potLevel[i] > 0)
             {
-                DataBase.potWater[i] += Convert.ToInt32(CalculateUnderTime() / DataBase.potCycle[i]) *
-                                        DataBase.perSecond[DataBase.potLevel[i]];
+                
+                Debug.Log(CalculateUnderTime());
+                int value = CalculateUnderTime() / DataBase.potCycle[i] * DataBase.perSecond[DataBase.potLevel[i]];
+                Debug.Log(value);
+                DataBase.potWater[i] += value;
+
                 if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
                 {
                     DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[i]]);
@@ -36,7 +41,7 @@ public class SystemController : MonoBehaviour {
         }
 
         DataBase.setWaterData();
-
+        DataBase.setLateTime();
 
         StartCoroutine(RainSystem());
         StartCoroutine(FixedSystem());
@@ -113,7 +118,6 @@ public class SystemController : MonoBehaviour {
 
     public static int CalculateUnderTime()
     {
-        DataBase.getLateTime();
         TimeSpan dateDiff = DateTime.Now - DataBase.lateTime;
         return dateDiff.Seconds; // 초 차이
     }

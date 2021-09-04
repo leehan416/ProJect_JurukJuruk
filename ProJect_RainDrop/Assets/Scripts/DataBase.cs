@@ -190,7 +190,7 @@ public class DataBase : MonoBehaviour {
 
     public static void setLateTime()
     {
-        PlayerPrefs.SetString("LateTime", Convert.ToString(lateTime));
+        PlayerPrefs.SetString("LateTime", Convert.ToString(DateTime.Now));
     }
 
     public static void setCostume()

@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     private void Start()
     {
         playerSpeed = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 3.375f;
-        Debug.Log(playerSpeed);
+//        Debug.Log(playerSpeed);
     }
 
     void Update()

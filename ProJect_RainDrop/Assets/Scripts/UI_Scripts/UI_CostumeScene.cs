@@ -73,6 +73,14 @@ public class UI_CostumeScene : MonoBehaviour {
         if (DataBase.money >= DataBase.gachaCost)
         {
             DataBase.money -= DataBase.gachaCost;
+            
+            //-------------------
+
+            DataBase.setMoney();
+            UI_MultiScene.instance.setMoney();
+            
+            //-------------------
+            
             machinebtns[0].SetActive(false);
             machinebtns[1].SetActive(false);
             StartCoroutine(GachaSystem.instance.gachaAnimation());
