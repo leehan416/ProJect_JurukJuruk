@@ -73,14 +73,14 @@ public class UI_CostumeScene : MonoBehaviour {
         if (DataBase.money >= DataBase.gachaCost)
         {
             DataBase.money -= DataBase.gachaCost;
-            
+
             //-------------------
 
             DataBase.setMoney();
             UI_MultiScene.instance.setMoney();
-            
+
             //-------------------
-            
+
             machinebtns[0].SetActive(false);
             machinebtns[1].SetActive(false);
             StartCoroutine(GachaSystem.instance.gachaAnimation());
@@ -125,9 +125,9 @@ public class UI_CostumeScene : MonoBehaviour {
             if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel]) ;
             else
             {
-                DataBase.uncleanedWater += 500;
+                DataBase.water[0] += 500;
                 if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel])
-                    DataBase.uncleanedWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
+                    DataBase.water[0] -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             }
 
             DataBase.setWaterData();

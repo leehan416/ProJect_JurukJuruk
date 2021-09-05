@@ -46,7 +46,7 @@ public class GachaSystem : MonoBehaviour {
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return 0;
             }

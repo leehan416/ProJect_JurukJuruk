@@ -26,10 +26,10 @@ public class UI_MapScene : MonoBehaviour {
     //Set Local Locker 
     public void setMapLocker()
     {
-        for (int i = 1; i < DataBase.isLocalLock.Length; i++)
+        for (int i = 1; i < DataBase.locals.Length; i++)
         {
             DataBase.getLocalData(i);
-            locker[i].SetActive(DataBase.isLocalLock[i]);
+            locker[i].SetActive(DataBase.locals[i].isLock);
         }
     }
 
@@ -45,10 +45,10 @@ public class UI_MapScene : MonoBehaviour {
         DataBase.getLocalData(val);
 
         // 해금 가능한 돈이 있다면
-        if (DataBase.money >= DataBase.localCost[val])
+        if (DataBase.money >= DataBase.locals[val].cost)
         {
-            DataBase.money -= DataBase.localCost[val];
-            DataBase.isLocalLock[val] = false;
+            DataBase.money -= DataBase.locals[val].cost;
+            DataBase.locals[val].isLock = false;
             DataBase.setMoney();
             DataBase.setLocalData(val);
             setMapLocker();
@@ -70,13 +70,13 @@ public class UI_MapScene : MonoBehaviour {
         DataBase.getLocalData(val);
 
         //local이 잠겨 있다면
-        if (DataBase.isLocalLock[val])
+        if (DataBase.locals[val].isLock)
         {
             // popup 활성화
             UI_MultiScene.instance.popUpYN.SetActive(true);
 
             // 구매버튼에 가격 표시
-            btnTextYN.text = DataBase.localCost[val] + " $";
+            btnTextYN.text = DataBase.locals[val].cost + " $";
 
             // 만약 EventTrigger가 이미 존재한다면 파괴.
             Destroy(yesBtn.GetComponent<EventTrigger>());

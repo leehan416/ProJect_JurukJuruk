@@ -28,7 +28,11 @@ public class UI_MultiScene : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.Escape)) //뒤로가기 키 입력
                 // 메인씬 이라면
-                if (Application.loadedLevelName == "Main") Application.Quit(); // 게임 종료
+                if (Application.loadedLevelName == "Main")
+                {
+                    UI_MainScene.instance.popupIsOn = !UI_MainScene.instance.popupIsOn;
+                    popUpYN.SetActive(UI_MainScene.instance.popupIsOn);
+                }
                 // 아니라면
                 else moveScene("Main");
         }
@@ -45,9 +49,8 @@ public class UI_MultiScene : MonoBehaviour {
         DataBase.getWaterData(); // 빗물 데이터 가져오기
 
         //text set
-        waterCounter[0].text = DataBase.uncleanedWater.ToString();
-        waterCounter[1].text = DataBase.cleanedWater.ToString();
-        waterCounter[2].text = DataBase.desertWater.ToString();
+        for (int i = 0; i < DataBase.water.Length; i++)
+            waterCounter[i].text = DataBase.water[i].ToString();
     }
 
 

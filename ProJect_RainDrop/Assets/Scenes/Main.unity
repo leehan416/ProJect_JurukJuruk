@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1406,7 +1406,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 343473832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1798680556}
+        m_MethodName: quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343473832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,7 +1538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1798680553}
         m_MethodName: unactivePopup
         m_Mode: 1
         m_Arguments:
@@ -2850,7 +2861,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1118707074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1798680556}
+        m_MethodName: emptyPot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1118707074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5138,7 +5160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popUpOK: {fileID: 0}
-  popUpYN: {fileID: 0}
+  popUpYN: {fileID: 574679351}
   waterTank: {fileID: 278947030}
   money: {fileID: 23863919}
   waterCounter:
@@ -5170,6 +5192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   local: {fileID: 14359327}
+  emptyText: {fileID: 602635273}
   feverBtn: {fileID: 984130448}
   feverCover: {fileID: 2050375172}
   localBG:
@@ -5181,6 +5204,7 @@ MonoBehaviour:
   - {fileID: 7558836099807782548, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   - {fileID: 5826042701559951212, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   - {fileID: -7084873560412676255, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
+  popupIsOn: 0
 --- !u!114 &1798680557
 MonoBehaviour:
   m_ObjectHideFlags: 0

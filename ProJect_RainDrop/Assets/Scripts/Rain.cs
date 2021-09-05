@@ -41,11 +41,11 @@ public class Rain : MonoBehaviour {
                 int value = DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1);
 
                 if (DataBase.nowLocal == 1)
-                    DataBase.cleanedWater += value; // 청정구역
+                    DataBase.water[1] += value; // 청정구역
                 else if (DataBase.nowLocal == 3)
-                    DataBase.desertWater += value; // 사막구역
+                    DataBase.water[2] += value; // 사막구역
                 else
-                    DataBase.uncleanedWater += value; // 나머지 구역
+                    DataBase.water[0] += value; // 나머지 구역
                 // 피버 버튼 등장 조건 검사 : 물탱크가 50 % 이상 찼을 때 50퍼센트 확률
                 if (!DataBase.isFeverChecked && DataBase.getWaterTankPercent() > DataBase.feverDrop)
                 {
@@ -60,11 +60,11 @@ public class Rain : MonoBehaviour {
             {
                 int value = Convert.ToInt32(DataBase.valueMaxWater[DataBase.tankLevel] - DataBase.getAllWater());
                 if (DataBase.nowLocal == 1) // 청정구역
-                    DataBase.cleanedWater += value;
+                    DataBase.water[1] += value;
                 else if (DataBase.nowLocal == 3) // 사막구역
-                    DataBase.desertWater += value;
+                    DataBase.water[2] += value;
                 else // 나머지 구역
-                    DataBase.uncleanedWater += value;
+                    DataBase.water[0] += value;
             }
 
             DataBase.setWaterData();

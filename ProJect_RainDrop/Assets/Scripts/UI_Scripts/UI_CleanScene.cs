@@ -16,13 +16,6 @@ public class UI_CleanScene : MonoBehaviour {
 
     void Start()
     {
-        // //UI Set
-        //
-        // explain = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
-        // upText = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
-        //
-        // clickZone = GameObject.Find("Canvas/ClickZone").GetComponent<Button>();
-
         // 버튼 이벤트 트리거 생성.
         EventTrigger trgY = clickZone.gameObject.AddComponent<EventTrigger>();
         // hold, up
@@ -71,7 +64,6 @@ public class UI_CleanScene : MonoBehaviour {
 
     public void setLevelImage()
     {
-        Debug.Log(DataBase.cleanLevel);
         GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[DataBase.cleanLevel / 2];
     }
 
@@ -83,22 +75,22 @@ public class UI_CleanScene : MonoBehaviour {
         DataBase.getWaterData();
 
         // 만약 각 터치당 정화량 보다 보유중인 물의 양이 적을 때
-        if (DataBase.uncleanedWater < DataBase.valueCleanWater[DataBase.cleanLevel])
+        if (DataBase.water[0] < DataBase.valueCleanWater[DataBase.cleanLevel])
         {
-            DataBase.cleanedWater += DataBase.uncleanedWater;
-            DataBase.uncleanedWater = 0;
+            DataBase.water[1] += DataBase.water[0];
+            DataBase.water[0] = 0;
         }
         // 일반 경우의 정화
         else
         {
             //만약 정화할 물이 없다면 (아마 접근 불가)
-            if (DataBase.uncleanedWater == 0)
+            if (DataBase.water[0] == 0)
             {
                 return;
             }
 
-            DataBase.uncleanedWater -= DataBase.valueCleanWater[DataBase.cleanLevel];
-            DataBase.cleanedWater += DataBase.valueCleanWater[DataBase.cleanLevel];
+            DataBase.water[0] -= DataBase.valueCleanWater[DataBase.cleanLevel];
+            DataBase.water[1] += DataBase.valueCleanWater[DataBase.cleanLevel];
         }
 
         //Set data

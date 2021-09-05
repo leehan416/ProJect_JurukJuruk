@@ -11,9 +11,8 @@ public class DataBase : MonoBehaviour {
     public static long money = 0;
 
     //Water value
-    public static long desertWater = 0; // 모은 사막빗물 양
-    public static long uncleanedWater = 0; // 정화 전 빗물 양
-    public static long cleanedWater = 0; // 정화 후 빗물 양
+    // 0 = uncleaned 1 = cleaned 2 = dessert
+    public static long[] water = {0, 0, 0};
 
     //public static long maxWater = 10000; // 최대 양
     public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
@@ -27,13 +26,9 @@ public class DataBase : MonoBehaviour {
 
     public static int nowLocal = 0; // 현 위치
 
-    public static int costume = 0; // 현 위치
+    public static int costume = 0; // 현 코스튬
     public static bool[] isCostumeLock = {false, true, true, true, true, true}; // 지역 해금 변수
 
-    public static bool[] isLocalLock = {false, true, true, true}; // 지역 해금 변수
-
-    //TODO 최적화 필요
-    // public static Local[] local = new Local[4];
 
     // public static Consumer[] consumerList = new Consumer[3];
 
@@ -52,11 +47,29 @@ public class DataBase : MonoBehaviour {
 
 
     //--------------------------------------------------------
-    //System value 
-    public static float[] rainCycle = {1f, 1f, .5f, 5f}; // 지역별 비오는 주기(초)
-    public static int[] potCycle = {5, 5, 4, 60};
-    public static int[] localCost = {0, 5000, 10000, 20000};
-    public static String[] localName = {"우리집 마당", "시골집 뒷마당", "아마존 캠프", "피라미드 앞"};
+    // System Value
+    public static Local[] locals =
+    {
+        new Local("우리집 마당", 1f, 5, 0, 0, false),
+        new Local("시골집 뒷마당", 1f, 5, 1, 5000, true),
+        new Local("아마존 캠프", .5f, 4, 0, 10000, true),
+        new Local("피라미드 앞", 5f, 60, 2, 20000, true),
+    };
+
+    public static Consumer[] consumers =
+    {
+        new Consumer(1000, 100, 0),
+        new Consumer(1000, 200, 1),
+        new Consumer(1000, 500, 2)
+    };
+
+    // water Color 
+    public static Color[] waterColors =
+    {
+        new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f),
+        new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f),
+        new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f)
+    };
 
     // pail
     public static int[] valuePerDrop = {10, 15, 20, 23, 26, 28, 30, 32, 34, 36, 38, 40};
@@ -77,8 +90,6 @@ public class DataBase : MonoBehaviour {
     public static int[] perSecond = {5, 7, 10, 12, 13, 14, 15, 16};
     public static float[] valuePotMax = {1800, 2500, 3600, 4300, 4700, 5000, 5400, 5800};
     public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};
-
-    public static int[] costConsummer = {100, 200, 500};
 
     //fever
     public static int feverTime = 30;
@@ -107,30 +118,31 @@ public class DataBase : MonoBehaviour {
 
     public static long getAllWater() // 물 총량 return
     {
-        return (uncleanedWater + cleanedWater + desertWater);
+        long value = 0;
+        for (int i = 0; i < water.Length; i++)
+            value += water[i];
+        return value;
     }
 
     public static float getWaterTankPercent()
     {
-        return Convert.ToSingle(DataBase.getAllWater()) /
-               Convert.ToSingle(DataBase.valueMaxWater[DataBase.tankLevel]);
+        return Convert.ToSingle(getAllWater()) /
+               Convert.ToSingle(valueMaxWater[tankLevel]);
     }
 
 
     public static void setWaterData()
     {
-        PlayerPrefs.SetString("DesertWater", Convert.ToString(desertWater));
-        PlayerPrefs.SetString("UncleanedWater", Convert.ToString(uncleanedWater));
-        PlayerPrefs.SetString("CleanedWater", Convert.ToString(cleanedWater));
+        for (int i = 0; i < water.Length; i++)
+            PlayerPrefs.SetString("Water" + i, Convert.ToString(water[i]));
         for (int i = 0; i < potWater.Length; i++)
             PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
     }
 
     public static void getWaterData()
     {
-        uncleanedWater = Convert.ToInt64(PlayerPrefs.GetString("UncleanedWater", "0"));
-        cleanedWater = Convert.ToInt64(PlayerPrefs.GetString("CleanedWater", "0"));
-        desertWater = Convert.ToInt64(PlayerPrefs.GetString("DesertWater", "0"));
+        for (int i = 0; i < water.Length; i++)
+            water[i] = Convert.ToInt64(PlayerPrefs.GetString("Water" + i, "0"));
         for (int i = 0; i < potWater.Length; i++)
             potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
     }
@@ -172,14 +184,13 @@ public class DataBase : MonoBehaviour {
 
     public static void getLocalData(int val)
     {
-        Debug.Log(Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1)));
         if (val == 0) return;
-        isLocalLock[val] = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
+        locals[val].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("local+" + val + "_isLock", 1));
     }
 
     public static void setLocalData(int val)
     {
-        PlayerPrefs.SetInt("local+" + val + "_isLock", (isLocalLock[val]) ? 1 : 0);
+        PlayerPrefs.SetInt("local+" + val + "_isLock", (locals[val].isLock) ? 1 : 0);
     }
 
 
@@ -212,28 +223,35 @@ public class DataBase : MonoBehaviour {
     }
 }
 
-//
-// public class Local {
-//     public int cost;
-//     public string title;
-//     public bool isLock = false;
-//
-//     //  public float rainCycle;
-//
-//     // public Local(int val)
-//     // {
-//     //     title = DataBase.localName[val];
-//     //     cost = DataBase.localCost[val];
-//     //     if (val != 0)
-//     //         isLock = true;
-//     // }
-// }
-//
-// public class Consumer {
-//     public int perLiter = 10;
-//
-//     public Consumer(int val)
-//     {
-//         perLiter = DataBase.costConsummer[val];
-//     }
-// }
+
+public class Local {
+    public String localName; // 지역이름
+    public int potCycle; // 추가 양동이 사이클
+    public float rainCycle; // 빗물 사이클
+    public int waterType; // 떨어지는 빗물 종류
+    public int cost; // 해금 가격
+    public bool isLock; // 잠겨있음?
+
+    public Local(String _localName, float _rainCycle, int _potCycle, int _waterType, int _cost, bool _isLock)
+    {
+        localName = _localName;
+        rainCycle = _rainCycle;
+        potCycle = _potCycle;
+        waterType = _waterType;
+        cost = _cost;
+        isLock = _isLock;
+    }
+}
+
+public class Consumer {
+    public int perWater; // 판매 물량
+    public int perCell; // 판매 비용
+    public int waterType; // 판매 물 종류
+
+    public Consumer(int _perWater, int _perCell, int _waterType)
+    {
+        perWater = _perWater;
+        perCell = _perCell;
+        waterType = _waterType;
+    }
+}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_ShopScene : MonoBehaviour {
@@ -9,13 +10,6 @@ public class UI_ShopScene : MonoBehaviour {
 
     void Start()
     {
-        // //------------------------------------------------------
-        // DataBase.getLocalData(3);
-        // DataBase.isLocalLock[3] = true;
-        // DataBase.setLocalData(3);
-        // //------------------------------------------------------
-
-
         popupText = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
         // //Get UI
         // popupOK = GameObject.Find("Canvas/PopUp(ok)");
@@ -27,7 +21,7 @@ public class UI_ShopScene : MonoBehaviour {
         DataBase.getLocalData(3);
 
         // dessert locker
-        GameObject.Find("Canvas/RichMan/Lock").SetActive(DataBase.isLocalLock[3]);
+        GameObject.Find("Canvas/RichMan/Lock").SetActive(DataBase.locals[3].isLock);
 
         //set Text
         UI_MultiScene.instance.setMoney();
@@ -49,75 +43,73 @@ public class UI_ShopScene : MonoBehaviour {
         if (index == 0)
         {
             // 빗물 => 정화된 물 => 사막물 순서로 빠짐
-            if (DataBase.getAllWater() >= 1000)
+            if (DataBase.getAllWater() >= DataBase.consumers[index].perWater)
             {
-                if (DataBase.uncleanedWater >= 1000)
+                try
                 {
-                    DataBase.uncleanedWater -= 1000;
+                    for (int i = 0;; i++)
+                    {
+                        if (DataBase.water[i] >= DataBase.consumers[index].perWater)
+                        {
+                            DataBase.water[i] -= DataBase.consumers[index].perWater;
+                            DataBase.money += DataBase.consumers[index].perCell;
+                            break;
+                        }
+                    }
                 }
-                else if (DataBase.cleanedWater >= 1000)
-                {
-                    DataBase.cleanedWater -= 1000;
-                }
-                else if (DataBase.desertWater >= 1000)
-                {
-                    DataBase.desertWater -= 1000;
-                }
-                else
+                catch
                 {
                     //물없음
                     UI_MultiScene.instance.popUpOK.SetActive(true);
                     popupText.text = "보유 빗물이 부족합니다.";
                     return;
                 }
+            }
+            else
+            {
+                //물없음
+                UI_MultiScene.instance.popUpOK.SetActive(true);
+                popupText.text = "보유 빗물이 부족합니다.";
+                return;
+            }
+        }
+        else
+        {
+            // 특수한 경우 검사
+            if (DataBase.consumers[index].waterType > 1)
+            {
+                switch (DataBase.consumers[index].waterType)
+                {
+                    case 2: // 사막물
+                        if (DataBase.locals[3].isLock)
+                        {
+                            // 맵이 해금되지 않았다면
+                            UI_MultiScene.instance.popUpOK.SetActive(true);
+                            popupText.text = "해금되지 않은 거래처입니다.";
+                            return;
+                        }
+                        else break;
 
-                DataBase.money += DataBase.costConsummer[index];
-            }
-            else
-            {
-                //물 부족
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText.text = "보유 빗물이 부족합니다.";
-                return;
-            }
-        }
-        else if (index == 1)
-        {
-            if (DataBase.cleanedWater >= 1000)
-            {
-                DataBase.money += DataBase.costConsummer[index];
-                DataBase.cleanedWater -= 1000;
-            }
-            else
-            {
-                //돈 부족
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText.text = "보유 빗물이 부족합니다.";
-                return;
-            }
-        }
-        else if (index == 2)
-        {
-            if (DataBase.isLocalLock[3])
-            {
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText.text = "해금되지 않은 거래처입니다.";
-                return;
+                    case 3: // 눈
+                        break;
+                }
             }
 
-            if (DataBase.desertWater >= 1000)
+            // 빗물 거래
+            if (DataBase.water[DataBase.consumers[index].waterType] >= DataBase.consumers[index].perWater)
             {
-                DataBase.money += DataBase.costConsummer[index];
-                DataBase.desertWater -= 1000;
+                DataBase.money += DataBase.consumers[index].perCell;
+                DataBase.water[DataBase.consumers[index].waterType] -= DataBase.consumers[index].perWater;
             }
             else
             {
-                //돈 부족
+                // 물 부족
                 UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;
             }
         }
+
 
         //set Data
         DataBase.setWaterData();

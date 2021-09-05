@@ -10,15 +10,14 @@ public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
 
 
-    private Color[] color = new Color[4];
-    //  public static DateTime realTime = DateTime.Now;
+    // private Color[] color = new Color[4];
 
     void Awake()
     {
-        color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
-        color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f);
-        color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
-        color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f);
+        //     color[0] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
+        //     color[1] = new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f);
+        //     color[2] = new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f);
+        //     color[3] = new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f);
 
         DataBase.getLevels();
         DataBase.getWaterData();
@@ -27,15 +26,12 @@ public class SystemController : MonoBehaviour {
         {
             if (DataBase.potLevel[i] > 0)
             {
-                // Debug.Log(CalculateUnderTime());
-                int value = CalculateUnderTime() / DataBase.potCycle[i] * DataBase.perSecond[DataBase.potLevel[i]];
-                // Debug.Log(value);
+                int value = CalculateUnderTime() / DataBase.locals[i].potCycle *
+                            DataBase.perSecond[DataBase.potLevel[i]];
                 DataBase.potWater[i] += value;
 
                 if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
-                {
                     DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[i]]);
-                }
             }
         }
 
@@ -51,7 +47,7 @@ public class SystemController : MonoBehaviour {
         // 비오는 시스템
         while (true)
         {
-            yield return new WaitForSeconds(DataBase.rainCycle[DataBase.nowLocal] * ((UI_MainScene.isFever)
+            yield return new WaitForSeconds(DataBase.locals[DataBase.nowLocal].rainCycle * ((UI_MainScene.isFever)
                 ? 1 / DataBase.feverEfficiency
                 : 1));
             Rainy();
@@ -63,6 +59,7 @@ public class SystemController : MonoBehaviour {
         // 고정 빗물 수집 시스템 + 시간 계산 시스템
         // ingame => DataBase.potCycle 초당 계산 
         // background (outGame) => 현실 시간 계산하여 더해줌.
+
 
         int index = 0;
         int[] value = new int[4];
@@ -78,10 +75,10 @@ public class SystemController : MonoBehaviour {
             for (int local = 0; local < 4; local++)
             {
                 DataBase.getWaterData();
-
-                if (value[local] < index / DataBase.potCycle[local])
+                DataBase.getLevels();
+                if (value[local] < index / DataBase.locals[local].potCycle)
                 {
-                    value[local] = index / DataBase.potCycle[local];
+                    value[local] = index / DataBase.locals[local].potCycle;
                     DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
                     // Debug.Log(local);
                 }
@@ -89,7 +86,7 @@ public class SystemController : MonoBehaviour {
                 if (DataBase.potLevel[local] > 0)
                 {
                     if (DataBase.potWater[local] > DataBase.valuePotMax[local])
-                        DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[local]);
+                        DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[local]]);
                 }
 
                 DataBase.setLateTime();
@@ -105,7 +102,8 @@ public class SystemController : MonoBehaviour {
     {
         // 비오는 시스템
         Random random = new Random();
-        rain.gameObject.GetComponent<Image>().color = color[DataBase.nowLocal];
+        rain.gameObject.GetComponent<Image>().color =
+            DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
         short width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
         short height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
 

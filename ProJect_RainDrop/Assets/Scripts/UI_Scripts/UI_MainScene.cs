@@ -11,6 +11,8 @@ public class UI_MainScene : MonoBehaviour {
 
     public static Slider waterPot; // 물탱크
 
+    [Header("비우기 텍스트")] public Text emptyText;
+
     [Header("고양이")] public GameObject feverBtn; // 고양이 버튼 
 
     [Header("비오는 커버")] public GameObject feverCover;
@@ -19,6 +21,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
+    [HideInInspector] public bool popupIsOn = false;
 
     //   public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
 
@@ -42,7 +45,7 @@ public class UI_MainScene : MonoBehaviour {
         //현 지역의 pot의 레벨이 0이라면 비활성화
         if (DataBase.potLevel[DataBase.nowLocal] == 0)
         {
-            GameObject.Find("Canvas/BigBox/EmptyExtraBottle").SetActive(false);
+            GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle").SetActive(false);
             GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
 
@@ -57,7 +60,6 @@ public class UI_MainScene : MonoBehaviour {
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
         setWaterPot();
-
 
         //slider update
         updateWaterPot();
@@ -76,6 +78,7 @@ public class UI_MainScene : MonoBehaviour {
     public void updateWaterPot()
     {
         DataBase.getWaterData();
+        emptyText.text = DataBase.potWater[DataBase.nowLocal].ToString();
         waterPot.value = DataBase.potWater[DataBase.nowLocal];
     }
 
@@ -100,31 +103,13 @@ public class UI_MainScene : MonoBehaviour {
             return;
         }
 
-        // 청정구역이라면 
-        if (DataBase.nowLocal == 1) DataBase.cleanedWater += DataBase.potWater[DataBase.nowLocal];
-        // 사막지역
-        else if (DataBase.nowLocal == 3) DataBase.desertWater += DataBase.potWater[DataBase.nowLocal];
-        // 나머지 지역
-        else DataBase.uncleanedWater += DataBase.potWater[DataBase.nowLocal];
+        DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += DataBase.potWater[DataBase.nowLocal];
 
         // 물병 비우기
         if (DataBase.getAllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
         {
-            // clean local
-            if (DataBase.nowLocal == 1)
-            {
-                DataBase.cleanedWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
-            }
-            //dessert local
-            else if (DataBase.nowLocal == 3)
-            {
-                DataBase.desertWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
-            }
-            // normal local
-            else
-            {
-                DataBase.uncleanedWater -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
-            }
+            DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] -=
+                DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
         }
 
         // value reset
@@ -144,7 +129,7 @@ public class UI_MainScene : MonoBehaviour {
     // 지역 text set
     private void setLocal()
     {
-        local.text = DataBase.localName[DataBase.nowLocal];
+        local.text = DataBase.locals[DataBase.nowLocal].localName;
     }
 
     // 배경 set
@@ -168,6 +153,12 @@ public class UI_MainScene : MonoBehaviour {
         feverCover.SetActive(true);
         StopCoroutine("feverTimer");
         StartCoroutine(feverTimer());
+    }
+
+
+    public void quit()
+    {
+        Application.Quit(); // 게임 종료
     }
 
 

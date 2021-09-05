@@ -106,8 +106,8 @@ public class UI_Market : MonoBehaviour {
         // set pot info
         for (int i = 0; i < 4; i++)
             if (DataBase.potLevel[i] > 0)
-                potInfo[i].text = (DataBase.potCycle[i] < 30)
-                    ? DataBase.potCycle[i] + "초당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml"
+                potInfo[i].text = (DataBase.locals[i].potCycle < 30)
+                    ? DataBase.locals[i].potCycle + "초당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml"
                     : "1분당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml";
     }
 
@@ -242,7 +242,7 @@ public class UI_Market : MonoBehaviour {
         DataBase.getMoney();
 
         //지역 해금 안됌
-        if (DataBase.isLocalLock[val])
+        if (DataBase.locals[val].isLock)
         {
             //  Debug.Log("!");
             UI_MultiScene.instance.popUpOK.SetActive(true);
