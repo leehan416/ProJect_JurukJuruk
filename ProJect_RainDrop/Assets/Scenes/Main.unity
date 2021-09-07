@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -381,7 +381,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574679352}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1357,7 +1357,7 @@ RectTransform:
   m_Children:
   - {fileID: 521766987}
   m_Father: {fileID: 574679352}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12666689, y: 0.19549651}
   m_AnchorMax: {x: 0.47000003, y: 0.39751053}
@@ -1488,7 +1488,7 @@ RectTransform:
   m_Children:
   - {fileID: 1638509650}
   m_Father: {fileID: 574679352}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.52833384, y: 0.2105035}
   m_AnchorMax: {x: 0.8683339, y: 0.39751053}
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1798680553}
-        m_MethodName: unactivePopup
+        m_MethodName: backBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1909,6 +1909,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521766986}
   m_CullTransparentMesh: 0
+--- !u!1 &549582272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549582273}
+  m_Layer: 5
+  m_Name: Rains
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &549582273
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549582272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1798680551}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &574679351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,13 +1973,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1723933669}
   - {fileID: 52669625}
   - {fileID: 345159714}
   - {fileID: 343473830}
   - {fileID: 1569509828}
   m_Father: {fileID: 1798680551}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.089, y: 0.34531254}
   m_AnchorMax: {x: 0.9041667, y: 0.6535625}
@@ -3430,7 +3464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31244445, y: 0.16882816}
   m_AnchorMax: {x: 0.31244445, y: 0.16882816}
-  m_AnchoredPosition: {x: 1.300003, y: 213.9}
+  m_AnchoredPosition: {x: 1.2999878, y: 213.9}
   m_SizeDelta: {x: 120, y: 119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402751268
@@ -4031,7 +4065,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574679352}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4113,7 +4147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.4500046, y: 1.2623291}
+  m_AnchoredPosition: {x: -3.4500122, y: 1.2623291}
   m_SizeDelta: {x: -21.741493, y: 2.524704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575148773
@@ -4588,12 +4622,12 @@ GameObject:
   - component: {fileID: 1723933671}
   - component: {fileID: 1723933670}
   m_Layer: 5
-  m_Name: BG
+  m_Name: popupBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1723933669
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4601,16 +4635,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723933668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 574679352}
-  m_RootOrder: 0
+  m_Father: {fileID: 1798680551}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.1899414, y: -0.079956055}
   m_SizeDelta: {x: 2000, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723933670
@@ -4862,7 +4896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.45, g: 0.7499999, b: 0.9, a: 1}
+  m_Color: {r: 0, g: 0.037407722, b: 0.05660379, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4994,6 +5028,8 @@ RectTransform:
   - {fileID: 497042029}
   - {fileID: 1379417903}
   - {fileID: 1616460970}
+  - {fileID: 549582273}
+  - {fileID: 1723933669}
   - {fileID: 574679352}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -5028,6 +5064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpBG: {fileID: 1723933668}
   popUpOK: {fileID: 0}
   popUpYN: {fileID: 574679351}
   waterTank: {fileID: 278947030}
@@ -5061,7 +5098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   local: {fileID: 14359327}
-  emptyText: {fileID: 602635273}
+  emptyText: {fileID: 1786955739}
   feverBtn: {fileID: 984130448}
   feverCover: {fileID: 2050375172}
   localBG:
@@ -5074,6 +5111,7 @@ MonoBehaviour:
   - {fileID: 5826042701559951212, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   - {fileID: -7084873560412676255, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   popupIsOn: 0
+  Rains: {fileID: 549582272}
 --- !u!114 &1798680557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5603,7 +5641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 1}
-  m_AnchoredPosition: {x: 2.26, y: -1.25}
+  m_AnchoredPosition: {x: 2.2599945, y: -1.25}
   m_SizeDelta: {x: -0.53260803, y: -17.503899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1968016699

@@ -39,6 +39,16 @@ public class DataBase : MonoBehaviour {
     public static DateTime lateTime;
 
     //--------------------------------------------------------
+    // UI value
+    // public static float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
+    // public static float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
+
+    // private void Start()
+    // {
+    //     width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
+    //     height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
+    // }
+
 
     //Setting value
     public static float bgmVol = .7f;

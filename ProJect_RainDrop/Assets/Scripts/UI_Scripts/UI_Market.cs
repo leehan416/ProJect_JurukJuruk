@@ -136,6 +136,7 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup활성화
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
 
             btnTextOK.text = "보유 금액이 부족합니다.";
@@ -167,6 +168,7 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup 활성화
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "보유 금액이 부족합니다.";
             //돈부족 
@@ -182,6 +184,7 @@ public class UI_Market : MonoBehaviour {
         DataBase.getLocalData(val);
 
         //팝업 비활성화
+        UI_MultiScene.instance.popUpBG.SetActive(false);
         UI_MultiScene.instance.popUpYN.SetActive(false);
 
         // 해금 | 해금 가격과 업글가격을 합쳐서 계산하는 방식이기 때문에, 시스템 분리
@@ -229,6 +232,7 @@ public class UI_Market : MonoBehaviour {
         // 돈부족
 
         // 팝업 활성화
+        UI_MultiScene.instance.popUpBG.SetActive(true);
         UI_MultiScene.instance.popUpOK.SetActive(true);
         btnTextOK.text = "보유 금액이 부족합니다.";
     }
@@ -244,7 +248,7 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.locals[val].isLock)
         {
-            //  Debug.Log("!");
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "지역이 해금되지 않았습니다.";
             return;
@@ -256,6 +260,7 @@ public class UI_Market : MonoBehaviour {
             // 양동이 해금
             if (DataBase.potLevel[val] <= 0)
             {
+                UI_MultiScene.instance.popUpBG.SetActive(true);
                 UI_MultiScene.instance.popUpYN.SetActive(true);
 
                 btnTextOK.text = "해금하시겠습니까?";

@@ -964,7 +964,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '  Beta.2'
+  m_Text: Version - 1.0
 --- !u!222 &1702791705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1008,6 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37b2279b7c8f42e992ed2d58ebecf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUpBG: {fileID: 0}
   popUpOK: {fileID: 0}
   popUpYN: {fileID: 0}
   waterTank: {fileID: 0}

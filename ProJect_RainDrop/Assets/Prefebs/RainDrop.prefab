@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4781971936715649350}
   m_Layer: 5
   m_Name: RainDrop
-  m_TagString: Untagged
+  m_TagString: Rain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.63, g: 0.89239436, b: 0.9, a: 0.6}
+  m_Color: {r: 0.4392157, g: 0.75686276, b: 0.90588236, a: 0.7}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:

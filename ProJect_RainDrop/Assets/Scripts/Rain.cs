@@ -13,6 +13,7 @@ public class Rain : MonoBehaviour {
         //22 40
         //57 90
     {
+        transform.SetParent(GameObject.Find("Canvas/Rains").transform);
         if (random.Next(0, 9) == 5)
         {
             //22 40
@@ -40,12 +41,9 @@ public class Rain : MonoBehaviour {
             {
                 int value = DataBase.valuePerDrop[DataBase.pailLevel] * ((isBig) ? 5 : 1);
 
-                if (DataBase.nowLocal == 1)
-                    DataBase.water[1] += value; // 청정구역
-                else if (DataBase.nowLocal == 3)
-                    DataBase.water[2] += value; // 사막구역
-                else
-                    DataBase.water[0] += value; // 나머지 구역
+                // 물 채우기
+                DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += value;
+
                 // 피버 버튼 등장 조건 검사 : 물탱크가 50 % 이상 찼을 때 50퍼센트 확률
                 if (!DataBase.isFeverChecked && DataBase.getWaterTankPercent() > DataBase.feverDrop)
                 {
@@ -59,14 +57,13 @@ public class Rain : MonoBehaviour {
             else
             {
                 int value = Convert.ToInt32(DataBase.valueMaxWater[DataBase.tankLevel] - DataBase.getAllWater());
-                if (DataBase.nowLocal == 1) // 청정구역
-                    DataBase.water[1] += value;
-                else if (DataBase.nowLocal == 3) // 사막구역
-                    DataBase.water[2] += value;
-                else // 나머지 구역
-                    DataBase.water[0] += value;
+                DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += value;
             }
 
+            // 최종 확인 
+            if (DataBase.getAllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
+                DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] -=
+                    DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             DataBase.setWaterData();
             UI_MultiScene.instance.updateWaterTank();
             UI_MultiScene.instance.setWaterCounter();

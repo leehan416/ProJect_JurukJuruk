@@ -22,9 +22,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
     [HideInInspector] public bool popupIsOn = false;
-
-    //   public static bool isMain = true; // main scene 인지 확인하는 변수 (읽기 전용)
-
+    public GameObject Rains; // 빗물 집합소
     public static bool isFever = false; // fever 확인 변수 
 
     private Random _random = new Random();
@@ -33,6 +31,7 @@ public class UI_MainScene : MonoBehaviour {
     {
         if (!instance) instance = this;
         else Destroy(this);
+
 
         waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>();
@@ -48,6 +47,9 @@ public class UI_MainScene : MonoBehaviour {
             GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle").SetActive(false);
             GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
+
+        // 비우기 버튼 텍스트 색상 변경
+        emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
         //dataGet
         DataBase.getWaterData();

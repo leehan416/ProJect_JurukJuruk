@@ -88,6 +88,7 @@ public class UI_CostumeScene : MonoBehaviour {
         }
         else
         {
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
         }
@@ -104,6 +105,7 @@ public class UI_CostumeScene : MonoBehaviour {
     public void setPopUp(int val)
     {
         DataBase.getCoustume();
+        UI_MultiScene.instance.popUpBG.SetActive(true);
         itemPopup.SetActive(true);
         get.SetActive(false);
         fail.SetActive(false);
@@ -137,6 +139,7 @@ public class UI_CostumeScene : MonoBehaviour {
 
     public void unactivePopup()
     {
+        UI_MultiScene.instance.popUpBG.SetActive(false);
         machine.SetActive(false);
         itemPopup.SetActive(false);
     }
@@ -146,6 +149,7 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         if (DataBase.isCostumeLock[val])
         {
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";
         }

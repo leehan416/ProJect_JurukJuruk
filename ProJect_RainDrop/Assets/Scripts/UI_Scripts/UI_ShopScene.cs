@@ -60,6 +60,7 @@ public class UI_ShopScene : MonoBehaviour {
                 catch
                 {
                     //물없음
+                    UI_MultiScene.instance.popUpBG.SetActive(true);
                     UI_MultiScene.instance.popUpOK.SetActive(true);
                     popupText.text = "보유 빗물이 부족합니다.";
                     return;
@@ -68,6 +69,7 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 //물없음
+                UI_MultiScene.instance.popUpBG.SetActive(true);
                 UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;
@@ -84,6 +86,7 @@ public class UI_ShopScene : MonoBehaviour {
                         if (DataBase.locals[3].isLock)
                         {
                             // 맵이 해금되지 않았다면
+                            UI_MultiScene.instance.popUpBG.SetActive(true);
                             UI_MultiScene.instance.popUpOK.SetActive(true);
                             popupText.text = "해금되지 않은 거래처입니다.";
                             return;
@@ -104,6 +107,7 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 // 물 부족
+                UI_MultiScene.instance.popUpBG.SetActive(true);
                 UI_MultiScene.instance.popUpOK.SetActive(true);
                 popupText.text = "보유 빗물이 부족합니다.";
                 return;

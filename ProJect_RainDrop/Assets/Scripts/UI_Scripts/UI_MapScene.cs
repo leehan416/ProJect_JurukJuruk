@@ -38,6 +38,7 @@ public class UI_MapScene : MonoBehaviour {
     private void unLockLocal(int val)
     {
         //popup 비활성화
+        UI_MultiScene.instance.popUpBG.SetActive(false);
         UI_MultiScene.instance.popUpOK.SetActive(false);
 
         //Get Data
@@ -58,6 +59,7 @@ public class UI_MapScene : MonoBehaviour {
         // 돈이 부족하다면
         else
         {
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "보유 금액이 부족합니다.";
         }
@@ -73,6 +75,7 @@ public class UI_MapScene : MonoBehaviour {
         if (DataBase.locals[val].isLock)
         {
             // popup 활성화
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpYN.SetActive(true);
 
             // 구매버튼에 가격 표시

@@ -148,6 +148,7 @@ public class UI_CleanScene : MonoBehaviour {
         else
         {
             // 돈부족
+            UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
         }
     }

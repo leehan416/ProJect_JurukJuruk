@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pail
   - Ground
+  - Rain
   layers:
   - Default
   - TransparentFX

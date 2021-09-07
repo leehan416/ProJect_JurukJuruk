@@ -896,7 +896,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 1bf28d74e0078e78ee6452030f2b7089
+      Hash: ff54b2a5e8107de12d7c7545cbe7c9fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_MultiScene
@@ -1040,7 +1040,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: cb5a85a835606e7419f7c7b3d59b0fee
+      Hash: 4caba53b277d7c80a30ac07399f692ab
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_MainScene
@@ -1133,4 +1133,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain_beta_2.apk
+  playerPath: /Users/whal3/Desktop/rain.aab
