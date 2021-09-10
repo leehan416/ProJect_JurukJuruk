@@ -1,7 +1,5 @@
 ﻿/* 플레이어 조작관련 스크립트 */
 
-// using UnityEditor.Rendering;
-
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;

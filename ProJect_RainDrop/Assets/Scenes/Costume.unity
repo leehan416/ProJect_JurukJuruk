@@ -2293,7 +2293,7 @@ RectTransform:
   - {fileID: 1107842441}
   - {fileID: 434204026}
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.15200001}
   m_AnchorMax: {x: 1, y: 0.89271885}
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558804635}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2883,7 +2883,7 @@ RectTransform:
   m_Children:
   - {fileID: 1977227298}
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16761112, y: 0}
   m_AnchorMax: {x: 0.8415556, y: 0.12178126}
@@ -4759,9 +4759,9 @@ RectTransform:
   - {fileID: 171131469}
   - {fileID: 258462221}
   - {fileID: 1098037494}
-  - {fileID: 558804636}
   - {fileID: 812128265}
   - {fileID: 1826129862}
+  - {fileID: 558804636}
   - {fileID: 195952095}
   - {fileID: 277072624}
   m_Father: {fileID: 0}
@@ -4787,6 +4787,7 @@ MonoBehaviour:
   popUpBG: {fileID: 1826129861}
   popUpOK: {fileID: 277072623}
   popUpYN: {fileID: 0}
+  popupIsOn: 0
   waterTank: {fileID: 0}
   money: {fileID: 1092716476}
   waterCounter:
@@ -5827,7 +5828,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1451031525}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

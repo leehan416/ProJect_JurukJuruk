@@ -24,11 +24,6 @@ public class IntroAnimation : MonoBehaviour {
         StartCoroutine(Intro());
         StartCoroutine(titleAnimation());
     }
-
-    //----------------------------------------------------------------------------------------------------------------------
-    // IntroScene
-
-
     IEnumerator fadeOut()
     {
         for (int i = 10; i > 1; i--)
@@ -39,9 +34,8 @@ public class IntroAnimation : MonoBehaviour {
 
         fader.gameObject.SetActive(false);
     }
-
-
-//Touch To Start 버튼 깜박임
+    
+    //Touch To Start 버튼 깜박임
     IEnumerator titleAnimation()
     {
         isTitleAnimationing = true;
@@ -52,7 +46,7 @@ public class IntroAnimation : MonoBehaviour {
         }
     }
 
-// 비내리는 배경 애니메이션
+    // 비내리는 배경 애니메이션
     IEnumerator Intro()
     {
         isIntroAnimationing = true;

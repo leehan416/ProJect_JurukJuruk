@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public delegate void UnactiveCosPopup();
+
 public class UI_CostumeScene : MonoBehaviour {
-    //TODO : 돈없을 떄 처리 해야함.
+    public static UnactiveCosPopup unactiveCostumePopup = delegate { };
+
     public GameObject machine;
     public GameObject[] machinebtns = new GameObject[2];
 
@@ -17,6 +22,10 @@ public class UI_CostumeScene : MonoBehaviour {
 
     public Sprite[] getCoustumeUI = new Sprite[5];
 
+    private void Awake()
+    {
+        unactiveCostumePopup = delegate { unactivePopup(); };
+    }
 
     void Start()
     {
@@ -60,6 +69,8 @@ public class UI_CostumeScene : MonoBehaviour {
     // 뽑기 버튼
     public void goGacha()
     {
+        UI_MultiScene.instance.popupIsOn = true;
+        UI_MultiScene.instance.popUpBG.SetActive(true);
         machine.SetActive(true);
         machinebtns[0].SetActive(true);
         machinebtns[1].SetActive(true);
@@ -74,12 +85,8 @@ public class UI_CostumeScene : MonoBehaviour {
         {
             DataBase.money -= DataBase.gachaCost;
 
-            //-------------------
-
             DataBase.setMoney();
             UI_MultiScene.instance.setMoney();
-
-            //-------------------
 
             machinebtns[0].SetActive(false);
             machinebtns[1].SetActive(false);
@@ -88,6 +95,7 @@ public class UI_CostumeScene : MonoBehaviour {
         }
         else
         {
+            UI_MultiScene.instance.popupIsOn = true;
             UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
@@ -105,11 +113,14 @@ public class UI_CostumeScene : MonoBehaviour {
     public void setPopUp(int val)
     {
         DataBase.getCoustume();
+        UI_MultiScene.instance.popupIsOn = true;
         UI_MultiScene.instance.popUpBG.SetActive(true);
+
         itemPopup.SetActive(true);
+
         get.SetActive(false);
         fail.SetActive(false);
-        Debug.Log(val);
+
         if (val != 0)
         {
             get.SetActive(true);
@@ -139,9 +150,11 @@ public class UI_CostumeScene : MonoBehaviour {
 
     public void unactivePopup()
     {
+        UI_MultiScene.instance.popupIsOn = false;
         UI_MultiScene.instance.popUpBG.SetActive(false);
         machine.SetActive(false);
         itemPopup.SetActive(false);
+        UI_MultiScene.instance.popUpOK.SetActive(false);
     }
 
     // 코스튬 선택 버튼
@@ -149,6 +162,7 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         if (DataBase.isCostumeLock[val])
         {
+            UI_MultiScene.instance.popupIsOn = true;
             UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";

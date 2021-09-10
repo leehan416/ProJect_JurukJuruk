@@ -8,13 +8,12 @@ public class UI_MultiScene : MonoBehaviour {
     // transform에 접근하기 위한 instance
     public static UI_MultiScene instance;
 
-    //TODO 팝업 unactive 기능 제작해야함
-
-
     public GameObject popUpBG; // PopUpBG
     public GameObject popUpOK; // ok PopUp
     public GameObject popUpYN; // Yes or No PopUp
 
+    // popup on
+    [HideInInspector] public bool popupIsOn = false;
 
     // 물통 옆 현재 각 빗물 Text set
     public Slider waterTank;
@@ -26,36 +25,46 @@ public class UI_MultiScene : MonoBehaviour {
     private void Update()
     {
         // 안드로이드인 경우
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.A)) //뒤로가기 키 입력
-                backBtn();
-        }
+        // if (Application.platform == RuntimePlatform.Android)
+        // {
+        if (Input.GetKeyDown(KeyCode.Escape)) //뒤로가기 키 입력
+            backBtn();
+        // }
     }
 
     public void backBtn()
     {
         if (Application.loadedLevelName == "Main")
         {
-            UI_MainScene.instance.popupIsOn = !UI_MainScene.instance.popupIsOn;
+            popupIsOn = !popupIsOn;
 
-            Time.timeScale = (UI_MainScene.instance.popupIsOn) ? 0f : 1f;
-            UI_MainScene.instance.Rains.SetActive(!UI_MainScene.instance.popupIsOn);
-            if (!UI_MainScene.instance.popupIsOn)
-                for (int i = 0; i < UI_MainScene.instance.Rains.GetComponentsInChildren<Image>().Length; i++)
-                    UI_MainScene.instance.Rains.GetComponentsInChildren<Image>()[i].gameObject
-                        .GetComponent<Rigidbody2D>()
-                        .AddForce(new Vector2(0, -250), ForceMode2D.Impulse);
+            Time.timeScale = (popupIsOn) ? 0f : 1f;
+            // UI_MainScene.instance.Rains.SetActive(!popupIsOn);
+            // if (!popupIsOn)
+            //     for (int i = 0; i < UI_MainScene.instance.Rains.GetComponentsInChildren<Image>().Length; i++)
+            //         UI_MainScene.instance.Rains.GetComponentsInChildren<Image>()[i].gameObject
+            //             .GetComponent<Rigidbody2D>()
+            //             .AddForce(new Vector2(0, -250), ForceMode2D.Impulse);
+            //
 
-
-            popUpBG.SetActive(UI_MainScene.instance.popupIsOn);
-            popUpYN.SetActive(UI_MainScene.instance.popupIsOn);
+            popUpBG.SetActive(popupIsOn);
+            popUpYN.SetActive(popupIsOn);
         }
         // 인트로에선 바로 종료
         else if (Application.loadedLevelName == "Intro") Application.Quit(); // 게임 종료
-
+        // 코스튬씬에선 따로 작동
+        else if (Application.loadedLevelName == "Costume")
+        {
+            if (!GachaSystem.instance.isAnimationing && UI_MultiScene.instance.popupIsOn)
+                UI_CostumeScene.unactiveCostumePopup();
+            else if (!UI_MultiScene.instance.popupIsOn) moveScene("Main");
+        }
         // 아니라면
-        else moveScene("Main");
+        else
+        {
+            if (popupIsOn) unactivePopup();
+            else moveScene("Main");
+        }
     }
 
     private void Awake()
@@ -127,5 +136,7 @@ public class UI_MultiScene : MonoBehaviour {
         catch
         {
         }
+
+        popupIsOn = false;
     }
 }

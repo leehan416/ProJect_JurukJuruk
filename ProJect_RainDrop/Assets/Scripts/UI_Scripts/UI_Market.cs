@@ -184,6 +184,7 @@ public class UI_Market : MonoBehaviour {
         DataBase.getLocalData(val);
 
         //팝업 비활성화
+        UI_MultiScene.instance.popupIsOn = false;
         UI_MultiScene.instance.popUpBG.SetActive(false);
         UI_MultiScene.instance.popUpYN.SetActive(false);
 
@@ -260,6 +261,7 @@ public class UI_Market : MonoBehaviour {
             // 양동이 해금
             if (DataBase.potLevel[val] <= 0)
             {
+                UI_MultiScene.instance.popupIsOn = true;
                 UI_MultiScene.instance.popUpBG.SetActive(true);
                 UI_MultiScene.instance.popUpYN.SetActive(true);
 

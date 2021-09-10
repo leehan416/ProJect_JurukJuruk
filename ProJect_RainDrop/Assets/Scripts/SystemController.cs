@@ -87,7 +87,7 @@ public class SystemController : MonoBehaviour {
             }
 
             // UIManager.instance.PotUpdate();
-            UI_MainScene.instance.updateWaterPot();
+            UI_MainScene.updateWaterPot();
         }
     }
 
@@ -99,7 +99,7 @@ public class SystemController : MonoBehaviour {
             DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
         short width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
         short height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
-        if (!UI_MainScene.instance.popupIsOn)
+        if (!UI_MultiScene.instance.popupIsOn)
             Instantiate(rain,
                 new Vector2(random.Next(0, Convert.ToInt16(width)), height), Quaternion.identity,
                 this.transform);

@@ -50,7 +50,7 @@ public class Rain : MonoBehaviour {
                     if (random.Next(0, 10) > 5)
                     {
                         DataBase.isFeverChecked = true;
-                        UI_MainScene.instance.setFeverbtn();
+                        UI_MainScene.setFeverbtn();
                     }
                 }
             }

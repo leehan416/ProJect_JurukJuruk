@@ -1,11 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
 
-public class UI_MainScene : MonoBehaviour {
-    public static UI_MainScene instance;
 
+// setfever
+//updateWaterPot
+
+
+public delegate void SetFeverbtn();
+
+public delegate void UpdateWaterPot();
+
+
+public class UI_MainScene : MonoBehaviour {
+   
+    // 외부 접근용도 delegate
+    public static SetFeverbtn setFeverbtn = delegate { };
+    public static UpdateWaterPot updateWaterPot = delegate { };
 
     public Text local; // local Text
 
@@ -21,18 +34,21 @@ public class UI_MainScene : MonoBehaviour {
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
-    [HideInInspector] public bool popupIsOn = false;
+    // [HideInInspector] public bool popupIsOn = false;
     public GameObject Rains; // 빗물 집합소
     public static bool isFever = false; // fever 확인 변수 
 
     private Random _random = new Random();
 
+
+    private void Awake()
+    {
+        setFeverbtn = delegate { _setFeverbtn(); };
+        updateWaterPot = delegate { _updateWaterPot(); };
+    }
+
     void Start()
     {
-        if (!instance) instance = this;
-        else Destroy(this);
-
-
         waterPot = GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>();
 
@@ -77,7 +93,7 @@ public class UI_MainScene : MonoBehaviour {
     }
 
     // pot (추가 양동이) value set
-    public void updateWaterPot()
+    private void _updateWaterPot()
     {
         DataBase.getWaterData();
         emptyText.text = DataBase.potWater[DataBase.nowLocal].ToString();
@@ -142,7 +158,7 @@ public class UI_MainScene : MonoBehaviour {
     }
 
 
-    public void setFeverbtn()
+    private void _setFeverbtn()
     {
         feverBtn.SetActive(true);
         feverBtn.GetComponent<Button>().image.sprite = catImage[_random.Next(0, catImage.Length - 1)];
@@ -164,7 +180,7 @@ public class UI_MainScene : MonoBehaviour {
     }
 
 
-    IEnumerator feverTimer()
+    private IEnumerator feverTimer()
     {
         // 피버시간 체크
         if (isFever)
