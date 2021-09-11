@@ -25,11 +25,11 @@ public class UI_MultiScene : MonoBehaviour {
     private void Update()
     {
         // 안드로이드인 경우
-        // if (Application.platform == RuntimePlatform.Android)
-        // {
-        if (Input.GetKeyDown(KeyCode.Escape)) //뒤로가기 키 입력
-            backBtn();
-        // }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) //뒤로가기 키 입력
+                backBtn();
+        }
     }
 
     public void backBtn()
@@ -39,13 +39,6 @@ public class UI_MultiScene : MonoBehaviour {
             popupIsOn = !popupIsOn;
 
             Time.timeScale = (popupIsOn) ? 0f : 1f;
-            // UI_MainScene.instance.Rains.SetActive(!popupIsOn);
-            // if (!popupIsOn)
-            //     for (int i = 0; i < UI_MainScene.instance.Rains.GetComponentsInChildren<Image>().Length; i++)
-            //         UI_MainScene.instance.Rains.GetComponentsInChildren<Image>()[i].gameObject
-            //             .GetComponent<Rigidbody2D>()
-            //             .AddForce(new Vector2(0, -250), ForceMode2D.Impulse);
-            //
 
             popUpBG.SetActive(popupIsOn);
             popUpYN.SetActive(popupIsOn);
@@ -55,9 +48,9 @@ public class UI_MultiScene : MonoBehaviour {
         // 코스튬씬에선 따로 작동
         else if (Application.loadedLevelName == "Costume")
         {
-            if (!GachaSystem.instance.isAnimationing && UI_MultiScene.instance.popupIsOn)
+            if (!GachaSystem.instance.isAnimationing && popupIsOn)
                 UI_CostumeScene.unactiveCostumePopup();
-            else if (!UI_MultiScene.instance.popupIsOn) moveScene("Main");
+            else if (!popupIsOn) moveScene("Main");
         }
         // 아니라면
         else
@@ -69,6 +62,7 @@ public class UI_MultiScene : MonoBehaviour {
 
     private void Awake()
     {
+        // 외부 접근 instance 설정
         if (!instance) instance = this;
         else Destroy(this);
     }
@@ -113,10 +107,10 @@ public class UI_MultiScene : MonoBehaviour {
     }
 
 
-    public void popupBGActive()
-    {
-        popUpBG.SetActive(true);
-    }
+    // public void popupBGActive()
+    // {
+    //     popUpBG.SetActive(true);
+    // }
 
     public void unactivePopup()
     {

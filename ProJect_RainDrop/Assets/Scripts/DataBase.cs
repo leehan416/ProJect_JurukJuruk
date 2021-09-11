@@ -39,17 +39,6 @@ public class DataBase : MonoBehaviour {
     public static DateTime lateTime;
 
     //--------------------------------------------------------
-    // UI value
-    // public static float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
-    // public static float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
-
-    // private void Start()
-    // {
-    //     width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
-    //     height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
-    // }
-
-
     //Setting value
     public static float bgmVol = .7f;
     public static float fxVol = .7f;
@@ -63,14 +52,21 @@ public class DataBase : MonoBehaviour {
         new Local("우리집 마당", 1f, 5, 0, 0, false),
         new Local("시골집 뒷마당", 1f, 5, 1, 5000, true),
         new Local("아마존 캠프", .5f, 4, 0, 10000, true),
-        new Local("피라미드 앞", 5f, 60, 2, 20000, true),
+        new Local("피라미드 앞", 2.5f, 60, 2, 20000, true),
+        // new Local("이글루 앞", .5f, 4, 3,50000,true),
     };
 
     public static Consumer[] consumers =
     {
-        new Consumer(1000, 100, 0),
-        new Consumer(1000, 200, 1),
-        new Consumer(1000, 500, 2)
+        //new Consumer(1000, 0, 0), // 거지
+        new Consumer(1000, 100, 0), // 목마른 사람
+        // new Consumer(3000,400,0), // 농부
+        new Consumer(1000, 200, 1), // 깐깐한 사람
+        // new Consumer( 3000, 700, 1), // 물 판매업자
+        new Consumer(1000, 500, 2), // 사막 부자
+        // new Consumer(3000, 2000, 2), // 사막 왕자
+        // new Consumer(1000, 700, 3) // 에스키모
+        // new Consumer(5000, 1500, 3) // 북극곰
     };
 
     // water Color 

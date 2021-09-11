@@ -35,13 +35,12 @@ public class UI_ShopScene : MonoBehaviour {
     public void sellWater(int index)
     {
         // 물판매
-
         DataBase.getWaterData();
         DataBase.getMoney();
 
-        if (index == 0)
+        if (index == 0) // 거지 
         {
-            // 빗물 => 정화된 물 => 사막물 순서로 빠짐
+            // 빗물 => 정화된 물 => 사막물 => 눈 순서로 빠짐
             if (DataBase.getAllWater() >= DataBase.consumers[index].perWater)
             {
                 try
@@ -65,6 +64,14 @@ public class UI_ShopScene : MonoBehaviour {
                     popupText.text = "보유 빗물이 부족합니다.";
                     return;
                 }
+
+                //---------------------------------------------------
+                // new system
+                //TODO : 팝업으로 시스템 분리해야함
+                // 
+                
+               
+                //---------------------------------------------------
             }
             else
             {
@@ -96,7 +103,16 @@ public class UI_ShopScene : MonoBehaviour {
                         else break;
 
                     case 3: // 눈
-                        break;
+                        if (DataBase.locals[4].isLock)
+                        {
+                            // 맵이 해금되지 않았다면
+                            UI_MultiScene.instance.popupIsOn = true;
+                            UI_MultiScene.instance.popUpBG.SetActive(true);
+                            UI_MultiScene.instance.popUpOK.SetActive(true);
+                            popupText.text = "해금되지 않은 거래처입니다.";
+                            return;
+                        }
+                        else break;
                 }
             }
 
