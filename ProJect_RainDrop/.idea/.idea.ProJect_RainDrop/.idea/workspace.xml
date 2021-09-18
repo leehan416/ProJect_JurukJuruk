@@ -59,6 +59,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
+      <option value="$PROJECT_DIR$/../README.md" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -186,6 +187,7 @@
       <workItem from="1630942470240" duration="166000" />
       <workItem from="1631254875865" duration="3197000" />
       <workItem from="1631337668092" duration="6074000" />
+      <workItem from="1631972578574" duration="1773000" />
     </task>
     <servers />
   </component>

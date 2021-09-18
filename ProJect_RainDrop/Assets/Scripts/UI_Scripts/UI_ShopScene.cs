@@ -20,7 +20,7 @@ public class UI_ShopScene : MonoBehaviour {
         DataBase.getLocalData(3);
 
         // dessert locker
-        GameObject.Find("Canvas/RichMan/Lock").SetActive(DataBase.locals[3].isLock);
+        GameObject.Find("Canvas/ListView/Viewport/Content/RichMan/Lock").SetActive(DataBase.locals[3].isLock);
 
         //set Text
         UI_MultiScene.instance.setMoney();
