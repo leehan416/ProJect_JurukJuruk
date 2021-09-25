@@ -1,6 +1,7 @@
 ﻿/* 총괄 DataBase */
 
 using System;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 // pail => user pot 
@@ -27,7 +28,7 @@ public class DataBase : MonoBehaviour {
     public static int nowLocal = 0; // 현 위치
 
     public static int costume = 0; // 현 코스튬
-    public static bool[] isCostumeLock = {false, true, true, true, true, true}; // 지역 해금 변수
+    public static bool[] isCostumeLock = {false, true, true, true, true, true}; // 코스튬 해금
 
 
     // public static Consumer[] consumerList = new Consumer[3];
@@ -58,15 +59,15 @@ public class DataBase : MonoBehaviour {
 
     public static Consumer[] consumers =
     {
-        //new Consumer(1000, 0, 0), // 거지
-        new Consumer(1000, 100, 0), // 목마른 사람
-        // new Consumer(3000,400,0), // 농부
-        new Consumer(1000, 200, 1), // 깐깐한 사람
-        // new Consumer( 3000, 700, 1), // 물 판매업자
-        new Consumer(1000, 500, 2), // 사막 부자
-        // new Consumer(3000, 2000, 2), // 사막 왕자
-        // new Consumer(1000, 700, 3) // 에스키모
-        // new Consumer(5000, 1500, 3) // 북극곰
+        new Consumer(1000, 100, 0, false), // 목마른 사람
+        new Consumer(3000, 400, 0, true), // 농부
+        new Consumer(1000, 200, 1, false), // 깐깐한 사람
+        new Consumer(3000, 700, 1, true), // 물 판매업자
+        new Consumer(1000, 500, 2, true), // 사막 부자
+        new Consumer(3000, 2000, 2, true), // 
+        new Consumer(1000, 700, 3, true), // 에스키모
+        new Consumer(5000, 1500, 3, true), // 북극곰
+        new Consumer(1000, 0, -1, false), // 거지
     };
 
     // water Color 
@@ -105,7 +106,6 @@ public class DataBase : MonoBehaviour {
     public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
     public static float feverDrop = .45f; // 고양이 등장 판별하는 물탱크의 물 양
     public static bool isFeverChecked = false; // 고양이 등장 판정 검사했음?
-
 
     //gacha
     public static int gachaCost = 3000;
@@ -214,17 +214,35 @@ public class DataBase : MonoBehaviour {
     {
         PlayerPrefs.SetInt("Costume", DataBase.costume);
         for (int i = 1; i < isCostumeLock.Length; i++)
-        {
             PlayerPrefs.SetInt("IsCostumeLock" + i, Convert.ToInt32(isCostumeLock[i]));
-        }
     }
 
     public static void getCoustume()
     {
-        DataBase.costume = PlayerPrefs.GetInt("Costume", 0);
+        costume = PlayerPrefs.GetInt("Costume", 0);
         for (int i = 1; i < isCostumeLock.Length; i++)
-        {
             isCostumeLock[i] = Convert.ToBoolean(PlayerPrefs.GetInt("IsCostumeLock" + i, 1));
+    }
+
+    public static void setConsumerLock()
+    {
+        for (int i = 0; i < consumers.Length; i++)
+        {
+            if (!consumers[i].isLock) // 이미 해금되어 있으면
+                continue; // 건너뛰기
+            else
+                consumers[i].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("IsConsumerLock" + i, 0));
+        }
+    }
+
+    public static void getConsumerLock()
+    {
+        for (int i = 0; i < consumers.Length; i++)
+        {
+            if (!consumers[i].isLock) // 이미 해금되어 있으면
+                continue; // 건너뛰기
+            else
+                PlayerPrefs.SetInt("IsConsumerLock" + i, Convert.ToInt32(consumers[i].isLock));
         }
     }
 }
@@ -253,11 +271,13 @@ public class Consumer {
     public int perWater; // 판매 물량
     public int perCell; // 판매 비용
     public int waterType; // 판매 물 종류
+    public bool isLock; // 잠겨있음?
 
-    public Consumer(int _perWater, int _perCell, int _waterType)
+    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock)
     {
         perWater = _perWater;
         perCell = _perCell;
-        waterType = _waterType;
+        waterType = _waterType; // -1 = 전부다 받음
+        isLock = _isLock;
     }
 }

@@ -30,109 +30,47 @@ public class UI_ShopScene : MonoBehaviour {
         UI_MultiScene.instance.updateWaterTank();
     }
 
+    public void unlockConsumer(int index)
+    {
+        
+    }
+
 
     // 물 판매 (index) => 상인 선택
     public void sellWater(int index)
     {
-        // 물판매
         DataBase.getWaterData();
         DataBase.getMoney();
+        DataBase.getConsumerLock();
 
-        if (index == 0) // 거지 
+        if (DataBase.consumers[index].isLock)
         {
-            // 빗물 => 정화된 물 => 사막물 => 눈 순서로 빠짐
-            if (DataBase.getAllWater() >= DataBase.consumers[index].perWater)
-            {
-                try
-                {
-                    for (int i = 0;; i++)
-                    {
-                        if (DataBase.water[i] >= DataBase.consumers[index].perWater)
-                        {
-                            DataBase.water[i] -= DataBase.consumers[index].perWater;
-                            DataBase.money += DataBase.consumers[index].perCell;
-                            break;
-                        }
-                    }
-                }
-                catch
-                {
-                    //물없음
-                    UI_MultiScene.instance.popupIsOn = true;
-                    UI_MultiScene.instance.popUpBG.SetActive(true);
-                    UI_MultiScene.instance.popUpOK.SetActive(true);
-                    popupText.text = "보유 빗물이 부족합니다.";
-                    return;
-                }
-
-                //---------------------------------------------------
-                // new system
-                //TODO : 팝업으로 시스템 분리해야함
-                // 
-                
-               
-                //---------------------------------------------------
-            }
-            else
-            {
-                //물없음
-                UI_MultiScene.instance.popupIsOn = true;
-                UI_MultiScene.instance.popUpBG.SetActive(true);
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText.text = "보유 빗물이 부족합니다.";
-                return;
-            }
-        }
-        else
-        {
-            // 특수한 경우 검사
-            if (DataBase.consumers[index].waterType > 1)
-            {
-                switch (DataBase.consumers[index].waterType)
-                {
-                    case 2: // 사막물
-                        if (DataBase.locals[3].isLock)
-                        {
-                            // 맵이 해금되지 않았다면
-                            UI_MultiScene.instance.popupIsOn = true;
-                            UI_MultiScene.instance.popUpBG.SetActive(true);
-                            UI_MultiScene.instance.popUpOK.SetActive(true);
-                            popupText.text = "해금되지 않은 거래처입니다.";
-                            return;
-                        }
-                        else break;
-
-                    case 3: // 눈
-                        if (DataBase.locals[4].isLock)
-                        {
-                            // 맵이 해금되지 않았다면
-                            UI_MultiScene.instance.popupIsOn = true;
-                            UI_MultiScene.instance.popUpBG.SetActive(true);
-                            UI_MultiScene.instance.popUpOK.SetActive(true);
-                            popupText.text = "해금되지 않은 거래처입니다.";
-                            return;
-                        }
-                        else break;
-                }
-            }
-
-            // 빗물 거래
-            if (DataBase.water[DataBase.consumers[index].waterType] >= DataBase.consumers[index].perWater)
-            {
-                DataBase.money += DataBase.consumers[index].perCell;
-                DataBase.water[DataBase.consumers[index].waterType] -= DataBase.consumers[index].perWater;
-            }
-            else
-            {
-                // 물 부족
-                UI_MultiScene.instance.popupIsOn = true;
-                UI_MultiScene.instance.popUpBG.SetActive(true);
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText.text = "보유 빗물이 부족합니다.";
-                return;
-            }
+            // 해금 필요
+            UI_MultiScene.instance.popupIsOn = true;
+            UI_MultiScene.instance.popUpBG.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
+            popupText.text = "해금되지 않은 거래처입니다.";
+            return;
         }
 
+        if (DataBase.consumers[index].waterType == -1)
+        {
+            //TODO : 자선할 물 선택하는 popup 띄워야 함
+            return;
+        }
+
+        if (DataBase.water[DataBase.consumers[index].waterType] < DataBase.consumers[index].perCell)
+        {
+            // 물 부족
+            UI_MultiScene.instance.popupIsOn = true;
+            UI_MultiScene.instance.popUpBG.SetActive(true);
+            UI_MultiScene.instance.popUpOK.SetActive(true);
+            popupText.text = "보유 빗물이 부족합니다.";
+            return;
+        }
+
+        DataBase.water[DataBase.consumers[index].waterType] -= DataBase.consumers[index].perWater;
+        DataBase.money += DataBase.consumers[index].perCell;
 
         //set Data
         DataBase.setWaterData();
