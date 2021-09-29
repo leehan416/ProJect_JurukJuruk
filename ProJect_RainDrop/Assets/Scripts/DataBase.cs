@@ -63,7 +63,7 @@ public class DataBase : MonoBehaviour {
         new Consumer(3000, 400, 0, true), // 농부
         new Consumer(1000, 200, 1, false), // 깐깐한 사람
         new Consumer(3000, 700, 1, true), // 물 판매업자
-        new Consumer(1000, 500, 2, true), // 사막 부자
+        new Consumer(1000, 500, 2, false), // 사막 부자
         new Consumer(3000, 2000, 2, true), // 
         new Consumer(1000, 700, 3, true), // 에스키모
         new Consumer(5000, 1500, 3, true), // 북극곰
@@ -224,18 +224,18 @@ public class DataBase : MonoBehaviour {
             isCostumeLock[i] = Convert.ToBoolean(PlayerPrefs.GetInt("IsCostumeLock" + i, 1));
     }
 
-    public static void setConsumerLock()
+    public static void getConsumerLock()
     {
         for (int i = 0; i < consumers.Length; i++)
         {
             if (!consumers[i].isLock) // 이미 해금되어 있으면
                 continue; // 건너뛰기
             else
-                consumers[i].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("IsConsumerLock" + i, 0));
+                consumers[i].isLock = Convert.ToBoolean(PlayerPrefs.GetInt("IsConsumerLock" + i, 1));
         }
     }
 
-    public static void getConsumerLock()
+    public static void setConsumerLock()
     {
         for (int i = 0; i < consumers.Length; i++)
         {

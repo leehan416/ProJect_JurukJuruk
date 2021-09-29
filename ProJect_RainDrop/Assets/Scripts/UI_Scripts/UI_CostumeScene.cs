@@ -48,8 +48,11 @@ public class UI_CostumeScene : MonoBehaviour {
 
         UI_MultiScene.instance.setMoney();
 
-        setLockers();
+        for (int i = 1; i < cstBox.Length; i++)
+            cstBox[i - 1] = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i);
+
         setButton();
+        setLockers();
     }
 
 
@@ -58,16 +61,21 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         for (int i = 0; i < cstBox.Length; i++)
         {
+            Text text = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + (i + 1) + "/Select/Text")
+                .GetComponent<Text>();
+            Image image = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + (i + 1) + "/Select")
+                .GetComponent<Image>();
             if (DataBase.costume == i + 1)
             {
-                cstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "해제하기";
+                text.text = "해제하기";
                 cstBox[i].gameObject.GetComponentInChildren<Button>().image.color =
                     new Color(192 / 255f, 192 / 255f, 192 / 255f, 1f);
             }
             else
             {
-                cstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "장착하기";
-                cstBox[i].gameObject.GetComponentInChildren<Button>().image.color =
+                // cstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "장착하기";
+                text.text = "장착하기";
+                image.color =
                     new Color(1f, 1f, 1f, 1f);
             }
         }
@@ -78,7 +86,7 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         for (int i = 1; i < 6; i++)
             if (!DataBase.isCostumeLock[i])
-                GameObject.Find("Canvas/ListVIew/Viewport/Content/CstBox_" + i + "/Lock").SetActive(false);
+                GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i + "/Lock").SetActive(false);
     }
 
     // 뽑기 버튼

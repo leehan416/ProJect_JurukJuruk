@@ -32,7 +32,13 @@ public class UI_ShopScene : MonoBehaviour {
 
     public void unlockConsumer(int index)
     {
-        
+    }
+
+    public void giveWater()
+    {
+        UI_MultiScene.instance.popupIsOn = true;
+        UI_MultiScene.instance.popUpBG.SetActive(true);
+        UI_MultiScene.instance.popUpYN.SetActive(true);
     }
 
 
@@ -42,6 +48,17 @@ public class UI_ShopScene : MonoBehaviour {
         DataBase.getWaterData();
         DataBase.getMoney();
         DataBase.getConsumerLock();
+
+        if (index == -1)
+        {
+            for (int i = 0; i < DataBase.water.Length; i++)
+                DataBase.water[i] = 0;
+            DataBase.setWaterData();
+            UI_MultiScene.instance.unactivePopup();
+            UI_MultiScene.instance.updateWaterTank();
+            UI_MultiScene.instance.setWaterCounter();
+            return;
+        }
 
         if (DataBase.consumers[index].isLock)
         {
@@ -53,11 +70,6 @@ public class UI_ShopScene : MonoBehaviour {
             return;
         }
 
-        if (DataBase.consumers[index].waterType == -1)
-        {
-            //TODO : 자선할 물 선택하는 popup 띄워야 함
-            return;
-        }
 
         if (DataBase.water[DataBase.consumers[index].waterType] < DataBase.consumers[index].perCell)
         {
