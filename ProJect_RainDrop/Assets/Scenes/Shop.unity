@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 199819673}
   - component: {fileID: 199819672}
   m_Layer: 5
-  m_Name: Lock (3)
+  m_Name: 'Lock '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 1261804694}
   - component: {fileID: 1261804693}
   m_Layer: 5
-  m_Name: Lock (4)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6896,7 +6896,7 @@ GameObject:
   - component: {fileID: 1839819065}
   - component: {fileID: 1839819064}
   m_Layer: 5
-  m_Name: Lock (1)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7049,7 +7049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5185688, y: 0.16938671}
   m_AnchorMax: {x: 0.91, y: 0.35049066}
-  m_AnchoredPosition: {x: 0, y: -2.999878}
+  m_AnchoredPosition: {x: 0, y: -2.9998627}
   m_SizeDelta: {x: 8, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872434178
@@ -7828,7 +7828,7 @@ GameObject:
   - component: {fileID: 2047947719}
   - component: {fileID: 2047947718}
   m_Layer: 5
-  m_Name: Lock (5)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7957,7 +7957,7 @@ GameObject:
   - component: {fileID: 2052860629}
   - component: {fileID: 2052860628}
   m_Layer: 5
-  m_Name: Lock (2)
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8352,7 +8352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBCF4\uC720\uC911\uC778 \uBAA8\uB4E0 \uBB3C \uBC84\uB9AC\uAE30 "
+  m_Text: "\uBCF4\uC720\uC911\uC778 \uBAA8\uB4E0 \uBB3C \uBE44\uC6B0\uAE30 "
 --- !u!222 &2083483613
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8397,9 +8397,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5185688, y: 0.16938671}
-  m_AnchorMax: {x: 0.5185688, y: 0.16938671}
-  m_AnchoredPosition: {x: 0, y: -2.999939}
-  m_SizeDelta: {x: 141, y: 36}
+  m_AnchorMax: {x: 0.91734624, y: 0.37500003}
+  m_AnchoredPosition: {x: -0.21000671, y: -1.522995}
+  m_SizeDelta: {x: -0.41375732, y: 2.8591309}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091056992
 MonoBehaviour:

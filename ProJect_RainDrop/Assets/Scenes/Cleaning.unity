@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -709,6 +709,7 @@ MonoBehaviour:
   popUpBG: {fileID: 866109690}
   popUpOK: {fileID: 1481445949}
   popUpYN: {fileID: 0}
+  popupIsOn: 0
   waterTank: {fileID: 87223572}
   money: {fileID: 1116142485}
   waterCounter:
@@ -770,7 +771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.27375}
   m_AnchorMax: {x: 1, y: 0.7345001}
-  m_AnchoredPosition: {x: 40, y: -5.6600037}
+  m_AnchoredPosition: {x: 40, y: -5.660034}
   m_SizeDelta: {x: 80, y: 10.679932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676209356
@@ -1868,7 +1869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.68611103, y: 0.12200001}
   m_AnchorMax: {x: 0.8451111, y: 0.21900001}
-  m_AnchoredPosition: {x: 1, y: -0.05999756}
+  m_AnchoredPosition: {x: 1, y: -0.059936523}
   m_SizeDelta: {x: 6.649994, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361260285
