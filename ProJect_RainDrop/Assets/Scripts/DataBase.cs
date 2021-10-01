@@ -212,7 +212,7 @@ public class DataBase : MonoBehaviour {
 
     public static void setCostume()
     {
-        PlayerPrefs.SetInt("Costume", DataBase.costume);
+        PlayerPrefs.SetInt("Costume", costume);
         for (int i = 1; i < isCostumeLock.Length; i++)
             PlayerPrefs.SetInt("IsCostumeLock" + i, Convert.ToInt32(isCostumeLock[i]));
     }
@@ -239,10 +239,7 @@ public class DataBase : MonoBehaviour {
     {
         for (int i = 0; i < consumers.Length; i++)
         {
-            if (!consumers[i].isLock) // 이미 해금되어 있으면
-                continue; // 건너뛰기
-            else
-                PlayerPrefs.SetInt("IsConsumerLock" + i, Convert.ToInt32(consumers[i].isLock));
+            PlayerPrefs.SetInt("IsConsumerLock" + i, Convert.ToInt32(consumers[i].isLock));
         }
     }
 }

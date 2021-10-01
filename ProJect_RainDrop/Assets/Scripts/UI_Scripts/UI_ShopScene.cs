@@ -10,18 +10,12 @@ public class UI_ShopScene : MonoBehaviour {
     void Start()
     {
         popupText = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
-        // //Get UI
-        // popupOK = GameObject.Find("Canvas/PopUp(ok)");
-        // popupText = GameObject.Find("Canvas/PopUp(ok)/Text").GetComponent<Text>();
-
+        
         //get Data
         DataBase.getMoney();
         DataBase.getWaterData();
         DataBase.getLocalData(3);
-
-        // dessert locker
-        GameObject.Find("Canvas/ListView/Viewport/Content/RichMan/Lock").SetActive(DataBase.locals[3].isLock);
-
+        
         //set Text
         UI_MultiScene.instance.setMoney();
         UI_MultiScene.instance.setWaterCounter();
@@ -32,6 +26,7 @@ public class UI_ShopScene : MonoBehaviour {
 
     public void unlockConsumer(int index)
     {
+        
     }
 
     public void giveWater()

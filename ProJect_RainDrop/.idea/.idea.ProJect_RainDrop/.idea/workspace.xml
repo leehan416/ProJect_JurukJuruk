@@ -28,7 +28,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rain.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/unity/Push2/Assets/Scripts/FrontEnd/UI_Manager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -191,6 +190,7 @@
       <workItem from="1632537679757" duration="432000" />
       <workItem from="1632539541004" duration="3125000" />
       <workItem from="1632928827290" duration="3873000" />
+      <workItem from="1633054244285" duration="1385000" />
     </task>
     <servers />
   </component>
