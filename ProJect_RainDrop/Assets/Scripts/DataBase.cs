@@ -1,7 +1,6 @@
 ﻿/* 총괄 DataBase */
 
 using System;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 // pail => user pot 
@@ -17,6 +16,13 @@ public class DataBase : MonoBehaviour {
     //Water value
     // 0 = uncleaned 1 = cleaned 2 = dessert 3 = snow
     public static long[] water = {0, 0, 0, 0};
+
+    // 수집한 물의 양 => 피버중에는 모이지 않음
+    public static int[] savedWater = {0, 0, 0, 0, 0};
+
+    // 피버 활성화를 위해 모아야 하는 물 
+    public static int[] feverWater = {50, 50, 100, 20, 45};
+
 
     //public static long maxWater = 10000; // 최대 양
     public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
@@ -148,6 +154,8 @@ public class DataBase : MonoBehaviour {
             PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
         for (int i = 0; i < soldWater.Length; i++)
             PlayerPrefs.SetInt("SoldWater" + i, soldWater[i]);
+        for (int i = 0; i < savedWater.Length; i++)
+            PlayerPrefs.SetInt("SavedWater" + i, savedWater[i]);
     }
 
     public static void getWaterData()
@@ -158,6 +166,8 @@ public class DataBase : MonoBehaviour {
             potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
         for (int i = 0; i < soldWater.Length; i++)
             soldWater[i] = PlayerPrefs.GetInt("SoldWater" + i, 0);
+        for (int i = 0; i < savedWater.Length; i++)
+            savedWater[i] = PlayerPrefs.GetInt("SavedWater" + i, 0);
     }
 
 

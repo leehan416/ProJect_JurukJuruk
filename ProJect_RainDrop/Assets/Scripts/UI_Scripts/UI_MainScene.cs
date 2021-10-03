@@ -45,8 +45,6 @@ public class UI_MainScene : MonoBehaviour {
         setFeverbtn = delegate { _setFeverbtn(); };
         updateWaterPot = delegate { _updateWaterPot(); };
         local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
-
-
         emptyText = GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle/num").GetComponent<Text>();
     }
 
@@ -70,6 +68,11 @@ public class UI_MainScene : MonoBehaviour {
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
+        
+        //---------
+        DataBase.savedWater[DataBase.nowLocal] = DataBase.feverWater[DataBase.nowLocal];
+        //---------
+        
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
@@ -169,38 +172,25 @@ public class UI_MainScene : MonoBehaviour {
 
     public void clickFeverbtn()
     {
+        DataBase.savedWater[DataBase.nowLocal] = 0;
+        DataBase.setWaterData();
         feverBtn.SetActive(false);
         isFever = true;
         feverCover.SetActive(true);
-        StopCoroutine("feverTimer");
         StartCoroutine(feverTimer());
     }
-
 
     public void quit()
     {
         Application.Quit(); // 게임 종료
     }
 
-
     private IEnumerator feverTimer()
     {
         // 피버시간 체크
-        if (isFever)
-        {
-            for (int i = 0; i < DataBase.feverTime; i++)
-                yield return new WaitForSeconds(1f);
-
-            feverCover.SetActive(false);
-            isFever = false;
-        }
-        // 고양이 등장 시간 체크 
-        else
-        {
-            for (int i = 0; i < DataBase.catSustainTime; i++)
-                yield return new WaitForSeconds(1f);
-
-            feverBtn.SetActive(false);
-        }
+        for (int i = 0; i < DataBase.feverTime; i++)
+            yield return new WaitForSeconds(1f);
+        feverCover.SetActive(false);
+        isFever = false;
     }
 }

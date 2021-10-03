@@ -43,22 +43,18 @@ public class Rain : MonoBehaviour {
 
                 // 물 채우기
                 DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += value;
-
-                // 피버 버튼 등장 조건 검사 : 물탱크가 50 % 이상 찼을 때 50퍼센트 확률
-                if (!DataBase.isFeverChecked && DataBase.getWaterTankPercent() > DataBase.feverDrop)
-                {
-                    if (random.Next(0, 10) > 5)
-                    {
-                        DataBase.isFeverChecked = true;
-                        UI_MainScene.setFeverbtn();
-                    }
-                }
             }
             else
             {
                 int value = Convert.ToInt32(DataBase.valueMaxWater[DataBase.tankLevel] - DataBase.getAllWater());
                 DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += value;
             }
+
+            // 피버
+            if (!UI_MainScene.isFever)
+                DataBase.savedWater[DataBase.nowLocal]++;
+            if (DataBase.savedWater[DataBase.nowLocal] >= DataBase.feverWater[DataBase.nowLocal])
+                UI_MainScene.setFeverbtn();
 
             // 최종 확인 
             if (DataBase.getAllWater() > DataBase.valueMaxWater[DataBase.tankLevel])
