@@ -15,16 +15,15 @@ public delegate void UpdateWaterPot();
 
 
 public class UI_MainScene : MonoBehaviour {
-   
     // 외부 접근용도 delegate
     public static SetFeverbtn setFeverbtn = delegate { };
     public static UpdateWaterPot updateWaterPot = delegate { };
 
-    public Text local; // local Text
+    private Text local; // local Text
 
     public static Slider waterPot; // 물탱크
 
-    [Header("비우기 텍스트")] public Text emptyText;
+    private Text emptyText;
 
     [Header("고양이")] public GameObject feverBtn; // 고양이 버튼 
 
@@ -35,7 +34,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
     // [HideInInspector] public bool popupIsOn = false;
-    public GameObject Rains; // 빗물 집합소
+    // public GameObject Rains; // 빗물 집합소
     public static bool isFever = false; // fever 확인 변수 
 
     private Random _random = new Random();
@@ -45,6 +44,10 @@ public class UI_MainScene : MonoBehaviour {
     {
         setFeverbtn = delegate { _setFeverbtn(); };
         updateWaterPot = delegate { _updateWaterPot(); };
+        local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
+
+
+        emptyText = GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle/num").GetComponent<Text>();
     }
 
     void Start()

@@ -19,7 +19,7 @@ public class UI_MultiScene : MonoBehaviour {
     public Slider waterTank;
     public Text money;
 
-    public Text[] waterCounter = new Text[3];
+    public Text[] waterCounter = new Text[4];
 
 
     private void Update()

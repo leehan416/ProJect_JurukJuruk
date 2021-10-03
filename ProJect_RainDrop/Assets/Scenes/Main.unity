@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5098,8 +5098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ceddbeb7fbf49f9897d05281b95226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  local: {fileID: 14359327}
-  emptyText: {fileID: 1786955739}
   feverBtn: {fileID: 984130448}
   feverCover: {fileID: 2050375172}
   localBG:
@@ -5111,7 +5109,6 @@ MonoBehaviour:
   - {fileID: 7558836099807782548, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   - {fileID: 5826042701559951212, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
   - {fileID: -7084873560412676255, guid: 48750c964c5fdcb448b68f795dcbf5ad, type: 3}
-  Rains: {fileID: 549582272}
 --- !u!114 &1798680557
 MonoBehaviour:
   m_ObjectHideFlags: 0

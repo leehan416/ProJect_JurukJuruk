@@ -5,3 +5,15 @@
 기획 / 개발 :: Whal3
 
 UI / UX :: Leejju
+
+Sound Dev / Bgm :: 2BEAN
+
+---
+
+###TODO
+
+- Sound Dev
+
+- FeverSystem Remake
+
+- Sonw Local

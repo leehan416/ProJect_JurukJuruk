@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 536055699}
   - component: {fileID: 536055698}
   m_Layer: 5
-  m_Name: MyHome
+  m_Name: List0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 732076134}
   - component: {fileID: 732076133}
   m_Layer: 5
-  m_Name: Dessert
+  m_Name: List3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 1320619906}
   - component: {fileID: 1320619905}
   m_Layer: 5
-  m_Name: Countryside
+  m_Name: List1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,11 +2217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ae9de140756420dab1548e303e1787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locker:
-  - {fileID: 0}
-  - {fileID: 1430171640}
-  - {fileID: 1697374522}
-  - {fileID: 1117093249}
 --- !u!1 &1681407232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2467,7 @@ GameObject:
   - component: {fileID: 1781198758}
   - component: {fileID: 1781198757}
   m_Layer: 5
-  m_Name: Amazon
+  m_Name: List2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

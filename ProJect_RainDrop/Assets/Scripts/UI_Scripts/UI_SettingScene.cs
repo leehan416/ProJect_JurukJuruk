@@ -1,23 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_SettingScene : MonoBehaviour {
     // sliders
-    [Header("BGM 볼륨")] public Slider bgmSlider;
-    [Header("FX 볼륨")] public Slider fxSlider;
+    private Slider bgmSlider;
+    private Slider fxSlider;
 
     //toggle => 조작 반전
-    [Header("조작반전 버튼")] public Toggle reverse;
+    private Toggle reverse;
+
+    private void Awake()
+    {
+        // Set UI
+        bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
+        fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
+        reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
+    }
 
     private void Start()
     {
         DataBase.getSettingVal();
-        // bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
-        // fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
-        // reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
         SetSettingObj();
     }
-    
+
     // value 초기 설정
     public void SetSettingObj()
     {

@@ -1,22 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
-    public GameObject[] locker = new GameObject[4]; // Local Locker
+    private GameObject[] locker = new GameObject[5]; // Local Locker
 
     private Text btnTextYN; // 가격 Text
     private Text btnTextOK; // 돈 없을때 뜨는 Text
     private Button yesBtn; // 구매 버튼
 
 
-    void Start()
+    private void Awake()
     {
+        // Set UI
         btnTextOK = UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1];
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
         btnTextYN = yesBtn.GetComponentInChildren<Text>();
+        for (int i = 1; i < 5; i++)
+            locker[i] = GameObject.Find("Canvas/ListView/Viewport/Content/List" + i + "/lock");
+    }
 
 
+    void Start()
+    {
         // Set Text
         UI_MultiScene.instance.setMoney();
         // Set Locker
@@ -56,7 +63,6 @@ public class UI_MapScene : MonoBehaviour {
             setMapLocker();
             UI_MultiScene.instance.unactivePopup();
             UI_MultiScene.instance.setMoney();
-            
         }
         // 돈이 부족하다면
         else

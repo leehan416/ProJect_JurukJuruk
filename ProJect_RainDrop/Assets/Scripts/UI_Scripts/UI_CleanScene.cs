@@ -1,18 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_CleanScene : MonoBehaviour {
-    [Header("터치존")] public Button clickZone; // CleanBtn
+    private Button clickZone; // CleanBtn
 
-    [Header("가격 Text")] public Text upText; // 업그레이드 가격 Text
+    private Text upText; // 업그레이드 가격 Text
 
-    [Header("업글 설명 text")] public Text explain; // 현재, 다음 업그레이드 설명 Text 
+    private Text explain; // 현재, 다음 업그레이드 설명 Text 
 
     [Header("클린 스프라이트")] public Sprite[] cleanFx = new Sprite[4]; // click FX
 
     [Header("투명 스프라이트")] public Sprite nullImage;
 
+    private void Awake()
+    {
+        clickZone = GameObject.Find("Canvas/ClickZone").GetComponent<Button>();
+        explain = GameObject.Find("Canvas/Explain_Memo/Recent").GetComponent<Text>();
+        upText = GameObject.Find("Canvas/Up/Text").GetComponent<Text>();
+    }
 
     void Start()
     {

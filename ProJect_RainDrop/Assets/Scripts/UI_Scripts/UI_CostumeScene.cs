@@ -29,7 +29,7 @@ public class UI_CostumeScene : MonoBehaviour {
     public GameObject fail;
 
     // lock
-    public GameObject[] cstBox = new GameObject[5];
+    private GameObject[] cstBox = new GameObject[5];
 
     //이미지
     public Sprite[] getCoustumeUI = new Sprite[5];

@@ -1,40 +1,52 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_Market : MonoBehaviour {
-    // TODO : 언락 / 업글 분리 
-    // private Text money;
-
     //pail
-    [Header("양동이 정보")] public Text pailInfo;
-    [Header("양동이 가격")] public Text pailCost;
+    private Text pailInfo;
+    private Text pailCost;
 
     //tank
-    [Header("물탱크 정보")] public Text tankInfo;
-    [Header("물탱크 가격")] public Text tankCost;
+    private Text tankInfo;
+    private Text tankCost;
 
     //pot
-    [Header("추가 양동이 정보")] public Text[] potInfo = new Text[4];
-    [Header("추가 양동이 가격")] public Text[] potCost = new Text[4];
+    private Text[] potInfo = new Text[4];
+    private Text[] potCost = new Text[4];
 
     // Texts
     private Text btnTextYN; // 가격 Text
-    // private Text btnTextInfo; // YN 설명 text
 
     private Text btnTextOK; // OK popup 설명Text
     private Button yesBtn; // 구매 버튼
 
 
-    void Start()
+    private void Awake()
     {
         // Set UI
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
         btnTextYN = yesBtn.gameObject.GetComponentInChildren<Text>();
         btnTextOK = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
 
+        pailInfo = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/Info").GetComponent<Text>();
+        pailCost = GameObject.Find("Canvas/BackGround/Goods/Pail_BG/PailUp/Text").GetComponent<Text>();
+
+        tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>();
+        tankCost = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/TankUp/Text").GetComponent<Text>();
+        for (int i = 0; i < 4; i++)
+        {
+            potInfo[i] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + i + "/Info").GetComponent<Text>();
+            potCost[i] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + i + "/Button/Text")
+                .GetComponent<Text>();
+        }
+    }
+
+    void Start()
+    {
         DataBase.getMoney();
         DataBase.getWaterData();
         DataBase.getLevels();

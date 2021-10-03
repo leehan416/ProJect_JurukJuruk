@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 167884729}
   - component: {fileID: 167884728}
   m_Layer: 5
-  m_Name: CollectorMan
+  m_Name: List6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2111,7 +2111,7 @@ GameObject:
   - component: {fileID: 439324576}
   - component: {fileID: 439324575}
   m_Layer: 5
-  m_Name: BeggarMan
+  m_Name: List9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1370054806}
         m_MethodName: unactivePopup
         m_Mode: 1
         m_Arguments:
@@ -4059,7 +4059,7 @@ GameObject:
   - component: {fileID: 976954577}
   - component: {fileID: 976954576}
   m_Layer: 5
-  m_Name: ThirstyMan
+  m_Name: List1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4212,7 +4212,7 @@ GameObject:
   - component: {fileID: 1102521275}
   - component: {fileID: 1102521274}
   m_Layer: 5
-  m_Name: FarmerMan
+  m_Name: List2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5859,18 +5859,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1474163192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1370054808}
-        m_MethodName: sellWater
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1474163192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6223,7 +6212,7 @@ GameObject:
   - component: {fileID: 1611292469}
   - component: {fileID: 1611292468}
   m_Layer: 5
-  m_Name: PohangSamMan
+  m_Name: List4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6376,7 +6365,7 @@ GameObject:
   - component: {fileID: 1638021764}
   - component: {fileID: 1638021763}
   m_Layer: 5
-  m_Name: RichMan
+  m_Name: List5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6609,7 +6598,7 @@ GameObject:
   - component: {fileID: 1737516404}
   - component: {fileID: 1737516403}
   m_Layer: 5
-  m_Name: PolarBearMan
+  m_Name: List8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7749,7 +7738,7 @@ GameObject:
   - component: {fileID: 2035672427}
   - component: {fileID: 2035672426}
   m_Layer: 5
-  m_Name: StrictMan
+  m_Name: List3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8637,7 +8626,7 @@ GameObject:
   - component: {fileID: 2111599460}
   - component: {fileID: 2111599459}
   m_Layer: 5
-  m_Name: EskimoMan
+  m_Name: List7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9210,10 +9199,10 @@ RectTransform:
   m_Father: {fileID: 305853248105210432}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 550, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0.5653589}
+  m_AnchorMax: {x: 0.5, y: 0.5653589}
+  m_AnchoredPosition: {x: 0, y: -2}
+  m_SizeDelta: {x: 681.8501, y: 280.04535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &305853248670652861
 CanvasRenderer:

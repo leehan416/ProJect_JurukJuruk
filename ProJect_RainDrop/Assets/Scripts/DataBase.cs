@@ -11,9 +11,12 @@ public class DataBase : MonoBehaviour {
     // meony value
     public static long money = 0;
 
+    // 물 판매량
+    public static int[] soldWater = {0, 0, 0, 0};
+
     //Water value
-    // 0 = uncleaned 1 = cleaned 2 = dessert
-    public static long[] water = {0, 0, 0};
+    // 0 = uncleaned 1 = cleaned 2 = dessert 3 = snow
+    public static long[] water = {0, 0, 0, 0};
 
     //public static long maxWater = 10000; // 최대 양
     public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
@@ -60,13 +63,13 @@ public class DataBase : MonoBehaviour {
     public static Consumer[] consumers =
     {
         new Consumer(1000, 100, 0, false), // 목마른 사람
-        new Consumer(3000, 400, 0, true), // 농부
+        new Consumer(3000, 400, 0, true, 30000, 3000), // 농부
         new Consumer(1000, 200, 1, false), // 깐깐한 사람
-        new Consumer(3000, 700, 1, true), // 물 판매업자
+        new Consumer(3000, 700, 1, true, 30000, 5000), // 물 판매업자
         new Consumer(1000, 500, 2, false), // 사막 부자
-        new Consumer(3000, 2000, 2, true), // 
-        new Consumer(1000, 700, 3, true), // 에스키모
-        new Consumer(5000, 1500, 3, true), // 북극곰
+        new Consumer(3000, 2000, 2, true, 20000, 8000), // 
+        new Consumer(1000, 700, 3, false), // 에스키모
+        new Consumer(5000, 1500, 3, true, 30000, 10000), // 북극곰
         new Consumer(1000, 0, -1, false), // 거지
     };
 
@@ -143,6 +146,8 @@ public class DataBase : MonoBehaviour {
             PlayerPrefs.SetString("Water" + i, Convert.ToString(water[i]));
         for (int i = 0; i < potWater.Length; i++)
             PlayerPrefs.SetInt("PotWater" + i, potWater[i]);
+        for (int i = 0; i < soldWater.Length; i++)
+            PlayerPrefs.SetInt("SoldWater" + i, soldWater[i]);
     }
 
     public static void getWaterData()
@@ -151,6 +156,8 @@ public class DataBase : MonoBehaviour {
             water[i] = Convert.ToInt64(PlayerPrefs.GetString("Water" + i, "0"));
         for (int i = 0; i < potWater.Length; i++)
             potWater[i] = PlayerPrefs.GetInt("PotWater" + i, 0);
+        for (int i = 0; i < soldWater.Length; i++)
+            soldWater[i] = PlayerPrefs.GetInt("SoldWater" + i, 0);
     }
 
 
@@ -269,6 +276,8 @@ public class Consumer {
     public int perCell; // 판매 비용
     public int waterType; // 판매 물 종류
     public bool isLock; // 잠겨있음?
+    public int limitOption;
+    public int cost;
 
     public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock)
     {
@@ -276,5 +285,15 @@ public class Consumer {
         perCell = _perCell;
         waterType = _waterType; // -1 = 전부다 받음
         isLock = _isLock;
+    }
+
+    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock, int _limitOption, int _cost)
+    {
+        perWater = _perWater;
+        perCell = _perCell;
+        waterType = _waterType; // -1 = 전부다 받음
+        isLock = _isLock;
+        limitOption = _limitOption;
+        cost = _cost;
     }
 }

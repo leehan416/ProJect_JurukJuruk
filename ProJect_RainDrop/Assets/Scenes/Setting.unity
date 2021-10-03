@@ -902,9 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb6a3e6a7994f2685f782d367159ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSlider: {fileID: 1480262703}
-  fxSlider: {fileID: 994261638}
-  reverse: {fileID: 1598280736}
 --- !u!1 &630967579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,8 +1967,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Design / Develop :: Whal3\nUI / UX :: leejju\nBgm / Sound Develop :: \nPublished
-    by WTlink Software"
+  m_Text: 'Design / Develop :: Whal3
+
+    UI / UX :: leejju
+
+    Bgm / Sound Develop
+    :: 2BEAN
+
+    Published by WTlink Software'
 --- !u!222 &1794248998
 CanvasRenderer:
   m_ObjectHideFlags: 0

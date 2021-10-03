@@ -873,7 +873,7 @@ GameObject:
   - component: {fileID: 342776182}
   - component: {fileID: 342776181}
   m_Layer: 5
-  m_Name: Explain
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,7 +2176,7 @@ GameObject:
   - component: {fileID: 1039675182}
   - component: {fileID: 1039675181}
   m_Layer: 5
-  m_Name: Explain
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,7 +2332,7 @@ GameObject:
   - component: {fileID: 1073817373}
   - component: {fileID: 1073817372}
   m_Layer: 5
-  m_Name: Explain
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2565,7 +2565,7 @@ GameObject:
   - component: {fileID: 1113026856}
   - component: {fileID: 1113026855}
   m_Layer: 5
-  m_Name: Button0
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 1142241182}
   - component: {fileID: 1142241181}
   m_Layer: 5
-  m_Name: Button1
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3185,7 +3185,7 @@ GameObject:
   - component: {fileID: 1426924924}
   - component: {fileID: 1426924923}
   m_Layer: 5
-  m_Name: Button3
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3556,6 +3556,7 @@ MonoBehaviour:
   popUpBG: {fileID: 1116230055}
   popUpOK: {fileID: 1821083072}
   popUpYN: {fileID: 1805761226}
+  popupIsOn: 0
   waterTank: {fileID: 0}
   money: {fileID: 586027230}
   waterCounter:
@@ -3574,20 +3575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e430b6b7064431aa037d5809f300b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pailInfo: {fileID: 1931887777}
-  pailCost: {fileID: 838432394}
-  tankInfo: {fileID: 1532102577}
-  tankCost: {fileID: 532143759}
-  potInfo:
-  - {fileID: 1959915381}
-  - {fileID: 342776181}
-  - {fileID: 1073817372}
-  - {fileID: 1039675181}
-  potCost:
-  - {fileID: 1863398667}
-  - {fileID: 1069583672}
-  - {fileID: 1721138979}
-  - {fileID: 931882554}
 --- !u!1 &1511515009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,7 +3889,7 @@ GameObject:
   - component: {fileID: 1665117887}
   - component: {fileID: 1665117886}
   m_Layer: 5
-  m_Name: Button2
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5150,7 +5137,7 @@ GameObject:
   - component: {fileID: 1959915382}
   - component: {fileID: 1959915381}
   m_Layer: 5
-  m_Name: Explain
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
