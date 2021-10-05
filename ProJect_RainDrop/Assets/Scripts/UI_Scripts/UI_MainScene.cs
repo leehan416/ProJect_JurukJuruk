@@ -30,7 +30,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("비오는 커버")] public GameObject feverCover;
 
     // 배경 sprite 
-    [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[4];
+    [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[5];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
     // [HideInInspector] public bool popupIsOn = false;
@@ -54,7 +54,7 @@ public class UI_MainScene : MonoBehaviour {
             .GetComponent<Slider>();
 
         //현 지역 전용 pot 이외엔 모두 비활성화
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.locals.Length; i++)
             if (DataBase.nowLocal != i)
                 GameObject.Find("Canvas/BigBox/PotSlider" + i).SetActive(false);
 
@@ -68,18 +68,18 @@ public class UI_MainScene : MonoBehaviour {
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
-        
+
         //---------
-        DataBase.savedWater[DataBase.nowLocal] = DataBase.feverWater[DataBase.nowLocal];
+        // DataBase.savedWater[DataBase.nowLocal] = DataBase.feverWater[DataBase.nowLocal];
         //---------
-        
+
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
         DataBase.getMoney();
 
         //피버 등장 판별
-        if (DataBase.getWaterTankPercent() > DataBase.feverDrop) DataBase.isFeverChecked = true;
+        //if (DataBase.getWaterTankPercent() > DataBase.feverDrop) DataBase.isFeverChecked = true;
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();

@@ -50,14 +50,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
       <option value="$PROJECT_DIR$/../README.md" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
     </changedPaths>
   </component>
@@ -193,6 +193,8 @@
       <workItem from="1633054244285" duration="1385000" />
       <workItem from="1633224191614" duration="6783000" />
       <workItem from="1633260537847" duration="1126000" />
+      <workItem from="1633440753085" duration="3903000" />
+      <workItem from="1633445773884" duration="95000" />
     </task>
     <servers />
   </component>
