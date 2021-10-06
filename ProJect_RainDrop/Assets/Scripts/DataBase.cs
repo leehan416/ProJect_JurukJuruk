@@ -23,14 +23,13 @@ public class DataBase : MonoBehaviour {
     // 피버 활성화를 위해 모아야 하는 물 
     public static int[] feverWater = {50, 50, 100, 20, 45};
 
-
     //public static long maxWater = 10000; // 최대 양
-    public static int[] potWater = new int[4]; // 양동이 빗물양 [지역별]
+    public static int[] potWater = new int[5]; // 양동이 빗물양 [지역별]
 
     //--------------------------------------------------------
     public static int pailLevel = 1; // 양동이 레벨
     public static int tankLevel = 1; // 물 저장소 레벨
-    public static int[] potLevel = new int[4]; // 양동이 레벨[지역별]
+    public static int[] potLevel = new int[5]; // 양동이 레벨[지역별]
 
     public static int cleanLevel = 1; //물 정화기 레벨
 
@@ -63,7 +62,7 @@ public class DataBase : MonoBehaviour {
         new Local("시골집 뒷마당", 1f, 5, 1, 5000, true),
         new Local("아마존 캠프", .5f, 4, 0, 10000, true),
         new Local("피라미드 앞", 2.5f, 60, 2, 20000, true),
-        // new Local("이글루 앞", .5f, 4, 3,50000,true),
+        new Local("이글루 앞", .5f, 4, 3, 50000, true),
     };
 
     public static Consumer[] consumers =
@@ -84,7 +83,8 @@ public class DataBase : MonoBehaviour {
     {
         new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f),
         new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f),
-        new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f)
+        new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f),
+        new Color(255 / 255f, 255 / 255f, 255 / 255f, .7f)
     };
 
     // pail
@@ -111,10 +111,11 @@ public class DataBase : MonoBehaviour {
     public static int feverTime = 30;
 
     //public static int catDrop = 300; //random(240, 300)
-    public static int catSustainTime = 20;
+    //public static int catSustainTime = 20;
     public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
-    public static float feverDrop = .45f; // 고양이 등장 판별하는 물탱크의 물 양
-    public static bool isFeverChecked = false; // 고양이 등장 판정 검사했음?
+
+    // public static float feverDrop = .45f; // 고양이 등장 판별하는 물탱크의 물 양
+    //public static bool isFeverChecked = false; // 고양이 등장 판정 검사했음?
 
     //gacha
     public static int gachaCost = 3000;

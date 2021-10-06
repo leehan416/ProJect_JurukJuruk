@@ -95,10 +95,18 @@ MonoBehaviour:
   - {fileID: 5557184967251575769, guid: da336297e7d434ae082e4702931a1190, type: 3}
   - {fileID: 2363426663373415289, guid: da336297e7d434ae082e4702931a1190, type: 3}
   - {fileID: -647826190541757342, guid: da336297e7d434ae082e4702931a1190, type: 3}
+  typeSnow:
+  - {fileID: 7020612652431727953, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
+  - {fileID: -1219550212045353628, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
+  - {fileID: 3324618608363819097, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
+  - {fileID: 5397933237882589743, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
   bigtype:
   - {fileID: -4420418851220797148, guid: 51e8c157f82dc2845b0e4fe94c359ea6, type: 3}
   - {fileID: -8354249319307815464, guid: 51e8c157f82dc2845b0e4fe94c359ea6, type: 3}
   - {fileID: -2447395707565657136, guid: 51e8c157f82dc2845b0e4fe94c359ea6, type: 3}
+  bigtypeSnow:
+  - {fileID: -9171705752681854590, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
+  - {fileID: -6380414444343751391, guid: a049c950f5fdbff45b213b0587f99adc, type: 3}
 --- !u!50 &4781971936715649351
 Rigidbody2D:
   serializedVersion: 4

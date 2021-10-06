@@ -153,7 +153,7 @@ public class UI_ShopScene : MonoBehaviour {
         }
 
 
-        if (DataBase.water[DataBase.consumers[index].waterType] < DataBase.consumers[index].perCell)
+        if (DataBase.water[DataBase.consumers[index].waterType] < DataBase.consumers[index].perWater)
         {
             // 물 부족
             UI_MultiScene.instance.popupIsOn = true;
@@ -164,6 +164,7 @@ public class UI_ShopScene : MonoBehaviour {
         }
 
         DataBase.water[DataBase.consumers[index].waterType] -= DataBase.consumers[index].perWater;
+        DataBase.soldWater[DataBase.consumers[index].waterType] += DataBase.consumers[index].perWater;
         DataBase.money += DataBase.consumers[index].perCell;
 
         //set Data
