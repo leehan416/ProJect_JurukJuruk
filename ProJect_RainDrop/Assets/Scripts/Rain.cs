@@ -12,12 +12,6 @@ public class Rain : MonoBehaviour {
     private bool isBig = false;
 
     void Start()
-        //22 40
-        //57 90
-
-        // 34 34
-        // 65 65
-
     {
         transform.SetParent(GameObject.Find("Canvas/Rains").transform);
         if (random.Next(0, 9) == 5)

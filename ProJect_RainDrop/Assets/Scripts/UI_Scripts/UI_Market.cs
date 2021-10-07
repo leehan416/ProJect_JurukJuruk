@@ -15,8 +15,8 @@ public class UI_Market : MonoBehaviour {
     private Text tankCost;
 
     //pot
-    private Text[] potInfo = new Text[4];
-    private Text[] potCost = new Text[4];
+    private Text[] potInfo = new Text[DataBase.potLevel.Length];
+    private Text[] potCost = new Text[DataBase.potLevel.Length];
 
     // Texts
     private Text btnTextYN; // 가격 Text
@@ -37,10 +37,11 @@ public class UI_Market : MonoBehaviour {
 
         tankInfo = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/Info").GetComponent<Text>();
         tankCost = GameObject.Find("Canvas/BackGround/Goods/Tank_BG/TankUp/Text").GetComponent<Text>();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.potLevel.Length; i++)
         {
-            potInfo[i] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + i + "/Info").GetComponent<Text>();
-            potCost[i] = GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + i + "/Button/Text")
+            potInfo[i] = GameObject.Find("Canvas/BackGround/Goods/ListView/Viewport/Content/Pot_" + i + "/Info")
+                .GetComponent<Text>();
+            potCost[i] = GameObject.Find("Canvas/BackGround/Goods/ListView/Viewport/Content/Pot_" + i + "/Button/Text")
                 .GetComponent<Text>();
         }
     }
@@ -63,9 +64,10 @@ public class UI_Market : MonoBehaviour {
     //set locker 
     public void setPotLockers()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.potLevel.Length; i++)
             if (DataBase.potLevel[i] > 0)
-                GameObject.Find("Canvas/BackGround/Goods/Pot_BG/Pot_" + i + "/Lock").gameObject.SetActive(false);
+                GameObject.Find("Canvas/BackGround/Goods/ListView/Viewport/Content/Pot_" + i + "/Lock").gameObject
+                    .SetActive(false);
     }
 
     //set market text 
@@ -105,7 +107,7 @@ public class UI_Market : MonoBehaviour {
         }
 
         // set pot text
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.potWater.Length; i++)
         {
             // pot 업그레이드 가능시
             if (DataBase.potLevel[i] != DataBase.valuePotMax.Length - 1)
@@ -116,9 +118,9 @@ public class UI_Market : MonoBehaviour {
         }
 
         // set pot info
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.potLevel.Length; i++)
             if (DataBase.potLevel[i] > 0)
-                potInfo[i].text = (DataBase.locals[i].potCycle < 30)
+                potInfo[i].text = (DataBase.locals[i].potCycle < 60)
                     ? DataBase.locals[i].potCycle + "초당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml"
                     : "1분당 " + DataBase.perSecond[DataBase.potLevel[i]] + "ml";
     }
@@ -264,7 +266,6 @@ public class UI_Market : MonoBehaviour {
             UI_MultiScene.instance.popUpBG.SetActive(true);
             UI_MultiScene.instance.popUpOK.SetActive(true);
             btnTextOK.text = "지역이 해금되지 않았습니다.";
-            return;
         }
 
         // 지역이 해금되어 있다면

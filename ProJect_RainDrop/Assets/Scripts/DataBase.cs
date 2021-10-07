@@ -29,7 +29,7 @@ public class DataBase : MonoBehaviour {
     //--------------------------------------------------------
     public static int pailLevel = 1; // 양동이 레벨
     public static int tankLevel = 1; // 물 저장소 레벨
-    public static int[] potLevel = new int[5]; // 양동이 레벨[지역별]
+    public static int[] potLevel = {0, 0, 0, 0, 0}; // new int[5]; // 양동이 레벨[지역별]
 
     public static int cleanLevel = 1; //물 정화기 레벨
 
@@ -84,7 +84,7 @@ public class DataBase : MonoBehaviour {
         new Color(112 / 255f, 193 / 255f, 231 / 255f, .7f),
         new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f),
         new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f),
-        new Color(255 / 255f, 255 / 255f, 255 / 255f, .7f)
+        new Color(178 / 255f, 178 / 255f, 178 / 255f, .7f)
     };
 
     // pail
@@ -102,7 +102,7 @@ public class DataBase : MonoBehaviour {
     public static int[] upgradeClean = {0, 100, 200, 300, 500, 700, 1000, 1500};
 
     //pot
-    public static int[] unLockPot = {1000, 3000, 4000, 5000};
+    public static int[] unLockPot = {1000, 3000, 4000, 5000, 6000};
     public static int[] perSecond = {5, 7, 10, 12, 13, 14, 15, 16};
     public static float[] valuePotMax = {1800, 2500, 3600, 4300, 4700, 5000, 5400, 5800};
     public static int[] upgradePot = {0, 300, 400, 500, 600, 700, 800, 900};

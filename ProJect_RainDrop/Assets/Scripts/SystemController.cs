@@ -15,7 +15,7 @@ public class SystemController : MonoBehaviour {
         DataBase.getLevels();
         DataBase.getWaterData();
         DataBase.getLateTime();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < DataBase.potWater.Length; i++)
         {
             if (DataBase.potLevel[i] > 0)
             {
@@ -55,9 +55,9 @@ public class SystemController : MonoBehaviour {
 
 
         int index = 0;
-        int[] value = new int[4];
+        int[] value = new int[DataBase.locals.Length];
 
-        for (int i = 0; i < 4; i++) // 접속시 추가되는 버그 수정
+        for (int i = 0; i < DataBase.locals.Length; i++) // 접속시 추가되는 버그 수정
             value[i] = 0;
 
         while (true)
@@ -65,7 +65,7 @@ public class SystemController : MonoBehaviour {
             yield return new WaitForSeconds(1f);
             index++;
             //추가 양동이 시스템
-            for (int local = 0; local < 4; local++)
+            for (int local = 0; local < DataBase.locals.Length; local++)
             {
                 DataBase.getWaterData();
                 DataBase.getLevels();
@@ -95,8 +95,17 @@ public class SystemController : MonoBehaviour {
     {
         // 비오는 시스템
         Random random = new Random();
-        rain.gameObject.GetComponent<Image>().color =
-            DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
+        if (DataBase.nowLocal == 4)
+        {
+            rain.gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, .7f);
+        }
+
+        else
+        {
+            rain.gameObject.GetComponent<Image>().color =
+                DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
+        }
+
         short width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
         short height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
         if (!UI_MultiScene.instance.popupIsOn)
