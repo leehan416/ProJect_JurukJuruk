@@ -61,8 +61,8 @@ public class DataBase : MonoBehaviour {
         new Local("우리집 마당", 1f, 5, 0, 0, false),
         new Local("시골집 뒷마당", 1f, 5, 1, 5000, true),
         new Local("아마존 캠프", .5f, 4, 0, 10000, true),
-        new Local("피라미드 앞", 2.5f, 60, 2, 20000, true),
-        new Local("이글루 앞", .5f, 4, 3, 50000, true),
+        new Local("피라미드 앞", 2.5f, 20, 2, 20000, true),
+        new Local("이글루 앞", .5f, 4, 3, 40000, true),
     };
 
     public static Consumer[] consumers =

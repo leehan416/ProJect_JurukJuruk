@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour {
     private void Start()
     {
         // UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width 
-        playerSpeed = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 3.375f;
+        float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
+        float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
+        playerSpeed = width / 3.375f;
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(65 * width / 1080, 190 * height / 1920);
+        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0, 6f * height / 1920);
     }
 
     void Update()

@@ -167,7 +167,11 @@ public class UI_MainScene : MonoBehaviour {
     private void _setFeverbtn()
     {
         feverBtn.SetActive(true);
-        feverBtn.GetComponent<Button>().image.sprite = catImage[_random.Next(0, catImage.Length - 1)];
+        float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
+        float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
+        int value = _random.Next(0, catImage.Length - 1);
+        feverBtn.GetComponent<Button>().image.sprite = catImage[value];
+        feverBtn.transform.localScale = new Vector3(width, height, 0);
     }
 
     public void clickFeverbtn()

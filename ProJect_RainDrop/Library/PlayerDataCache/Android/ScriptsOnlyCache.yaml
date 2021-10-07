@@ -1145,4 +1145,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain_1.1Test.apk
+  playerPath: /Users/whal3/Desktop/rain_1.1.aab
