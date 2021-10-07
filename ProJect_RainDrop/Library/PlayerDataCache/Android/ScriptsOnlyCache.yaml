@@ -381,7 +381,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11536}
     - Class: 114
+      Script: {instanceID: 11856}
+    - Class: 114
       Script: {instanceID: 11952}
+    - Class: 114
+      Script: {instanceID: 12162}
     - Class: 114
       Script: {instanceID: 12376}
     - Class: 114
@@ -436,7 +440,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11492}
     - Class: 114
+      Script: {instanceID: 11856}
+    - Class: 114
       Script: {instanceID: 11952}
+    - Class: 114
+      Script: {instanceID: 12162}
     - Class: 114
       Script: {instanceID: 12376}
     - Class: 114
@@ -552,7 +560,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11786}
     - Class: 114
+      Script: {instanceID: 11856}
+    - Class: 114
       Script: {instanceID: 11952}
+    - Class: 114
+      Script: {instanceID: 12162}
     - Class: 114
       Script: {instanceID: 12376}
     - Class: 114
@@ -668,7 +680,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 6357500035d78eea17ae0dd6826c3355
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_MapScene
@@ -722,7 +734,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 2d1093c74c3129bcffa20c0651de7aca
+      Hash: 6cefec9e8af925586fba9e92341ea12f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rain
@@ -896,7 +908,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: ff54b2a5e8107de12d7c7545cbe7c9fc
+      Hash: d88c8c04af65a9a8217f30b603ca159a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_MultiScene
@@ -950,13 +962,13 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 5d1f53c53e9ca53d7f31bc41bc59e801
+      Hash: f3ee5f20421d5e1ecb1a6f0a48c18bce
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_CleanScene
   - hash:
       serializedVersion: 2
-      Hash: d3f6ed2b69d1ffc7ea9a64dae36d4b55
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Market
@@ -998,13 +1010,13 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 431734e111e2621edf6e9f61840b7533
+      Hash: 22543d02ccba8a06cd120baccaf11d74
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_CostumeScene
   - hash:
       serializedVersion: 2
-      Hash: 16543eab65f0fd70e0d8491d7ab3ce54
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_SettingScene
@@ -1040,7 +1052,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 4caba53b277d7c80a30ac07399f692ab
+      Hash: 3030c1cd68872f1692a0bcd003cd7a8c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_MainScene
@@ -1133,4 +1145,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain.aab
+  playerPath: /Users/whal3/Desktop/rain_1.1Test.apk
