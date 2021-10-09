@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -571,10 +571,10 @@ RectTransform:
   m_Father: {fileID: 1805761227}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 550, y: 100}
+  m_AnchorMin: {x: 0.19428393, y: 0.5233454}
+  m_AnchorMax: {x: 0.8046833, y: 0.6053815}
+  m_AnchoredPosition: {x: 0.5, y: 5.799999}
+  m_SizeDelta: {x: 5, y: 5.084915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268618390
 MonoBehaviour:
@@ -599,9 +599,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 0
@@ -921,9 +921,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1090,10 +1090,10 @@ RectTransform:
   m_Father: {fileID: 1734929199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchorMin: {x: 0.26376978, y: 0.2956846}
+  m_AnchorMax: {x: 0.86151105, y: 0.75543845}
+  m_AnchoredPosition: {x: -2.0099945, y: -1.539999}
+  m_SizeDelta: {x: -0.02973938, y: 4.1987915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532143759
 MonoBehaviour:
@@ -1118,9 +1118,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -1168,10 +1168,10 @@ RectTransform:
   m_Father: {fileID: 1851979195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchorMin: {x: 0.24826026, y: 0.26633316}
+  m_AnchorMax: {x: 0.7225069, y: 0.69500005}
+  m_AnchoredPosition: {x: 2.5, y: 1.2000008}
+  m_SizeDelta: {x: 5.558716, y: 2.425415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547612431
 MonoBehaviour:
@@ -1198,9 +1198,9 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 60
+    m_MaxSize: 200
     m_Alignment: 4
-    m_AlignByGeometry: 1
+    m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -1246,10 +1246,10 @@ RectTransform:
   m_Father: {fileID: 871771696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: 20}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchorMin: {x: 0.009000001, y: 1}
+  m_AnchorMax: {x: 0.2912623, y: 1}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555689221
 MonoBehaviour:
@@ -1274,9 +1274,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 80
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1390,10 +1390,10 @@ RectTransform:
   m_Father: {fileID: 1102117155}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 21.11, y: 0}
-  m_SizeDelta: {x: -42.223373, y: 0}
+  m_AnchorMin: {x: 0.32789537, y: 0.29134881}
+  m_AnchorMax: {x: 0.919, y: 0.72}
+  m_AnchoredPosition: {x: 1.5299988, y: -0.88000107}
+  m_SizeDelta: {x: -0.014312744, y: 0.7976074}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586027230
 MonoBehaviour:
@@ -1418,9 +1418,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1943,10 +1943,10 @@ RectTransform:
   m_Father: {fileID: 1442480553}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchorMin: {x: 0.2554884, y: 0.2982247}
+  m_AnchorMax: {x: 0.855, y: 0.7786124}
+  m_AnchoredPosition: {x: 1.7099915, y: 0.27000046}
+  m_SizeDelta: {x: -0.5797119, y: 1.4544716}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838432394
 MonoBehaviour:
@@ -1971,9 +1971,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -2152,10 +2152,10 @@ RectTransform:
   m_Father: {fileID: 1821083073}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 550, y: 100}
+  m_AnchorMin: {x: 0.19425507, y: 0.5506857}
+  m_AnchorMax: {x: 0.80923873, y: 0.6346857}
+  m_AnchoredPosition: {x: -1.5, y: -9}
+  m_SizeDelta: {x: 1, y: 7.1766357}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844611131
 MonoBehaviour:
@@ -2180,9 +2180,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 0
@@ -2398,10 +2398,10 @@ RectTransform:
   m_Father: {fileID: 1426924922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.30717963}
+  m_AnchorMax: {x: 1, y: 0.66400003}
+  m_AnchoredPosition: {x: 0, y: 0.41999996}
+  m_SizeDelta: {x: 0, y: -0.23839569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931882554
 MonoBehaviour:
@@ -2426,9 +2426,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -2476,10 +2476,10 @@ RectTransform:
   m_Father: {fileID: 774960979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.29200003}
+  m_AnchorMax: {x: 1, y: 0.7416509}
+  m_AnchoredPosition: {x: 0, y: 0.9899998}
+  m_SizeDelta: {x: 0, y: -1.5253906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935086990
 MonoBehaviour:
@@ -2504,9 +2504,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -2582,9 +2582,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2632,10 +2632,10 @@ RectTransform:
   m_Father: {fileID: 1142241180}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.3472953}
+  m_AnchorMax: {x: 1, y: 0.7106477}
+  m_AnchoredPosition: {x: 0, y: -0.020000458}
+  m_SizeDelta: {x: 0, y: 0.43548584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069583672
 MonoBehaviour:
@@ -2660,9 +2660,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -2738,9 +2738,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2788,10 +2788,10 @@ RectTransform:
   m_Father: {fileID: 2117770975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.289}
+  m_AnchorMax: {x: 1, y: 0.7365076}
+  m_AnchoredPosition: {x: 0, y: 1.5999985}
+  m_SizeDelta: {x: 0, y: 0.15524292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1079955351
 MonoBehaviour:
@@ -2816,9 +2816,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -3630,9 +3630,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: 20}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchorMax: {x: 0.291, y: 1}
+  m_AnchoredPosition: {x: 5, y: 20}
+  m_SizeDelta: {x: -10, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241751270
 MonoBehaviour:
@@ -3657,9 +3657,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4351,10 +4351,10 @@ RectTransform:
   m_Father: {fileID: 1823759667}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: 20}
-  m_SizeDelta: {x: 320, y: 120}
+  m_AnchorMin: {x: 0.48100004, y: 0.5}
+  m_AnchorMax: {x: 0.8221394, y: 0.686728}
+  m_AnchoredPosition: {x: -1.3899994, y: 0}
+  m_SizeDelta: {x: -0.77911377, y: 4.2163773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1532102577
 MonoBehaviour:
@@ -4379,9 +4379,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4531,9 +4531,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4863,10 +4863,10 @@ RectTransform:
   m_Father: {fileID: 1665117885}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.29200003}
+  m_AnchorMax: {x: 1, y: 0.68846714}
+  m_AnchoredPosition: {x: 0, y: -0.049999237}
+  m_SizeDelta: {x: 0, y: -0.124362946}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721138979
 MonoBehaviour:
@@ -4891,9 +4891,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -5498,10 +5498,10 @@ RectTransform:
   m_Father: {fileID: 1113026854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.3312591}
+  m_AnchorMax: {x: 1, y: 0.6782591}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: 3.2785187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863398667
 MonoBehaviour:
@@ -5526,9 +5526,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -5580,7 +5580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.80651474, y: 0}
   m_AnchorMax: {x: 0.99549514, y: 0.95500004}
-  m_AnchoredPosition: {x: 0.26391602, y: -1.3797913}
+  m_AnchoredPosition: {x: 0.26391602, y: -1.3798218}
   m_SizeDelta: {x: 0.52783203, y: 2.759674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1913042175
@@ -5784,10 +5784,10 @@ RectTransform:
   m_Father: {fileID: 871771696}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4721667, y: 0.33}
-  m_AnchorMax: {x: 0.9181667, y: 0.7435999}
-  m_AnchoredPosition: {x: -0.5, y: -1}
-  m_SizeDelta: {x: -1, y: -4}
+  m_AnchorMin: {x: 0.4693511, y: 0.53400004}
+  m_AnchorMax: {x: 0.9181667, y: 0.7595294}
+  m_AnchoredPosition: {x: -0.5, y: 0.00010681152}
+  m_SizeDelta: {x: -1, y: -0.0001296997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931887777
 MonoBehaviour:
@@ -5812,9 +5812,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5863,10 +5863,10 @@ RectTransform:
   m_Father: {fileID: 842826253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.28268483}
+  m_AnchorMax: {x: 1, y: 0.7428768}
+  m_AnchoredPosition: {x: 0, y: 0.20000076}
+  m_SizeDelta: {x: 0, y: 1.822319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1941291138
 MonoBehaviour:
@@ -5891,9 +5891,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -5969,9 +5969,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6133,10 +6133,10 @@ RectTransform:
   m_Father: {fileID: 1230622235}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.289}
+  m_AnchorMax: {x: 1, y: 0.671}
+  m_AnchoredPosition: {x: 0, y: -0.049999237}
+  m_SizeDelta: {x: 0, y: -0.10161209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023333208
 MonoBehaviour:
@@ -6161,9 +6161,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -6548,9 +6548,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: 20}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchorMax: {x: 0.2882051, y: 1}
+  m_AnchoredPosition: {x: 6.5, y: 20}
+  m_SizeDelta: {x: -7, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138332487
 MonoBehaviour:
@@ -6575,9 +6575,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd03281d7d7b9433489e71314eaba580, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
