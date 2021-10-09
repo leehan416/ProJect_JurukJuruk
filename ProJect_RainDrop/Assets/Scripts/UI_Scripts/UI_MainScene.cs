@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
 
-
-// setfever
-//updateWaterPot
-
-
+// 외부 접근
 public delegate void SetFeverbtn();
 
 public delegate void UpdateWaterPot();
-
 
 public class UI_MainScene : MonoBehaviour {
     // 외부 접근용도 delegate
@@ -20,32 +14,36 @@ public class UI_MainScene : MonoBehaviour {
     public static UpdateWaterPot updateWaterPot = delegate { };
 
     private Text local; // local Text
-
+    private Text emptyText;
     public static Slider waterPot; // 물탱크
 
-    private Text emptyText;
-
     [Header("고양이")] public GameObject feverBtn; // 고양이 버튼 
-
     [Header("비오는 커버")] public GameObject feverCover;
 
     // 배경 sprite 
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[5];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
-    // [HideInInspector] public bool popupIsOn = false;
-    // public GameObject Rains; // 빗물 집합소
     public static bool isFever = false; // fever 확인 변수 
 
     private Random _random = new Random();
 
+    // 해상도 대응 변수
+    private float width;
+    private float height;
 
     private void Awake()
     {
+        // 외부 스크립트에서 함수 접근 delegate 지정
         setFeverbtn = delegate { _setFeverbtn(); };
         updateWaterPot = delegate { _updateWaterPot(); };
+        // Get ui
         local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
         emptyText = GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle/num").GetComponent<Text>();
+
+        // 사이즈 받아오기
+        width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
+        height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
     }
 
     void Start()
@@ -68,18 +66,10 @@ public class UI_MainScene : MonoBehaviour {
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
-
-        //---------
-        // DataBase.savedWater[DataBase.nowLocal] = DataBase.feverWater[DataBase.nowLocal];
-        //---------
-
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
         DataBase.getMoney();
-
-        //피버 등장 판별
-        //if (DataBase.getWaterTankPercent() > DataBase.feverDrop) DataBase.isFeverChecked = true;
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();
@@ -123,9 +113,7 @@ public class UI_MainScene : MonoBehaviour {
 
         //물탱크가 최대라면
         if (DataBase.valueMaxWater[DataBase.tankLevel] <= DataBase.getAllWater())
-        {
             return;
-        }
 
         DataBase.water[DataBase.locals[DataBase.nowLocal].waterType] += DataBase.potWater[DataBase.nowLocal];
 
@@ -163,24 +151,26 @@ public class UI_MainScene : MonoBehaviour {
         bg.sprite = localBG[DataBase.nowLocal];
     }
 
-
+    // 피버 버튼 등장
     private void _setFeverbtn()
     {
         feverBtn.SetActive(true);
-        float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
-        float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
         int value = _random.Next(0, catImage.Length - 1);
         feverBtn.GetComponent<Button>().image.sprite = catImage[value];
-        feverBtn.transform.localScale = new Vector3(width, height, 0);
+        feverBtn.transform.localScale = new Vector3( /* 해상도 대응 */width, /* 해상도 대응 */height, 0);
     }
 
+    //fever set
     public void clickFeverbtn()
     {
+        // 피버 조건 초기화
         DataBase.savedWater[DataBase.nowLocal] = 0;
         DataBase.setWaterData();
+        // 피버 조건 세팅
         feverBtn.SetActive(false);
         isFever = true;
         feverCover.SetActive(true);
+        // 피버 타이머 시작
         StartCoroutine(feverTimer());
     }
 
@@ -189,6 +179,7 @@ public class UI_MainScene : MonoBehaviour {
         Application.Quit(); // 게임 종료
     }
 
+    // 피버 타이머
     private IEnumerator feverTimer()
     {
         // 피버시간 체크

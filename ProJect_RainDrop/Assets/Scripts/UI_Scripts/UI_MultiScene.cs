@@ -15,12 +15,21 @@ public class UI_MultiScene : MonoBehaviour {
     // popup on
     [HideInInspector] public bool popupIsOn = false;
 
-    // 물통 옆 현재 각 빗물 Text set
+    // 물탱크
     public Slider waterTank;
+
+    // 돈
     public Text money;
 
+    // 물통 옆 현재 각 빗물 Text set
     public Text[] waterCounter = new Text[4];
 
+    private void Awake()
+    {
+        // 외부 접근 instance 설정
+        if (!instance) instance = this;
+        else Destroy(this);
+    }
 
     private void Update()
     {
@@ -34,6 +43,9 @@ public class UI_MultiScene : MonoBehaviour {
 
     public void backBtn()
     {
+        // !! 안드로이드에서만 작동함
+
+
         if (Application.loadedLevelName == "Main")
         {
             popupIsOn = !popupIsOn;
@@ -60,12 +72,6 @@ public class UI_MultiScene : MonoBehaviour {
         }
     }
 
-    private void Awake()
-    {
-        // 외부 접근 instance 설정
-        if (!instance) instance = this;
-        else Destroy(this);
-    }
 
     public void setWaterCounter()
     {
@@ -106,16 +112,11 @@ public class UI_MultiScene : MonoBehaviour {
         SceneManager.LoadScene(val);
     }
 
-
-    // public void popupBGActive()
-    // {
-    //     popUpBG.SetActive(true);
-    // }
-
+    // 팝업 끄기
     public void unactivePopup()
     {
         popUpBG.SetActive(false);
-        try // 빨간 에러 보기 싫어서 만든 알고리즘 
+        try // 에러 무시
         {
             popUpOK.SetActive(false);
         }
@@ -123,7 +124,7 @@ public class UI_MultiScene : MonoBehaviour {
         {
         }
 
-        try // 빨간 에러 보기 싫어서 만든 알고리즘 
+        try // 에러 무시
         {
             popUpYN.SetActive(false);
         }

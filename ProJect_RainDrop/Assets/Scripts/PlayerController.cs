@@ -1,6 +1,4 @@
-﻿/* 플레이어 조작관련 스크립트 */
-
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,20 +8,27 @@ public class PlayerController : MonoBehaviour {
     public static bool leftClick;
     public static bool rightClick;
 
+    // 해상도 대응 변수
+    private float width;
+    private float height;
+
 
     private void Start()
     {
-        // UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width 
-        float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
-        float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
+        // 사이즈 받아오기
+        width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
+        height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
         playerSpeed = width / 3.375f;
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(65 * width / 1080, 190 * height / 1920);
+
+        // 해상도 대응
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(65 * width / 1080,
+            190 * height / 1920);
         gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0, 6f * height / 1920);
     }
 
     void Update()
     {
-        float width = UI_MultiScene.instance.gameObject.GetComponent<RectTransform>().rect.width;
+        // 유저 컨트롤
         if (Input.GetMouseButton(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())

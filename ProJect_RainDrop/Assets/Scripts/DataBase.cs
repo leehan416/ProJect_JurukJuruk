@@ -72,7 +72,7 @@ public class DataBase : MonoBehaviour {
         new Consumer(1000, 200, 1, false), // 깐깐한 사람
         new Consumer(3000, 700, 1, true, 30000, 5000), // 물 판매업자
         new Consumer(1000, 500, 2, false), // 사막 부자
-        new Consumer(3000, 2000, 2, true, 20000, 8000), // 
+        new Consumer(3000, 2000, 2, true, 20000, 8000), // 수집가
         new Consumer(1000, 700, 3, false), // 에스키모
         new Consumer(5000, 1500, 3, true, 30000, 10000), // 북극곰
         new Consumer(1000, 0, -1, false), // 거지
@@ -109,13 +109,7 @@ public class DataBase : MonoBehaviour {
 
     //fever
     public static int feverTime = 30;
-
-    //public static int catDrop = 300; //random(240, 300)
-    //public static int catSustainTime = 20;
     public static float feverEfficiency = 10; // 빗물 내리는 시간 줄여주는 비율
-
-    // public static float feverDrop = .45f; // 고양이 등장 판별하는 물탱크의 물 양
-    //public static bool isFeverChecked = false; // 고양이 등장 판정 검사했음?
 
     //gacha
     public static int gachaCost = 3000;
@@ -262,6 +256,7 @@ public class DataBase : MonoBehaviour {
     }
 }
 
+// Data Class
 
 public class Local {
     public String localName; // 지역이름

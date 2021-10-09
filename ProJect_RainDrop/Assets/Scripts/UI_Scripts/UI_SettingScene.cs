@@ -12,7 +12,7 @@ public class UI_SettingScene : MonoBehaviour {
 
     private void Awake()
     {
-        // Set UI
+        // get UI
         bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
         fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
         reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();

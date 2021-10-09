@@ -9,9 +9,30 @@ using Random = System.Random;
 public class SystemController : MonoBehaviour {
     public GameObject rain; //빗방물 오브젝트 
 
+    // 해상도 대응 변수
+    private float width;
+    private float height;
 
     void Awake()
     {
+        // 추가 양동이 빗물 받아오기
+        getOutWater();
+
+        //사이즈 받아오기
+        width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
+        height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(RainSystem()); // 비오는 시스템  
+        StartCoroutine(FixedSystem()); // 추가 양동이 물 채우는 시스템
+    }
+
+    // 유저가 게임 밖에 있을 때에 채워지는 물 추가
+    void getOutWater()
+    {
+        // 유저가 마지막으로 접근했던 시간과 현재 시간의 차이를 계산하여 추가 양동이 물 추가
         DataBase.getLevels();
         DataBase.getWaterData();
         DataBase.getLateTime();
@@ -23,17 +44,16 @@ public class SystemController : MonoBehaviour {
                             DataBase.perSecond[DataBase.potLevel[i]];
                 DataBase.potWater[i] += value;
 
-                if (DataBase.valuePotMax[i] <= DataBase.potWater[i])
+                if (DataBase.valuePotMax[i] <= DataBase.potWater[i]) // 최대보다 많을 때
                     DataBase.potWater[i] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[i]]);
             }
         }
 
+        // set Data
         DataBase.setWaterData();
         DataBase.setLateTime();
-
-        StartCoroutine(RainSystem());
-        StartCoroutine(FixedSystem());
     }
+
 
     IEnumerator RainSystem()
     {
@@ -50,12 +70,12 @@ public class SystemController : MonoBehaviour {
     IEnumerator FixedSystem()
     {
         // 고정 빗물 수집 시스템 + 시간 계산 시스템
-        // ingame => DataBase.potCycle 초당 계산 
+        // ingame => 초당 계산 
         // background (outGame) => 현실 시간 계산하여 더해줌.
 
 
-        int index = 0;
-        int[] value = new int[DataBase.locals.Length];
+        int index = 0; // 시간 (초) 변수
+        int[] value = new int[DataBase.locals.Length]; // 각 지역에 대한 변수
 
         for (int i = 0; i < DataBase.locals.Length; i++) // 접속시 추가되는 버그 수정
             value[i] = 0;
@@ -63,30 +83,34 @@ public class SystemController : MonoBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            index++;
+            index++; // 시간(초)
+
             //추가 양동이 시스템
             for (int local = 0; local < DataBase.locals.Length; local++)
             {
+                // get Data
                 DataBase.getWaterData();
                 DataBase.getLevels();
+
+                // 시간 증가에 따라 추가 양동이 물 증가
                 if (value[local] < index / DataBase.locals[local].potCycle)
                 {
-                    value[local] = index / DataBase.locals[local].potCycle;
+                    value[local] = index / DataBase.locals[local].potCycle; // 추가하는 물의 중복 방지 처리
                     DataBase.potWater[local] += DataBase.perSecond[DataBase.potLevel[local]];
-                    // Debug.Log(local);
                 }
 
+                // 지역의 추가 양동이가 해금되어 있다면
                 if (DataBase.potLevel[local] > 0)
-                {
-                    if (DataBase.potWater[local] > DataBase.valuePotMax[local])
-                        DataBase.potWater[local] = Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[local]]);
-                }
+                    if (DataBase.potWater[local] > DataBase.valuePotMax[local]) // 추가 양동이의 물이 최대 초과일 때
+                        DataBase.potWater[local] =
+                            Convert.ToInt32(DataBase.valuePotMax[DataBase.potLevel[local]]); // 물을 최대로 지정
 
+                // set Data
                 DataBase.setLateTime();
                 DataBase.setWaterData();
             }
 
-            // UIManager.instance.PotUpdate();
+            // UI set
             UI_MainScene.updateWaterPot();
         }
     }
@@ -95,26 +119,31 @@ public class SystemController : MonoBehaviour {
     {
         // 비오는 시스템
         Random random = new Random();
+
+        // 극지방이라면 
         if (DataBase.nowLocal == 4)
         {
+            // 눈 색상은 흰색
             rain.gameObject.GetComponent<Image>().color = new Color(1f, 1f, 1f, .7f);
         }
 
         else
         {
+            // 다른 지역은 각 지역 물 색상에 맞추어 지정
             rain.gameObject.GetComponent<Image>().color =
                 DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
         }
 
-        short width = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.width);
-        short height = Convert.ToInt16(this.transform.GetComponent<RectTransform>().rect.height);
-        if (!UI_MultiScene.instance.popupIsOn)
+
+        if (!UI_MultiScene.instance.popupIsOn) // 종료 팝업이 뜨지 않았다면(예외 처리 => 코루틴이 TimeScale이 0 인 상태에서도 작동 할 수 있음)
             Instantiate(rain,
-                new Vector2(random.Next(0, Convert.ToInt16(width)), height), Quaternion.identity,
+                new Vector2(random.Next(0, /* 해상도 대응 */ Convert.ToInt32(width)), /* 해상도 대응 */ height),
+                Quaternion.identity,
                 this.transform);
         // canvas size에 맞추어 난수 발생한 위치에 비 생성
     }
 
+    // 시간 계산
     public static int CalculateUnderTime()
     {
         TimeSpan dateDiff = DateTime.Now - DataBase.lateTime;

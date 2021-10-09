@@ -4,25 +4,28 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_ShopScene : MonoBehaviour {
-    // [Header("팝업창")] public GameObject popupOK;
-    // [Header("팝업창 text")] public Text popupText;
     private Text[] popupText = new Text[2];
     private Text okText;
     private Button yesBtn;
 
-    void Start()
+    private void Awake()
     {
+        // get UI
         popupText[0] = UI_MultiScene.instance.popUpOK.gameObject.GetComponentsInChildren<Text>()[1];
         popupText[1] = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[2];
         okText = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Text>()[1];
         yesBtn = UI_MultiScene.instance.popUpYN.gameObject.GetComponentsInChildren<Button>()[1];
+    }
 
+    void Start()
+    {
         //get Data
         DataBase.getMoney();
         DataBase.getWaterData();
         DataBase.getLocalData(3);
         DataBase.getConsumerLock();
 
+        // set ui
         lockerSet();
 
         //set Text
@@ -37,18 +40,12 @@ public class UI_ShopScene : MonoBehaviour {
     {
         for (int i = 0; i < DataBase.consumers.Length; i++)
         {
-            try
-            {
-                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
-                    .SetActive(DataBase.consumers[i].isLock);
-            }
-            catch
-            {
-                continue;
-            }
+            GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
+                .SetActive(DataBase.consumers[i].isLock);
         }
     }
 
+    // 물 판매업자 해금
     public void unlockConsumer(int index)
     {
         UI_MultiScene.instance.unactivePopup();
@@ -72,6 +69,7 @@ public class UI_ShopScene : MonoBehaviour {
         }
     }
 
+    // 물 자선
     public void giveWater()
     {
         UI_MultiScene.instance.popupIsOn = true;
@@ -87,7 +85,7 @@ public class UI_ShopScene : MonoBehaviour {
         EventTrigger.Entry en = new EventTrigger.Entry();
         // 트리거타입 추가 (터치를 종료했을 때) 
         en.eventID = EventTriggerType.PointerUp;
-        // 합수 설정
+        // 함수 설정
         en.callback.AddListener(delegate { sellWater(-1); });
         // 트리거에 엔트리를 추가한다.
         trg.triggers.Add(en);
@@ -97,10 +95,12 @@ public class UI_ShopScene : MonoBehaviour {
     // 물 판매 (index) => 상인 선택
     public void sellWater(int index)
     {
+        //Get data
         DataBase.getWaterData();
         DataBase.getMoney();
         DataBase.getConsumerLock();
 
+        // 물 초기화
         if (index == -1)
         {
             for (int i = 0; i < DataBase.water.Length; i++)
@@ -163,6 +163,7 @@ public class UI_ShopScene : MonoBehaviour {
             return;
         }
 
+        //value set
         DataBase.water[DataBase.consumers[index].waterType] -= DataBase.consumers[index].perWater;
         DataBase.soldWater[DataBase.consumers[index].waterType] += DataBase.consumers[index].perWater;
         DataBase.money += DataBase.consumers[index].perCell;

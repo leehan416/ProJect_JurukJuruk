@@ -132,6 +132,8 @@ public class UI_Market : MonoBehaviour {
         DataBase.getLevels();
         DataBase.getMoney();
 
+        if (DataBase.pailLevel == DataBase.upgradePail.Length - 1) // Lv Max
+            return;
 
         // 업그레이드할 돈이 있다면 
         if (DataBase.money >= DataBase.upgradePail[DataBase.pailLevel + 1])
@@ -164,6 +166,9 @@ public class UI_Market : MonoBehaviour {
         // get data 
         DataBase.getLevels();
         DataBase.getMoney();
+        if (DataBase.tankLevel == DataBase.upgradeTank.Length - 1) // Lv Max
+            return;
+
 
         // 업그레이드 할 돈이 있다면
         if (DataBase.money >= DataBase.upgradeTank[DataBase.tankLevel + 1])
@@ -226,6 +231,11 @@ public class UI_Market : MonoBehaviour {
         // 일반 업글
         else
         {
+            // 최대 레벨이면 함수 종료
+            if (DataBase.potLevel[val] == DataBase.upgradePot.Length - 1)
+                return;
+
+            // 업그레이드 가능한가?
             if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val]]))
             {
                 DataBase.money -= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val]++]);
@@ -245,7 +255,7 @@ public class UI_Market : MonoBehaviour {
         }
 
         // 돈부족
-
+        // 최적화를 위해(중복성 최소화) 다른 경우엔 함수 종료
         // 팝업 활성화
         UI_MultiScene.instance.popUpBG.SetActive(true);
         UI_MultiScene.instance.popUpOK.SetActive(true);
