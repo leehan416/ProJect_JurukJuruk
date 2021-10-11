@@ -40,8 +40,14 @@ public class UI_ShopScene : MonoBehaviour {
     {
         for (int i = 0; i < DataBase.consumers.Length; i++)
         {
-            GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
-                .SetActive(DataBase.consumers[i].isLock);
+            try
+            {
+                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
+                    .SetActive(DataBase.consumers[i].isLock);
+            }
+            catch (Exception e) // Lock 없는 오브젝트 통과  
+            {
+            }
         }
     }
 

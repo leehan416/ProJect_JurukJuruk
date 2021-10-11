@@ -76,6 +76,10 @@ public class DataBase : MonoBehaviour {
         new Consumer(1000, 700, 3, false), // 에스키모
         new Consumer(5000, 1500, 3, true, 30000, 10000), // 북극곰
         new Consumer(1000, 0, -1, false), // 거지
+        new Consumer(5000, 800, 0, true, 50000, 10000), // 과학자1
+        new Consumer(5000, 1300, 1, true, 50000, 10000), // 과학자2
+        new Consumer(3000, 2200, 2, true, 50000, 10000), // 과학자3
+        new Consumer(7000, 1800, 3, true, 50000, 10000), // 과학자4
     };
 
     // water Color 
