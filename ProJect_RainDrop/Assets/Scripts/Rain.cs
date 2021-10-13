@@ -78,7 +78,7 @@ public class Rain : MonoBehaviour {
             // 피버
             if (!UI_MainScene.isFever)
                 DataBase.savedWater[DataBase.nowLocal]++;
-            if (DataBase.savedWater[DataBase.nowLocal] >= DataBase.feverWater[DataBase.nowLocal])
+            if (DataBase.savedWater[DataBase.nowLocal] >= DataBase.locals[DataBase.nowLocal].feverWater)
                 UI_MainScene.setFeverbtn();
 
             // 최종 확인 

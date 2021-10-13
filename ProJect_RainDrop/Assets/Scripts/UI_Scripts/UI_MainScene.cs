@@ -58,8 +58,8 @@ public class UI_MainScene : MonoBehaviour {
         //현 지역의 pot의 레벨이 0이라면 비활성화
         if (DataBase.potLevel[DataBase.nowLocal] == 0)
         {
-            GameObject.Find("Canvas/BigBox/N_EmptyExtraBottle").SetActive(false);
-            GameObject.Find("Canvas/BigBox/PotSlider" + DataBase.nowLocal).SetActive(false);
+            GameObject.Find("Canvas/N_EmptyExtraBottle").SetActive(false);
+            GameObject.Find("Canvas/ExtraBottles/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
 
         // 비우기 버튼 텍스트 색상 변경

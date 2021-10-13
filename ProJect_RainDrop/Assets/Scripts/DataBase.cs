@@ -20,8 +20,6 @@ public class DataBase : MonoBehaviour {
     // 수집한 물의 양 => 피버중에는 모이지 않음
     public static int[] savedWater = {0, 0, 0, 0, 0};
 
-    // 피버 활성화를 위해 모아야 하는 물 
-    public static int[] feverWater = {50, 50, 100, 20, 45};
 
     //public static long maxWater = 10000; // 최대 양
     public static int[] potWater = new int[5]; // 양동이 빗물양 [지역별]
@@ -58,11 +56,11 @@ public class DataBase : MonoBehaviour {
     // System Value
     public static Local[] locals =
     {
-        new Local("우리집 마당", 1f, 5, 0, 0, false),
-        new Local("시골집 뒷마당", 1f, 5, 1, 5000, true),
-        new Local("아마존 캠프", .5f, 4, 0, 10000, true),
-        new Local("피라미드 앞", 2.5f, 20, 2, 20000, true),
-        new Local("이글루 앞", .5f, 4, 3, 40000, true),
+        new Local("우리집 마당", 1f, 5, 0, 50, 0, false),
+        new Local("시골집 뒷마당", 1f, 5, 1, 50, 5000, true),
+        new Local("아마존 캠프", .5f, 4, 0, 100, 10000, true),
+        new Local("피라미드 앞", 2.5f, 20, 2, 20, 20000, true),
+        new Local("이글루 앞", .5f, 4, 3, 100, 40000, true),
     };
 
     public static Consumer[] consumers =
@@ -269,12 +267,15 @@ public class Local {
     public int waterType; // 떨어지는 빗물 종류
     public int cost; // 해금 가격
     public bool isLock; // 잠겨있음?
+    public int feverWater;
 
-    public Local(String _localName, float _rainCycle, int _potCycle, int _waterType, int _cost, bool _isLock)
+    public Local(String _localName, float _rainCycle, int _potCycle, int _waterType, int _feverWater, int _cost,
+        bool _isLock)
     {
         localName = _localName;
         rainCycle = _rainCycle;
         potCycle = _potCycle;
+        feverWater = _feverWater;
         waterType = _waterType;
         cost = _cost;
         isLock = _isLock;
