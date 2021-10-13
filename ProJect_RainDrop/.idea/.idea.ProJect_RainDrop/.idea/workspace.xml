@@ -54,10 +54,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
     </changedPaths>
   </component>
@@ -203,6 +203,9 @@
       <workItem from="1633955431279" duration="3009000" />
       <workItem from="1634091236237" duration="330000" />
       <workItem from="1634093436203" duration="1588000" />
+      <workItem from="1634103542357" duration="3536000" />
+      <workItem from="1634112352072" duration="1408000" />
+      <workItem from="1634126146921" duration="2245000" />
     </task>
     <servers />
   </component>

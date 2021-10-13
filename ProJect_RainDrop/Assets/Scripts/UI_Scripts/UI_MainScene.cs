@@ -65,6 +65,10 @@ public class UI_MainScene : MonoBehaviour {
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
+        //----
+        DataBase.money = 1000000000;
+        DataBase.setMoney();
+        //----
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
@@ -146,7 +150,7 @@ public class UI_MainScene : MonoBehaviour {
     // 배경 set
     private void setbackGround()
     {
-        Image bg = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
+        SpriteRenderer bg = GameObject.Find("BackGround").GetComponent<SpriteRenderer>();
         bg.sprite = localBG[DataBase.nowLocal];
     }
 

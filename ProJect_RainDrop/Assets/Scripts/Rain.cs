@@ -4,56 +4,41 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class Rain : MonoBehaviour {
-    public Sprite[] type = new Sprite[4];
-    public Sprite[] typeSnow = new Sprite[4];
-    public Sprite[] bigtype = new Sprite[3];
-    public Sprite[] bigtypeSnow = new Sprite[2];
+    public Sprite[] image = new Sprite[4];
     Random random = new Random();
-    private bool isBig = false;
+    [HideInInspector] public bool isBig = false;
+    private float width;
+    private float height;
+
 
     void Start()
     {
+        width = Convert.ToInt16(UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width);
+        height = Convert.ToInt16(UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height);
         transform.SetParent(GameObject.Find("Rains").transform);
-        if (random.Next(0, 9) == 5)
-            isBig = true;
-        // float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
-        // float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
+        gameObject.transform.localScale = new Vector3(1080 / width, 1920 / height, 0);
 
-
-        // 1080 => 
-
-        if (DataBase.nowLocal == 4)
+        try
         {
-            if (isBig) // 큰 눈
-            {
-                gameObject.GetComponent<Image>().sprite = bigtypeSnow[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(65 / 33f, 65 / 60f, 0);
-            }
-
-            else //일반 눈
-            {
-                gameObject.GetComponent<Image>().sprite = typeSnow[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(34 / 33f, 34 / 60f, 0);
-            }
+            gameObject.GetComponent<SpriteRenderer>().sprite = image[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
+        }
+        catch (Exception e)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = image[0]; // 랜덤 이미지로 생성됨
         }
 
-        else
-        {
-            if (isBig) // 큰 빗물
-            {
-                gameObject.GetComponent<Image>().sprite = bigtype[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0);
-            }
-// 22 40
-            else //일반 빗물
-            {
-                gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
-                // gameObject.transform.localScale = new Vector3(width, height, 0);
-            }
-        }
-
-
+        colorSet(DataBase.nowLocal);
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse); // 땅으로 힘 추가
+    }
+
+
+    void colorSet(int val)
+    {
+        if (val == 4)
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .7f);
+        else
+            gameObject.GetComponent<SpriteRenderer>().color =
+                DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
     }
 
     void OnCollisionEnter2D(Collision2D other) // 오브젝트 충돌시 실행되는 함수

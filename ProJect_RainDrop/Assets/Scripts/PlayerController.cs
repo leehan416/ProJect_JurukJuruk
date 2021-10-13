@@ -10,26 +10,12 @@ public class PlayerController : MonoBehaviour {
     public static bool rightClick;
 
     // 해상도 대응 변수
-    private float width;
-    private float height;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        // 사이즈 받아오기
-        width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width;
-        height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height;
-        playerSpeed = width / 3.375f;
-
-        // 해상도 대응
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(65 * width / 1080,
-            190 * height / 1920);
-        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0, 6f * height / 1920);
-    }
 
     void Update()
     {
@@ -42,7 +28,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                if (Input.mousePosition.x > width / 2)
+                if (Input.mousePosition.x > Screen.width / 2)
                 {
                     if (!DataBase.isReverse)
                     {
@@ -85,8 +71,7 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
-
-            return;
+            // return;
         }
         else
         {

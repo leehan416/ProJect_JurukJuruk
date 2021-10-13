@@ -5,7 +5,6 @@ ScriptsOnlyBuild:
     - DontDestroy
     - GachaSystem
     - IntroAnimation
-    - PlayerAnimation
     - PlayerController
     - Rain
     - SoundManager
@@ -23,6 +22,12 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -295,9 +300,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -328,8 +339,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13206}
-    - Class: 114
       Script: {instanceID: 13216}
     - Class: 114
       Script: {instanceID: 13284}
@@ -342,6 +351,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -734,7 +745,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 6cefec9e8af925586fba9e92341ea12f
+      Hash: 4358bc3c3dd2f38b514bd8e5b68a260f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Rain
@@ -842,7 +853,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: b41424a4df33b060d1f8e35bf96e9da2
+      Hash: 33f3a71500cba54ce938a3fcde1bedfa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SystemController
@@ -1145,4 +1156,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain_1.1.aab
+  playerPath: /Users/whal3/Desktop/rain1.1 test.apk
