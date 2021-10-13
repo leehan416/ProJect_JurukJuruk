@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour {
     float playerSpeed = 320f; // 1080기준
 
+    private Animator animator;
     public static bool leftClick;
     public static bool rightClick;
 
@@ -12,6 +13,10 @@ public class PlayerController : MonoBehaviour {
     private float width;
     private float height;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -41,16 +46,20 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (!DataBase.isReverse)
                     {
+                        animator.SetBool("rightMove", true);
+                        animator.SetBool("leftMove", false);
                         rightClick = true;
                         leftClick = false;
-                        if (gameObject.transform.position.x < width)
+                        if (gameObject.transform.position.x < 500)
                             transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
                     else
                     {
+                        animator.SetBool("rightMove", false);
+                        animator.SetBool("leftMove", true);
                         leftClick = true;
                         rightClick = false;
-                        if (gameObject.transform.position.x > 0)
+                        if (gameObject.transform.position.x > -500)
                             transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
                 }
@@ -58,16 +67,20 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (!DataBase.isReverse)
                     {
+                        animator.SetBool("rightMove", false);
+                        animator.SetBool("leftMove", true);
                         leftClick = true;
                         rightClick = false;
-                        if (gameObject.transform.position.x > 0)
+                        if (gameObject.transform.position.x > -500)
                             transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
                     else
                     {
+                        animator.SetBool("rightMove", true);
+                        animator.SetBool("leftMove", false);
                         rightClick = true;
                         leftClick = false;
-                        if (gameObject.transform.position.x < width)
+                        if (gameObject.transform.position.x < 500)
                             transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
                 }
@@ -77,6 +90,8 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
+            animator.SetBool("rightMove", false);
+            animator.SetBool("leftMove", false);
             leftClick = false;
             rightClick = false;
         }

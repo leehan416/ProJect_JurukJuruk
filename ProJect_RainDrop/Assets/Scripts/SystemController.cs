@@ -137,7 +137,7 @@ public class SystemController : MonoBehaviour {
 
         if (!UI_MultiScene.instance.popupIsOn) // 종료 팝업이 뜨지 않았다면(예외 처리 => 코루틴이 TimeScale이 0 인 상태에서도 작동 할 수 있음)
             Instantiate(rain,
-                new Vector2(random.Next(0, /* 해상도 대응 */ Convert.ToInt32(width)), /* 해상도 대응 */ height),
+                new Vector2(random.Next(-540, /* 해상도 대응 */ 540), /* 해상도 대응 */ 1920),
                 Quaternion.identity,
                 this.transform);
         // canvas size에 맞추어 난수 발생한 위치에 비 생성

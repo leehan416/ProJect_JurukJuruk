@@ -13,11 +13,11 @@ public class Rain : MonoBehaviour {
 
     void Start()
     {
-        transform.SetParent(GameObject.Find("Canvas/Rains").transform);
+        transform.SetParent(GameObject.Find("Rains").transform);
         if (random.Next(0, 9) == 5)
             isBig = true;
-        float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
-        float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
+        // float width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
+        // float height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
 
 
         // 1080 => 
@@ -27,13 +27,13 @@ public class Rain : MonoBehaviour {
             if (isBig) // 큰 눈
             {
                 gameObject.GetComponent<Image>().sprite = bigtypeSnow[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(65 / 33f * width, 65 / 60f * height, 0);
+                gameObject.transform.localScale = new Vector3(65 / 33f, 65 / 60f, 0);
             }
 
             else //일반 눈
             {
                 gameObject.GetComponent<Image>().sprite = typeSnow[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(34 / 33f * width, 34 / 60f * height, 0);
+                gameObject.transform.localScale = new Vector3(34 / 33f, 34 / 60f, 0);
             }
         }
 
@@ -42,18 +42,18 @@ public class Rain : MonoBehaviour {
             if (isBig) // 큰 빗물
             {
                 gameObject.GetComponent<Image>().sprite = bigtype[random.Next(0, 2)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(57 / 33f * width, 90 / 60f * height, 0);
+                gameObject.transform.localScale = new Vector3(57 / 33f, 90 / 60f, 0);
             }
 // 22 40
             else //일반 빗물
             {
                 gameObject.GetComponent<Image>().sprite = type[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
-                gameObject.transform.localScale = new Vector3(width, height, 0);
+                // gameObject.transform.localScale = new Vector3(width, height, 0);
             }
         }
 
 
-        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200 * height), ForceMode2D.Impulse); // 땅으로 힘 추가
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -200), ForceMode2D.Impulse); // 땅으로 힘 추가
     }
 
     void OnCollisionEnter2D(Collision2D other) // 오브젝트 충돌시 실행되는 함수
