@@ -50,9 +50,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\ReadMe.cs" />
      <Compile Include="Assets\Scripts\Animation\IntroAnimation.cs" />
-     <Compile Include="Assets\Scripts\Animation\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\DataBase.cs" />
      <Compile Include="Assets\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\Scripts\GachaSystem.cs" />
