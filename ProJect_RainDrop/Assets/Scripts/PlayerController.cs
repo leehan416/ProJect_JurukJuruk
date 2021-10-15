@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour {
     float playerSpeed = 320f; // 1080기준
 
+    public GameObject[] skin = new GameObject[6];
+
     private Animator animator;
     public static bool leftClick;
     public static bool rightClick;
@@ -13,7 +15,13 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
+        gameObject.GetComponent<SpriteRenderer>().sprite = skin[1].GetComponent<SpriteRenderer>().sprite;
+        
+        Destroy(gameObject.GetComponent<Animator>());
+       
+        animator =  skin[1].GetComponent<Animator>();
+        gameObject.AddComponent<Animator>() = animator;
     }
 
 
