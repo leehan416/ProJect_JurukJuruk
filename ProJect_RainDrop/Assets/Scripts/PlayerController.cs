@@ -5,23 +5,20 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour {
     float playerSpeed = 320f; // 1080기준
 
-    public GameObject[] skin = new GameObject[6];
+    public RuntimeAnimatorController[] skin = new RuntimeAnimatorController[6];
 
     private Animator animator;
-    public static bool leftClick;
-    public static bool rightClick;
-
-    // 해상도 대응 변수
+    // public static bool leftClick;
+    // public static bool rightClick;
+// 해상도 대응 변수
 
     private void Awake()
     {
-        // animator = GetComponent<Animator>();
-        gameObject.GetComponent<SpriteRenderer>().sprite = skin[1].GetComponent<SpriteRenderer>().sprite;
-        
-        Destroy(gameObject.GetComponent<Animator>());
-       
-        animator =  skin[1].GetComponent<Animator>();
-        gameObject.AddComponent<Animator>() = animator;
+        animator = GetComponent<Animator>();
+        // gameObject.GetComponent<SpriteRenderer>().sprite = skin[1].GetComponent<SpriteRenderer>().sprite;
+
+
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = skin[ DataBase.costume];
     }
 
 
@@ -42,8 +39,8 @@ public class PlayerController : MonoBehaviour {
                     {
                         animator.SetBool("rightMove", true);
                         animator.SetBool("leftMove", false);
-                        rightClick = true;
-                        leftClick = false;
+                        // rightClick = true;
+                        // leftClick = false;
                         if (gameObject.transform.position.x < 500)
                             transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
@@ -51,8 +48,8 @@ public class PlayerController : MonoBehaviour {
                     {
                         animator.SetBool("rightMove", false);
                         animator.SetBool("leftMove", true);
-                        leftClick = true;
-                        rightClick = false;
+                        // leftClick = true;
+                        // rightClick = false;
                         if (gameObject.transform.position.x > -500)
                             transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
@@ -63,8 +60,8 @@ public class PlayerController : MonoBehaviour {
                     {
                         animator.SetBool("rightMove", false);
                         animator.SetBool("leftMove", true);
-                        leftClick = true;
-                        rightClick = false;
+                        // leftClick = true;
+                        // rightClick = false;
                         if (gameObject.transform.position.x > -500)
                             transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
@@ -72,8 +69,8 @@ public class PlayerController : MonoBehaviour {
                     {
                         animator.SetBool("rightMove", true);
                         animator.SetBool("leftMove", false);
-                        rightClick = true;
-                        leftClick = false;
+                        // rightClick = true;
+                        // leftClick = false;
                         if (gameObject.transform.position.x < 500)
                             transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
                     }
@@ -85,8 +82,8 @@ public class PlayerController : MonoBehaviour {
         {
             animator.SetBool("rightMove", false);
             animator.SetBool("leftMove", false);
-            leftClick = false;
-            rightClick = false;
+            // leftClick = false;
+            // rightClick = false;
         }
     }
 }

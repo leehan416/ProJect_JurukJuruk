@@ -48,8 +48,8 @@ public class UI_CostumeScene : MonoBehaviour {
 
         UI_MultiScene.instance.setMoney();
 
-        for (int i = 1; i < cstBox.Length; i++)
-            cstBox[i - 1] = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i);
+        for (int i = 0; i < cstBox.Length; i++)
+            cstBox[i] = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i);
 
         setButton();
         setLockers();
@@ -61,9 +61,9 @@ public class UI_CostumeScene : MonoBehaviour {
     {
         for (int i = 0; i < cstBox.Length; i++)
         {
-            Text text = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + (i + 1) + "/Select/Text")
+            Text text = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i + "/Select/Text")
                 .GetComponent<Text>();
-            Image image = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + (i + 1) + "/Select")
+            Image image = GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i + "/Select")
                 .GetComponent<Image>();
             if (DataBase.costume == i + 1)
             {
@@ -84,8 +84,8 @@ public class UI_CostumeScene : MonoBehaviour {
     // lock 세팅
     public void setLockers()
     {
-        for (int i = 1; i < 6; i++)
-            if (!DataBase.isCostumeLock[i])
+        for (int i = 0; i < cstBox.Length; i++)
+            if (!DataBase.isCostumeLock[i + 1])
                 GameObject.Find("Canvas/ListView/Viewport/Content/CstBox_" + i + "/Lock").SetActive(false);
     }
 

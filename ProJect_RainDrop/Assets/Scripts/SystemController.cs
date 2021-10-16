@@ -122,13 +122,12 @@ public class SystemController : MonoBehaviour {
         Random random = new Random();
         if (!UI_MultiScene.instance.popupIsOn) // 종료 팝업이 뜨지 않았다면(예외 처리 => 코루틴이 TimeScale이 0 인 상태에서도 작동 할 수 있음)
         {
-            if (random.Next(0, 10) == 5)
+            if (random.Next(0, 10) == 5) // 큰 빗방울 확률 10% 
             {
                 Instantiate((DataBase.nowLocal != 4) ? rain[1] : snow[1],
                     new Vector3(random.Next(-540, 540), 990, -9),
                     Quaternion.identity,
-                    this.transform); // canvas size에 맞추어 난수 발생한 위치에 비 생성
-                GameObject.Find("Rains").GetComponentInChildren<Rain>().isBig = true;
+                    transform).GetComponent<Rain>().isBig = true; // canvas size에 맞추어 난수 발생한 위치에 비 생성
             }
             else
             {

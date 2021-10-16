@@ -46,17 +46,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
       <option value="$PROJECT_DIR$/../README.md" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -205,6 +205,7 @@
       <workItem from="1634112352072" duration="1408000" />
       <workItem from="1634126146921" duration="2245000" />
       <workItem from="1634266505062" duration="2999000" />
+      <workItem from="1634398295468" duration="2595000" />
     </task>
     <servers />
   </component>
