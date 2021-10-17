@@ -7,15 +7,3 @@
 UI / UX :: Leejju
 
 Sound Dev / Bgm :: 2BEAN
-
----
-
-###TODO
-
-- Sound Dev
-
-- 상인 벨런싱 
-
-- 피버 벨런싱
-
-- Sonw Local
