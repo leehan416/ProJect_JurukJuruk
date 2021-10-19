@@ -65,10 +65,19 @@ public class UI_MainScene : MonoBehaviour {
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
-        //----
-        DataBase.money = 1000000000;
+        //-----------------------------------
+        DataBase.money = 10000000000;
         DataBase.setMoney();
-        //----
+
+        DataBase.soldWater[0] = 999999;
+        DataBase.soldWater[1] = 999999;
+        DataBase.soldWater[2] = 999999;
+        DataBase.soldWater[3] = 999999;
+
+
+        //-----------------------------------
+
+
         //dataGet
         DataBase.getWaterData();
         DataBase.getLevels();
@@ -158,7 +167,7 @@ public class UI_MainScene : MonoBehaviour {
     private void _setFeverbtn()
     {
         feverBtn.SetActive(true);
-        int value = _random.Next(0, catImage.Length - 1);
+        int value = _random.Next(0, catImage.Length);
         feverBtn.GetComponent<Button>().image.sprite = catImage[value];
         feverBtn.transform.localScale = new Vector3( /* 해상도 대응 */width, /* 해상도 대응 */height, 0);
     }
@@ -173,6 +182,7 @@ public class UI_MainScene : MonoBehaviour {
         feverBtn.SetActive(false);
         isFever = true;
         feverCover.SetActive(true);
+        feverCover.GetComponent<Image>().color = DataBase.feverColors[DataBase.nowLocal];
         // 피버 타이머 시작
         StartCoroutine(feverTimer());
     }

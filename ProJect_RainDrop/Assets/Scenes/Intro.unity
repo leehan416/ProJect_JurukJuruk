@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30088887, y: 0.45453206}
   m_AnchorMax: {x: 0.69811106, y: 0.5436808}
-  m_AnchoredPosition: {x: 0.4600067, y: 1.0579987}
+  m_AnchoredPosition: {x: 0.46002197, y: 1.0579987}
   m_SizeDelta: {x: 0.40307617, y: 3.1913605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112482279
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef3267f18a8c4b11a35c89d38a4efcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introAnimation:
+  beforeAnimation:
   - {fileID: 21300000, guid: d676fd958993040bebea35d94b7c396c, type: 3}
   - {fileID: 21300000, guid: 97787f1b2a12c40d49383541c653da2c, type: 3}
   - {fileID: 21300000, guid: c2800f1dd256b4dd093f39d8a80457c7, type: 3}
@@ -1147,6 +1147,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8f04aadc65bd94de389d662fec0a9179, type: 3}
   - {fileID: 21300000, guid: 2fe2047753edc463e8a294670fae605f, type: 3}
   - {fileID: 21300000, guid: c1b2fa0bae9794d1d9889e83b00abbb9, type: 3}
+  afterAnimation:
+  - {fileID: 21300000, guid: e3bfc73ab65bd49bfa85a779548b1820, type: 3}
+  - {fileID: 21300000, guid: 4d3fd78b6e908400bb6af129add56bc6, type: 3}
+  - {fileID: 21300000, guid: c586d408278564e8fb27faf4d53b7a4a, type: 3}
+  - {fileID: 21300000, guid: 494f9f9aa1bc5408ab124877dfbd9623, type: 3}
+  - {fileID: 21300000, guid: 7a90e559817f647a4a0c6a996e0c6a25, type: 3}
+  - {fileID: 21300000, guid: c4840401f6a9a4bb58448097a2e208e6, type: 3}
+  - {fileID: 21300000, guid: 1b6a1cca2f4a34ba8a18754eb05a2433, type: 3}
+  - {fileID: 21300000, guid: 7a08b6d42bb2c43c0b723c8a355a04a4, type: 3}
 --- !u!1 &1939493561
 GameObject:
   m_ObjectHideFlags: 0

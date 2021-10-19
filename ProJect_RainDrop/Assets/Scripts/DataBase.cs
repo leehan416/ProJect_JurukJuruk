@@ -63,21 +63,35 @@ public class DataBase : MonoBehaviour {
         new Local("이글루 앞", .5f, 4, 3, 100, 40000, true),
     };
 
+
     public static Consumer[] consumers =
     {
-        new Consumer(1000, 100, 0, false), // 목마른 사람
-        new Consumer(3000, 400, 0, true, 30000, 3000), // 농부
-        new Consumer(1000, 200, 1, false), // 깐깐한 사람
-        new Consumer(3000, 700, 1, true, 30000, 5000), // 물 판매업자
-        new Consumer(1000, 500, 2, false), // 사막 부자
-        new Consumer(3000, 2000, 2, true, 20000, 8000), // 수집가
-        new Consumer(1000, 700, 3, false), // 에스키모
-        new Consumer(5000, 1500, 3, true, 30000, 10000), // 북극곰
-        new Consumer(1000, 0, -1, false), // 거지
-        new Consumer(5000, 800, 0, true, 50000, 10000), // 과학자1
-        new Consumer(5000, 1300, 1, true, 50000, 10000), // 과학자2
-        new Consumer(3000, 2200, 2, true, 50000, 10000), // 과학자3
-        new Consumer(7000, 1800, 3, true, 50000, 10000), // 과학자4
+        new Consumer(1000, 100, 0, false,
+            "목말라 죽겠어. 물 좀 파는거 어때?\n어느 물이라도 좋아."), // 목마른 사람
+        new Consumer(3000, 400, 0, true,
+            "농사라는게 물이 좀 많이 들어야지.\n많으면 많을수록 좋네~", 30000, 3000), // 농부
+        new Consumer(1000, 200, 1, false,
+            "뭐, 물을 살 의향이 있습니다만.\n아무거나 취급하진 않습니다."), // 깐깐한 사람
+        new Consumer(3000, 700, 1, true,
+            "포항샘물입니다. 이정도 품질의 물이라니...!\n가능한 만큼 구매하고싶습니다! ", 30000, 5000), // 물 판매업자
+        new Consumer(1000, 500, 2, false,
+            "이맘때쯤엔 늘 고향이 그리워지지...\n자네, 혹시 사막의 물을 가지고 있나?"), // 사막 부자
+        new Consumer(3000, 2000, 2, true,
+            "흔히 보기 힘든걸 판다고 들었는데,\n물건 좀 볼 수 있을지?", 20000, 8000), // 수집가
+        new Consumer(3000, 700, 3, false,
+            "집을 보수할 때가 되어서.\n모아둔 눈, 안 쓰면 팔지 않을래?"), // 에스키모
+        new Consumer(5000, 1500, 3, true,
+            "크워어엉. 쿠워엉.\n(요즘엔 발 붙일 땅도 사라져가.)", 30000, 10000), // 북극곰
+        new Consumer(1000, 0, -1, false,
+            "... ... ."), // 거지
+        new Consumer(5000, 800, 0, true,
+            "역시 빗물의 오염도도 눈에 띄게 증가했습니다.\n모든 상황이 갈수록 악화되는군요.", 50000, 10000), // 과학자1
+        new Consumer(5000, 1300, 1, true,
+            "아직도 보존된 지역이 있다는게 놀랍군.\n나라 차원의 관리를 검토할 필요가 있겠어.", 50000, 10000), // 과학자2
+        new Consumer(3000, 2200, 2, true,
+            "그럴 수 있다면 시간을 돌리고 싶구만.\n입 아프게 경고한들 들어먹지도 않더니 말이야", 50000, 10000), // 과학자3
+        new Consumer(7000, 1800, 3, true,
+            "이 지경이 된다는걸 이전 세대에 전해줄수만 있다면\n... 그들은 조금 더 환경을 생각해줬을까요.", 50000, 10000), // 과학자4
     };
 
     // water Color 
@@ -87,6 +101,15 @@ public class DataBase : MonoBehaviour {
         new Color(153 / 255f, 222 / 255f, 224 / 255f, .7f),
         new Color(221 / 255f, 190 / 255f, 160 / 255f, .7f),
         new Color(178 / 255f, 178 / 255f, 178 / 255f, .7f)
+    };
+
+    public static Color[] feverColors =
+    {
+        new Color(0f, 0f, 0f, 1f),
+        new Color(0f, 0f, 0f, 1f),
+        new Color(0f, 0f, 0f, 1f),
+        new Color(110 / 255f, 48 / 255f, 0 / 255f, 1f),
+        new Color(15 / 255f, 135 / 255f, 1f, 1f)
     };
 
     // pail
@@ -136,11 +159,11 @@ public class DataBase : MonoBehaviour {
         return value;
     }
 
-    public static float getWaterTankPercent()
-    {
-        return Convert.ToSingle(getAllWater()) /
-               Convert.ToSingle(valueMaxWater[tankLevel]);
-    }
+    // public static float getWaterTankPercent()
+    // {
+    //     return Convert.ToSingle(getAllWater()) /
+    //            Convert.ToSingle(valueMaxWater[tankLevel]);
+    // }
 
 
     public static void setWaterData()
@@ -289,16 +312,19 @@ public class Consumer {
     public bool isLock; // 잠겨있음?
     public int limitOption;
     public int cost;
+    public string text;
 
-    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock)
+    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock, string _text)
     {
         perWater = _perWater;
         perCell = _perCell;
         waterType = _waterType; // -1 = 전부다 받음
         isLock = _isLock;
+        text = _text;
     }
 
-    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock, int _limitOption, int _cost)
+    public Consumer(int _perWater, int _perCell, int _waterType, bool _isLock, string _text, int _limitOption,
+        int _cost)
     {
         perWater = _perWater;
         perCell = _perCell;
@@ -306,5 +332,6 @@ public class Consumer {
         isLock = _isLock;
         limitOption = _limitOption;
         cost = _cost;
+        text = _text;
     }
 }
