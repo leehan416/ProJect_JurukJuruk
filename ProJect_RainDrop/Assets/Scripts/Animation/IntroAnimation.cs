@@ -10,20 +10,23 @@ public class IntroAnimation : MonoBehaviour {
     public Sprite[] beforeAnimation = new Sprite[8];
     public Sprite[] afterAnimation = new Sprite[8];
 
+    private Text[] text = new Text[3];
+
 
     Text touch_to_start;
 
     private bool isUnlocked = false;
-    // bool isIntroAnimationing = false;
-    // bool isTitleAnimationing = false;
 
 
     void Start()
     {
         // get UI
         fader = GameObject.Find("Canvas/Fader").GetComponent<Image>();
-        touch_to_start = GameObject.Find("Canvas/TouchToStart/Text").GetComponent<Text>();
+        touch_to_start = GameObject.Find("Canvas/TouchToStart/text").GetComponent<Text>();
         obj = GameObject.Find("Canvas/BackGround").GetComponent<Image>();
+        text[0] = GameObject.Find("Canvas/Title").GetComponent<Text>();
+        text[1] = touch_to_start;
+        text[2] = GameObject.Find("Canvas/Version").GetComponent<Text>();
 
         // Get Data
         DataBase.getConsumerLock();
@@ -37,6 +40,11 @@ public class IntroAnimation : MonoBehaviour {
 
         if (value > 3)
             isUnlocked = true;
+
+
+        if (isUnlocked)
+            for (int i = 0; i < text.Length; i++)
+                text[i].color = Color.white;
 
 
         // 애니메이샨 시직
@@ -61,11 +69,21 @@ public class IntroAnimation : MonoBehaviour {
     //Touch To Start 버튼 깜박임
     IEnumerator titleAnimation()
     {
-        // isTitleAnimationing = true;
-        for (float i = 0;; i += .1f)
+        if (isUnlocked)
         {
-            yield return new WaitForSeconds(.05f);
-            touch_to_start.color = new Color(77 / 255f, 77 / 255f, 77 / 255f, Mathf.Abs(255 * Mathf.Sin(i)) / 255f);
+            for (float i = 0;; i += .1f)
+            {
+                yield return new WaitForSeconds(.05f);
+                touch_to_start.color = new Color(1f, 1f, 1f, Mathf.Abs(255 * Mathf.Sin(i)) / 255f);
+            }
+        }
+        else
+        {
+            for (float i = 0;; i += .1f)
+            {
+                yield return new WaitForSeconds(.05f);
+                touch_to_start.color = new Color(77 / 255f, 77 / 255f, 77 / 255f, Mathf.Abs(255 * Mathf.Sin(i)) / 255f);
+            }
         }
     }
 
