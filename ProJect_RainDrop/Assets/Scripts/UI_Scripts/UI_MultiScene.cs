@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -134,4 +135,13 @@ public class UI_MultiScene : MonoBehaviour {
 
         popupIsOn = false;
     }
+
+    public void playFx(int val)
+    {
+        SoundManager.instance.fxSource.clip = SoundManager.instance.fxs[val];
+        SoundManager.instance.fxSource.Play();
+      
+    }
+
+
 }

@@ -1013,6 +1013,7 @@ GameObject:
   - component: {fileID: 216569422}
   - component: {fileID: 216569421}
   - component: {fileID: 216569420}
+  - component: {fileID: 216569423}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -1093,6 +1094,17 @@ MonoBehaviour:
           m_StringArgument: Map
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &216569421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,6 +1143,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216569418}
   m_CullTransparentMesh: 0
+--- !u!114 &216569423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216569418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &278947028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1437,7 @@ GameObject:
   - component: {fileID: 343473833}
   - component: {fileID: 343473832}
   - component: {fileID: 343473831}
+  - component: {fileID: 343473834}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -1493,6 +1519,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343473832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1531,6 +1568,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343473829}
   m_CullTransparentMesh: 0
+--- !u!114 &343473834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343473829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &345159713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1593,7 @@ GameObject:
   - component: {fileID: 345159717}
   - component: {fileID: 345159716}
   - component: {fileID: 345159715}
+  - component: {fileID: 345159718}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -1624,6 +1675,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &345159716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1662,6 +1724,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345159713}
   m_CullTransparentMesh: 0
+--- !u!114 &345159718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345159713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &354075545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,6 +2351,7 @@ GameObject:
   - component: {fileID: 603122566}
   - component: {fileID: 603122565}
   - component: {fileID: 603122564}
+  - component: {fileID: 603122567}
   m_Layer: 5
   m_Name: Costume
   m_TagString: Untagged
@@ -2356,6 +2432,17 @@ MonoBehaviour:
           m_StringArgument: Costume
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &603122565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,6 +2481,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603122562}
   m_CullTransparentMesh: 0
+--- !u!114 &603122567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603122562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1798680553}
+          m_MethodName: playFx
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3049,7 @@ GameObject:
   - component: {fileID: 984130452}
   - component: {fileID: 984130451}
   - component: {fileID: 984130450}
+  - component: {fileID: 984130453}
   m_Layer: 5
   m_Name: FeverCats
   m_TagString: Untagged
@@ -3014,6 +3130,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &984130451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,6 +3179,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984130448}
   m_CullTransparentMesh: 0
+--- !u!114 &984130453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984130448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1041153020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3356,7 @@ GameObject:
   - component: {fileID: 1118707075}
   - component: {fileID: 1118707074}
   - component: {fileID: 1118707073}
+  - component: {fileID: 1118707076}
   m_Layer: 5
   m_Name: N_EmptyExtraBottle
   m_TagString: Untagged
@@ -3298,6 +3439,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1118707074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3336,6 +3488,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118707071}
   m_CullTransparentMesh: 0
+--- !u!114 &1118707076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118707071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1170141064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3513,7 @@ GameObject:
   - component: {fileID: 1170141068}
   - component: {fileID: 1170141067}
   - component: {fileID: 1170141066}
+  - component: {fileID: 1170141069}
   m_Layer: 5
   m_Name: Market
   m_TagString: Untagged
@@ -3428,6 +3594,17 @@ MonoBehaviour:
           m_StringArgument: Market
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1170141067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3465,6 +3642,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170141064}
   m_CullTransparentMesh: 0
+--- !u!114 &1170141069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170141064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1263175100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4225,6 +4415,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Cleaning
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1402751269
@@ -5044,7 +5245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.4500122, y: 1.2623291}
+  m_AnchoredPosition: {x: -3.4500198, y: 1.2623291}
   m_SizeDelta: {x: -21.741493, y: 2.524704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575148773
@@ -6119,6 +6320,7 @@ GameObject:
   - component: {fileID: 1802829901}
   - component: {fileID: 1802829900}
   - component: {fileID: 1802829899}
+  - component: {fileID: 1802829902}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -6199,6 +6401,17 @@ MonoBehaviour:
           m_StringArgument: Shop
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1802829900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6237,6 +6450,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802829897}
   m_CullTransparentMesh: 0
+--- !u!114 &1802829902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802829897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1850620036
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,6 +6697,7 @@ GameObject:
   - component: {fileID: 1968016703}
   - component: {fileID: 1968016702}
   - component: {fileID: 1968016701}
+  - component: {fileID: 1968016704}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -6551,6 +6778,17 @@ MonoBehaviour:
           m_StringArgument: Setting
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1798680553}
+        m_MethodName: playFx
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1968016702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6589,6 +6827,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968016699}
   m_CullTransparentMesh: 0
+--- !u!114 &1968016704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968016699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &2003007273
 GameObject:
   m_ObjectHideFlags: 0

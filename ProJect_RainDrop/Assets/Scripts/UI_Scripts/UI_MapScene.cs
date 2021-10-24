@@ -110,6 +110,7 @@ public class UI_MapScene : MonoBehaviour {
         {
             PlayerPrefs.SetInt("NowLocal", val);
             DataBase.nowLocal = val;
+            SoundManager.instance.playMusic(val);
             UI_MultiScene.instance.moveScene("Main");
         }
     }
