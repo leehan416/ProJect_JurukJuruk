@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 124978667}
   - component: {fileID: 124978666}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 261661244}
   - component: {fileID: 261661243}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 286431918}
   - component: {fileID: 286431917}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2731,7 +2731,7 @@ GameObject:
   - component: {fileID: 466715960}
   - component: {fileID: 466715959}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4369,7 @@ GameObject:
   - component: {fileID: 752288474}
   - component: {fileID: 752288473}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4886,7 +4886,7 @@ GameObject:
   - component: {fileID: 848445301}
   - component: {fileID: 848445300}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5381,7 +5381,7 @@ GameObject:
   - component: {fileID: 1023061552}
   - component: {fileID: 1023061551}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6529,7 +6529,7 @@ GameObject:
   - component: {fileID: 1257108437}
   - component: {fileID: 1257108436}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6670,7 +6670,7 @@ GameObject:
   - component: {fileID: 1284074967}
   - component: {fileID: 1284074966}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7132,7 +7132,7 @@ GameObject:
   - component: {fileID: 1422808808}
   - component: {fileID: 1422808807}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8354,7 +8354,7 @@ GameObject:
   - component: {fileID: 1670042670}
   - component: {fileID: 1670042669}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8719,7 +8719,7 @@ GameObject:
   - component: {fileID: 1792760843}
   - component: {fileID: 1792760842}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9685,7 +9685,7 @@ GameObject:
   - component: {fileID: 1917447414}
   - component: {fileID: 1917447413}
   m_Layer: 5
-  m_Name: TextBouble
+  m_Name: TextBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
