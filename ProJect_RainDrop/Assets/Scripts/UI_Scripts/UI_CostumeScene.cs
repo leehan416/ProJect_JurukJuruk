@@ -45,6 +45,10 @@ public class UI_CostumeScene : MonoBehaviour {
         // ui set
         DataBase.getMoney();
         DataBase.getCoustume();
+        //
+        // DataBase.money = 0;
+        // DataBase.setMoney();
+
 
         UI_MultiScene.instance.setMoney();
 
@@ -73,7 +77,6 @@ public class UI_CostumeScene : MonoBehaviour {
             }
             else
             {
-                // cstBox[i].gameObject.GetComponentsInChildren<Text>()[1].text = "장착하기";
                 text.text = "장착하기";
                 image.color =
                     new Color(1f, 1f, 1f, 1f);
@@ -120,10 +123,11 @@ public class UI_CostumeScene : MonoBehaviour {
         // 불가능
         else
         {
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+            // UI_MultiScene.instance.popupIsOn = true;
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -194,10 +198,11 @@ public class UI_CostumeScene : MonoBehaviour {
         // 해금 이전
         if (DataBase.isCostumeLock[val])
         {
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";
+            UI_MultiScene.instance.setPopupOK("해금되지 않았습니다.");
+            // UI_MultiScene.instance.popupIsOn = true;
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";
         }
         // 해금 되어있음
         else
@@ -219,4 +224,14 @@ public class UI_CostumeScene : MonoBehaviour {
             DataBase.setCostume();
         }
     }
+
+
+    // private void setPopup(string text)
+    // {
+    //     // UI_MultiScene.instance.popUpYN.SetActive(false);
+    //     UI_MultiScene.instance.popupIsOn = true;
+    //     UI_MultiScene.instance.popUpBG.SetActive(true);
+    //     UI_MultiScene.instance.popUpOK.SetActive(true);
+    //     UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = text;
+    // }
 }

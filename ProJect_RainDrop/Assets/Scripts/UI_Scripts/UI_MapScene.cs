@@ -67,10 +67,11 @@ public class UI_MapScene : MonoBehaviour {
         // 돈이 부족하다면
         else
         {
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            btnTextOK.text = "보유 금액이 부족합니다.";
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+            // UI_MultiScene.instance.popupIsOn = true;
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 

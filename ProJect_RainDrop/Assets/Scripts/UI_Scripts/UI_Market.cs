@@ -152,10 +152,11 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup활성화
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-
-            btnTextOK.text = "보유 금액이 부족합니다.";
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            //
+            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -187,10 +188,11 @@ public class UI_Market : MonoBehaviour {
         else
         {
             //popup 활성화
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            btnTextOK.text = "보유 금액이 부족합니다.";
             //돈부족 
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -257,6 +259,8 @@ public class UI_Market : MonoBehaviour {
         // 돈부족
         // 최적화를 위해(중복성 최소화) 다른 경우엔 함수 종료
         // 팝업 활성화
+        UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+
         UI_MultiScene.instance.popUpBG.SetActive(true);
         UI_MultiScene.instance.popUpOK.SetActive(true);
         btnTextOK.text = "보유 금액이 부족합니다.";
@@ -273,9 +277,11 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.locals[val].isLock)
         {
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            btnTextOK.text = "지역이 해금되지 않았습니다.";
+            UI_MultiScene.instance.setPopupOK("지역이 해금되지 않았습니다.");
+            //
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // btnTextOK.text = "지역이 해금되지 않았습니다.";
         }
 
         // 지역이 해금되어 있다면

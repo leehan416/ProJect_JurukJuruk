@@ -44,7 +44,7 @@ public class UI_ShopScene : MonoBehaviour {
             {
                 GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
                     .SetActive(true);
-                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/TextBouble/Explain")
+                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/TextBubble/Explain")
                     .GetComponent<Text>()
                     .text = "???";
             }
@@ -60,7 +60,7 @@ public class UI_ShopScene : MonoBehaviour {
                 {
                 }
 
-                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/TextBouble/Explain")
+                GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/TextBubble/Explain")
                     .GetComponent<Text>()
                     .text = DataBase.consumers[i].text;
             }
@@ -84,10 +84,11 @@ public class UI_ShopScene : MonoBehaviour {
         else
         {
             //해금 불가능
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            popupText[0].text = "보유 금액이 부족합니다.";
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
+            // UI_MultiScene.instance.popupIsOn = true;
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // popupText[0].text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -164,12 +165,15 @@ public class UI_ShopScene : MonoBehaviour {
             else
             {
                 // 해금 불가능
-                UI_MultiScene.instance.popupIsOn = true;
-                UI_MultiScene.instance.popUpBG.SetActive(true);
-                UI_MultiScene.instance.popUpOK.SetActive(true);
-                popupText[0].text = "해금되지 않은 거래처 입니다\n해금까지 필요한 거래량 (" +
-                                    DataBase.soldWater[DataBase.consumers[index].waterType] + " / " +
-                                    DataBase.consumers[index].limitOption + ")";
+                UI_MultiScene.instance.setPopupOK("해금되지 않은 거래처 입니다\n해금까지 필요한 거래량 (" +
+                                                  DataBase.soldWater[DataBase.consumers[index].waterType] + " / " +
+                                                  DataBase.consumers[index].limitOption + ")");
+                // UI_MultiScene.instance.popupIsOn = true;
+                // UI_MultiScene.instance.popUpBG.SetActive(true);
+                // UI_MultiScene.instance.popUpOK.SetActive(true);
+                // popupText[0].text = "해금되지 않은 거래처 입니다\n해금까지 필요한 거래량 (" +
+                //                     DataBase.soldWater[DataBase.consumers[index].waterType] + " / " +
+                //                     DataBase.consumers[index].limitOption + ")";
                 return;
             }
         }
@@ -178,10 +182,11 @@ public class UI_ShopScene : MonoBehaviour {
         if (DataBase.water[DataBase.consumers[index].waterType] < DataBase.consumers[index].perWater)
         {
             // 물 부족
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
-            popupText[0].text = "보유 빗물이 부족합니다.";
+            UI_MultiScene.instance.setPopupOK("보유 빗물이 부족합니다.");
+            // UI_MultiScene.instance.popupIsOn = true;
+            // UI_MultiScene.instance.popUpBG.SetActive(true);
+            // UI_MultiScene.instance.popUpOK.SetActive(true);
+            // popupText[0].text = "보유 빗물이 부족합니다.";
             return;
         }
 

@@ -142,6 +142,19 @@ public class UI_MultiScene : MonoBehaviour {
         SoundManager.instance.fxSource.Play();
       
     }
-
+    public void setPopupOK(string text)
+    {
+        try
+        {
+            popUpYN.SetActive(false);
+        }
+        catch 
+        {
+        }
+        popupIsOn = true;
+        popUpBG.SetActive(true);
+        popUpOK.SetActive(true);
+        popUpOK.GetComponentsInChildren<Text>()[1].text = text;
+    }
 
 }
