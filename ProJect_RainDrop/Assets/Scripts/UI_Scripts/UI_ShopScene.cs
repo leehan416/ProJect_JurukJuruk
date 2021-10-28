@@ -205,5 +205,10 @@ public class UI_ShopScene : MonoBehaviour {
 
         //set Tank
         UI_MultiScene.instance.updateWaterTank();
+
+        
+        //---------------------------------------------------
+        // 물 판매 시 효과음 재생
+        UI_MultiScene.instance.playFx(1); 
     }
 }

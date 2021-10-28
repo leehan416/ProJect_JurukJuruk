@@ -340,6 +340,7 @@ MonoBehaviour:
   rain: {fileID: 8300000, guid: 8355c19b0ebe147d49ac3524b75465ff, type: 3}
   fxs:
   - {fileID: 8300000, guid: 60f8756e8ef1e24489d3f40c8189de94, type: 3}
+  - {fileID: 8300000, guid: cb0608b6a9de9bd47aa27da31b85bf84, type: 3}
 --- !u!114 &584562374
 MonoBehaviour:
   m_ObjectHideFlags: 0

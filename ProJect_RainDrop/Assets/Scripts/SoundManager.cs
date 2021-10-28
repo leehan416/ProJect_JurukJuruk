@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour {
 
     public AudioClip[] musics = new AudioClip[5];
     public AudioClip rain;// = new AudioClip();
-    public AudioClip[] fxs = new AudioClip[1];
+    public AudioClip[] fxs = new AudioClip[2];
 
 
 
@@ -36,6 +36,6 @@ public class SoundManager : MonoBehaviour {
         bgmSource.clip = musics[value];
         fxSource.clip = fxs[0];
         bgmSource.Play();
-        fxSource.Play();    
+        fxSource.Play();
     }
 }

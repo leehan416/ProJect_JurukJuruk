@@ -136,11 +136,13 @@ public class UI_MultiScene : MonoBehaviour {
         popupIsOn = false;
     }
 
+
     public void playFx(int val)
     {
         SoundManager.instance.fxSource.clip = SoundManager.instance.fxs[val];
         SoundManager.instance.fxSource.Play();
-      
+
+
     }
     public void setPopupOK(string text)
     {
