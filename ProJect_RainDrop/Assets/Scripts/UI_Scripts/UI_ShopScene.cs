@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_ShopScene : MonoBehaviour {
@@ -56,7 +55,7 @@ public class UI_ShopScene : MonoBehaviour {
                     GameObject.Find("Canvas/ListView/Viewport/Content/List" + (i + 1) + "/Lock")
                         .SetActive(false);
                 }
-                catch (Exception e)
+                catch
                 {
                 }
 
@@ -85,10 +84,6 @@ public class UI_ShopScene : MonoBehaviour {
         {
             //해금 불가능
             UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-            // UI_MultiScene.instance.popupIsOn = true;
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // popupText[0].text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -100,18 +95,7 @@ public class UI_ShopScene : MonoBehaviour {
         UI_MultiScene.instance.popUpYN.SetActive(true);
         okText.text = "YES";
 
-        // 만약 EventTrigger 가 이미 존재한다면 파괴.
-        Destroy(yesBtn.GetComponent<EventTrigger>());
-        //eventrigger 생성
-        EventTrigger trg = yesBtn.gameObject.AddComponent<EventTrigger>();
-        //엔트리 생성
-        EventTrigger.Entry en = new EventTrigger.Entry();
-        // 트리거타입 추가 (터치를 종료했을 때) 
-        en.eventID = EventTriggerType.PointerUp;
-        // 함수 설정
-        en.callback.AddListener(delegate { sellWater(-1); });
-        // 트리거에 엔트리를 추가한다.
-        trg.triggers.Add(en);
+        UI_MultiScene.instance.setBtnFunc(yesBtn, sellWater, -1);
     }
 
 
@@ -148,18 +132,7 @@ public class UI_ShopScene : MonoBehaviour {
                 popupText[1].text = "해금하시겠습니까?";
                 okText.text = DataBase.consumers[index].cost + "$";
 
-                // 만약 EventTrigger 가 이미 존재한다면 파괴.
-                Destroy(yesBtn.GetComponent<EventTrigger>());
-                //eventrigger 생성
-                EventTrigger trg = yesBtn.gameObject.AddComponent<EventTrigger>();
-                //엔트리 생성
-                EventTrigger.Entry en = new EventTrigger.Entry();
-                // 트리거타입 추가 (터치를 종료했을 때) 
-                en.eventID = EventTriggerType.PointerUp;
-                // 합수 설정
-                en.callback.AddListener(delegate { unlockConsumer(index); });
-                // 트리거에 엔트리를 추가한다.
-                trg.triggers.Add(en);
+                UI_MultiScene.instance.setBtnFunc(yesBtn, unlockConsumer, index);
                 return;
             }
             else
@@ -168,12 +141,6 @@ public class UI_ShopScene : MonoBehaviour {
                 UI_MultiScene.instance.setPopupOK("해금되지 않은 거래처 입니다\n해금까지 필요한 거래량 (" +
                                                   DataBase.soldWater[DataBase.consumers[index].waterType] + " / " +
                                                   DataBase.consumers[index].limitOption + ")");
-                // UI_MultiScene.instance.popupIsOn = true;
-                // UI_MultiScene.instance.popUpBG.SetActive(true);
-                // UI_MultiScene.instance.popUpOK.SetActive(true);
-                // popupText[0].text = "해금되지 않은 거래처 입니다\n해금까지 필요한 거래량 (" +
-                //                     DataBase.soldWater[DataBase.consumers[index].waterType] + " / " +
-                //                     DataBase.consumers[index].limitOption + ")";
                 return;
             }
         }
@@ -183,10 +150,6 @@ public class UI_ShopScene : MonoBehaviour {
         {
             // 물 부족
             UI_MultiScene.instance.setPopupOK("보유 빗물이 부족합니다.");
-            // UI_MultiScene.instance.popupIsOn = true;
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // popupText[0].text = "보유 빗물이 부족합니다.";
             return;
         }
 
@@ -206,9 +169,8 @@ public class UI_ShopScene : MonoBehaviour {
         //set Tank
         UI_MultiScene.instance.updateWaterTank();
 
-        
         //---------------------------------------------------
         // 물 판매 시 효과음 재생
-        UI_MultiScene.instance.playFx(1); 
+        UI_MultiScene.instance.playFx(1);
     }
 }

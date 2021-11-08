@@ -1,26 +1,19 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_MapScene : MonoBehaviour {
     private GameObject[] locker = new GameObject[5]; // Local Locker
-
     private Text btnTextYN; // 가격 Text
-    private Text btnTextOK; // 돈 없을때 뜨는 Text
     private Button yesBtn; // 구매 버튼
-
 
     private void Awake()
     {
         // Set UI
-        btnTextOK = UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1];
         yesBtn = UI_MultiScene.instance.popUpYN.GetComponentsInChildren<Button>()[1];
         btnTextYN = yesBtn.GetComponentInChildren<Text>();
         for (int i = 1; i < 5; i++)
             locker[i] = GameObject.Find("Canvas/ListView/Viewport/Content/List" + i + "/lock");
     }
-
 
     void Start()
     {
@@ -39,7 +32,6 @@ public class UI_MapScene : MonoBehaviour {
             locker[i].SetActive(DataBase.locals[i].isLock);
         }
     }
-
 
     // Unlock local
     private void unLockLocal(int val)
@@ -67,11 +59,8 @@ public class UI_MapScene : MonoBehaviour {
         // 돈이 부족하다면
         else
         {
+            // 팝업 활성화
             UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-            // UI_MultiScene.instance.popupIsOn = true;
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -92,19 +81,8 @@ public class UI_MapScene : MonoBehaviour {
             // 구매버튼에 가격 표시
             btnTextYN.text = DataBase.locals[val].cost + " $";
 
-            // 만약 EventTrigger가 이미 존재한다면 파괴.
-            Destroy(yesBtn.GetComponent<EventTrigger>());
-
-            //이벤트 트리거 생성
-            EventTrigger trg = yesBtn.gameObject.AddComponent<EventTrigger>();
-            //엔트리 추가
-            EventTrigger.Entry en = new EventTrigger.Entry();
-            //행동 설정
-            en.eventID = EventTriggerType.PointerUp;
-            //함수 추가
-            en.callback.AddListener(delegate { unLockLocal(val); });
-            // 트리거에 엔트리 추가
-            trg.triggers.Add(en);
+            // 버튼 함수 설정
+            UI_MultiScene.instance.setBtnFunc(yesBtn, unLockLocal, val);
         }
         // 일반 지역 이동
         else

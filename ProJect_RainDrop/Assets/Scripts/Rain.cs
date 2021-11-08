@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = System.Random;
 
 public class Rain : MonoBehaviour {
@@ -9,7 +8,6 @@ public class Rain : MonoBehaviour {
     [HideInInspector] public bool isBig = false;
     private float width;
     private float height;
-
 
     void Start()
     {
@@ -22,7 +20,7 @@ public class Rain : MonoBehaviour {
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = image[random.Next(0, 3)]; // 랜덤 이미지로 생성됨
         }
-        catch (Exception e)
+        catch 
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = image[0]; // 랜덤 이미지로 생성됨
         }

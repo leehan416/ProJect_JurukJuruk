@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -34,15 +33,8 @@ public class UI_CleanScene : MonoBehaviour {
         enBH.eventID = EventTriggerType.PointerDown;
         enBU.eventID = EventTriggerType.PointerUp;
 
-
-        //TODO : Level Value Set
-
         // 각 entry에 함수 등록
-        enBH.callback.AddListener(delegate
-        {
-            setLevelImage();
-            // GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = cleanFx[1];
-        });
+        enBH.callback.AddListener(delegate { setLevelImage(); });
         enBU.callback.AddListener(delegate
         {
             GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = nullImage;
@@ -52,7 +44,6 @@ public class UI_CleanScene : MonoBehaviour {
 
         // ClickZone 기본 sprite 적용 (투명 이미지)
         GameObject.Find("Canvas/ClickZone/onClick").GetComponent<Image>().sprite = nullImage;
-
         //get datas 
         DataBase.getMoney();
         DataBase.getWaterData();
@@ -67,7 +58,6 @@ public class UI_CleanScene : MonoBehaviour {
         UI_MultiScene.instance.setMoney();
         setCleanText();
     }
-
 
     public void setLevelImage()
     {
@@ -96,6 +86,7 @@ public class UI_CleanScene : MonoBehaviour {
                 return;
             }
 
+            // 정화
             DataBase.water[0] -= DataBase.valueCleanWater[DataBase.cleanLevel];
             DataBase.water[1] += DataBase.valueCleanWater[DataBase.cleanLevel];
         }
@@ -152,12 +143,11 @@ public class UI_CleanScene : MonoBehaviour {
             setCleanText();
             UI_MultiScene.instance.setMoney();
         }
+        // 돈부족
         else
         {
-            // 돈부족
-            UI_MultiScene.instance.popupIsOn = true;
-            UI_MultiScene.instance.popUpBG.SetActive(true);
-            UI_MultiScene.instance.popUpOK.SetActive(true);
+            // 팝업 활성화
+            UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
         }
     }
 }

@@ -159,13 +159,6 @@ public class DataBase : MonoBehaviour {
         return value;
     }
 
-    // public static float getWaterTankPercent()
-    // {
-    //     return Convert.ToSingle(getAllWater()) /
-    //            Convert.ToSingle(valueMaxWater[tankLevel]);
-    // }
-
-
     public static void setWaterData()
     {
         for (int i = 0; i < water.Length; i++)

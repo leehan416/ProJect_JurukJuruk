@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 public delegate void UnactiveCosPopup();
 
@@ -45,10 +43,6 @@ public class UI_CostumeScene : MonoBehaviour {
         // ui set
         DataBase.getMoney();
         DataBase.getCoustume();
-        //
-        // DataBase.money = 0;
-        // DataBase.setMoney();
-
 
         UI_MultiScene.instance.setMoney();
 
@@ -124,10 +118,6 @@ public class UI_CostumeScene : MonoBehaviour {
         else
         {
             UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-            // UI_MultiScene.instance.popupIsOn = true;
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -169,18 +159,15 @@ public class UI_CostumeScene : MonoBehaviour {
             DataBase.getWaterData();
             DataBase.getLevels();
 
-            if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel]) ;
-            else
-            {
-                DataBase.water[0] += 500;
-                if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel])
-                    DataBase.water[0] -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
-            }
+            if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel])
+                return;
 
+            DataBase.water[0] += 500;
+            if (DataBase.getAllWater() >= DataBase.valueMaxWater[DataBase.tankLevel])
+                DataBase.water[0] -= DataBase.getAllWater() - DataBase.valueMaxWater[DataBase.tankLevel];
             DataBase.setWaterData();
         }
     }
-
 
     // 팝업 끄기 (다른 시스템과는 다른 팝업이 들어가서 추가적인 함수)
     public void unactivePopup()
@@ -199,10 +186,6 @@ public class UI_CostumeScene : MonoBehaviour {
         if (DataBase.isCostumeLock[val])
         {
             UI_MultiScene.instance.setPopupOK("해금되지 않았습니다.");
-            // UI_MultiScene.instance.popupIsOn = true;
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = "해금되지 않았습니다.";
         }
         // 해금 되어있음
         else
@@ -224,14 +207,4 @@ public class UI_CostumeScene : MonoBehaviour {
             DataBase.setCostume();
         }
     }
-
-
-    // private void setPopup(string text)
-    // {
-    //     // UI_MultiScene.instance.popUpYN.SetActive(false);
-    //     UI_MultiScene.instance.popupIsOn = true;
-    //     UI_MultiScene.instance.popUpBG.SetActive(true);
-    //     UI_MultiScene.instance.popUpOK.SetActive(true);
-    //     UI_MultiScene.instance.popUpOK.GetComponentsInChildren<Text>()[1].text = text;
-    // }
 }

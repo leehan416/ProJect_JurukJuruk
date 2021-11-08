@@ -1,14 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_SettingScene : MonoBehaviour {
     // sliders
     private Slider bgmSlider;
     private Slider fxSlider;
-
-    //toggle => 조작 반전
-    private Toggle reverse;
+    private Toggle reverse; //toggle => 조작 반전
 
     private void Awake()
     {
@@ -21,11 +18,11 @@ public class UI_SettingScene : MonoBehaviour {
     private void Start()
     {
         DataBase.getSettingVal();
-        SetSettingObj();
+        setSettingObj();
     }
 
     // value 초기 설정
-    public void SetSettingObj()
+    void setSettingObj()
     {
         bgmSlider.value = DataBase.bgmVol;
         fxSlider.value = DataBase.fxVol;
@@ -39,7 +36,7 @@ public class UI_SettingScene : MonoBehaviour {
         DataBase.bgmVol = val;
         DataBase.setSettingVal();
     }
-
+    
     // fx슬라이더 조작시 호출 val => volum
     public void ChangeFxVol(float val)
     {
@@ -49,7 +46,7 @@ public class UI_SettingScene : MonoBehaviour {
     }
 
     // toggle 클릭시 호출 val => ischecked?
-    public void ChangeControllReverse(bool val)
+    public void changeControllReverse(bool val)
     {
         DataBase.isReverse = val;
         DataBase.setSettingVal();

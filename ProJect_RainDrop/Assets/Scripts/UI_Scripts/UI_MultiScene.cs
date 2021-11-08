@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UI_MultiScene : MonoBehaviour {
-    // transform에 접근하기 위한 instance
-    public static UI_MultiScene instance;
 
+public class UI_MultiScene : MonoBehaviour {
+    public static UI_MultiScene instance; // transform에 접근하기 위한 instance
     public GameObject popUpBG; // PopUpBG
     public GameObject popUpOK; // ok PopUp
+
     public GameObject popUpYN; // Yes or No PopUp
 
     // popup on
-    [HideInInspector] public bool popupIsOn = false;
+    [HideInInspector] public bool popupIsOn;
 
     // 물탱크
     public Slider waterTank;
@@ -45,14 +44,15 @@ public class UI_MultiScene : MonoBehaviour {
     public void backBtn()
     {
         // !! 안드로이드에서만 작동함
-
-
         if (Application.loadedLevelName == "Main")
         {
+            // 팝업 상태 변경
             popupIsOn = !popupIsOn;
 
+            // 팝업 상태에 따라 게임 시간 설정 -> 팝업 활성화시 게임 정지
             Time.timeScale = (popupIsOn) ? 0f : 1f;
 
+            // 팝업 활성화, 비활성화
             popUpBG.SetActive(popupIsOn);
             popUpYN.SetActive(popupIsOn);
         }
@@ -139,24 +139,40 @@ public class UI_MultiScene : MonoBehaviour {
 
     public void playFx(int val)
     {
-        SoundManager.instance.fxSource.clip = SoundManager.instance.fxs[val];
-        SoundManager.instance.fxSource.Play();
-
-
+        // 접근용도
+        SoundManager.instance.playFx(val);
     }
+
+
+    public void setBtnFunc(Button btn, Action<int> func, int value)
+    {
+        // 만약 EventTrigger 가 이미 존재한다면 파괴.
+        Destroy(btn.GetComponent<EventTrigger>());
+        //eventrigger 생성
+        EventTrigger trg = btn.gameObject.AddComponent<EventTrigger>();
+        //엔트리 생성
+        EventTrigger.Entry en = new EventTrigger.Entry();
+        // 트리거타입 추가 (터치를 종료했을 때) 
+        en.eventID = EventTriggerType.PointerUp;
+        // 합수 설정
+        en.callback.AddListener(delegate { func(value); });
+        // 트리거에 엔트리를 추가한다.
+        trg.triggers.Add(en);
+    }
+
     public void setPopupOK(string text)
     {
         try
         {
             popUpYN.SetActive(false);
         }
-        catch 
+        catch
         {
         }
+
         popupIsOn = true;
         popUpBG.SetActive(true);
         popUpOK.SetActive(true);
         popUpOK.GetComponentsInChildren<Text>()[1].text = text;
     }
-
 }

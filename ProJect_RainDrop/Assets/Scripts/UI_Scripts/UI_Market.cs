@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Market : MonoBehaviour {
@@ -132,8 +128,13 @@ public class UI_Market : MonoBehaviour {
         DataBase.getLevels();
         DataBase.getMoney();
 
-        if (DataBase.pailLevel == DataBase.upgradePail.Length - 1) // Lv Max
+        if (DataBase.pailLevel >= DataBase.upgradePail.Length - 1) // Lv Max
+        {
+            // 이전버전 버그 대응
+            DataBase.pailLevel = DataBase.upgradePail.Length - 1;
+            DataBase.setLevels();
             return;
+        }
 
         // 업그레이드할 돈이 있다면 
         if (DataBase.money >= DataBase.upgradePail[DataBase.pailLevel + 1])
@@ -153,10 +154,6 @@ public class UI_Market : MonoBehaviour {
         {
             //popup활성화
             UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            //
-            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -167,8 +164,13 @@ public class UI_Market : MonoBehaviour {
         // get data 
         DataBase.getLevels();
         DataBase.getMoney();
-        if (DataBase.tankLevel == DataBase.upgradeTank.Length - 1) // Lv Max
+        if (DataBase.tankLevel >= DataBase.upgradeTank.Length - 1) // Lv Max
+        {
+            // 이전버전 버그 대응
+            DataBase.tankLevel = DataBase.upgradeTank.Length - 1;
+            DataBase.setLevels();
             return;
+        }
 
 
         // 업그레이드 할 돈이 있다면
@@ -190,9 +192,6 @@ public class UI_Market : MonoBehaviour {
             //popup 활성화
             //돈부족 
             UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // btnTextOK.text = "보유 금액이 부족합니다.";
         }
     }
 
@@ -214,7 +213,7 @@ public class UI_Market : MonoBehaviour {
         {
             if (DataBase.money >= DataBase.unLockPot[val])
             {
-                DataBase.money -= DataBase.unLockPot[val]; // + DataBase.upgradePot[++DataBase.potLevel[val] + 1];
+                DataBase.money -= DataBase.unLockPot[val];
                 DataBase.potLevel[val]++;
 
                 // set data
@@ -234,8 +233,14 @@ public class UI_Market : MonoBehaviour {
         else
         {
             // 최대 레벨이면 함수 종료
-            if (DataBase.potLevel[val] == DataBase.upgradePot.Length - 1)
+            if (DataBase.potLevel[val] >= DataBase.upgradePot.Length - 1)
+            {
+                // 이전 버전 버그 대응
+                DataBase.potLevel[val] = DataBase.upgradePot.Length - 1;
+                DataBase.setLevels();
                 return;
+            }
+
 
             // 업그레이드 가능한가?
             if (DataBase.money >= (DataBase.unLockPot[val] + DataBase.upgradePot[DataBase.potLevel[val]]))
@@ -260,10 +265,6 @@ public class UI_Market : MonoBehaviour {
         // 최적화를 위해(중복성 최소화) 다른 경우엔 함수 종료
         // 팝업 활성화
         UI_MultiScene.instance.setPopupOK("보유 금액이 부족합니다.");
-
-        UI_MultiScene.instance.popUpBG.SetActive(true);
-        UI_MultiScene.instance.popUpOK.SetActive(true);
-        btnTextOK.text = "보유 금액이 부족합니다.";
     }
 
 
@@ -277,11 +278,8 @@ public class UI_Market : MonoBehaviour {
         //지역 해금 안됌
         if (DataBase.locals[val].isLock)
         {
+            // 팝업 활성화
             UI_MultiScene.instance.setPopupOK("지역이 해금되지 않았습니다.");
-            //
-            // UI_MultiScene.instance.popUpBG.SetActive(true);
-            // UI_MultiScene.instance.popUpOK.SetActive(true);
-            // btnTextOK.text = "지역이 해금되지 않았습니다.";
         }
 
         // 지역이 해금되어 있다면
@@ -293,23 +291,13 @@ public class UI_Market : MonoBehaviour {
                 UI_MultiScene.instance.popupIsOn = true;
                 UI_MultiScene.instance.popUpBG.SetActive(true);
                 UI_MultiScene.instance.popUpYN.SetActive(true);
-
                 btnTextOK.text = "해금하시겠습니까?";
 
+                // 버튼 text 설정
                 btnTextYN.text = DataBase.unLockPot[val] + " $";
 
-                // 만약 EventTrigger 가 이미 존재한다면 파괴.
-                Destroy(yesBtn.GetComponent<EventTrigger>());
-                //eventrigger 생성
-                EventTrigger trg = yesBtn.gameObject.AddComponent<EventTrigger>();
-                //엔트리 생성
-                EventTrigger.Entry en = new EventTrigger.Entry();
-                // 트리거타입 추가 (터치를 종료했을 때) 
-                en.eventID = EventTriggerType.PointerUp;
-                // 합수 설정
-                en.callback.AddListener(delegate { upPotLevel(val); });
-                // 트리거에 엔트리를 추가한다.
-                trg.triggers.Add(en);
+                // 버튼 함수 설정 
+                UI_MultiScene.instance.setBtnFunc(yesBtn, upPotLevel, val);
             }
             // 일반 업그레이드
             else
