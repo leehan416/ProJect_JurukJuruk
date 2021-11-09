@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 284640051}
   - component: {fileID: 284640050}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SubBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1226,7 +1226,7 @@ GameObject:
   - component: {fileID: 555689222}
   - component: {fileID: 555689221}
   m_Layer: 5
-  m_Name: Titlee
+  m_Name: Title_Pail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 678716575}
   - component: {fileID: 678716574}
   m_Layer: 5
-  m_Name: Pot_img (2)
+  m_Name: Pot_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2478,7 +2478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.29200003}
   m_AnchorMax: {x: 1, y: 0.7416509}
-  m_AnchoredPosition: {x: 0, y: 0.9899998}
+  m_AnchoredPosition: {x: 0, y: 0.98999786}
   m_SizeDelta: {x: 0, y: -1.5253906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935086990
@@ -3425,7 +3425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19257852, y: 0.272}
   m_AnchorMax: {x: 0.794, y: 0.85300004}
-  m_AnchoredPosition: {x: -0.30000305, y: -0.099998474}
+  m_AnchoredPosition: {x: -0.30000305, y: -0.1000061}
   m_SizeDelta: {x: 2.6905365, y: 2.0827942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188441441
@@ -3609,7 +3609,7 @@ GameObject:
   - component: {fileID: 1241751271}
   - component: {fileID: 1241751270}
   m_Layer: 5
-  m_Name: Titleeee
+  m_Name: Title_Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4409,7 +4409,7 @@ GameObject:
   - component: {fileID: 1599786065}
   - component: {fileID: 1599786064}
   m_Layer: 5
-  m_Name: Pot_img (3)
+  m_Name: Pot_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4561,7 +4561,7 @@ GameObject:
   - component: {fileID: 1663310185}
   - component: {fileID: 1663310184}
   m_Layer: 5
-  m_Name: Pot_img (1)
+  m_Name: Pot_img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6191,7 +6191,7 @@ GameObject:
   - component: {fileID: 2023795794}
   - component: {fileID: 2023795793}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: SubBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6420,7 +6420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29166692, y: 0.20500001}
   m_AnchorMax: {x: 0.70500004, y: 0.4}
-  m_AnchoredPosition: {x: 1, y: -0.99998474}
+  m_AnchoredPosition: {x: 1, y: -1}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2117770976
@@ -6527,7 +6527,7 @@ GameObject:
   - component: {fileID: 2138332488}
   - component: {fileID: 2138332487}
   m_Layer: 5
-  m_Name: Titleee
+  m_Name: Title_Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

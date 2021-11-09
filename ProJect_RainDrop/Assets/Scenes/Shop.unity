@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 213235833}
   - component: {fileID: 213235832}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SubBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11525,7 +11525,7 @@ GameObject:
   - component: {fileID: 305853247768153043}
   - component: {fileID: 305853247768153040}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: SubBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
