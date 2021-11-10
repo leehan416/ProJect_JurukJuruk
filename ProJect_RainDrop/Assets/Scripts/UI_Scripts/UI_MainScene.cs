@@ -39,12 +39,12 @@ public class UI_MainScene : MonoBehaviour {
         updateWaterPot = delegate { _updateWaterPot(); };
         // Get ui
         local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
-        emptyText = GameObject.Find("Canvas/N_EmptyExtraBottle/num").GetComponent<Text>();
+        emptyText = GameObject.Find("Canvas/EmptyPot/num").GetComponent<Text>();
 
         // 사이즈 받아오기
         width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
         height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
-        waterPot = GameObject.Find("Canvas/ExtraBottles/PotSlider" + DataBase.nowLocal + "/mask/Slider")
+        waterPot = GameObject.Find("Canvas/Pot/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>();
     }
 
@@ -53,20 +53,20 @@ public class UI_MainScene : MonoBehaviour {
         //현 지역 전용 pot 이외엔 모두 비활성화
         for (int i = 0; i < DataBase.locals.Length; i++)
             if (DataBase.nowLocal != i)
-                GameObject.Find("Canvas/ExtraBottles/PotSlider" + i).SetActive(false);
+                GameObject.Find("Canvas/Pot/PotSlider" + i).SetActive(false);
 
         //현 지역의 pot의 레벨이 0이라면 비활성화
         if (DataBase.potLevel[DataBase.nowLocal] == 0)
         {
-            GameObject.Find("Canvas/N_EmptyExtraBottle").SetActive(false);
-            GameObject.Find("Canvas/ExtraBottles/PotSlider" + DataBase.nowLocal).SetActive(false);
+            GameObject.Find("Canvas/EmptyPot").SetActive(false);
+            GameObject.Find("Canvas/Pot/PotSlider" + DataBase.nowLocal).SetActive(false);
         }
 
         // 비우기 버튼 텍스트 색상 변경
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
         //-----------------------------------
-        // PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         DataBase.money = 10000000000;
         DataBase.setMoney();
 

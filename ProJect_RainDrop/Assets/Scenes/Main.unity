@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 497042031}
   - component: {fileID: 497042030}
   m_Layer: 5
-  m_Name: MiddleBox
+  m_Name: NavBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2728,7 +2728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796454610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -618, z: 0}
+  m_LocalPosition: {x: 0, y: -760, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3069,7 +3069,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1702472040}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3358,7 +3358,7 @@ GameObject:
   - component: {fileID: 1118707073}
   - component: {fileID: 1118707076}
   m_Layer: 5
-  m_Name: EmptyExtraBottle
+  m_Name: EmptyPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4068,7 +4068,7 @@ GameObject:
   - component: {fileID: 1359210469}
   - component: {fileID: 1359210468}
   m_Layer: 5
-  m_Name: ExtraBottles
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5512,7 +5512,7 @@ GameObject:
   - component: {fileID: 1702472042}
   - component: {fileID: 1702472041}
   m_Layer: 5
-  m_Name: BigBox
+  m_Name: GroundBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5529,8 +5529,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1953679703}
   - {fileID: 984130449}
+  - {fileID: 1953679703}
   m_Father: {fileID: 1798680551}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6454,11 +6454,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1702472040}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.86200005}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: 20.499985}
+  m_AnchoredPosition: {x: 2.5, y: 20.500244}
   m_SizeDelta: {x: 5, y: -11.117462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953679705

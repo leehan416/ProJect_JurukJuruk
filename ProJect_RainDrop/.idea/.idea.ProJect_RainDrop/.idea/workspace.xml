@@ -48,15 +48,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_LogoScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MultiScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1uiaINeYIzOVR4BhEpt26pINSzK" />
@@ -213,6 +213,7 @@
       <workItem from="1635246242895" duration="277000" />
       <workItem from="1636351296325" duration="2064000" />
       <workItem from="1636354184616" duration="2994000" />
+      <workItem from="1636505334875" duration="1694000" />
     </task>
     <servers />
   </component>
