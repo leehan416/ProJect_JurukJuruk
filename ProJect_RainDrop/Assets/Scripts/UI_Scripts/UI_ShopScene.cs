@@ -79,6 +79,8 @@ public class UI_ShopScene : MonoBehaviour {
             DataBase.setConsumerLock();
             lockerSet();
             UI_MultiScene.instance.setMoney();
+
+            UI_MultiScene.instance.playFx(1);
         }
         else
         {

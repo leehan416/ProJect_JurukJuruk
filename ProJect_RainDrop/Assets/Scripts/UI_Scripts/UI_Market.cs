@@ -148,6 +148,8 @@ public class UI_Market : MonoBehaviour {
             //set Texts
             setMarketText();
             UI_MultiScene.instance.setMoney();
+
+            SoundManager.instance.playFx(1);
         }
         //돈이 부족하다면
         else
@@ -185,6 +187,8 @@ public class UI_Market : MonoBehaviour {
             // set text
             setMarketText();
             UI_MultiScene.instance.setMoney();
+
+            SoundManager.instance.playFx(1);
         }
         // 돈 부족
         else
@@ -257,6 +261,8 @@ public class UI_Market : MonoBehaviour {
 
                 //set pot lockers
                 setPotLockers();
+
+                SoundManager.instance.playFx(1);
                 return;
             }
         }

@@ -104,6 +104,7 @@ public class UI_CostumeScene : MonoBehaviour {
         // 뽑기 가능
         if (DataBase.money >= DataBase.gachaCost)
         {
+            SoundManager.instance.playFx(1);
             DataBase.money -= DataBase.gachaCost;
 
             DataBase.setMoney();
@@ -144,6 +145,7 @@ public class UI_CostumeScene : MonoBehaviour {
         // 성공 
         if (val != 0)
         {
+            SoundManager.instance.playFx(2);
             get.SetActive(true);
             itemSprite.sprite = getCoustumeUI[val - 1];
             //Data set
