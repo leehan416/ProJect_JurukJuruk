@@ -34,6 +34,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -83,11 +84,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 13318}
+      Script: {instanceID: 13280}
+    - Class: 114
+      Script: {instanceID: 13314}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -144,11 +147,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13128}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -211,11 +214,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13304}
+      Script: {instanceID: 13300}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -264,9 +267,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -337,13 +340,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13216}
+      Script: {instanceID: 13212}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 13318}
+      Script: {instanceID: 13280}
+    - Class: 114
+      Script: {instanceID: 13314}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -404,9 +409,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -463,9 +468,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -516,15 +521,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13150}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13300}
+      Script: {instanceID: 13296}
     - Class: 114
-      Script: {instanceID: 13318}
+      Script: {instanceID: 13314}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -583,11 +588,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 13318}
+      Script: {instanceID: 13280}
+    - Class: 114
+      Script: {instanceID: 13314}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -655,7 +662,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 096febbac6d23ee685569da49a6bdf22
+      Hash: c9bfd42dc4cb0da4b7048b462b52ec7b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoundManager
@@ -781,7 +788,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 8eb2088fafd06486b54e68c962064731
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -1051,12 +1058,6 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 605b9a98c6e5eb83909dd4a1c371dda0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerAnimation
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1123,7 +1124,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: b3868d19f64c1f1958f2399e1ce6cc13
+      Hash: 36f355fbca7b4ac07f95892177f83a3a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IntroAnimation
@@ -1156,4 +1157,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain1.1 test.apk
+  playerPath: /Users/whal3/Desktop/rain1.1_ test.apk
