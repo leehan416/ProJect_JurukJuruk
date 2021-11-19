@@ -11,21 +11,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DataBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ToggleEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GachaSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SystemController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_SettingScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -45,9 +45,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SystemController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animation/IntroAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_IntroScene.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_LogoScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MapScene.cs" />
@@ -56,6 +54,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CostumeScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_ShopScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_MainScene.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataBase.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_Market.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI_Scripts/UI_CleanScene.cs" />
     </changedPaths>
   </component>
@@ -215,6 +215,8 @@
       <workItem from="1636354184616" duration="2994000" />
       <workItem from="1636505334875" duration="1694000" />
       <workItem from="1637158877447" duration="621000" />
+      <workItem from="1637307044787" duration="485000" />
+      <workItem from="1637307626286" duration="1908000" />
     </task>
     <servers />
   </component>

@@ -137,7 +137,7 @@ public class UI_CleanScene : MonoBehaviour {
             DataBase.setLevels();
             return;
         }
-
+ 
         if ((DataBase.money >= DataBase.upgradeClean[DataBase.cleanLevel + 1]) &&
             (DataBase.cleanLevel < DataBase.valueCleanWater.Length))
         {
@@ -150,6 +150,9 @@ public class UI_CleanScene : MonoBehaviour {
             //Set Texts
             setCleanText();
             UI_MultiScene.instance.setMoney();
+
+            //sound
+            SoundManager.instance.playFx(1);
         }
         // 돈부족
         else

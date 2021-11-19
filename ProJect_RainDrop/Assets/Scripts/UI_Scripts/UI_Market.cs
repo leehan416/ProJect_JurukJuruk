@@ -148,7 +148,8 @@ public class UI_Market : MonoBehaviour {
             //set Texts
             setMarketText();
             UI_MultiScene.instance.setMoney();
-
+            
+            // sound (FX)
             SoundManager.instance.playFx(1);
         }
         //돈이 부족하다면
@@ -188,6 +189,7 @@ public class UI_Market : MonoBehaviour {
             setMarketText();
             UI_MultiScene.instance.setMoney();
 
+            //sound
             SoundManager.instance.playFx(1);
         }
         // 돈 부족
@@ -227,10 +229,14 @@ public class UI_Market : MonoBehaviour {
                 // set text 
                 setMarketText();
                 UI_MultiScene.instance.setMoney();
-
+                
                 //set Pot Lockers
                 setPotLockers();
+                
+                //Sound (FX)
+                SoundManager.instance.playFx(1);
                 return;
+                
             }
         }
         // 일반 업글
@@ -261,7 +267,8 @@ public class UI_Market : MonoBehaviour {
 
                 //set pot lockers
                 setPotLockers();
-
+                
+                //Sound (FX)
                 SoundManager.instance.playFx(1);
                 return;
             }

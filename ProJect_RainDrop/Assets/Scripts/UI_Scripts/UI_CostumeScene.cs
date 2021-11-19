@@ -153,6 +153,9 @@ public class UI_CostumeScene : MonoBehaviour {
             DataBase.setCostume();
             //UI set
             setLockers();
+            
+            //Sound (FX)
+            SoundManager.instance.playFx(2);
         }
         // 실패
         else

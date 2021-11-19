@@ -56,6 +56,7 @@ public class UI_MapScene : MonoBehaviour {
             UI_MultiScene.instance.unactivePopup();
             UI_MultiScene.instance.setMoney();
 
+            // sound (FX)
             SoundManager.instance.playFx(1);
         }
         // 돈이 부족하다면
@@ -89,10 +90,17 @@ public class UI_MapScene : MonoBehaviour {
         // 일반 지역 이동
         else
         {
+            // sound (FX)
             SoundManager.instance.playFx(0);
+
+            // 위치 저장
             PlayerPrefs.SetInt("NowLocal", val);
+            // 위치 변경
             DataBase.nowLocal = val;
+
+            // sound (change music)
             SoundManager.instance.playMusic(val);
+            // 씬 이동
             UI_MultiScene.instance.moveScene("Main");
         }
     }

@@ -66,15 +66,15 @@ public class UI_MainScene : MonoBehaviour {
         emptyText.color = DataBase.waterColors[DataBase.locals[DataBase.nowLocal].waterType];
 
         //-----------------------------------
-        PlayerPrefs.DeleteAll();
-        DataBase.money = 10000000000;
-        DataBase.setMoney();
-
-        DataBase.soldWater[0] = 999999;
-        DataBase.soldWater[1] = 999999;
-        DataBase.soldWater[2] = 999999;
-        DataBase.soldWater[3] = 999999;
-        DataBase.setWaterData();
+        // // PlayerPrefs.DeleteAll();
+        // DataBase.money = 10000000000;
+        // DataBase.setMoney();
+        // DataBase.water[0] = 1000000;\
+        // DataBase.soldWater[0] = 999999;
+        // DataBase.soldWater[1] = 999999;
+        // DataBase.soldWater[2] = 999999;
+        // DataBase.soldWater[3] = 999999;
+        // DataBase.setWaterData();
 
 
         //-----------------------------------
