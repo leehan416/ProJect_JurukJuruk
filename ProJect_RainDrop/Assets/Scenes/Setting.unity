@@ -1823,7 +1823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 510854811}
         m_MethodName: changeControllReverse
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1978,14 +1978,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Design / Develop :: Whal3
-
-    UI / UX :: leeejjju
-
-    Bgm / Sound Develop
-    :: 2BEAN
-
-    Published by WTlink Software'
+  m_Text: "Design / Develop :: \uC774\uD55C\uACB0 (22100594)\nUI / UX :: \uC774\uC9C4\uC8FC
+    (22100579)\nBgm / Sound Develop :: \uC815\uC608\uC900 (22100677)"
 --- !u!222 &1794248998
 CanvasRenderer:
   m_ObjectHideFlags: 0

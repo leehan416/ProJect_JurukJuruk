@@ -46,9 +46,9 @@ public class UI_SettingScene : MonoBehaviour {
     }
 
     // toggle 클릭시 호출 val => ischecked?
-    public void changeControllReverse(bool val)
+    public void changeControllReverse()
     {
-        DataBase.isReverse = val;
+        DataBase.isReverse = reverse.isOn;
         DataBase.setSettingVal();
     }
 }
