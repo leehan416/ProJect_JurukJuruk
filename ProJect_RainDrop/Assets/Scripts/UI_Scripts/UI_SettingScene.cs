@@ -36,7 +36,7 @@ public class UI_SettingScene : MonoBehaviour {
         DataBase.bgmVol = val;
         DataBase.setSettingVal();
     }
-    
+
     // fx슬라이더 조작시 호출 val => volum
     public void ChangeFxVol(float val)
     {
@@ -46,9 +46,9 @@ public class UI_SettingScene : MonoBehaviour {
     }
 
     // toggle 클릭시 호출 val => ischecked?
-    public void changeControllReverse(bool val)
+    public void changeControllReverse()
     {
-        DataBase.isReverse = val;
+        DataBase.isReverse = reverse.isOn;
         DataBase.setSettingVal();
     }
 }
