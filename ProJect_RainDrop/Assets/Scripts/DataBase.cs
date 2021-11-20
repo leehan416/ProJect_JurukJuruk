@@ -214,7 +214,7 @@ public class DataBase : MonoBehaviour {
         PlayerPrefs.SetFloat("BgmVol", bgmVol);
         PlayerPrefs.SetFloat("FxVol", fxVol);
         PlayerPrefs.SetInt("IsReverse", Convert.ToInt32(isReverse));
-        Debug.Log(PlayerPrefs.GetInt("IsReverse"));
+        // Debug.Log(PlayerPrefs.GetInt("IsReverse"));
     }
 
 
