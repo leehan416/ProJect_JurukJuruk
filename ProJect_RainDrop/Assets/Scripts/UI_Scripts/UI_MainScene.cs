@@ -69,13 +69,12 @@ public class UI_MainScene : MonoBehaviour {
         // PlayerPrefs.DeleteAll();
         // DataBase.money = 10000000000;
         // DataBase.setMoney();
-        // DataBase.water[0] = 1000000;\
+        // DataBase.water[0] = 1000000;
         // DataBase.soldWater[0] = 999999;
         // DataBase.soldWater[1] = 999999;
         // DataBase.soldWater[2] = 999999;
         // DataBase.soldWater[3] = 999999;
         // DataBase.setWaterData();
-
 
         //-----------------------------------
 
@@ -84,6 +83,7 @@ public class UI_MainScene : MonoBehaviour {
         DataBase.getWaterData();
         DataBase.getLevels();
         DataBase.getMoney();
+        DataBase.getCoustume();
 
         //sliderSet
         UI_MultiScene.instance.setWaterTank();

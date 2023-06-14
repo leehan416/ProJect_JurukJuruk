@@ -222,6 +222,9 @@ public class UI_Market : MonoBehaviour {
                 DataBase.money -= DataBase.unLockPot[val];
                 DataBase.potLevel[val]++;
 
+                DataBase.potWater[val] = 0;
+                DataBase.setWaterData();
+                
                 // set data
                 DataBase.setLevels();
                 DataBase.setMoney();
