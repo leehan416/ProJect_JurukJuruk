@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
-    float playerSpeed = 320f; // 1080기준
+    //float playerSpeed = 320f; // 1080기준
 
     public RuntimeAnimatorController[] skin = new RuntimeAnimatorController[6];
 
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
                         // rightClick = true;
                         // leftClick = false;
                         if (gameObject.transform.position.x < 500)
-                            transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
+                            transform.Translate(1 * DataBase.playerSpeed * Time.deltaTime, 0, 0);
                     }
                     else
                     {
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
                         // leftClick = true;
                         // rightClick = false;
                         if (gameObject.transform.position.x > -500)
-                            transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
+                            transform.Translate(-1 * DataBase.playerSpeed * Time.deltaTime, 0, 0);
                     }
                 }
                 else
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
                         // leftClick = true;
                         // rightClick = false;
                         if (gameObject.transform.position.x > -500)
-                            transform.Translate(-1 * playerSpeed * Time.deltaTime, 0, 0);
+                            transform.Translate(-1 * DataBase.playerSpeed * Time.deltaTime, 0, 0);
                     }
                     else
                     {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
                         // rightClick = true;
                         // leftClick = false;
                         if (gameObject.transform.position.x < 500)
-                            transform.Translate(1 * playerSpeed * Time.deltaTime, 0, 0);
+                            transform.Translate(1 * DataBase.playerSpeed * Time.deltaTime, 0, 0);
                     }
                 }
             }

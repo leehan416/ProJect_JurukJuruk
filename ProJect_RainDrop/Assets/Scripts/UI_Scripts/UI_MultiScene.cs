@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -110,6 +111,18 @@ public class UI_MultiScene : MonoBehaviour {
     //Scene 이동 
     public void moveScene(string val)
     {
+
+        //setactive rains or not
+        try{ 
+            if (val.Equals("Main")) {
+                DontDestroy_Rains.instance.rains.SetActive(true);
+                DontDestroy_Rains.instance.addPower();
+            } else {
+                //DataBase.
+                DontDestroy_Rains.instance.rains.SetActive(false);
+            }
+         }
+        catch(NullReferenceException){  }
         SceneManager.LoadScene(val);
     }
 

@@ -49,6 +49,7 @@ public class DataBase : MonoBehaviour {
     //Setting value
     public static float bgmVol = .7f;
     public static float fxVol = .7f;
+    public static float playerSpeed = 320f; // 1080기준
     public static bool isReverse = false;
 
 
@@ -206,6 +207,7 @@ public class DataBase : MonoBehaviour {
     {
         bgmVol = PlayerPrefs.GetFloat("BgmVol", .7f);
         fxVol = PlayerPrefs.GetFloat("FxVol", .4f);
+        playerSpeed = PlayerPrefs.GetFloat("PlayerSpeed", 320f);
         isReverse = Convert.ToBoolean(PlayerPrefs.GetInt("IsReverse", 0));
     }
 
@@ -213,8 +215,8 @@ public class DataBase : MonoBehaviour {
     {
         PlayerPrefs.SetFloat("BgmVol", bgmVol);
         PlayerPrefs.SetFloat("FxVol", fxVol);
+        PlayerPrefs.SetFloat("PlayerSpeed", playerSpeed);
         PlayerPrefs.SetInt("IsReverse", Convert.ToInt32(isReverse));
-        // Debug.Log(PlayerPrefs.GetInt("IsReverse"));
     }
 
 

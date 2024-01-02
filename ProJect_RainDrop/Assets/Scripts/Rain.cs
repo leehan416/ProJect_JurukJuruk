@@ -5,6 +5,8 @@ using Random = System.Random;
 public class Rain : MonoBehaviour {
     public Sprite[] image = new Sprite[4];
     Random random = new Random();
+
+    //public int local;
     [HideInInspector] public bool isBig = false;
     private float width;
     private float height;
@@ -13,6 +15,9 @@ public class Rain : MonoBehaviour {
     {
         width = Convert.ToInt16(UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width);
         height = Convert.ToInt16(UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height);
+
+       
+
         transform.SetParent(GameObject.Find("Rains").transform);
         gameObject.transform.localScale = new Vector3(1080 / width, 1920 / height, 0);
 

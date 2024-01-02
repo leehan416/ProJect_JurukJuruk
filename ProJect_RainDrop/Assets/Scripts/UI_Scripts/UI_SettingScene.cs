@@ -5,6 +5,7 @@ public class UI_SettingScene : MonoBehaviour {
     // sliders
     private Slider bgmSlider;
     private Slider fxSlider;
+    private Slider speedSlider;
     private Toggle reverse; //toggle => 조작 반전
 
     private void Awake()
@@ -12,6 +13,7 @@ public class UI_SettingScene : MonoBehaviour {
         // get UI
         bgmSlider = GameObject.Find("Canvas/Setting_bg/BgmSlider").GetComponent<Slider>();
         fxSlider = GameObject.Find("Canvas/Setting_bg/FxSlider").GetComponent<Slider>();
+        speedSlider = GameObject.Find("Canvas/Setting_bg/SpeedSlider").GetComponent<Slider>();
         reverse = GameObject.Find("Canvas/Setting_bg/ControllerTogle").GetComponent<Toggle>();
     }
 
@@ -26,6 +28,7 @@ public class UI_SettingScene : MonoBehaviour {
     {
         bgmSlider.value = DataBase.bgmVol;
         fxSlider.value = DataBase.fxVol;
+        speedSlider.value = DataBase.playerSpeed;
         reverse.isOn = DataBase.isReverse;
     }
 
@@ -42,6 +45,11 @@ public class UI_SettingScene : MonoBehaviour {
     {
         SoundManager.instance.fxSource.volume = val;
         DataBase.fxVol = val;
+        DataBase.setSettingVal();
+    }    
+    public void ChangeSpeedVal(float val)
+    {
+        DataBase.playerSpeed = val;
         DataBase.setSettingVal();
     }
 

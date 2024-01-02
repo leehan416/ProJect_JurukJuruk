@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DataBase
     - DontDestroy
+    - DontDestroy_Rains
     - GachaSystem
     - IntroAnimation
     - PlayerController
@@ -20,7 +21,6 @@ ScriptsOnlyBuild:
     - UI_SettingScene
     - UI_ShopScene
     Unity.Rider.Editor.dll:
-    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -70,21 +70,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12716}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13316}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -137,15 +137,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13130}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -202,17 +202,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12116}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 114
-      Script: {instanceID: 13300}
+      Script: {instanceID: 13302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -261,9 +261,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -328,21 +328,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12104}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12210}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 13212}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13282}
+    - Class: 114
+      Script: {instanceID: 13316}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -397,15 +399,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -456,15 +458,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -511,19 +513,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13148}
+      Script: {instanceID: 13150}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 13298}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13316}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -576,19 +578,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12162}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12462}
     - Class: 114
-      Script: {instanceID: 12490}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13282}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13316}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -878,6 +880,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 881bd2e0d40fde370c2b2b19b937130d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DontDestroy_Rains
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1151,4 +1159,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Map.unity
   - Assets/Scenes/Cleaning.unity
   - Assets/Scenes/Costume.unity
-  playerPath: /Users/whal3/Desktop/rain1.1.aab
+  playerPath: C:/Users/JAMONG/Desktop/1.2.0.apk

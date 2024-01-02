@@ -100,6 +100,10 @@ public class UI_MapScene : MonoBehaviour {
 
             // sound (change music)
             SoundManager.instance.playMusic(val);
+
+            //비 모두 제거
+            DontDestroy_Rains.instance.removeRains();
+
             // 씬 이동
             UI_MultiScene.instance.moveScene("Main");
         }
