@@ -32,6 +32,14 @@ public class UI_MultiScene : MonoBehaviour {
         else Destroy(this);
     }
 
+    private void Start() {
+        // 다른씬 이동하여도 피버 타임 유지
+        if (FeverTimer.isFever) {
+            StartCoroutine(FeverTimer.instance.feverTimer());
+        }
+    }
+
+
     private void Update()
     {
         // 안드로이드인 경우

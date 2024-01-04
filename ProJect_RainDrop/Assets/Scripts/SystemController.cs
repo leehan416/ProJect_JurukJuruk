@@ -61,7 +61,7 @@ public class SystemController : MonoBehaviour {
         // 비오는 시스템
         while (true)
         {
-            yield return new WaitForSeconds(DataBase.locals[DataBase.nowLocal].rainCycle * ((UI_MainScene.isFever)
+            yield return new WaitForSeconds(DataBase.locals[DataBase.nowLocal].rainCycle * ((FeverTimer.isFever)
                 ? 1 / DataBase.feverEfficiency
                 : 1));
             Rainy();

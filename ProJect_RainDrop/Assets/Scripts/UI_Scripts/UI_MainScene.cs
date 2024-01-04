@@ -5,13 +5,14 @@ using Random = System.Random;
 
 // 외부 접근
 public delegate void SetFeverbtn();
-
 public delegate void UpdateWaterPot();
+public delegate void SetFeverShader();
 
 public class UI_MainScene : MonoBehaviour {
     // 외부 접근용도 delegate
     public static SetFeverbtn setFeverbtn = delegate { };
     public static UpdateWaterPot updateWaterPot = delegate { };
+    public static SetFeverShader setFeverShader = delegate { };
 
     private Text local; // local Text
     private Text emptyText;
@@ -24,7 +25,7 @@ public class UI_MainScene : MonoBehaviour {
     [Header("메인 맵 배경")] public Sprite[] localBG = new Sprite[5];
     [Header("고양이 이미지")] public Sprite[] catImage = new Sprite[3];
 
-    public static bool isFever = false; // fever 확인 변수 
+    //public static bool isFever = false; // fever 확인 변수 
 
     private Random _random = new Random();
 
@@ -37,6 +38,7 @@ public class UI_MainScene : MonoBehaviour {
         // 외부 스크립트에서 함수 접근 delegate 지정
         setFeverbtn = delegate { _setFeverbtn(); };
         updateWaterPot = delegate { _updateWaterPot(); };
+        setFeverShader = delegate { _setFeverShader(); };
         // Get ui
         local = GameObject.Find("Canvas/LocalBack/Local").GetComponent<Text>();
         emptyText = GameObject.Find("Canvas/EmptyPot/num").GetComponent<Text>();
@@ -44,7 +46,8 @@ public class UI_MainScene : MonoBehaviour {
         // 사이즈 받아오기
         width = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.width / 1080;
         height = UI_MultiScene.instance.transform.GetComponent<RectTransform>().rect.height / 1920;
-        waterPot = GameObject.Find("Canvas/Pot/PotSlider" + DataBase.nowLocal + "/mask/Slider")
+        waterPot = GameObject.Find("Canvas/Pot" +
+            "/PotSlider" + DataBase.nowLocal + "/mask/Slider")
             .GetComponent<Slider>();
     }
 
@@ -99,7 +102,8 @@ public class UI_MainScene : MonoBehaviour {
         setbackGround();
         UI_MultiScene.instance.setWaterCounter();
 
-        isFever = false;
+        //FeverTimer.isFever = false;
+        _setFeverShader();
     }
 
     // pot (추가 양동이) value set
@@ -182,12 +186,26 @@ public class UI_MainScene : MonoBehaviour {
         DataBase.setWaterData();
         // 피버 조건 세팅
         feverBtn.SetActive(false);
-        isFever = true;
-        feverCover.SetActive(true);
-        feverCover.GetComponent<Image>().color = DataBase.feverColors[DataBase.nowLocal];
+        FeverTimer.isFever = true;
+
+        setFeverShader();
+        //feverCover.SetActive(true);
+        //feverCover.GetComponent<Image>().color = DataBase.feverColors[DataBase.nowLocal];
+        
+        
         // 피버 타이머 시작
-        StartCoroutine(feverTimer());
+        StartCoroutine(FeverTimer.instance.feverTimer());
     }
+
+    public void _setFeverShader() {
+        if (FeverTimer.isFever) {
+            feverCover.SetActive(true);
+            feverCover.GetComponent<Image>().color = DataBase.feverColors[DataBase.nowLocal];
+        } else {
+            feverCover.SetActive(false);
+        }
+    }
+
 
     public void quit()
     {
@@ -195,6 +213,7 @@ public class UI_MainScene : MonoBehaviour {
     }
 
     // 피버 타이머
+/*
     private IEnumerator feverTimer()
     {
         // 피버시간 체크
@@ -203,4 +222,5 @@ public class UI_MainScene : MonoBehaviour {
         feverCover.SetActive(false);
         isFever = false;
     }
+*/
 }

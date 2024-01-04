@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\DataBase.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\DontDestroy_Rains.cs" />
+    <Compile Include="Assets\Scripts\FeverTimer.cs" />
     <Compile Include="Assets\Scripts\GachaSystem.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Rain.cs" />

@@ -45,6 +45,8 @@ public class DataBase : MonoBehaviour {
 
     public static DateTime lateTime;
 
+    //public static bool isFever = false; // fever 확인 변수
+
     //--------------------------------------------------------
     //Setting value
     public static float bgmVol = .7f;
